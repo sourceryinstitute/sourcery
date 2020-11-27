@@ -7,13 +7,17 @@
 module string_functions_interface
   !! author: Damian Rouson
   !! date: August 23, 2019
-  !! summary: utilities for manipulating character variables
+  !! summary: utilities for manipulating or producing character variables
   implicit none
 
   private
-  public :: file_extension, csv_format, base_name
+  public :: file_extension, csv_format, base_name, string
 
   character(len=*), parameter :: csv_format = '(*(G0,:,","))'
+
+  interface string
+    module procedure integer_to_string
+  end interface
 
   interface
 
@@ -27,6 +31,11 @@ module string_functions_interface
       !! result contains all characters in file_name before the first dot (.)
       character(len=*), intent(in) :: file_name
       character(len=:), allocatable :: base
+    end function
+
+    pure module function integer_to_string(integer_value) result(characters)
+      integer, intent(in) :: integer_value
+      character(len=:), allocatable :: characters
     end function
 
   end interface

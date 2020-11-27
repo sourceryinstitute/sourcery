@@ -6,32 +6,52 @@
 !
 submodule(assertions_interface) assertions_implementation
   implicit none
+
 contains
+
   module procedure assert
     use iso_fortran_env, only : error_unit
-    character(len=:), allocatable :: message, preface
-    integer, parameter :: max_appended_characters=1024
-    if (present(success)) success=assertion
-    if (.not.assertion) then
-      message = repeat(" ",ncopies=len(description)+max_appended_characters)
-      write(message,*) '(',description,') on image',this_image()
-      if (present(diagnostic_data)) then
-        select type(diagnostic_data)
-          type is(character(len=*))
-            message = trim(adjustl(message)) // 'with diagnostic data' // diagnostic_data
-          type is(integer)
-            preface = trim(adjustl(message)) // 'with diagnostic data'
-            write(message,*) preface, diagnostic_data
-          class default
-            message = trim(adjustl(message)) // 'with diagnostic data of unrecognized type'
-        end select
+    use string_functions_interface, only : string
+
+    character(len=:), allocatable :: header, trailer
+    integer, parameter :: max_this_image_digits=9
+
+    if (assertions) then
+
+      if (.not. assertion) then
+
+        associate(assertion_failed_on => 'Assertion "' // description // '" failed on image')
+          header = repeat(" ", ncopies = len(assertion_failed_on) + max_this_image_digits)
+          write(header, *) assertion_failed_on, this_image()
+        end associate
+
+        if (.not. present(diagnostic_data)) then
+
+          trailer = ""
+
+        else
+
+          block
+            character(len=*), parameter :: lede = "with diagnostic data"
+
+            select type(diagnostic_data)
+              type is(character(len=*))
+                trailer =  lede // diagnostic_data
+              type is(integer)
+                trailer = lede // string(diagnostic_data)
+              class default
+                trailer = lede // 'of unsupported type'
+            end select
+          end block
+
+        end if
+
+        error stop header // trailer
+
       end if
-      if (.not. present(success)) error stop "Assertion failed" // &
-#ifdef HAVE_NON_CONSTANT_ERROR_STOP
-        & message ! Fortran 2018
-#else
-        & "."     ! Fortran 2008
-#endif
+
     end if
+
   end procedure
+
 end submodule

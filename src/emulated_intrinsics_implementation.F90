@@ -10,7 +10,10 @@ submodule(emulated_intrinsics_interface) emulated_intrinsics_implementation
 
 contains
 
-#ifndef HAVE_COLLECTIVE_SUBROUTINES
+  module procedure dummy
+  end procedure
+
+#ifdef COMPILER_LACKS_COLLECTIVE_SUBROUTINES
   module procedure co_sum_integer
     !! Binary tree collective sum reduction
 
@@ -152,7 +155,7 @@ contains
   end function
 #endif
 
-#ifndef HAVE_FINDLOC
+#ifdef COMPILER_LACKS_FINDLOC
   module procedure findloc_integer_dim1
 
     if ( .not. present(back)) then

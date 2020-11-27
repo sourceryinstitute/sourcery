@@ -4,58 +4,57 @@
 !     "Multi-Dimensional Physics Implementation into Fuel Analysis under Steady-state and Transients (FAST)",
 !     contract # NRC-HQ-60-17-C-0007
 !
-MODULE array_functions_interface
+module array_functions_interface
   !! author: Damian Rouson
   !! date: 04/25/2019
   !!
   !! Functionally pure array utilities
-  USE kind_parameters, ONLY : r8k
-  IMPLICIT NONE
+  implicit none
 
-  PRIVATE
-  PUBLIC :: OPERATOR(.catColumns.)
-  PUBLIC :: OPERATOR(.catRows.)
-  PUBLIC :: OPERATOR(.columnVectors.)
-    !! Because the Fortran standard requires that user-defined operator dummy arguments have the INTENT(IN)
-    !! attribute, exposing only the operator and not the function names communicates more information in the
+  private
+  public :: operator(.catColumns.)
+  public :: operator(.catRows.)
+  public :: operator(.columnVectors.)
+    !! Because the Fortran standard requires that operator dummy arguments have the intent(in) attribute
+    !! exposing only the operator and not the function names communicates more information in the
     !! public interface and in code using this interface.
 
-    INTERFACE OPERATOR(.columnVectors.)
-        MODULE PROCEDURE :: column_vectors
-    END INTERFACE
+    interface operator(.columnVectors.)
+        module procedure column_vectors
+    end interface
 
-    INTERFACE OPERATOR(.catColumns.)
-        MODULE PROCEDURE :: concatenate_columns
-    END INTERFACE
+    interface operator(.catColumns.)
+        module procedure concatenate_columns
+    end interface
 
-    INTERFACE OPERATOR(.catRows.)
-        MODULE PROCEDURE :: concatenate_rows
-    END INTERFACE
+    interface operator(.catRows.)
+        module procedure concatenate_rows
+    end interface
 
-    INTERFACE
+    interface
 
-        PURE MODULE FUNCTION column_vectors(vector_field) RESULT(array_of_3D_column_vectors)
+        pure module function column_vectors(vector_field) RESULT(array_of_3D_column_vectors)
             !! Result is array of 3D column vectors of dimension (space_dim,nx*ny*nz) reshaped from vector-field argument
             !! of dimension (nx,ny,nz,space_dim)
-            IMPLICIT NONE
-            REAL(r8k), DIMENSION(:,:,:,:), INTENT(IN) :: vector_field
-            REAL(r8k), DIMENSION(:,:), ALLOCATABLE ::  array_of_3D_column_vectors
-        END FUNCTION
+            implicit none
+            real, dimension(:,:,:,:), intent(in) :: vector_field
+            real, dimension(:,:), allocatable ::  array_of_3D_column_vectors
+        end function
 
-        PURE MODULE FUNCTION concatenate_columns(a, b) RESULT(concatenated)
+        pure module function concatenate_columns(a, b) RESULT(concatenated)
             !! Result contains the concatenation of the columns of argument a with the columns of argument b
-            IMPLICIT NONE
-            REAL(r8k), DIMENSION(:,:), INTENT(IN) :: a, b
-            REAL(r8k), DIMENSION(:,:), ALLOCATABLE :: concatenated
-        END FUNCTION
+            implicit none
+            real, dimension(:,:), intent(in) :: a, b
+            real, dimension(:,:), allocatable :: concatenated
+        end function
 
-        PURE MODULE FUNCTION concatenate_rows(a, b) RESULT(concatenated)
+        pure module function concatenate_rows(a, b) RESULT(concatenated)
             !! Result contains the concatenation of the rows of argument a with the rows of argument b
-            IMPLICIT NONE
-            REAL(r8k), DIMENSION(:,:), INTENT(IN) :: a, b
-            REAL(r8k), DIMENSION(:,:), ALLOCATABLE :: concatenated
-        END FUNCTION
+            implicit none
+            real, dimension(:,:), intent(in) :: a, b
+            real, dimension(:,:), allocatable :: concatenated
+        end function
 
-    END INTERFACE
+    end interface
 
-END MODULE
+end module

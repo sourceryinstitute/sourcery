@@ -5,65 +5,43 @@
 !     contract # NRC-HQ-60-17-C-0007
 !
 #ifndef USE_ASSERTIONS
-# define USE_ASSERTIONS .false.
+# define USE_ASSERTIONS .true.
 #endif
 module assertions_interface
   !! summary: Utility for runtime checking of logical assertions.
+  !! usage: error-terminate if the assertion fails:
   !!
-  !! Compile with -DNO_ASSERTIONS to turn assertions off
+  !!    use assertions_interface, only : assert
+  !!    call assert( 2 > 1, "2 > 1")
   !!
-  !! Use case 1
-  !! ----------
-  !!    Pass the optional success argument & check for false return value as an indication of assertion failure:
+  !! Turn off assertions in production code by setting USE_ASSERTIONS to .false. via the preprocessor:
   !!
-  !!    use assertions_interface, only : assert,assertions
-  !!    if (assertions) call assert( 2 > 1, "always true inequality", success)
-  !!    if (error_code/=0) call my_error_handler()
+  !!    caf -cpp -DUSE_ASSERTIONS=.false. -c assertions_interface.f90
   !!
-  !! Use case 2
-  !! ----------
-  !!    Error-terminate if the assertion fails:
-  !!
-  !!    use assertions_interface, only : assert,assertions
-  !!    if (assertions) call assert( 2 > 1, "always true inequality")
-  !!
+  !! Doing so may eliminate any associated runtime overhead by enabling optimizing compilers to ignore
+  !! the assertion procedure body during a dead-code-removal phase of optimization.
   implicit none
   private
-  public :: assert
-  public :: assertions
-  public :: max_errmsg_len
-
-! Set the USE_ASSERTIONS constant below using the C preprocessor:
-!
-!    gfortran -cpp -DUSE_ASSERTIONS=.false. -c assertions_interface.f90
-!
-! or set the corresponding NO_ASSERTIONS variable defined in the CMakeLists.txt file in this directory:
-!
-!    FC=caf cmake <path-to-icar-source-dir> -DNO_ASSERTIONS=ON
-!
-! Conditioning assertion calls on this compile-time constant enables optimizing compilers
-! to eliminate assertion calls during a dead-code removal phase of optimization.
+  public :: assert, assertions, max_errmsg_len
 
   logical, parameter :: assertions=USE_ASSERTIONS
   integer, parameter :: max_errmsg_len = len( &
   "warning (183): FASTMEM allocation is requested but the libmemkind library is not linked in, so using the default allocator.")
-  !! longest Intel compiler error messagea (see https://intel.ly/35x84yr).
+  !! longest Intel compiler error message (see https://intel.ly/35x84yr).
 
   interface
-#ifndef HAVE_ERROR_STOP_IN_PURE
-    impure &
-#endif
-    elemental module subroutine assert(assertion,description,diagnostic_data,success)
-      !! Report on the truth of an assertion or error-terminate on assertion failure
+
+    elemental module subroutine assert(assertion, description, diagnostic_data)
+      !! If assertion is .false., error-terminate with optional, variable stop code containing diagnostic_data
       implicit none
       logical, intent(in) :: assertion
         !! Most assertions will be expressions, e.g., call assert( i>0, "positive i")
       character(len=*), intent(in) :: description
         !! Brief statement of what is being asserted
       class(*), intent(in), optional :: diagnostic_data
-        !! Optional assertion result
-      logical, intent(out), optional :: success
-        !! Optional assertion result
+        !! Optional error stop code, which may be of intrinsic type or object class
     end subroutine
+
   end interface
+
 end module

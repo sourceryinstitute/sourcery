@@ -35,4 +35,11 @@ contains
     end associate
   end procedure
 
+  module procedure integer_to_string
+    integer, parameter :: max_characters=16
+    character(len=max_characters) string
+    write(string,*) integer_value
+    characters = trim(adjustl(string))
+  end procedure
+
 end submodule
