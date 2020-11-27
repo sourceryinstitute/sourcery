@@ -2,41 +2,33 @@ Sourcery Library
 ================
 
 A grab bag of useful tricks in Fortran 2018.
-
-                                 `
-                              `://:`
-                             ./::+ss+.
-                            -++ydmmmdho-
-                           -+ohmNNNmmmmdy:
-                          .+ohmNNmNNddddddy:
-                         `++hmNNNmmNm+-:sdmdy:
-                         /+sdmNNNmmNmy`   :ymdo
-                        .++ydmNNNmdmNd+      ..
-                        /+ohmNNNNNddmmds.
-                       .++ydmNNNNNmddmmmy:
-                       /++ydmmNNNNNmddmmmy/`
-                      .++ohdmmNNNNNmdhdmmmh+.
-                      /++shdmmNNNNNNmdhdmmmho.
-                     `+/+shdmmNNNNNNmddhdmmmho-
-                     ://+yhdmmNNNNNNNmddhdmmmho-
-                     +//+yhdmmmNNNNNNmddhhmmmmho:
-                    -+//oyhdmmmNNNNNNmmddhdmmmmho-
-                    ////oyhdmmmNNNNNNNmddhhdmmmmho- ``..--------..``
-                   `o//+oyhdmmmmNNNNNNmddhhhhyyso:-+hyssssssyyyyyyyyso/-
-                   -+//+oyhddmmmNNNNNNNmdh+::::::::sddhhhhyyyyhhdddddhhhy-
-               ./oys+:/+oyhddmmmNNNNNNNdo::/+osssyhhhhhhhyhdmmmh+-.`
-           -+shddmms/:/+oyhddmmmNNNNNdo::/sdhyyyyyhhhhhhdmmmy/`
-        -+yhhhhddmd:/:/+oyhddmmmNmho/:::+ddhyoooossyyhs:`
-     `:syssyyyhdmmh-.--:/osssso+:---:/odNmdhyso+++sy+.
-    :osoooossyhhdmmy:------------:/ohmNNNNmmdhysss:
-  .+oo+++++oosyyhddmmdyso++++osyhmNNNNNNNNNNmdh+.
- .+++++///+++oosyyhhhddmmmmmmmNNNNNNNNNNNNmds:
- :+++////////++oosssyyhddmmmmmmmNNNNNNNmmh/`
- .++/////////+++oooosyhhdddmmmmmmmNNmmh+-
-  ./////////++++ooossyhhddddmmmmmddy+-
-    .://////++++oossyyhhhhdhhhhy+:`
-       .--::////++oossyyyso+:-`
-             ```...-..``
+```
+            `.                              
+                      -:/+-                            
+                    `/oydddy/`                         
+                   `/sdmNNmmdh/`                       
+                   /odNNmNmyshdh/`                     
+                  -+ymNNmmms``.ohy.                    
+                 `+odmNNmdmm+`  `.`                    
+                 -+sdmNNNmdmmo.                        
+                 /+ydmNNNmddmms-                       
+                -+ohmmNNNNmddmmy:                      
+                /+ohmmNNNNmdhdmmy/`                    
+               .++shdmNNNNNmdhdmmh/`                   
+               :/+shdmmNNNNmdhhmmmy/`                  
+              `+/+shdmmNNNNNmdhdmmmy:````````.````     
+              -//+shdmmNNNNNmdhyyyso:-sssssssssssso+-` 
+           `.-+//+shdmmmNNNNmhs/////+sdhhhyyhddhso+++: 
+       `.:oyhdo//+shdmmmNNNds//syyyyhhhhhhhdho-`       
+     `:oyhhdmh::/+shddmddy+::+hdysoosyys/-..           
+   ./ssssyhdmd:--://///:-:/sdNmdhyooo+-                
+  :ooo+oosyhdmdyo+/::/+oydmNNNNNmhs/.                  
+ :+++///++osyhhhdmmmmmNNNNNNNNmdo-                     
+ +++//////+oossshddmmmmmNNNmdy/`                       
+ .///////+++oosyhhddmmmmddy/.                          
+   .:////+++ossyyhhhhhs+:`                             
+      `..--::/++//:-.
+```
 
 Utility functions
 -----------------
