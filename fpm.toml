@@ -1,0 +1,14 @@
+name = "sourcery"
+version = "1.0.0"
+license = "BSD"
+author = ["Damian Rouson"]
+maintainer = "damian@sourceryinstitute.org"
+copyright = "2020 Sourcery Institute"
+
+[dev-dependencies]
+vegetables = {git = "https://gitlab.com/everythingfunctional/vegetables", tag = "v5.1.1"}
+
+#[[test]]
+#name="inputOutput"
+#source-dir="tests/unit/input-output"
+#main="main.f90"
