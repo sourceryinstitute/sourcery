@@ -33,7 +33,7 @@ module array_functions_interface
 
     interface
 
-        pure module function column_vectors(vector_field) RESULT(array_of_3D_column_vectors)
+        pure module function column_vectors(vector_field) result(array_of_3D_column_vectors)
             !! Result is array of 3D column vectors of dimension (space_dim,nx*ny*nz) reshaped from vector-field argument
             !! of dimension (nx,ny,nz,space_dim)
             implicit none
@@ -41,14 +41,14 @@ module array_functions_interface
             real, dimension(:,:), allocatable ::  array_of_3D_column_vectors
         end function
 
-        pure module function concatenate_columns(a, b) RESULT(concatenated)
+        pure module function concatenate_columns(a, b) result(concatenated)
             !! Result contains the concatenation of the columns of argument a with the columns of argument b
             implicit none
             real, dimension(:,:), intent(in) :: a, b
             real, dimension(:,:), allocatable :: concatenated
         end function
 
-        pure module function concatenate_rows(a, b) RESULT(concatenated)
+        pure module function concatenate_rows(a, b) result(concatenated)
             !! Result contains the concatenation of the rows of argument a with the rows of argument b
             implicit none
             real, dimension(:,:), intent(in) :: a, b
