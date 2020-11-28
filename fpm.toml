@@ -8,7 +8,7 @@ copyright = "2020 Sourcery Institute"
 [dev-dependencies]
 vegetables = {git = "https://gitlab.com/everythingfunctional/vegetables", tag = "v5.1.1"}
 
-#[[test]]
-#name="inputOutput"
-#source-dir="tests/unit/input-output"
-#main="main.f90"
+[[test]]
+name="unit"
+source-dir="tests"
+main="main.f90"
