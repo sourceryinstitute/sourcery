@@ -12,8 +12,9 @@ module emulated_intrinsics_interface
   implicit none
 
   interface
-    module subroutine dummy
-      !! ensure a non-empty module
+    module subroutine co_all(boolean)
+      implicit none
+      logical, intent(inout) :: boolean
     end subroutine
   end interface
 
