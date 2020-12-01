@@ -2,7 +2,9 @@ module data_partition_test
    !! author: Damian Rouson
    !!
    !! summary: verify data partitioning across images and data gathering
-   use vegetables, only: result_t, test_item_t, describe, it, assert_equals, assert_that
+   use vegetables, only: &
+     result_t, input_t, integer_input_t, test_item_t, & ! types
+     describe, it, assert_equals, assert_that, example  ! functions
    use data_partition_interface, only : data_partition
    use iso_fortran_env, only : real64
    implicit none
@@ -11,7 +13,7 @@ module data_partition_test
    public :: test_data_partition
 
    type(data_partition) partition
-   integer, parameter :: num_particles=31, gatherer=1, num_steps=9
+   integer, parameter :: num_particles=31, gatherer=1, num_steps=9, dummy=0
 
 contains
 
@@ -24,31 +26,31 @@ contains
 
     associate( me=>this_image() )
       associate( my_first=>partition%first(me), my_last=>partition%last(me) )
-        !do iteration=1,num_steps
-          tests = describe( &
-           "data_partition class", &
-           [it( &
-             "partitions data in nearly even blocks", &
-             verify_block_partitioning), &
-            it( &
-             "all data partitioned across all images without data loss", &
-             verify_all_particles_partitioned), &
-            it( &
-             "1D real array gathered on all images", &
-             verify_all_gather_1D_real_array), &
-            it( &
-             "dimension 1 of 2D real array gathered on all images witout dim argument", &
-             verify_all_gather_2D_real_array), &
-            it( &
-             "dimension 1 of 2D real array gathered on all images with dim argument", &
-             verify_all_gather_2D_real_array_dim1), &
-            it( &
-             "dimension 1 of 2D real array gathered onto result_image with dim argument", &
-             verify_gather_2D_real_array_dim1), &
-            it( &
-             "distributes all particles without losing any", &
-             verify_all_particles_partitioned)])
-        !end do
+        tests = describe( &
+         "data_partition class", &
+         [it( &
+           "partitions data in nearly even blocks", &
+           verify_block_partitioning), &
+          it( &
+           "all data partitioned across all images without data loss", &
+           verify_all_particles_partitioned), &
+          it( &
+           "1D real array gathered on all images", &
+           [example(integer_input_t(dummy)), example(integer_input_t(dummy))], &
+           verify_all_gather_1D_real_array), &
+          it( &
+           "dimension 1 of 2D real array gathered on all images witout dim argument", &
+           [example(integer_input_t(dummy)), example(integer_input_t(dummy))], &
+           verify_all_gather_2D_real_array), &
+          it( &
+           "dimension 1 of 2D real array gathered on all images with dim argument", &
+           [example(integer_input_t(dummy)), example(integer_input_t(dummy))], &
+           verify_all_gather_2D_real_array_dim1), &
+          it( &
+           "dimension 1 of 2D real array gathered onto result_image with dim argument", &
+           [example(integer_input_t(dummy)), example(integer_input_t(dummy))], &
+           verify_gather_2D_real_array_dim1)])
+
       end associate
     end associate
   end function
@@ -88,11 +90,15 @@ contains
     end associate
   end function
 
- function verify_all_gather_1D_real_array() result(result_)
+ function verify_all_gather_1D_real_array(unused) result(result_)
    type(data_partition) partition
+   class(input_t), intent(in) :: unused
    type(result_t) result_
    real(real64) :: particle_scalar(num_particles)
    real(real64), parameter :: junk=-12345._real64, expected=1._real64
+
+   associate( no_op => unused) ! eliminate unused-variable warning
+   end associate
 
    associate(me => this_image())
      associate( first=>partition%first(me), last=>partition%last(me) )
@@ -109,12 +115,16 @@ contains
    end associate
  end function
 
- function verify_all_gather_2D_real_array() result(result_)
+ function verify_all_gather_2D_real_array(unused) result(result_)
+   class(input_t), intent(in) :: unused
    type(data_partition) partition
    type(result_t) result_
    integer, parameter :: vec_space_dim=3
    real(real64) particle_vector(vec_space_dim, num_particles)
    real(real64), parameter :: junk=-12345._real64, expected=1._real64
+
+   associate( no_op => unused) ! eliminate unused-variable warning
+   end associate
 
    associate(me => this_image())
      associate( first=>partition%first(me), last=>partition%last(me) )
@@ -131,12 +141,16 @@ contains
    end associate
  end function
 
- function verify_all_gather_2D_real_array_dim1() result(result_)
+ function verify_all_gather_2D_real_array_dim1(unused) result(result_)
+   class(input_t), intent(in) :: unused
    type(data_partition) partition
    type(result_t) result_
    integer, parameter :: vec_space_dim=3
    real(real64) :: vector_transpose(num_particles, vec_space_dim)
    real(real64), parameter :: junk=-12345._real64, expected=1._real64
+
+   associate( no_op => unused) ! eliminate unused-variable warning
+   end associate
 
    associate(me => this_image())
      associate( first=>partition%first(me), last=>partition%last(me) )
@@ -153,12 +167,16 @@ contains
     end associate
  end function
 
- function verify_gather_2D_real_array_dim1() result(result_)
+ function verify_gather_2D_real_array_dim1(unused) result(result_)
+   class(input_t), intent(in) :: unused
    type(data_partition) partition
    type(result_t) result_
    integer, parameter :: vec_space_dim=3
    real(real64) :: vector_transpose(num_particles, vec_space_dim)
    real(real64), parameter :: junk=-12345._real64, expected=1._real64
+
+   associate( no_op => unused) ! eliminate unused-variable warning
+   end associate
 
    associate(me => this_image())
      associate( first=>partition%first(me), last=>partition%last(me) )
