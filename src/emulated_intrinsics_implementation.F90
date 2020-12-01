@@ -12,13 +12,19 @@ contains
 
   module procedure co_all
       call co_reduce(boolean, both)
+#ifdef FORD
+  end procedure
+#else
   contains
+#endif
     pure function both(lhs,rhs) result(lhs_and_rhs)
       logical, intent(in) :: lhs,rhs
       logical lhs_and_rhs
       lhs_and_rhs = lhs .and. rhs
     end function
+#ifndef FORD
   end procedure
+#endif
 
 #ifdef COMPILER_LACKS_COLLECTIVE_SUBROUTINES
   module procedure co_sum_integer
