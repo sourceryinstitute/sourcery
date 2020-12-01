@@ -6,7 +6,7 @@ maintainer = "damian@sourceryinstitute.org"
 copyright = "2020 Sourcery Institute"
 
 [dev-dependencies]
-vegetables = {git = "https://gitlab.com/everythingfunctional/vegetables", tag = "v6.0.0"}
+vegetables = {git = "https://gitlab.com/everythingfunctional/vegetables", tag = "v6.0.1"}
 
 [[test]]
 name="unit"

@@ -52,7 +52,7 @@ developing and testing.  Earlier versions or commits might work also.
 
 * Compiler: [GNU Fortran] (gfortran) 10.2.0
 * Parallel runtime library: [OpenCoarrays] 2.9.0
-* Fortran package manager: [fpm] 105644
+* Fortran package manager: [fpm] 7d320295c6fe56cc767b352bd26f0466aa29ac5c
 
 This library also uses the [vegetables] unit testing framework, which
 the [fpm] build system will install automatically.
