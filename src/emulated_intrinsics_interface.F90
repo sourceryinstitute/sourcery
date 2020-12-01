@@ -7,8 +7,10 @@
 module emulated_intrinsics_interface
   !! author: Damian Rouson
   !!
-  !! Emulations of some Fortran 2008 and 2018 instrinsic procedures for use with
-  !! compilers that lack support for the corresponding procedures.
+  !! This module contains two categories of procedures:
+  !! 1. Emulations of some Fortran 2008 and 2018 instrinsic procedures for use with
+  !!    compilers that lack support for the corresponding procedures.
+  !! 2. User-defined collective procedures not defined in the Fortran standard.
   implicit none
 
   interface
