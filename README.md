@@ -59,8 +59,18 @@ Downloding, Building, and Testing
 
 ```zsh
 git clone git@github.com:sourceryinstitute/sourcery
-fpm test --compiler caf --runner cafrun
+fpm test \
+  --compiler caf \
+  --runner "cafrun -n 4" \
+  --flag "-Wall" \
+  --flag "-std=f2018" \
+  --flag "-DCOMPILER_LACKS_COLLECTIVE_SUBROUTINES" \
+  --flag "-DCOMPILER_LACKS_FINDLOC" 
 ```
+where the `COMPILER_LACKS_*` flags exercise the Sourcery Library's 
+emulated instrinsic procedures, which are intended for use with 
+compiler versions that lack support for the named features.  Delete
+those flags with compilers that support these features.
 
 [GNU Fortran]: https://gcc.gnu.org
 [OpenCoarrays]: https://github.com/sourceryinstitute/opencoarrays
