@@ -10,7 +10,14 @@ submodule(emulated_intrinsics_interface) emulated_intrinsics_implementation
 
 contains
 
-  module procedure dummy
+  module procedure co_all
+      call co_reduce(boolean, both)
+  contains
+    pure function both(lhs,rhs) result(lhs_and_rhs)
+      logical, intent(in) :: lhs,rhs
+      logical lhs_and_rhs
+      lhs_and_rhs = lhs .and. rhs
+    end function
   end procedure
 
 #ifdef COMPILER_LACKS_COLLECTIVE_SUBROUTINES
