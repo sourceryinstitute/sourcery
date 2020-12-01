@@ -6,18 +6,21 @@ program main
 contains
     subroutine run()
         use collective_subroutines_test, only: &
-                collective_subroutines_co_sum => test_co_sum, &
-                collective_subroutines_co_all => test_co_all
+                collective_subroutines_co_all => test_co_all, &
+                collective_subroutines_co_sum => test_co_sum
+        use data_partition_test, only: &
+                data_partition_data_partition => test_data_partition
         use single_image_intrinsics_test, only: &
                 single_image_intrinsics_findloc => test_findloc
         use vegetables, only: test_item_t, test_that, run_tests
 
         type(test_item_t) :: tests
-        type(test_item_t) :: individual_tests(3)
+        type(test_item_t) :: individual_tests(4)
 
-        individual_tests(1) = collective_subroutines_co_sum()
-        individual_tests(2) = collective_subroutines_co_all()
-        individual_tests(3) = single_image_intrinsics_findloc()
+        individual_tests(1) = collective_subroutines_co_all()
+        individual_tests(2) = collective_subroutines_co_sum()
+        individual_tests(3) = data_partition_data_partition()
+        individual_tests(4) = single_image_intrinsics_findloc()
         tests = test_that(individual_tests)
 
         call run_tests(tests)
