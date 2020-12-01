@@ -35,11 +35,14 @@ Utility functions
 
 * Array functions
 * Assertions
-* Emulated intrinsic functions
+* Emulated intrinsic functions: `findloc`
+* Emulated collective subroutines: `co_sum`, `co_broadcast`
+* User-defined collective subroutines: `co_all`
 * String functions
 
 Classes
 -------
+* Parallel data partitioning and gathering
 * (Co-)Object pattern abstract parent
 
 Prerequisites
@@ -65,12 +68,18 @@ fpm test \
   --flag "-Wall" \
   --flag "-std=f2018" \
   --flag "-DCOMPILER_LACKS_COLLECTIVE_SUBROUTINES" \
-  --flag "-DCOMPILER_LACKS_FINDLOC" 
+  --flag "-DCOMPILER_LACKS_FINDLOC"
 ```
-where the `COMPILER_LACKS_*` flags exercise the Sourcery Library's 
-emulated instrinsic procedures, which are intended for use with 
+where the `COMPILER_LACKS_*` flags exercise the Sourcery Library's
+emulated instrinsic procedures, which are intended for use with
 compiler versions that lack support for the named features.  Delete
 those flags with compilers that support these features.
+
+Build documentation
+-------------------
+```zsh
+ford doc/ford-documentation.md
+```
 
 [GNU Fortran]: https://gcc.gnu.org
 [OpenCoarrays]: https://github.com/sourceryinstitute/opencoarrays

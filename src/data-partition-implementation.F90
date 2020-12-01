@@ -26,7 +26,11 @@ contains
       end block
     end associate
 
+#ifdef FORD
+  end procedure
+#else
   contains
+#endif
 
     pure function overflow(im, excess) result(extra_datum)
       integer, intent(in) :: im, excess
@@ -34,7 +38,9 @@ contains
       extra_datum= merge(1,0,im<=excess)
     end function
 
+#ifndef FORD
   end procedure
+#endif
 
   module procedure first
     if (assertions) call assert( allocated(first_datum), "allocated(first_datum)")
