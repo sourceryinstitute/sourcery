@@ -33,4 +33,10 @@ jobs:
     - name: Build and Test
       run: |
         export PATH="${HOME}/.local/bin:$PATH"
-        fpm test --compiler caf --runner "cafrun -n 4"
+        fpm test \
+          --compiler caf \
+          --runner "cafrun -n 4" \
+          --flag "-DCOMPILER_LACKS_COLLECTIVE_SUBROUTINES" \
+          --flag "-DCOMPILER_LACKS_FINDLOC" \
+          --flag "-Wall" \
+          --flag "-std=f2018"
