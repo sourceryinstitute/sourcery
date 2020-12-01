@@ -6,7 +6,9 @@
 !
 module single_image_intrinsics_test
     use Vegetables, only: Result_t, Test_Item_t, describe, it, assert_equals
+#ifdef COMPILER_LACKS_FINDLOC
     use emulated_intrinsics_interface, only : findloc
+#endif
 
     implicit none
     private
@@ -93,4 +95,3 @@ contains
   end function
 
 end module
-
