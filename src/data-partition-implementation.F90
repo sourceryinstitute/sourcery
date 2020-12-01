@@ -2,6 +2,8 @@ submodule(data_partition_interface) data_partition_implementation
   use assertions_interface, only : assert, assertions
   implicit none
 
+  logical, parameter :: verbose=.false.
+
 contains
 
   module procedure define_partitions
@@ -57,8 +59,10 @@ contains
     if (present(dim)) call assert (dim==1, "dimensioned partitioned == 1")
 
     associate( me => this_image() )
-      write(6,*) 'gather_real_1D_array(): executing on image', me
-      flush(6)
+      if (verbose) then
+        write(6,*) 'gather_real_1D_array(): executing on image', me
+        flush(6)
+      end if
       associate( first=>first(me), last=>last(me) )
         if (.not. present(result_image)) then
           a(1:first-1)  = 0.
@@ -92,8 +96,10 @@ contains
     end if
 
     associate( me => this_image() )
-      write(6,*) 'gather_real_2D_array(): executing on image', me
-      flush(6)
+      if (verbose) then
+        write(6,*) 'gather_real_2D_array(): executing on image', me
+        flush(6)
+      end if
       associate( first => first(me), last => last(me) )
         if (.not. present(result_image)) then
           select case(dim_)
