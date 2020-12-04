@@ -1,16 +1,11 @@
-!! author: Damian Rouson, GSE LLC
-!! category: Morfeus-FD
-!! summary: Abstract base type, `object`
-!!
-!! ### Copyright notice
-!!
-!!     ```
-!!     (c) 2019-2020 Guide Star Engineering, LLC
-!!     This Software was developed for the US Nuclear Regulatory Commission (US NRC) under contract
-!!     "Multi-Dimensional Physics Implementation into Fuel Analysis under Steady-state and Transients (FAST)",
-!!     contract # NRC-HQ-60-17-C-0007
-!!     ```
-
+! ### Copyright notice
+!
+!     ```
+!     (c) 2019-2020 Guide Star Engineering, LLC
+!     This Software was developed for the US Nuclear Regulatory Commission (US NRC) under contract
+!     "Multi-Dimensional Physics Implementation into Fuel Analysis under Steady-state and Transients (FAST)",
+!     contract # NRC-HQ-60-17-C-0007
+!     ```
 module object_interface
   implicit none
 
@@ -31,6 +26,8 @@ module object_interface
   contains
     procedure :: mark_as_defined
     procedure :: user_defined
+    procedure(write_interface), deferred :: write_formatted
+    generic :: write(formatted) => write_formatted
   end type
 
   interface
@@ -48,6 +45,18 @@ module object_interface
       logical :: is_defined
     end function
 
+  end interface
+
+  abstract interface
+    subroutine write_interface(self, unit, iotype, v_list, iostat, iomsg)
+      import object
+      class(object), intent(in) :: self
+      integer, intent(in) :: unit
+      character(*), intent(in) :: iotype
+      integer, intent(in) :: v_list(:)
+      integer, intent(out) :: iostat
+      character(*), intent(inout) :: iomsg
+    end subroutine
   end interface
 
 end module object_interface
