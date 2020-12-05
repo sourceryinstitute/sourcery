@@ -12,6 +12,7 @@ contains
   module procedure assert
     use iso_fortran_env, only : error_unit
     use string_functions_interface, only : string
+    use object_interface, only : object
 
     character(len=:), allocatable :: header, trailer
     integer, parameter :: max_this_image_digits=9
@@ -32,21 +33,25 @@ contains
         else
 
           block
-            character(len=*), parameter :: lede = "with diagnostic data"
+            character(len=*), parameter :: prefix = "with diagnostic data"
+            integer, parameter :: max_data_length = 1024
 
             select type(diagnostic_data)
               type is(character(len=*))
-                trailer =  lede // diagnostic_data
+                trailer =  prefix // diagnostic_data
               type is(integer)
-                trailer = lede // string(diagnostic_data)
+                trailer = prefix // string(diagnostic_data)
+              class is(object)
+                trailer = repeat(" ", ncopies =  max_data_length)
+                write(trailer,*) diagnostic_data
               class default
-                trailer = lede // 'of unsupported type'
+                trailer = prefix // 'of unsupported type'
             end select
           end block
 
         end if
 
-        error stop header // trailer
+        error stop header // trim(trailer)
 
       end if
 
