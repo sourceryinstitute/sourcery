@@ -1,6 +1,7 @@
 project:
 summary: A Fortran 2018 utility library.
 src_dir: ../src
+src_dir: ../tests
 output_dir: html
 preprocess: true
 macro: FORD
