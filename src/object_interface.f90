@@ -50,6 +50,7 @@ module object_interface
   abstract interface
     subroutine write_interface(self, unit, iotype, v_list, iostat, iomsg)
       import object
+      implicit none
       class(object), intent(in) :: self
       integer, intent(in) :: unit
       character(*), intent(in) :: iotype
