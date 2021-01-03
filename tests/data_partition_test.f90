@@ -20,8 +20,6 @@ contains
   function test_data_partition() result(tests)
     type(test_item_t) tests
 
-    integer iteration
-
     call partition%define_partitions( cardinality=num_particles)
 
     associate( me=>this_image() )
