@@ -81,7 +81,6 @@ contains
         type(Result_t) :: result_
 
         integer i, j
-        integer, parameter :: result_image=2
 
         associate(me => this_image())
           i = me
