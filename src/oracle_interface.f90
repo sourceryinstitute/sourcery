@@ -1,12 +1,12 @@
 module oracle_interface
   !! verify actual output against expected
-  use object_interface, only : object
+  use object_interface, only : object_t
   implicit none
 
   private
-  public :: oracle
+  public :: oracle_t
 
-  type, abstract, extends(object) :: oracle
+  type, abstract, extends(object_t) :: oracle_t
     !! define procedures for testing output values against expected values
   contains
     procedure(subtract_interface), deferred :: subtract
@@ -19,17 +19,17 @@ module oracle_interface
 
     function subtract_interface(this, rhs) result(difference)
       !! result has components corresponding to subtracting rhs's components fron this object's components
-      import oracle
+      import oracle_t
       implicit none
-      class(oracle), intent(in) :: this, rhs
-      class(oracle), allocatable :: difference
+      class(oracle_t), intent(in) :: this, rhs
+      class(oracle_t), allocatable :: difference
     end function
 
     pure function norm_interface(this) result(norm_of_this)
       !! result is a norm of the array formed by concatenating the real components of this object
-      import oracle
+      import oracle_t
       implicit none
-      class(oracle), intent(in) :: this
+      class(oracle_t), intent(in) :: this
       real norm_of_this
     end function
 
@@ -42,7 +42,7 @@ module oracle_interface
       !! (impure because of internal call to 'subtract' binding)
       !! The existence of this procedure eliminates the need to rewrite similar code for every oracle child type.
       implicit none
-      class(oracle), intent(in) :: this, reference
+      class(oracle_t), intent(in) :: this, reference
       real, intent(in) :: tolerance
       logical in_tolerance
     end function

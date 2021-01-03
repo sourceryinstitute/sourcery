@@ -12,7 +12,7 @@ contains
   module procedure assert
     use iso_fortran_env, only : error_unit
     use string_functions_interface, only : string
-    use object_interface, only : object
+    use object_interface, only : object_t
 
     character(len=:), allocatable :: header, trailer
     integer, parameter :: max_this_image_digits=9
@@ -41,7 +41,7 @@ contains
                 trailer =  prefix // diagnostic_data
               type is(integer)
                 trailer = prefix // string(diagnostic_data)
-              class is(object)
+              class is(object_t)
                 trailer = repeat(" ", ncopies =  max_data_length)
                 write(trailer,*) diagnostic_data
               class default
