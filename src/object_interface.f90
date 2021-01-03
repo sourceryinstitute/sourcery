@@ -10,9 +10,9 @@ module object_interface
   implicit none
 
   private
-  public :: object
+  public :: object_t
 
-  type, abstract :: object
+  type, abstract :: object_t
     !! author: Damian Rouson, GSE LLC
     !! category: Morfeus-FD
     !! summary: Abstract type to ensure all objects extending it implement the required methods
@@ -35,13 +35,13 @@ module object_interface
     pure module subroutine mark_as_defined(this)
       !! Mark the object as user-defined
       implicit none
-      class(object), intent(inout) :: this
+      class(object_t), intent(inout) :: this
     end subroutine
 
     pure module function user_defined(this) result(is_defined)
       !! Return a boolean result indicating whether this object has been initialized since its declaration
       implicit none
-      class(object), intent(in) :: this
+      class(object_t), intent(in) :: this
       logical :: is_defined
     end function
 
@@ -49,9 +49,9 @@ module object_interface
 
   abstract interface
     subroutine write_interface(self, unit, iotype, v_list, iostat, iomsg)
-      import object
+      import object_t
       implicit none
-      class(object), intent(in) :: self
+      class(object_t), intent(in) :: self
       integer, intent(in) :: unit
       character(*), intent(in) :: iotype
       integer, intent(in) :: v_list(:)

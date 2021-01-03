@@ -5,13 +5,13 @@ module object_interface_test
    use vegetables, only: &
      result_t, input_t, integer_input_t, test_item_t, &   ! types
      describe, it, assert_equals, assert_that, assert_not ! functions
-   use object_interface, only : object
+   use object_interface, only : object_t
    implicit none
 
    private
    public :: test_object
 
-   type, extends(object) :: subject
+   type, extends(object_t) :: subject
    contains
      procedure write_formatted
    end type
@@ -33,23 +33,23 @@ contains
 
   function check_default_initialization() result(result_)
     !! Verify that user_defined() is .false. for a default-initialied object
-    class(object), allocatable :: object_
+   class(object_t), allocatable :: object
     type(result_t) result_
 
-    allocate(subject :: object_)
+    allocate(subject :: object)
 
-    result_ = assert_not(object_%user_defined())
+    result_ = assert_not(object%user_defined())
   end function
 
   function check_mark_as_defined() result(result_)
     !! Verify that mark_as_defined results in user_defined() being .true.
-    class(object), allocatable :: object_
+    class(object_t), allocatable :: object
     type(result_t) result_
 
-    allocate(subject :: object_)
+    allocate(subject :: object)
 
-    call object_%mark_as_defined
-    result_ = assert_that(object_%user_defined())
+    call object%mark_as_defined
+    result_ = assert_that(object%user_defined())
   end function
 
   subroutine write_formatted(self, unit, iotype, v_list, iostat, iomsg)

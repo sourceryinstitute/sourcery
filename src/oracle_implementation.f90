@@ -5,7 +5,7 @@ submodule(oracle_interface) oracle_implementation
 contains
 
   module procedure within_tolerance
-    class(oracle), allocatable :: error
+    class(oracle_t), allocatable :: error
 
     error = this - reference
     in_tolerance = (error%norm() <= tolerance)
