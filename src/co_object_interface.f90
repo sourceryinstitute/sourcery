@@ -11,7 +11,7 @@ module co_object_interface
   public :: co_object
 
   ! Define an abstract parent type to ensure basic functionality expected to be provided by all non-abstract types.
-  ! Each non-abstract type provides the functionality by extending this type and implementing its deferred binding(s).  This
+  ! Each non-abstract type provides the functionality by extending self type and implementing its deferred binding(s).  This
   ! type resembles java's Object class in the sense that it is intended to be the ultimate ancester of every other type.
   type, abstract :: co_object
     private
@@ -25,16 +25,16 @@ module co_object_interface
 
   interface
 
-    pure module subroutine mark_as_defined(this)
+    pure module subroutine mark_as_defined(self)
       !! Mark the co_object as user-defined
       implicit none
-      class(co_object), intent(inout) :: this
+      class(co_object), intent(inout) :: self
     end subroutine
 
-    pure module function user_defined(this) result(is_defined)
-      !! Return a boolean result indicating whether this co_object has been initialized since its declaration
+    pure module function user_defined(self) result(is_defined)
+      !! Return a boolean result indicating whether self co_object has been initialized since its declaration
       implicit none
-      class(co_object), intent(in) :: this
+      class(co_object), intent(in) :: self
       logical :: is_defined
     end function
 

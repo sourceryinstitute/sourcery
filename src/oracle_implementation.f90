@@ -7,7 +7,7 @@ contains
   module procedure within_tolerance
     class(oracle_t), allocatable :: error
 
-    error = this - reference
+    error = self - reference
     in_tolerance = (error%norm() <= tolerance)
 
   end procedure
