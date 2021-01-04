@@ -10,11 +10,11 @@ submodule(object_interface) object_implementation
 contains
 
     module procedure mark_as_defined
-      this%defined=.true.
+      self%defined=.true.
     end procedure
 
     module procedure user_defined
-      is_defined = this%defined
+      is_defined = self%defined
     end procedure
 
 end submodule

@@ -18,7 +18,7 @@ module object_interface
     !! summary: Abstract type to ensure all objects extending it implement the required methods
     !!
     !! Define an abstract parent type to ensure basic functionality expected to be provided by all non-abstract types.
-    !! Each non-abstract type provides the functionality by extending this type and implementing its deferred binding(s).  This
+    !! Each non-abstract type provides the functionality by extending self type and implementing its deferred binding(s).  This
     !! type resembles java's Object class in the sense that it is intended to be the ultimate ancestor of every other type.
     private
     logical :: defined=.false.
@@ -32,16 +32,16 @@ module object_interface
 
   interface
 
-    pure module subroutine mark_as_defined(this)
+    pure module subroutine mark_as_defined(self)
       !! Mark the object as user-defined
       implicit none
-      class(object_t), intent(inout) :: this
+      class(object_t), intent(inout) :: self
     end subroutine
 
-    pure module function user_defined(this) result(is_defined)
-      !! Return a boolean result indicating whether this object has been initialized since its declaration
+    pure module function user_defined(self) result(is_defined)
+      !! Return a boolean result indicating whether self object has been initialized since its declaration
       implicit none
-      class(object_t), intent(in) :: this
+      class(object_t), intent(in) :: self
       logical :: is_defined
     end function
 
