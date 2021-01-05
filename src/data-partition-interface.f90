@@ -5,9 +5,9 @@ module data_partition_interface
   implicit none
 
   private
-  public :: data_partition
+  public :: data_partition_t
 
-  type data_partition
+  type data_partition_t
     !! encapsulate a description of the data subset the executing image owns
     private
   contains
