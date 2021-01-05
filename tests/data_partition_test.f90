@@ -5,14 +5,14 @@ module data_partition_test
    use vegetables, only: &
      result_t, input_t, integer_input_t, test_item_t, & ! types
      describe, it, assert_equals, assert_that, example  ! functions
-   use data_partition_interface, only : data_partition
+   use data_partition_interface, only : data_partition_t
    use iso_fortran_env, only : real64
    implicit none
 
    private
    public :: test_data_partition
 
-   type(data_partition) partition
+   type(data_partition_t) partition
    integer, parameter :: num_particles=31, gatherer=1, num_steps=9, dummy=0
 
 contains
@@ -56,7 +56,7 @@ contains
   function verify_block_partitioning() result(result_)
     !! Verify that the data is partitioned across images evenly to
     !! within a difference of one datum between any two images.
-    type(data_partition) partition
+    type(data_partition_t) partition
     type(result_t) result_
     integer my_particles
 
@@ -75,7 +75,7 @@ contains
   function verify_all_particles_partitioned() result(result_)
     !! Verify that the number of particles on each image sums to the
     !! total number of particles distributed.
-    type(data_partition) partition
+    type(data_partition_t) partition
     type(result_t) result_
     integer particles
 
@@ -89,7 +89,7 @@ contains
   end function
 
  function verify_all_gather_1D_real_array(unused) result(result_)
-   type(data_partition) partition
+   type(data_partition_t) partition
    class(input_t), intent(in) :: unused
    type(result_t) result_
    real(real64) :: particle_scalar(num_particles)
@@ -115,7 +115,7 @@ contains
 
  function verify_all_gather_2D_real_array(unused) result(result_)
    class(input_t), intent(in) :: unused
-   type(data_partition) partition
+   type(data_partition_t) partition
    type(result_t) result_
    integer, parameter :: vec_space_dim=3
    real(real64) particle_vector(vec_space_dim, num_particles)
@@ -141,7 +141,7 @@ contains
 
  function verify_all_gather_2D_real_array_dim1(unused) result(result_)
    class(input_t), intent(in) :: unused
-   type(data_partition) partition
+   type(data_partition_t) partition
    type(result_t) result_
    integer, parameter :: vec_space_dim=3
    real(real64) :: vector_transpose(num_particles, vec_space_dim)
@@ -167,7 +167,7 @@ contains
 
  function verify_gather_2D_real_array_dim1(unused) result(result_)
    class(input_t), intent(in) :: unused
-   type(data_partition) partition
+   type(data_partition_t) partition
    type(result_t) result_
    integer, parameter :: vec_space_dim=3
    real(real64) :: vector_transpose(num_particles, vec_space_dim)
