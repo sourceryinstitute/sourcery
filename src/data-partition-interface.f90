@@ -1,7 +1,7 @@
 module data_partition_interface
   !! distribute data identification numbers across images such that the number of
   !! items differs by at most 1 between any two images.
-  use iso_fortran_env, only : real64
+  use iso_fortran_env, only : real32, real64
   implicit none
 
   private
@@ -14,8 +14,8 @@ module data_partition_interface
     procedure, nopass :: define_partitions
     procedure, nopass :: first
     procedure, nopass :: last
-    procedure, nopass, private :: gather_real_2D_array, gather_real_1D_array
-    generic :: gather => gather_real_2D_array, gather_real_1D_array
+    procedure, nopass, private :: gather_real32_2D_array, gather_real64_2D_array,  gather_real32_1D_array, gather_real64_1D_array
+    generic :: gather => gather_real32_2D_array, gather_real64_2D_array,  gather_real32_1D_array, gather_real64_1D_array
   end type
 
   integer, allocatable :: first_datum(:), last_datum(:)
@@ -45,14 +45,28 @@ module data_partition_interface
     !! 1. Near the beginning/end of execution to amortize costs across an entire run or
     !! 2. Temporarily while developing/debugging code.
 
-    module subroutine gather_real_1D_array( a, result_image, dim )
+    module subroutine gather_real32_1D_array( a, result_image, dim )
+      !! Gather the elements of an 1D array distributed along dimension dim onto result_image
+      real(real32), intent(inout) :: a(:)
+      integer, intent(in), optional :: result_image
+      integer, intent(in), optional :: dim
+    end subroutine
+
+    module subroutine gather_real64_1D_array( a, result_image, dim )
       !! Gather the elements of an 1D array distributed along dimension dim onto result_image
       real(real64), intent(inout) :: a(:)
       integer, intent(in), optional :: result_image
       integer, intent(in), optional :: dim
     end subroutine
 
-    module subroutine gather_real_2D_array( a, result_image, dim )
+    module subroutine gather_real32_2D_array( a, result_image, dim )
+      !! Gather the elements of an 2D array distributed along dimension dim onto result_image
+      real(real32), intent(inout) :: a(:,:)
+      integer, intent(in), optional :: result_image
+      integer, intent(in), optional :: dim
+    end subroutine
+
+    module subroutine gather_real64_2D_array( a, result_image, dim )
       !! Gather the elements of an 2D array distributed along dimension dim onto result_image
       real(real64), intent(inout) :: a(:,:)
       integer, intent(in), optional :: result_image
