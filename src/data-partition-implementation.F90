@@ -1,5 +1,5 @@
 submodule(data_partition_interface) data_partition_implementation
-  use assertions_interface, only : assert, assertions
+  use assert_m, only : assert
   implicit none
 
   logical, parameter :: verbose=.false.
@@ -45,12 +45,12 @@ contains
 #endif
 
   module procedure first
-    if (assertions) call assert( allocated(first_datum), "allocated(first_datum)")
+    call assert( allocated(first_datum), "allocated(first_datum)")
     first_index= first_datum( image_number )
   end procedure
 
   module procedure last
-    if (assertions) call assert( allocated(last_datum), "allocated(last_datum)")
+    call assert( allocated(last_datum), "allocated(last_datum)")
     last_index = last_datum( image_number )
   end procedure
 

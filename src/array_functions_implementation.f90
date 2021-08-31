@@ -5,7 +5,7 @@
 !     contract # NRC-HQ-60-17-C-0007
 !
 submodule(array_functions_interface) array_functions_implementation
-  use assertions_interface, only : assert, assertions
+  use assert_m, only : assert
   implicit none
 contains
 
@@ -13,7 +13,7 @@ contains
       integer i, j, k
 
       associate( n => shape(vector_field) )
-        if (assertions) call assert(size(n)==4, "3D vector field input")
+        call assert(size(n)==4, "3D vector field input")
         allocate( array_of_3D_column_vectors( n(4), product(n(1:3)) ) )
         do concurrent( i=1:n(1), j=1:n(2), k=1:n(3) )
           associate( id => (k-1)*PRODUCT(n(1:2)) + (j-1)*n(1) + i )
@@ -34,7 +34,7 @@ contains
     associate(cols=>size(a,2)+size(b,2))
     associate(a_unrolled=>reshape(a,[size(a)]))
     associate(b_unrolled=>reshape(b,[size(b)]))
-      if (assertions) call assert( rows==size(b,1), "array_functions: compatible shapes")
+      call assert( rows==size(b,1), "array_functions: compatible shapes")
       concatenated = reshape( [a_unrolled, b_unrolled ],[rows, cols] )
     end associate; end associate; end associate; end associate
   end procedure
