@@ -5,7 +5,7 @@
 !     contract # NRC-HQ-60-17-C-0007
 !
 submodule(emulated_intrinsics_interface) emulated_intrinsics_implementation
-  use assertions_interface, only : assert
+  use assert_m, only : assert
   implicit none
 
 contains
