@@ -5,7 +5,7 @@
 !     contract # NRC-HQ-60-17-C-0007
 !
 submodule(units_interface) units_implementation
-    use assertions_interface, only : assertions,assert
+    use assert_m, only : assert
     implicit none
 
     contains
@@ -79,7 +79,7 @@ submodule(units_interface) units_implementation
         end procedure
 
         module procedure real_power
-            if (assertions) call assert(this%is_dimensionless(), &
+            call assert(this%is_dimensionless(), &
                 &   "units%real_power: an entity raised to a real power must be dimensionless")
             !! Require dimensionless operand => result is default-initialized as dimensionless
         end procedure
@@ -90,30 +90,26 @@ submodule(units_interface) units_implementation
         end procedure
 
         module procedure add
-            if (assertions) then
-                !! Require consistent operand units
-                associate(preconditions => [lhs%system==rhs%system, lhs%exponents_==rhs%exponents_] )
-                    call assert( all(preconditions), "units%add: consistent operands units")
-                end associate
-            end if
+            !! Require consistent operand units
+            associate(preconditions => [lhs%system==rhs%system, lhs%exponents_==rhs%exponents_] )
+                call assert( all(preconditions), "units%add: consistent operands units")
+            end associate
             total%exponents_  = lhs%exponents_
             total%system = lhs%system
         end procedure
 
         module procedure subtract
-            if (assertions) then
-                !! Require consistent operand units
-                associate(preconditions => [lhs%system==rhs%system, lhs%exponents_==rhs%exponents_] )
-                    call assert( all(preconditions), "units%subtract: consistent operand units")
-                end associate
-            end if
+            !! Require consistent operand units
+            associate(preconditions => [lhs%system==rhs%system, lhs%exponents_==rhs%exponents_] )
+                call assert( all(preconditions), "units%subtract: consistent operand units")
+            end associate
             difference%exponents_  = lhs%exponents_
             difference%system = lhs%system
         end procedure
 
         module procedure multiply
 
-            if (assertions) call assert( lhs%system==rhs%system, "units%multiply: consistent operand units" )
+            call assert( lhs%system==rhs%system, "units%multiply: consistent operand units" )
 
             product_%exponents_  = lhs%exponents_ + rhs%exponents_
             product_%system = lhs%system
@@ -121,7 +117,7 @@ submodule(units_interface) units_implementation
 
         module procedure divide
 
-            if (assertions) call assert( numerator%system==denominator%system, "units%divide: consistent operand units" )
+            call assert( numerator%system==denominator%system, "units%divide: consistent operand units" )
 
             ratio%exponents_  = numerator%exponents_ - denominator%exponents_
             ratio%system = merge(numerator%system,dimensionless,any(ratio%exponents_/=0))
