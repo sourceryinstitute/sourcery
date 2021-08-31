@@ -5,6 +5,9 @@ author = ["Damian Rouson"]
 maintainer = "damian@sourceryinstitute.org"
 copyright = "2020 Sourcery Institute"
 
+[dependencies]
+assert = {git = "https://github.com/sourceryinstitute/assert", tag = "1.0.0"}
+
 [dev-dependencies]
 vegetables = {git = "https://gitlab.com/everythingfunctional/vegetables", tag = "v7.2.0"}
 
