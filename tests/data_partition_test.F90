@@ -3,10 +3,13 @@ module data_partition_test
    !!
    !! summary: verify data partitioning across images and data gathering
    use vegetables, only: &
-     result_t, input_t, integer_input_t, test_item_t, & ! types
-     describe, it, assert_equals, assert_that, example  ! functions
+     result_t, example_t, input_t, integer_input_t, test_item_t, & ! types
+     describe, it, assert_equals, assert_that  ! functions
    use data_partition_interface, only : data_partition_t
    use iso_fortran_env, only : real64
+#ifdef COMPILER_LACKS_COLLECTIVE_SUBROUTINES
+   use emulated_intrinsics_interface, only: co_sum
+#endif
    implicit none
 
    private
@@ -34,19 +37,19 @@ contains
            verify_all_particles_partitioned), &
           it( &
            "1D real array gathered on all images", &
-           [example(integer_input_t(dummy)), example(integer_input_t(dummy))], &
+           [example_t(integer_input_t(dummy)), example_t(integer_input_t(dummy))], &
            verify_all_gather_1D_real_array), &
           it( &
            "dimension 1 of 2D real array gathered on all images witout dim argument", &
-           [example(integer_input_t(dummy)), example(integer_input_t(dummy))], &
+           [example_t(integer_input_t(dummy)), example_t(integer_input_t(dummy))], &
            verify_all_gather_2D_real_array), &
           it( &
            "dimension 1 of 2D real array gathered on all images with dim argument", &
-           [example(integer_input_t(dummy)), example(integer_input_t(dummy))], &
+           [example_t(integer_input_t(dummy)), example_t(integer_input_t(dummy))], &
            verify_all_gather_2D_real_array_dim1), &
           it( &
            "dimension 1 of 2D real array gathered onto result_image with dim argument", &
-           [example(integer_input_t(dummy)), example(integer_input_t(dummy))], &
+           [example_t(integer_input_t(dummy)), example_t(integer_input_t(dummy))], &
            verify_gather_2D_real_array_dim1)])
 
       end associate

@@ -11,6 +11,8 @@ module emulated_intrinsics_interface
   !! 1. Emulations of some Fortran 2008 and 2018 instrinsic procedures for use with
   !!    compilers that lack support for the corresponding procedures.
   !! 2. User-defined collective procedures not defined in the Fortran standard.
+  use iso_fortran_env, only : real32, real64
+
   implicit none
 
   interface
@@ -35,11 +37,25 @@ module emulated_intrinsics_interface
   interface co_sum
     !! parallel computation of the sum of the first argument
     module procedure co_sum_integer
+    module procedure co_sum_real32_1D_array
+    module procedure co_sum_real32_2D_array
+    module procedure co_sum_real64_1D_array
+    module procedure co_sum_real64_2D_array
   end interface
 
   interface co_broadcast
     !! parallel one-to-all communication of the value of first argument
+    module procedure co_broadcast_logical
     module procedure co_broadcast_integer
+    module procedure co_broadcast_real32_1D_array
+    module procedure co_broadcast_real32_2D_array
+    module procedure co_broadcast_real64_1D_array
+    module procedure co_broadcast_real64_2D_array
+  end interface
+
+  interface co_reduce
+    !! parallel reduction of values across images of the first argument
+    module procedure co_reduce_logical
   end interface
 #endif
 
@@ -54,11 +70,98 @@ module emulated_intrinsics_interface
       character(len=*), intent(inout), optional :: errmsg
     end subroutine
 
+    module subroutine co_sum_real32_1D_array(a,result_image,stat,errmsg)
+      implicit none
+      real(real32), intent(inout) :: a(:)
+      integer, intent(in), optional :: result_image
+      integer, intent(out), optional :: stat
+      character(len=*), intent(inout), optional :: errmsg
+    end subroutine
+
+    module subroutine co_sum_real32_2D_array(a,result_image,stat,errmsg)
+      implicit none
+      real(real32), intent(inout) :: a(:,:)
+      integer, intent(in), optional :: result_image
+      integer, intent(out), optional :: stat
+      character(len=*), intent(inout), optional :: errmsg
+    end subroutine
+
+    module subroutine co_sum_real64_1D_array(a,result_image,stat,errmsg)
+      implicit none
+      real(real64), intent(inout) :: a(:)
+      integer, intent(in), optional :: result_image
+      integer, intent(out), optional :: stat
+      character(len=*), intent(inout), optional :: errmsg
+    end subroutine
+
+    module subroutine co_sum_real64_2D_array(a,result_image,stat,errmsg)
+      implicit none
+      real(real64), intent(inout) :: a(:,:)
+      integer, intent(in), optional :: result_image
+      integer, intent(out), optional :: stat
+      character(len=*), intent(inout), optional :: errmsg
+    end subroutine
+
+    module subroutine co_broadcast_logical(a,source_image,stat,errmsg)
+      implicit none
+      logical, intent(inout) :: a
+      integer, intent(in) :: source_image
+      integer, intent(out), optional ::  stat
+      character(len=*), intent(inout), optional :: errmsg
+    end subroutine
+
     module subroutine co_broadcast_integer(a,source_image,stat,errmsg)
       implicit none
       integer, intent(inout) :: a
       integer, intent(in) :: source_image
       integer, intent(out), optional ::  stat
+      character(len=*), intent(inout), optional :: errmsg
+    end subroutine
+
+    module subroutine co_broadcast_real32_1D_array(a,source_image,stat,errmsg)
+      implicit none
+      real(real32), intent(inout) :: a(:)
+      integer, intent(in) :: source_image
+      integer, intent(out), optional ::  stat
+      character(len=*), intent(inout), optional :: errmsg
+    end subroutine
+
+    module subroutine co_broadcast_real32_2D_array(a,source_image,stat,errmsg)
+      implicit none
+      real(real32), intent(inout) :: a(:,:)
+      integer, intent(in) :: source_image
+      integer, intent(out), optional ::  stat
+      character(len=*), intent(inout), optional :: errmsg
+    end subroutine
+
+    module subroutine co_broadcast_real64_1D_array(a,source_image,stat,errmsg)
+      implicit none
+      real(real64), intent(inout) :: a(:)
+      integer, intent(in) :: source_image
+      integer, intent(out), optional ::  stat
+      character(len=*), intent(inout), optional :: errmsg
+    end subroutine
+
+    module subroutine co_broadcast_real64_2D_array(a,source_image,stat,errmsg)
+      implicit none
+      real(real64), intent(inout) :: a(:,:)
+      integer, intent(in) :: source_image
+      integer, intent(out), optional ::  stat
+      character(len=*), intent(inout), optional :: errmsg
+    end subroutine
+
+    module subroutine co_reduce_logical(a,operation,result_image,stat,errmsg)
+      implicit none
+      abstract interface
+        pure function operation_i(x, y)
+          logical, intent(in) :: x, y
+          logical :: operation_i
+        end function
+      end interface
+      logical, intent(inout) :: a
+      procedure(operation_i) :: operation
+      integer, intent(in), optional :: result_image
+      integer, intent(out), optional :: stat
       character(len=*), intent(inout), optional :: errmsg
     end subroutine
 #endif

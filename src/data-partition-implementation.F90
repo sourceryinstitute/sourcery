@@ -1,5 +1,8 @@
 submodule(data_partition_interface) data_partition_implementation
   use assert_m, only : assert
+#ifdef COMPILER_LACKS_COLLECTIVE_SUBROUTINES
+  use emulated_intrinsics_interface, only: co_sum
+#endif
   implicit none
 
   logical, parameter :: verbose=.false.
