@@ -7,9 +7,6 @@ module data_partition_test
      describe, it, assert_equals, assert_that  ! functions
    use data_partition_interface, only : data_partition_t
    use iso_fortran_env, only : real64
-#ifdef COMPILER_LACKS_COLLECTIVE_SUBROUTINES
-   use emulated_intrinsics_interface, only: co_sum
-#endif
    implicit none
 
    private
