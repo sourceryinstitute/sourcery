@@ -61,14 +61,12 @@ module units_interface
     procedure :: integer_power
     procedure :: real_power
     procedure :: assign_units
-#ifndef FORD
     generic :: operator(+)=>add
     generic :: operator(*)=>multiply
     generic :: operator(/)=>divide
     generic :: operator(-)=>subtract,negate
     generic :: operator(**)=>integer_power,real_power
     generic :: assignment(=)=>assign_units
-#endif
   end type
 
   interface
@@ -88,10 +86,7 @@ module units_interface
         class(units), intent(in) :: rhs
     end subroutine
 
-#ifndef HAVE_ERROR_STOP_IN_PURE
-    impure &
-#endif
-    elemental module function integer_power(this,exponent_) result(this_raised)
+    impure elemental module function integer_power(this,exponent_) result(this_raised)
       !! result has units of the opearand raised to the power "exponent_"
         implicit none
         class(units), intent(in) :: this
@@ -106,21 +101,14 @@ module units_interface
         integer :: exponents(num_fundamental)
     end function
 
-#ifndef HAVE_ERROR_STOP_IN_PURE
-        impure &
-#endif
-    elemental module function get_system(this) result(system_of_units)
+    impure elemental module function get_system(this) result(system_of_units)
       !! result is enumerated value designating units system
         implicit none
         class(units), intent(in) :: this
         integer :: system_of_units
     end function
 
-
-#ifndef HAVE_ERROR_STOP_IN_PURE
-    impure &
-#endif
-    elemental module function real_power(this,exponent_) result(this_raised)
+    impure elemental module function real_power(this,exponent_) result(this_raised)
       !! result is the units of the operand raised to the power "exponent_"; includes check that operand is dimensionless
         implicit none
         class(units), intent(in) :: this
@@ -128,20 +116,14 @@ module units_interface
         type(units) :: this_raised
     end function
 
-#ifndef HAVE_ERROR_STOP_IN_PURE
-    impure &
-#endif
-    elemental module function add(lhs,rhs) result(total)
+    impure elemental module function add(lhs,rhs) result(total)
       !! result is the units of the sum of two dimensional quantities; includes operand consistency check
         implicit none
         class(units), intent(in) :: lhs,rhs
         type(units) :: total
     end function
 
-#ifndef HAVE_ERROR_STOP_IN_PURE
-    impure &
-#endif
-    elemental module function subtract(lhs,rhs) result(difference)
+    impure elemental module function subtract(lhs,rhs) result(difference)
       !! result is the units of the difference of two dimensional quantities; includes operand consistency check
         implicit none
         class(units), intent(in) :: lhs,rhs
