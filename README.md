@@ -32,18 +32,16 @@ A grab bag of useful tricks in Fortran 2018.
 
 This library gathers software that developers at [Archaeologic Inc.] and
 [Sourcery Institute] find useful across many of our projects, including in
-courses that we teach.  Most code starts here because it feels too small to
-release as a standalone package but too distinct in purpose to fold into other
-existing packages.  Over time, when code that starts here grows in capability, a
-new repository is born and the corresponding code is removed from the Sourcery
-repository.  Following the practice of [semantic versioning], code removal 
-results in a major version number increment.
+courses that we teach.  Most code starts here because it is too limited in 
+capability to release as a standalone package but too distinct in purpose to 
+fold into other existing packages.  Over time, when code that starts here grows
+in capability, a new repository is born and the corresponding code is removed
+from the Sourcery repository.  Examples include the [Assert] and [Emulators]
+libraries.  Following the practice of [semantic versioning], code removal
+causes an increment in the major version number.
 
-versioning to Examples
-include the [Assert] and [Emulators] libraries.
-
-Utility functions
------------------
+Procedures
+---------
 
 * Array functions
 * String functions
@@ -51,16 +49,21 @@ Utility functions
 
 Classes
 -------
-* Parallel data partitioning and gathering
-* (Co-)[Object pattern] abstract parent
-* Runtime units tracking
+* Parallel data partitioning and gathering,
+* (Co-)[Object pattern] abstract parent,
+* Runtime units tracking, and
+* A test oracle using the [Template Method pattern].
+* A command-line abstraction that searches for program arguments.
 
 Prerequisites
 -------------
-See the [fpm manifest](./fpm.toml) for the dependencies and developer
-dependencies, the latter of which are needed only for contributing to Sourcery
-by adding new tests.  Additionally, [FORD] 6.1.0 or later is required for
-producing HTML documentation.
+[FORD] 6.1.0 or later is required for producing HTML documentation (see
+"[Building the documentation]" below for instructions).  The Fortran Package
+Manager ([fpm]) is required to build Sourcery from source.  See the
+[fpm manifest](./fpm.toml) for the dependencies and developer dependencies,
+all of which [fpm] automatically downloads and builds via the `fpm` command
+provided in the "[Downloding, Building, and Testing]" section below.
+
 
 Downloding, Building, and Testing
 ---------------------------------
@@ -95,3 +98,6 @@ documentation.
 [Emulators]: https://github.com/sourceryinstitute/emulators
 [Object pattern]: https://www.cambridge.org/rouson
 [semantic versioning]: https://semver.org
+[Template Method pattern]: https://en.wikipedia.org/wiki/Template_method_pattern
+[Downloding, Building, and Testing]: #downloding-building-and-testing
+[Building the documentation]: #building-the-documentation
