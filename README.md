@@ -40,20 +40,25 @@ from the Sourcery repository.  Examples include the [Assert] and [Emulators]
 libraries.  Following the practice of [semantic versioning], code removal
 causes an increment in the major version number.
 
-Procedures
----------
+Contents
+--------
+
+### Procedures
 
 * Array functions
 * String functions
-* User-defined collective subroutines: `co_all`
+* User-defined collective subroutines
 
-Classes
--------
+### Classes
 * Parallel data partitioning and gathering,
 * (Co-)[Object pattern] abstract parent,
-* Runtime units tracking, and
-* A test oracle using the [Template Method pattern].
+* Runtime units tracking,
+* A test oracle using the [Template Method pattern], and
 * A command-line abstraction that searches for program arguments.
+
+Documentation
+-------------
+See the [Sourcery GitHub Pages site] for HTML documentation generated with [`ford`]:
 
 Prerequisites
 -------------
@@ -101,3 +106,6 @@ documentation.
 [Template Method pattern]: https://en.wikipedia.org/wiki/Template_method_pattern
 [Downloding, Building, and Testing]: #downloding-building-and-testing
 [Building the documentation]: #building-the-documentation
+[Sourcery GitHub Pages site]: http://sourceryinstitute.github.io/sourcery/
+[`ford`]: https://github.com/Fortran-FOSS-Programmers/ford
+
