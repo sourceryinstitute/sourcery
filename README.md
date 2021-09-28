@@ -48,6 +48,7 @@ Contents
 * Array functions
 * String functions
 * User-defined collective subroutines
+* Input/output format strings and format string generators
 
 ### Classes
 * Parallel data partitioning and gathering,
