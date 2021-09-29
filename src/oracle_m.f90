@@ -1,6 +1,6 @@
-module oracle_interface
+module oracle_m
   !! verify actual output against expected
-  use object_interface, only : object_t
+  use object_m, only : object_t
   implicit none
 
   private

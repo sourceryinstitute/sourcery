@@ -1,4 +1,4 @@
-submodule(data_partition_interface) data_partition_implementation
+submodule(data_partition_m) data_partition_s
   use assert_m, only : assert
   implicit none
 
@@ -242,4 +242,4 @@ contains
     end associate
   end procedure
 
-end submodule data_partition_implementation
+end submodule data_partition_s

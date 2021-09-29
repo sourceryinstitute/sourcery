@@ -1,4 +1,4 @@
-module command_line_interface
+module command_line_m
   !! return command line argument information
   implicit none
 

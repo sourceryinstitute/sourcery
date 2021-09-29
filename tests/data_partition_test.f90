@@ -5,7 +5,7 @@ module data_partition_test
    use vegetables, only: &
      result_t, example_t, input_t, integer_input_t, test_item_t, & ! types
      describe, it, assert_equals, assert_that  ! functions
-   use data_partition_interface, only : data_partition_t
+   use data_partition_m, only : data_partition_t
    use iso_fortran_env, only : real64
    implicit none
 
