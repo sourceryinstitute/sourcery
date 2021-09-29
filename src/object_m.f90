@@ -6,7 +6,7 @@
 !     "Multi-Dimensional Physics Implementation into Fuel Analysis under Steady-state and Transients (FAST)",
 !     contract # NRC-HQ-60-17-C-0007
 !     ```
-module object_interface
+module object_m
   implicit none
 
   private
@@ -60,4 +60,4 @@ module object_interface
     end subroutine
   end interface
 
-end module object_interface
+end module object_m

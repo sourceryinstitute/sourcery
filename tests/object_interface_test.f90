@@ -1,11 +1,11 @@
-module object_interface_test
+module object_m_test
    !! author: Damian Rouson
    !!
    !! summary: verify object pattern asbtract parent
    use vegetables, only: &
      result_t, input_t, integer_input_t, test_item_t, &   ! types
      describe, it, assert_equals, assert_that, assert_not ! functions
-   use object_interface, only : object_t
+   use object_m, only : object_t
    implicit none
 
    private
@@ -67,11 +67,11 @@ contains
         iomsg = ""
       case default
         iostat = -1
-        iomsg = "object_interface_test: subject%write_formatted iotype received unsupported iotype " // iotype
+        iomsg = "object_m_test: subject%write_formatted iotype received unsupported iotype " // iotype
     end select
 
     associate( unused => v_list)
     end associate
   end subroutine
 
-end module object_interface_test
+end module object_m_test

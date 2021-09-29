@@ -1,4 +1,4 @@
-module data_partition_interface
+module data_partition_m
   !! distribute data identification numbers across images such that the number of
   !! items differs by at most 1 between any two images.
   use iso_fortran_env, only : real32, real64
@@ -75,4 +75,4 @@ module data_partition_interface
 
   end interface
 
-end module data_partition_interface
+end module data_partition_m

@@ -1,5 +1,5 @@
-submodule(oracle_interface) oracle_implementation
-  !! define procedures corresponding to the interface bodies in oracle_interface
+submodule(oracle_m) oracle_s
+  !! define procedures corresponding to the interface bodies in oracle_m
   implicit none
 
 contains
@@ -12,4 +12,4 @@ contains
 
   end procedure
 
-end submodule oracle_implementation
+end submodule oracle_s

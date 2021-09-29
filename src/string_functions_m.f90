@@ -4,16 +4,14 @@
 !     "Multi-Dimensional Physics Implementation into Fuel Analysis under Steady-state and Transients (FAST)",
 !     contract # NRC-HQ-60-17-C-0007
 !
-module string_functions_interface
+module string_functions_m
   !! author: Damian Rouson
   !! date: August 23, 2019
   !! summary: utilities for manipulating or producing character variables
   implicit none
 
   private
-  public :: file_extension, csv_format, base_name, string
-
-  character(len=*), parameter :: csv_format = '(*(G0,:,","))'
+  public :: file_extension, base_name, string
 
   interface string
     module procedure integer_to_string

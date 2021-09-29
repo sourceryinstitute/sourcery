@@ -4,7 +4,7 @@
 !     "Multi-Dimensional Physics Implementation into Fuel Analysis under Steady-state and Transients (FAST)",
 !     contract # NRC-HQ-60-17-C-0007
 !
-submodule(units_interface) units_implementation
+submodule(units_m) units_s
     use assert_m, only : assert
     implicit none
 
@@ -123,4 +123,4 @@ submodule(units_interface) units_implementation
             ratio%system = merge(numerator%system,dimensionless,any(ratio%exponents_/=0))
         end procedure
 
-end submodule units_implementation
+end submodule units_s

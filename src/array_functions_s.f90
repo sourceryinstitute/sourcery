@@ -4,7 +4,7 @@
 !     "Multi-Dimensional Physics Implementation into Fuel Analysis under Steady-state and Transients (FAST)",
 !     contract # NRC-HQ-60-17-C-0007
 !
-submodule(array_functions_interface) array_functions_implementation
+submodule(array_functions_m) array_functions_s
   use assert_m, only : assert
   implicit none
 contains
