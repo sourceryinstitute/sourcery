@@ -13,10 +13,10 @@ module user_defined_collectives_m
   interface
 
     module subroutine co_all(boolean)
-      !! If any image in a team calls this subroutine, then this procedure must
-      !! in the corresponding team.  The subroutine sets the "boolean" argument
-      !! .true. if it is true in all participating images upon entry and .false.
-      !! otherwise.
+      !! If any image in a team calls this subroutine, then every image in the 
+      !! the same team must call this subroutine.  This subroutine sets the
+      !! "boolean" argument .true. if it is true in all participating images
+      !! upon entry and .false. otherwise.
       implicit none
       logical, intent(inout) :: boolean
     end subroutine
