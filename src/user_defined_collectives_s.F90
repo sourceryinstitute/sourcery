@@ -5,6 +5,11 @@
 !     contract # NRC-HQ-60-17-C-0007
 !
 submodule(user_defined_collectives_m) user_defined_collectives_s
+
+#ifdef USE_CAFFEINE
+   use caffeine_m, only : co_reduce => caf_co_reduce
+#endif
+
   implicit none
 
 contains

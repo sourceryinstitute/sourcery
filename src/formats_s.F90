@@ -1,5 +1,10 @@
 submodule(formats_m) formats_s
   !! Construct separated-value formats 
+  
+#ifdef USE_CAFFEINE
+   use caffeine_m, only : error stop => caf_error_stop
+#endif
+  
   implicit none
 
 contains

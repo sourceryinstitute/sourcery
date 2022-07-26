@@ -7,6 +7,11 @@ module data_partition_test
      describe, it, assert_equals, assert_that  ! functions
    use data_partition_m, only : data_partition_t
    use iso_fortran_env, only : real64
+   
+#ifdef USE_CAFFEINE
+   use caffeine_m, only : this_image => caf_this_image, num_images => caf_num_images, co_sum => caf_co_sum
+#endif
+   
    implicit none
 
    private

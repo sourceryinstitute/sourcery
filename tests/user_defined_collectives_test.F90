@@ -1,6 +1,11 @@
 module user_defined_collectives_test
     use Vegetables, only: Result_t, Test_Item_t, describe, it, assert_equals, assert_that, assert_not
     use user_defined_collectives_m, only : co_all
+    
+#ifdef USE_CAFFEINE
+   use caffeine_m, only : this_image => caf_this_image
+#endif
+    
     implicit none
 
     private

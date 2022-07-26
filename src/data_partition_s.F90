@@ -1,5 +1,11 @@
 submodule(data_partition_m) data_partition_s
   use assert_m, only : assert
+  
+#ifdef USE_CAFFEINE
+   use caffeine_m, only : error stop => caf_error_stop, this_image => caf_this_image, &
+   num_images => caf_num_images, co_sum => caf_co_sum
+#endif
+  
   implicit none
 
   logical, parameter :: verbose=.false.
