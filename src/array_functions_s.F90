@@ -5,7 +5,13 @@
 !     contract # NRC-HQ-60-17-C-0007
 !
 submodule(array_functions_m) array_functions_s
-  use assert_m, only : assert
+
+#ifdef USE_CAFFEINE
+   use caffeine_assert_m, only : assert
+#else
+   use assert_m, only : assert
+#endif  
+
   implicit none
 contains
 
