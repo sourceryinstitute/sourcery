@@ -5,11 +5,11 @@ contains
 
     module procedure construct
       test_result%description_ = description
-      test_result%outcome_ = outcome
+      test_result%passed_ = passed
     end procedure
 
     module procedure characterize
-      characterization = merge("Pass: ", "Fail: ", self%outcome_) // self%description_
+      characterization = merge("Passes on ", "Fails on  ", self%passed_) // self%description_ // "."
     end procedure
 
 end submodule test_result_s

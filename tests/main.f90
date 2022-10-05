@@ -6,24 +6,28 @@ program main
 contains
     subroutine run()
         use data_partition_test, only: &
-                data_partition_data_partition => test_data_partition
+                data_partition_data_partition => &
+                    test_data_partition
         use formats_test, only: &
-                formats_object => test_object
+                formats_object => &
+                    test_object
         use object_m_test, only: &
-                object_m_object => test_object
-        use user_defined_collectives_test, only: &
-                user_defined_collectives_co_all => test_co_all
+                object_m_object => &
+                    test_object
         use vegetables, only: test_item_t, test_that, run_tests
 
+
+
         type(test_item_t) :: tests
-        type(test_item_t) :: individual_tests(4)
+        type(test_item_t) :: individual_tests(3)
 
         individual_tests(1) = data_partition_data_partition()
         individual_tests(2) = formats_object()
         individual_tests(3) = object_m_object()
-        individual_tests(4) = user_defined_collectives_co_all()
         tests = test_that(individual_tests)
 
+
         call run_tests(tests)
+
     end subroutine
 end program

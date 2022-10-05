@@ -6,7 +6,7 @@ module test_m
   implicit none
 
   private
-  public :: test_t
+  public :: test_t, test_result_t
 
   type, abstract :: test_t
     !! Facilitate testing and test reporting
@@ -24,7 +24,7 @@ module test_m
     end function
 
     function results_interface() result(test_results)
-      !! The result is an array of test outcomes for reporting
+      !! The result is an array of test results for subsequent reporting in the "report" type-bound procedure
       import test_result_t
       type(test_result_t), allocatable :: test_results(:)
     end function

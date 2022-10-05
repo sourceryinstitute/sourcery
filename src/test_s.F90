@@ -19,7 +19,7 @@ contains
       print *, test%subject()
 
       do i=1,size(test_results)
-        print *,"  ",test_results(i)%characterize()
+        print *,"   ",test_results(i)%characterize()
       end do
 #ifndef XLF
     end associate

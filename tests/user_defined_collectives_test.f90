@@ -1,43 +1,47 @@
 module user_defined_collectives_test
-    use Vegetables, only: Result_t, Test_Item_t, describe, it, assert_equals, assert_that, assert_not
     use user_defined_collectives_m, only : co_all
+    use test_m, only : test_t, test_result_t
     implicit none
 
     private
-    public :: test_co_all
+    public :: collectives_test_t
+
+    type, extends(test_t) :: collectives_test_t
+    contains
+      procedure, nopass :: subject
+      procedure, nopass :: results
+    end type
 
 contains
 
-    function test_co_all() result(tests)
-        type(Test_Item_t) :: tests
+  pure function subject() result(specimen)
+    character(len=:), allocatable :: specimen
+    specimen = "The co_all subroutine" 
+  end function
 
-        tests = describe( &
-                "co_all", &
-                [it( &
-                        "sets all arguments to .true. when previously .true. on all images", &
-                        check_co_all_with_all_true), &
-                 it( &
-                        "sets all arguments to .false. when previously .false. on image 1", &
-                        check_co_all_with_one_false)])
-    end function
+  function results() result(test_results)
+    type(test_result_t), allocatable :: test_results(:)
 
-    function check_co_all_with_all_true() result(result_)
-        type(Result_t) :: result_
-        logical all_true
+    test_results = [ &
+      test_result_t("setting all arguments to .true. when previously .true. on all images", check_co_all_with_all_true()), &
+      test_result_t("setting all arguments to .false. when previously .false. on image 1", check_co_all_with_one_false()) &
+    ]
+  end function
 
-        all_true=.true.
+  function check_co_all_with_all_true() result(test_passed)
+    logical test_passed, all_true
 
-        call co_all(all_true)
-        result_ = assert_that(all_true, "co_all argument remains .true. after call with all arguments .true.")
-    end function
+    all_true=.true.
+    call co_all(all_true)
+    test_passed = all_true
+  end function
 
-    function check_co_all_with_one_false() result(result_)
-        type(Result_t) :: result_
-        logical all_true
+  function check_co_all_with_one_false() result(test_passed)
+    logical test_passed, all_true
 
-        all_true = merge(.false., .true., this_image()==1)
-        call co_all(all_true)
-        result_ = assert_not(all_true, "co_all argument is .false. after call with one argument .false.")
-    end function
+    all_true = merge(.false., .true., this_image()==1)
+    call co_all(all_true)
+    test_passed = .not. all_true
+  end function
 
 end module user_defined_collectives_test
