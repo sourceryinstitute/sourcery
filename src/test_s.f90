@@ -14,7 +14,7 @@ contains
           print *,"   ",test_results(i)%characterize()
         end do
         associate(num_passes => count(test_results%passed()))
-          print '(a,i3,a,i3,a)',"   ",num_passes," of ", num_tests," tests pass."
+          print '(3(a,i0))',"   ",num_passes," of ", num_tests," tests pass."
         end associate
       end associate
     end associate
