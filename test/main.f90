@@ -5,13 +5,19 @@ program main
   use formats_test, only : formats_test_t  
   implicit none
 
-  type(data_partition_test_t) data_partition_test
   type(collectives_test_t) collectives_test
-  type(object_test_t) object_test
+  type(data_partition_test_t) data_partition_test
   type(formats_test_t) formats_test
+  type(object_test_t) object_test
 
-  call data_partition_test%report()
-  call collectives_test%report()
-  call object_test%report()
-  call formats_test%report()
+  integer :: passes=0, tests=0
+
+  call data_partition_test%report(passes, tests)
+  call collectives_test%report(passes, tests)
+  call object_test%report(passes, tests)
+  call formats_test%report(passes, tests)
+
+  print *
+  print *,"_________ In total, ",passes," of ",tests, " tests pass. _________"
+
 end program

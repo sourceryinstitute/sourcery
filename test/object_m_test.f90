@@ -25,7 +25,7 @@ contains
     specimen = "The object_m type" 
   end function
 
-  pure function results() result(test_results)
+  function results() result(test_results)
     type(test_result_t), allocatable :: test_results(:)
 
     test_results = [ &

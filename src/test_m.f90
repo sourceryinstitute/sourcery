@@ -33,10 +33,11 @@ module test_m
 
   interface
 
-    module subroutine report(test)
-      !! Report test results
+    module subroutine report(test, passes, tests)
+      !! Print the test results and increment the tallies of passing tests and total tests
       implicit none
       class(test_t), intent(in) :: test
+      integer, intent(inout) :: passes, tests
     end subroutine
 
   end interface
