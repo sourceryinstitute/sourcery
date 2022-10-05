@@ -9,7 +9,7 @@ contains
     end procedure
 
     module procedure characterize
-      characterization = merge("Passes on ", "Fails on  ", self%passed_) // self%description_ // "."
+      characterization = merge("passes on ", "fails on  ", self%passed_) // self%description_ // "."
     end procedure
 
 end submodule test_result_s

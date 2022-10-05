@@ -8,18 +8,14 @@ contains
         use data_partition_test, only: &
                 data_partition_data_partition => &
                     test_data_partition
-        use formats_test, only: &
-                formats_object => &
-                    test_object
         use vegetables, only: test_item_t, test_that, run_tests
 
 
 
         type(test_item_t) :: tests
-        type(test_item_t) :: individual_tests(2)
+        type(test_item_t) :: individual_tests(1)
 
         individual_tests(1) = data_partition_data_partition()
-        individual_tests(2) = formats_object()
         tests = test_that(individual_tests)
 
 
