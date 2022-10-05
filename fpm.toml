@@ -1,17 +1,9 @@
 name = "sourcery"
-version = "1.0.0"
+version = "3.1.0"
 license = "BSD"
 author = ["Damian Rouson"]
-maintainer = "damian@sourceryinstitute.org"
-copyright = "2020 Sourcery Institute"
+maintainer = "damian@archaeologic.codes"
+copyright = "2020-2022 Sourcery Institute"
 
 [dependencies]
-assert = {git = "https://github.com/sourceryinstitute/assert", tag = "1.0.0"}
-
-[dev-dependencies]
-vegetables = {git = "https://gitlab.com/everythingfunctional/vegetables", tag = "v7.2.0"}
-
-[[test]]
-name="unit"
-source-dir="tests"
-main="main.f90"
+assert = {git = "https://github.com/sourceryinstitute/assert", tag = "1.4.0"}
