@@ -8,22 +8,20 @@ contains
 
   module procedure report
     integer i
-#ifdef XLF
-    type(test_result_t), allocatable :: test_results(:)
-    test_results = test%results()
-#else
-    associate(test_results => test%results())
-#endif
 
+    associate(test_results => test%results())
       print *
       print *, test%subject()
-
-      do i=1,size(test_results)
-        print *,"   ",test_results(i)%characterize()
-      end do
-#ifndef XLF
+      associate(num_tests => size(test_results))
+        do i=1,num_tests
+          print *,"   ",test_results(i)%characterize()
+        end do
+        associate(num_passes => count(test_results%passed()))
+          print '(a,i3,a,i3,a)',"   ",num_passes," of ", num_tests," tests pass."
+        end associate
+      end associate
     end associate
-#endif
+
   end procedure
 
 end submodule test_s
