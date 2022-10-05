@@ -12,4 +12,8 @@ contains
       characterization = merge("passes on ", "FAILS on  ", self%passed_) // self%description_ // "."
     end procedure
 
+    module procedure passed
+      test_passed = self%passed_
+    end procedure
+
 end submodule test_result_s

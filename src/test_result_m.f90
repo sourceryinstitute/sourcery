@@ -12,6 +12,7 @@ module test_result_m
     logical passed_ 
   contains
     procedure :: characterize
+    procedure :: passed
   end type
 
   interface test_result_t
@@ -33,6 +34,13 @@ module test_result_m
       implicit none
       class(test_result_t), intent(in) :: self
       character(len=:), allocatable :: characterization
+    end function
+
+    elemental module function passed(self) result(test_passed)
+      !! The result is a character description of the test and its outcome
+      implicit none
+      class(test_result_t), intent(in) :: self
+      logical test_passed
     end function
 
   end interface
