@@ -29,8 +29,8 @@ contains
     type(test_result_t), allocatable :: test_results(:)
 
     test_results = [ &
-      test_result_t(".not. user_defined() if only default-initialized", check_default_initialization()), &
-      test_result_t("user_defined() after call mark_as_defined", check_mark_as_defined()) &
+      test_result_t("object being .not. user_defined() if it is only default-initialized", check_default_initialization()), &
+      test_result_t("object being user_defined() after call to mark_as_defined", check_mark_as_defined()) &
     ]
   end function
 
