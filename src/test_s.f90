@@ -6,9 +6,9 @@ contains
   module procedure report
     integer i
 
+    print *
+    print *, test%subject()
     associate(test_results => test%results())
-      print *
-      print *, test%subject()
       associate(num_tests => size(test_results))
         tests = tests + num_tests
         do i=1,num_tests
