@@ -17,7 +17,7 @@ module test_result_m
 
   interface test_result_t
 
-    pure module function construct(description, passed) result(test_result)
+    elemental module function construct(description, passed) result(test_result)
       !! The result is a test_result_t object with the components defined by the dummy arguments
       implicit none
       character(len=*), intent(in) :: description
