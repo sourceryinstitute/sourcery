@@ -52,6 +52,7 @@ Contents
 
 ### Classes
 * Parallel data partitioning and gathering,
+* A minimalistic unit testing framework comprised of two types: `test_t` and `test_result_t`
 * (Co-)[Object pattern] abstract parent,
 * Runtime units tracking,
 * A test oracle using the [Template Method pattern], and
