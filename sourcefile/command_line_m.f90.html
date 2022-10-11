@@ -88,7 +88,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 1.6% of total for source files.">15 statements</a>
+    title=" 2.3% of total for source files.">22 statements</a>
      </li> 
     <li><i class="fa fa-code"></i><a href="../src/command_line_m.f90"> Source File</a></li>
   </ul>
@@ -240,22 +240,31 @@
 <a id="ln-8" name="ln-8" href="#ln-8"></a><span class="w">  </span><span class="k">type </span><span class="n">command_line_t</span><span class="w"></span>
 <a id="ln-9" name="ln-9" href="#ln-9"></a><span class="w">  </span><span class="k">contains</span>
 <a id="ln-10" name="ln-10" href="#ln-10"></a><span class="k">    procedure</span><span class="p">,</span><span class="w"> </span><span class="k">nopass</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">argument_present</span><span class="w"></span>
-<a id="ln-11" name="ln-11" href="#ln-11"></a><span class="w">  </span><span class="k">end type</span>
-<a id="ln-12" name="ln-12" href="#ln-12"></a>
-<a id="ln-13" name="ln-13" href="#ln-13"></a><span class="k">  interface</span>
-<a id="ln-14" name="ln-14" href="#ln-14"></a>
-<a id="ln-15" name="ln-15" href="#ln-15"></a><span class="k">    module function </span><span class="n">argument_present</span><span class="p">(</span><span class="n">acceptable_argument</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">found</span><span class="p">)</span><span class="w"></span>
-<a id="ln-16" name="ln-16" href="#ln-16"></a><span class="w">      </span><span class="c">!! result is .true. only if a command-line argument matches an element of this function&#39;s argument</span>
-<a id="ln-17" name="ln-17" href="#ln-17"></a><span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">acceptable_argument</span><span class="p">(:)</span><span class="w"></span>
-<a id="ln-18" name="ln-18" href="#ln-18"></a><span class="w">        </span><span class="c">!! sample list: [character(len=len(&lt;longest_argument&gt;)):: &quot;--benchmark&quot;, &quot;-b&quot;, &quot;/benchmark&quot;, &quot;/b&quot;]</span>
-<a id="ln-19" name="ln-19" href="#ln-19"></a><span class="w">        </span><span class="c">!! where dashes support Linux/macOS, slashes support Windows, and &lt;longest_argument&gt; must be replaced</span>
-<a id="ln-20" name="ln-20" href="#ln-20"></a><span class="w">        </span><span class="c">!! by the longest list element (&quot;--benchmark&quot; above)</span>
-<a id="ln-21" name="ln-21" href="#ln-21"></a><span class="w">      </span><span class="kt">logical </span><span class="n">found</span><span class="w"></span>
-<a id="ln-22" name="ln-22" href="#ln-22"></a><span class="w">    </span><span class="k">end function</span>
-<a id="ln-23" name="ln-23" href="#ln-23"></a>
-<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="k">  end interface</span>
+<a id="ln-11" name="ln-11" href="#ln-11"></a><span class="w">    </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">nopass</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">flag_value</span><span class="w"></span>
+<a id="ln-12" name="ln-12" href="#ln-12"></a><span class="w">  </span><span class="k">end type</span>
+<a id="ln-13" name="ln-13" href="#ln-13"></a>
+<a id="ln-14" name="ln-14" href="#ln-14"></a><span class="k">  interface</span>
+<a id="ln-15" name="ln-15" href="#ln-15"></a>
+<a id="ln-16" name="ln-16" href="#ln-16"></a><span class="k">    module function </span><span class="n">argument_present</span><span class="p">(</span><span class="n">acceptable_argument</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">found</span><span class="p">)</span><span class="w"></span>
+<a id="ln-17" name="ln-17" href="#ln-17"></a><span class="w">      </span><span class="k">implicit none</span><span class="w"></span>
+<a id="ln-18" name="ln-18" href="#ln-18"></a><span class="w">      </span><span class="c">!! result is .true. only if a command-line argument matches an element of this function&#39;s argument</span>
+<a id="ln-19" name="ln-19" href="#ln-19"></a><span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">acceptable_argument</span><span class="p">(:)</span><span class="w"></span>
+<a id="ln-20" name="ln-20" href="#ln-20"></a><span class="w">        </span><span class="c">!! sample list: [character(len=len(&lt;longest_argument&gt;)):: &quot;--benchmark&quot;, &quot;-b&quot;, &quot;/benchmark&quot;, &quot;/b&quot;]</span>
+<a id="ln-21" name="ln-21" href="#ln-21"></a><span class="w">        </span><span class="c">!! where dashes support Linux/macOS, slashes support Windows, and &lt;longest_argument&gt; must be replaced</span>
+<a id="ln-22" name="ln-22" href="#ln-22"></a><span class="w">        </span><span class="c">!! by the longest list element (&quot;--benchmark&quot; above)</span>
+<a id="ln-23" name="ln-23" href="#ln-23"></a><span class="w">      </span><span class="kt">logical </span><span class="n">found</span><span class="w"></span>
+<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="w">    </span><span class="k">end function</span>
 <a id="ln-25" name="ln-25" href="#ln-25"></a>
-<a id="ln-26" name="ln-26" href="#ln-26"></a><span class="k">end module</span><span class="w"></span>
+<a id="ln-26" name="ln-26" href="#ln-26"></a><span class="k">    module function </span><span class="n">flag_value</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">flag_val</span><span class="p">)</span><span class="w"></span>
+<a id="ln-27" name="ln-27" href="#ln-27"></a><span class="w">      </span><span class="c">!! result is the value passed adjacent to a command-line flag</span>
+<a id="ln-28" name="ln-28" href="#ln-28"></a><span class="w">      </span><span class="k">implicit none</span>
+<a id="ln-29" name="ln-29" href="#ln-29"></a><span class="k">      </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">flag</span><span class="w"></span>
+<a id="ln-30" name="ln-30" href="#ln-30"></a><span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">flag_val</span><span class="w"></span>
+<a id="ln-31" name="ln-31" href="#ln-31"></a><span class="w">    </span><span class="k">end function</span>
+<a id="ln-32" name="ln-32" href="#ln-32"></a>
+<a id="ln-33" name="ln-33" href="#ln-33"></a><span class="k">  end interface</span>
+<a id="ln-34" name="ln-34" href="#ln-34"></a>
+<a id="ln-35" name="ln-35" href="#ln-35"></a><span class="k">end module</span><span class="w"></span>
 </pre></div>
 
     </section>
@@ -274,7 +283,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-09 03:11            </p>
+ on 2022-10-11 22:39            </p>
         </div>
       </div>
       <br>
