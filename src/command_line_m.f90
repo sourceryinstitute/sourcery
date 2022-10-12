@@ -23,11 +23,11 @@ module command_line_m
       logical found
     end function
 
-    module function flag_value(flag) result(flag_val)
+    module function flag_value(flag)
       !! result is the value passed adjacent to a command-line flag
       implicit none
       character(len=*), intent(in) :: flag
-      character(len=:), allocatable :: flag_val
+      character(len=:), allocatable :: flag_value
     end function
 
   end interface
