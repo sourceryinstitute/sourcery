@@ -1,5 +1,4 @@
 submodule(command_line_m) command_line_s
-  use assert_m, only : assert
   implicit none
 
 contains
@@ -37,16 +36,21 @@ contains
 
   module procedure flag_value
 
-    integer argnum, arglen
-    character(len=64) arg
+    integer argnum, arglen, flag_value_length
+    character(len=:), allocatable :: arg
+
 
     flag_search: &
     do argnum = 1,command_argument_count()
-      call get_command_argument(argnum, arg, arglen)
+
+      call get_command_argument(argnum, length=arglen)
+      allocate(character(len=arglen) :: arg)
+      call get_command_argument(argnum, arg)
+
       if (arg==flag) then
-        call assert(arglen<=len(arg), "flag_value: arglen<=len(arg)")
-        allocate(character(len=arglen) :: flag_val)
-        call get_command_argument(argnum+1, flag_val)
+        call get_command_argument(argnum+1, length=flag_value_length)
+        allocate(character(len=flag_value_length) :: flag_value)
+        call get_command_argument(argnum+1, flag_value)
         exit flag_search
       end if
     end do flag_search
