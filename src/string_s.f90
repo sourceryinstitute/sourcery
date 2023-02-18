@@ -3,13 +3,17 @@ submodule(string_m) string_s
   
 contains
 
-    module procedure construct
-      new_string%string_ = string
-    end procedure
+  module procedure construct
+    new_string%string_ = string
+  end procedure
 
-    module procedure string
-      raw_string = self%string_
-    end procedure
+  module procedure string
+    raw_string = self%string_
+  end procedure
+
+  module procedure is_allocated
+    string_allocated = allocated(self%string_)
+  end procedure
 
   module procedure array_of_strings
     character(len=:), allocatable :: remainder, next_string
