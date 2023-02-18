@@ -5,6 +5,7 @@ program main
   use formats_test, only : formats_test_t  
   use test_result_test, only : test_result_test_t  
   use command_line_test, only : command_line_test_t
+  use string_test, only : string_test_t
   implicit none
 
   type(collectives_test_t) collectives_test
@@ -13,6 +14,7 @@ program main
   type(object_test_t) object_test
   type(test_result_test_t) test_result_test
   type(command_line_test_t) command_line_test
+  type(string_test_t) string_test
 
   integer :: passes=0, tests=0
 
@@ -22,6 +24,7 @@ program main
   call formats_test%report(passes, tests)
   call test_result_test%report(passes, tests)
   call command_line_test%report(passes, tests)
+  call string_test%report(passes, tests)
 
   print *
   print *,"_________ In total, ",passes," of ",tests, " tests pass. _________"
