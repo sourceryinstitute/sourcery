@@ -10,6 +10,7 @@ module string_m
     character(len=:), allocatable :: string_
   contains
     procedure :: string
+    procedure :: is_allocated
   end type
 
   interface string_t
@@ -35,7 +36,13 @@ module string_m
       character(len=*), intent(in) :: delimited_strings, delimiter
       type(string_t), allocatable :: strings_array(:)
     end function
-   
+
+    elemental module function is_allocated(self) result(string_allocated)
+      implicit none
+      class(string_t), intent(in) :: self
+      logical string_allocated
+    end function
+
   end interface
   
 end module string_m
