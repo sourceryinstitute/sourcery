@@ -1,5 +1,5 @@
 name = "sourcery"
-version = "3.1.0"
+version = "3.7.0"
 license = "BSD"
 author = ["Damian Rouson"]
 maintainer = "damian@archaeologic.codes"
