@@ -24,7 +24,7 @@ contains
     type(test_result_t), allocatable :: test_results(:)
 
     test_results = [ &
-      test_result_t("constructs and array of test_result_t objects elmentally", check_array_result_construction()) &
+      test_result_t("constructs and array of test_result_t objects elementally", check_array_result_construction()) &
     ]
   end function
 
