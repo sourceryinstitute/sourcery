@@ -18,14 +18,16 @@ program main
 
   integer :: passes=0, tests=0
 
+
   call data_partition_test%report(passes, tests)
   call collectives_test%report(passes, tests)
   call object_test%report(passes, tests)
   call formats_test%report(passes, tests)
   call test_result_test%report(passes, tests)
-  !call command_line_test%report(passes, tests)
   call string_test%report(passes, tests)
-
-  if (this_image()==1) print *, new_line('a'), "_________ In total, ",passes," of ",tests, " tests pass. _________"
+  if (this_image()==1) then
+    call command_line_test%report(passes, tests)
+    print *, new_line('a'), "_________ In total, ",passes," of ",tests, " tests pass. _________"
+  end if
   if (passes /= tests) error stop
 end program
