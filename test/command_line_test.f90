@@ -34,7 +34,6 @@ contains
     integer exit_status, command_status
     character(len=132) command_message
 
-    ! command = "fpm run --example get-flag-value -- --input-file ni_weights_iter131072 > /dev/null 2>&1", &
     call execute_command_line( &
       command = "fpm run --example get-flag-value -- --input-file some_file_name", &
       wait = .true., exitstat = exit_status, cmdstat = command_status, cmdmsg = command_message &
