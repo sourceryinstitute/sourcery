@@ -1,4 +1,5 @@
 submodule(test_m) test_s
+  use user_defined_collectives_m, only : co_all
   implicit none
 
 contains
@@ -6,17 +7,25 @@ contains
   module procedure report
     integer i
 
-    print *
-    print *, test%subject()
-    associate(test_results => test%results())
-      associate(num_tests => size(test_results))
-        tests = tests + num_tests
-        do i=1,num_tests
-          print *,"   ",test_results(i)%characterize()
-        end do
-        associate(num_passes => count(test_results%passed()))
-          print '(a,2(i0,a))'," ",num_passes," of ", num_tests," tests pass."
-          passes = passes + num_passes
+    associate(me => this_image())
+      if (me==1) print *, new_line('a'), test%subject()
+      associate(test_results => test%results())
+        associate(num_tests => size(test_results))
+          tests = tests + num_tests
+          if (me==1) then
+            do i=1,num_tests
+              if (me==1) print *,"   ",test_results(i)%characterize()
+            end do
+          end if
+          block 
+            logical, allocatable :: passing_tests(:)
+            passing_tests = test_results%passed()
+            call co_all(passing_tests)
+            associate(num_passes => count(passing_tests))
+              if (me==1) print '(a,2(i0,a))'," ",num_passes," of ", num_tests," tests pass."
+              passes = passes + num_passes
+            end associate
+          end block
         end associate
       end associate
     end associate
