@@ -1,9 +1,9 @@
 name = "sourcery"
-version = "3.7.0"
+version = "3.8.0"
 license = "BSD"
 author = ["Damian Rouson"]
 maintainer = "damian@archaeologic.codes"
-copyright = "2020-2022 Sourcery Institute"
+copyright = "2020-2023 Sourcery Institute"
 
 [dependencies]
 assert = {git = "https://github.com/sourceryinstitute/assert", tag = "1.4.0"}
