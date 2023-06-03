@@ -27,4 +27,5 @@ program main
   call string_test%report(passes, tests)
 
   if (this_image()==1) print *, new_line('a'), "_________ In total, ",passes," of ",tests, " tests pass. _________"
+  if (passes /= tests) error stop
 end program
