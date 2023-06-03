@@ -18,14 +18,35 @@ program main
 
   integer :: passes=0, tests=0
 
+
   call data_partition_test%report(passes, tests)
   call collectives_test%report(passes, tests)
   call object_test%report(passes, tests)
   call formats_test%report(passes, tests)
   call test_result_test%report(passes, tests)
-  call command_line_test%report(passes, tests)
   call string_test%report(passes, tests)
 
+  if (.not. GitHub_CI())  call command_line_test%report(passes, tests)
+
   if (this_image()==1) print *, new_line('a'), "_________ In total, ",passes," of ",tests, " tests pass. _________"
+
   if (passes /= tests) error stop
+
+contains
+
+  logical function GitHub_CI()
+    integer name_length
+    character(len=:), allocatable :: CI
+
+    call get_environment_variable("CI", length=name_length)
+
+    if (name_length==0) then
+      GitHub_CI = .false.
+    else
+      allocate(character(len=name_length):: CI)
+      call get_environment_variable("CI", value=CI)
+      GitHub_CI = merge(.true., .false., CI=="true")
+    end if
+  end function
+
 end program

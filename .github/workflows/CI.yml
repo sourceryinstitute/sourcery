@@ -4,13 +4,15 @@ on: [push, pull_request]
 
 jobs:
   Build:
-    runs-on: ubuntu-22.04
-    strategy:
-      fail-fast: true
+    runs-on: [ubuntu-22.04]
 
     env:
       FC: gfortran
       GCC_V: 12
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
 
     - name: Install fpm
       uses: fortran-lang/setup-fpm@v4
@@ -19,37 +21,27 @@ jobs:
 
     - name: Get Time
       id: time
-      uses: nanzm/get-time-action@v1.0
+      uses: nanzm/get-time-action@v1.1
       with:
         format: 'YYYY-MM'
 
     - name: Setup cache for opencoarrays
       id: cache-opencoarrays
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: "OpenCoarrays-2.10.0/"
         key: ${{ steps.time.outputs.time }}
 
     - name: Install GFortran, OpenCoarrays
       run: |
-        sudo apt install -y gfortran-${GCC_V} graphviz
+        sudo apt update
+        sudo apt install -y build-essential gfortran-${GCC_V} g++-${GCC_V} pkg-config make
         sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-${GCC_V} 100 \
-        --slave /usr/bin/gfortran gfortran /usr/bin/gfortran-${GCC_V} \
-        --slave /usr/bingcov gcov /usr/bin/gcov-${GCC_V}
+          --slave /usr/bin/gfortran gfortran /usr/bin/gfortran-${GCC_V} \
+          --slave /usr/bin/g++ g++ /usr/bin/g++-${GCC_V}
         if [ ! -d OpenCoarrays-2.10.0 ] ; then wget -P . https://github.com/sourceryinstitute/OpenCoarrays/releases/download/2.10.0/OpenCoarrays-2.10.0.tar.gz && tar -xf OpenCoarrays-2.10.0.tar.gz && cd OpenCoarrays-2.10.0 && TERM=xterm ./install.sh -y; fi
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Build and Test
+    - name: Build, run, and test
       run: |
-        export PATH="${HOME}/.local/bin:$PATH"
         source OpenCoarrays-2.10.0/prerequisites/installations/opencoarrays/2.10.0/setup.sh
-        fpm test \
-          --compiler caf \
-          --runner "cafrun -n 4" \
-          --flag "-DCOMPILER_LACKS_COLLECTIVE_SUBROUTINES" \
-          --flag "-DCOMPILER_LACKS_FINDLOC" \
-          --flag "-Wall" \
-          --flag "-std=f2018"
+        fpm test --compiler caf --runner "cafrun -n 2" 
