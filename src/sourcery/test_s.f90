@@ -5,7 +5,6 @@ submodule(test_m) test_s
 contains
 
   module procedure report
-    integer i
 
     associate(me => this_image())
       if (me==1) print *, new_line('a'), test%subject()
@@ -13,9 +12,12 @@ contains
         associate(num_tests => size(test_results))
           tests = tests + num_tests
           if (me==1) then
-            do i=1,num_tests
-              if (me==1) print *,"   ",test_results(i)%characterize()
-            end do
+            block
+              integer i
+              do i=1,num_tests
+                if (me==1) print *,"   ",test_results(i)%characterize()
+              end do
+            end block
           end if
           block 
             logical, allocatable :: passing_tests(:)
