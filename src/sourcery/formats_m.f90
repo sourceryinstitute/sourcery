@@ -9,11 +9,7 @@ module formats_m
 
     pure module function separated_values(separator, mold) result(format_string)
       character(len=*), intent(in) :: separator 
-#ifndef NAGFOR
       class(*), intent(in) :: mold(..)
-#else
-      class(*), intent(in) :: mold(:)
-#endif
       character(len=:), allocatable :: format_string
     end function
 

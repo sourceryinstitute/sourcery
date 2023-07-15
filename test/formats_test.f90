@@ -1,7 +1,6 @@
 module formats_test
   !! Verify that format strings provide the desired formatting
-  use formats_m, only : separated_values
-  use test_m, only : test_t, test_result_t
+  use sourcery_m, only : separated_values, test_t, test_result_t
   implicit none
 
   private
