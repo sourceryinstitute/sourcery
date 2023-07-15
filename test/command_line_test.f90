@@ -1,7 +1,6 @@
 module command_line_test
   !! Verify object pattern asbtract parent
-  use test_m, only : test_t, test_result_t
-  use command_line_m, only : command_line_t
+  use sourcery_m, only : test_t, test_result_t, command_line_t
   implicit none
 
   private

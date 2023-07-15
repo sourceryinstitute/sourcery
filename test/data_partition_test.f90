@@ -1,7 +1,6 @@
 module data_partition_test
   !! verify data partitioning across images and data gathering
-  use data_partition_m, only : data_partition_t
-  use test_m, only : test_t, test_result_t
+  use sourcery_m, only : data_partition_t, test_t, test_result_t
   use iso_fortran_env, only : real64
   implicit none
 

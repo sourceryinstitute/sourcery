@@ -1,7 +1,6 @@
 module test_result_test
   !! Verify object pattern asbtract parent
   use test_m, only : test_t, test_result_t
-  use test_result_m, only : test_result_t
   implicit none
 
   private

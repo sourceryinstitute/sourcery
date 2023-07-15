@@ -1,6 +1,5 @@
 module user_defined_collectives_test
-    use user_defined_collectives_m, only : co_all
-    use test_m, only : test_t, test_result_t
+    use sourcery_m, only : co_all, test_t, test_result_t
     implicit none
 
     private

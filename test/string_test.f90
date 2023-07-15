@@ -1,6 +1,5 @@
 module string_test
-  use test_m, only : test_t, test_result_t
-  use string_m, only : string_t
+  use sourcery_m, only : test_t, test_result_t, string_t
   implicit none
 
   private
