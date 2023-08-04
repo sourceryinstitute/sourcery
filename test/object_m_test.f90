@@ -1,4 +1,4 @@
-module object_m_test
+module object_m_test_m
   !! Verify object pattern asbtract parent
   use sourcery_m, only : test_t, test_result_t, object_t
   implicit none
@@ -74,4 +74,4 @@ contains
     end associate
   end subroutine
 
-end module object_m_test
+end module object_m_test_m
