@@ -1,4 +1,4 @@
-module string_test
+module string_test_m
   use sourcery_m, only : test_t, test_result_t, string_t
   implicit none
 
@@ -36,4 +36,4 @@ contains
              (all([scalar_allocated%is_allocated(), array_allocated%is_allocated()]))
   end function
 
-end module string_test
+end module string_test_m

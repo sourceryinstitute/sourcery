@@ -1,4 +1,4 @@
-module data_partition_test
+module data_partition_test_m
   !! verify data partitioning across images and data gathering
   use sourcery_m, only : data_partition_t, test_t, test_result_t
   use iso_fortran_env, only : real64
@@ -167,4 +167,4 @@ contains
    end associate
  end function
 
-end module data_partition_test
+end module data_partition_test_m
