@@ -1,4 +1,4 @@
-module user_defined_collectives_test
+module user_defined_collectives_test_m
     use sourcery_m, only : co_all, test_t, test_result_t
     implicit none
 
@@ -43,4 +43,4 @@ contains
     test_passed = .not. all_true
   end function
 
-end module user_defined_collectives_test
+end module user_defined_collectives_test_m

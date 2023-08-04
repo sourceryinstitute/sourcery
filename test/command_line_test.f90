@@ -1,4 +1,4 @@
-module command_line_test
+module command_line_test_m
   !! Verify object pattern asbtract parent
   use sourcery_m, only : test_t, test_result_t, command_line_t
   implicit none
@@ -41,4 +41,4 @@ contains
 
   end function
 
-end module command_line_test
+end module command_line_test_m

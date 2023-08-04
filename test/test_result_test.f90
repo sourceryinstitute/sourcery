@@ -1,4 +1,4 @@
-module test_result_test
+module test_result_test_m
   !! Verify object pattern asbtract parent
   use test_m, only : test_t, test_result_t
   implicit none
@@ -36,4 +36,4 @@ contains
     passed = size(test_results)==2
   end function
 
-end module test_result_test
+end module test_result_test_m

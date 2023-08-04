@@ -1,4 +1,4 @@
-module formats_test
+module formats_test_m
   !! Verify that format strings provide the desired formatting
   use sourcery_m, only : separated_values, test_t, test_result_t
   implicit none
@@ -67,4 +67,4 @@ contains
     test_passes= expected_output == captured_output
   end function
 
-end module formats_test
+end module formats_test_m

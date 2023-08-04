@@ -1,11 +1,11 @@
 program main
-  use user_defined_collectives_test, only : collectives_test_t  
-  use data_partition_test, only : data_partition_test_t
-  use object_m_test, only : object_test_t  
-  use formats_test, only : formats_test_t  
-  use test_result_test, only : test_result_test_t  
-  use command_line_test, only : command_line_test_t
-  use string_test, only : string_test_t
+  use user_defined_collectives_test_m, only : collectives_test_t  
+  use data_partition_test_m, only : data_partition_test_t
+  use object_m_test_m, only : object_test_t  
+  use formats_test_m, only : formats_test_t  
+  use test_result_test_m, only : test_result_test_t  
+  use command_line_test_m, only : command_line_test_t
+  use string_test_m, only : string_test_t
   implicit none
 
   type(collectives_test_t) collectives_test
