@@ -24,10 +24,10 @@ contains
   function results() result(test_results)
     type(test_result_t), allocatable :: test_results(:)
 
-        test_results = [ &
-          test_result_t("partitioning items nearly evenly across bins", verify_block_partitioning()), &
-          test_result_t("partitioning all item across all bins without item loss", verify_all_items_partitioned()) &
-        ]
+    test_results = [ &
+      test_result_t("partitioning items nearly evenly across bins", verify_block_partitioning()), &
+      test_result_t("partitioning all item across all bins without item loss", verify_all_items_partitioned()) &
+    ]
   end function
 
   function verify_block_partitioning() result(test_passes)
