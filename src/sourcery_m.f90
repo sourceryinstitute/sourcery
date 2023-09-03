@@ -2,6 +2,7 @@ module sourcery_m
   !! export all public entities from every other sourcery module
   use command_line_m, only : command_line_t
   use data_partition_m, only : data_partition_t
+  use bin_m, only : bin_t
   use formats_m, only : csv, cscv, separated_values
   use file_m, only : file_t
   use string_m, only : string_t
