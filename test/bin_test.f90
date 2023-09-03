@@ -65,7 +65,7 @@ contains
     logical test_passes
 
     type(bin_t), allocatable :: bins(:)
-    integer, parameter :: n_items=12, n_bins=5
+    integer, parameter :: n_items=11, n_bins=6
     integer b
 
     bins = [( bin_t(num_items=n_items, num_bins=n_bins, bin_number=b), b = 1,n_bins )]

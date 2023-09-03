@@ -11,11 +11,11 @@ contains
       associate( remainder => mod(num_items, num_bins), items_per_bin => num_items/num_bins)
 
         if (bin_number <= remainder) then
-          bin%first_ = (bin_number-1)*(items_per_bin+1) + 1
-          bin%last_ = bin%first_ + items_per_bin
+          bin%first_ = 1 + (bin_number-1)*(items_per_bin+1)
+          bin%last_  = bin_number*(items_per_bin+1)
         else
-          bin%first_ = remainder*(items_per_bin+1) + (bin_number-remainder)*items_per_bin + 1
-          bin%last_ = bin%first_ + items_per_bin - 1
+          bin%first_ = 1 + (remainder-1)*(items_per_bin+1) + 1 + (bin_number-remainder)*items_per_bin
+          bin%last_ = remainder*(items_per_bin+1) + (bin_number-remainder)*items_per_bin
         end if
 
       end associate
