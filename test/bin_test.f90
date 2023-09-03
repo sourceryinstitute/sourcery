@@ -1,6 +1,7 @@
 module bin_test_m
   !! verify data partitioning across bins
   use sourcery_m, only : bin_t, test_t, test_result_t
+  use assert_m, only : assert
   implicit none
 
   private
@@ -12,8 +13,6 @@ module bin_test_m
     procedure, nopass :: results
   end type
 
-  integer, parameter :: num_items=31, gatherer=1, num_steps=9, dummy=0
-
 contains
 
   pure function subject() result(specimen)
@@ -23,11 +22,24 @@ contains
 
   function results() result(test_results)
     type(test_result_t), allocatable :: test_results(:)
+    character(len=*), parameter :: longest_description = &
+          "partitioning all item across all bins without item loss"
 
-    test_results = [ &
-      test_result_t("partitioning items nearly evenly across bins", verify_block_partitioning()), &
-      test_result_t("partitioning all item across all bins without item loss", verify_all_items_partitioned()) &
-    ]
+    associate( &
+      descriptions => &
+        [ character(len=len(longest_description)) :: &
+          "partitioning items nearly evenly across bins", &
+          "partitioning all item across all bins without item loss" &
+        ], &
+      outcomes => &
+         [ verify_block_partitioning(), &
+           verify_all_items_partitioned() &
+         ] &
+     )
+       call assert(size(descriptions) == size(outcomes), "bin_test_m(results): size(descriptions) == size(outcomes)")
+       test_results = test_result_t(descriptions, outcomes)
+     end associate
+
   end function
 
   function verify_block_partitioning() result(test_passes)
@@ -40,7 +52,9 @@ contains
 
     bins = [( bin_t(num_items=n_items, num_bins=n_bins, bin_number=b), b = 1,n_bins )]
     associate(in_bin => [(bins(b)%last(b) - bins(b)%first(b) + 1, b = 1, n_bins)])
-      test_passes = all(in_bin == n_items/n_bins .or. in_bin == n_items/n_bins + 1)
+      associate(remainder => mod(n_items, n_bins), items_per_bin => n_items/n_bins)
+        test_passes = all([(in_bin(1:remainder) == items_per_bin + 1)]) .and. all([(in_bin(remainder+1:) == items_per_bin)])
+      end associate
     end associate
 
   end function
