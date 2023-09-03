@@ -26,19 +26,17 @@ module bin_m
 
   interface
 
-    elemental module function first(self, bin_number) result(first_item_number)
+    elemental module function first(self) result(first_item_number)
       !! the result is the first item number associated with the given bin
       implicit none
       class(bin_t), intent(in) :: self
-      integer, intent(in) :: bin_number
       integer first_item_number
     end function
 
-    elemental module function last(self, bin_number) result(last_item_number)
+    elemental module function last(self) result(last_item_number)
       !! the result is the last item number associated with the given bin
       implicit none
       class(bin_t), intent(in) :: self
-      integer, intent(in) :: bin_number
       integer last_item_number
     end function
 
