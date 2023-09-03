@@ -51,7 +51,7 @@ contains
     integer b
 
     bins = [( bin_t(num_items=n_items, num_bins=n_bins, bin_number=b), b = 1,n_bins )]
-    associate(in_bin => [(bins(b)%last(b) - bins(b)%first(b) + 1, b = 1, n_bins)])
+    associate(in_bin => [(bins(b)%last() - bins(b)%first() + 1, b = 1, n_bins)])
       associate(remainder => mod(n_items, n_bins), items_per_bin => n_items/n_bins)
         test_passes = all([(in_bin(1:remainder) == items_per_bin + 1)]) .and. all([(in_bin(remainder+1:) == items_per_bin)])
       end associate
@@ -69,7 +69,7 @@ contains
     integer b
 
     bins = [( bin_t(num_items=n_items, num_bins=n_bins, bin_number=b), b = 1,n_bins )]
-    test_passes = sum([(bins(b)%last(b) - bins(b)%first(b) + 1, b = 1, n_bins)]) == n_items
+    test_passes = sum([(bins(b)%last() - bins(b)%first() + 1, b = 1, n_bins)]) == n_items
 
   end function
 

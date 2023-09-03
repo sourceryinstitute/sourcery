@@ -15,12 +15,12 @@ contains
 
   module procedure first
     call assert( allocated(bin), "data_partition_s(first): allocated(bin)")
-    first_index = bin(image_number)%first(image_number)
+    first_index = bin(image_number)%first()
   end procedure
 
   module procedure last
     call assert( allocated(bin), "data_partition_s(last): allocated(bin)")
-    last_index = bin(image_number)%last(image_number)
+    last_index = bin(image_number)%last()
   end procedure
 
   module procedure gather_real32_1D_array
