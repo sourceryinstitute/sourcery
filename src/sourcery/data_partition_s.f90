@@ -1,51 +1,26 @@
 submodule(data_partition_m) data_partition_s
   use assert_m, only : assert
+  use bin_m, only : bin_t
   implicit none
 
   logical, parameter :: verbose=.false.
+  type(bin_t), allocatable :: bin(:)
 
 contains
 
   module procedure define_partitions
-
-    if (allocated(first_datum)) deallocate(first_datum)
-    if (allocated(last_datum)) deallocate(last_datum)
-
-    associate( ni => num_images() )
-
-      call assert( ni<=cardinality, "sufficient data for distribution across images", cardinality)
-
-      allocate(first_datum(ni), last_datum(ni))
-
-      block
-        integer i, image
-        do image=1,ni
-          associate( remainder => mod(cardinality, ni), quotient => cardinality/ni )
-            first_datum(image) = sum([(quotient+overflow(i, remainder), i=1, image-1)]) + 1
-            last_datum(image) = first_datum(image) + quotient + overflow(image, remainder) - 1
-          end associate
-        end do
-      end block
-    end associate
-
-  contains
-
-    pure function overflow(im, excess) result(extra_datum)
-      integer, intent(in) :: im, excess
-      integer extra_datum
-      extra_datum= merge(1,0,im<=excess)
-    end function
-
+    integer image
+    bin = [( bin_t(num_items=cardinality, num_bins=num_images(), bin_number=image), image=1,num_images() )]
   end procedure
 
   module procedure first
-    call assert( allocated(first_datum), "allocated(first_datum)")
-    first_index= first_datum( image_number )
+    call assert( allocated(bin), "data_partition_s(first): allocated(bin)")
+    first_index = bin(image_number)%first()
   end procedure
 
   module procedure last
-    call assert( allocated(last_datum), "allocated(last_datum)")
-    last_index = last_datum( image_number )
+    call assert( allocated(bin), "data_partition_s(last): allocated(bin)")
+    last_index = bin(image_number)%last()
   end procedure
 
   module procedure gather_real32_1D_array
