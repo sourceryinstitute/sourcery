@@ -18,8 +18,6 @@ module data_partition_m
     generic :: gather => gather_real32_2D_array, gather_real64_2D_array,  gather_real32_1D_array, gather_real64_1D_array
   end type
 
-  integer, allocatable :: first_datum(:), last_datum(:)
-
   interface
 
     module subroutine define_partitions(cardinality)
