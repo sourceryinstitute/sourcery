@@ -43,6 +43,8 @@ contains
     flag_search: &
     do argnum = 1,command_argument_count()
 
+      if (allocated(arg)) deallocate(arg)
+
       call get_command_argument(argnum, length=arglen)
       allocate(character(len=arglen) :: arg)
       call get_command_argument(argnum, arg)
