@@ -4,7 +4,7 @@
 !     "Multi-Dimensional Physics Implementation into Fuel Analysis under Steady-state and Transients (FAST)",
 !     contract # NRC-HQ-60-17-C-0007
 !
-submodule(object_m) object_s
+submodule(sourcery_object_m) object_s
   implicit none
 
 contains

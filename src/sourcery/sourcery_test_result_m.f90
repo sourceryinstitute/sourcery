@@ -1,4 +1,4 @@
-module test_result_m
+module sourcery_test_result_m
   !! Define an abstraction for describing test intentions and results
   implicit none
 
@@ -45,4 +45,4 @@ module test_result_m
 
   end interface
 
-end module test_result_m
+end module sourcery_test_result_m

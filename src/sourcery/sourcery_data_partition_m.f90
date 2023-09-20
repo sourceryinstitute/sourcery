@@ -1,4 +1,4 @@
-module data_partition_m
+module sourcery_data_partition_m
   !! distribute data identification numbers across images such that the number of
   !! items differs by at most 1 between any two images.
   use iso_fortran_env, only : real32, real64
@@ -73,4 +73,4 @@ module data_partition_m
 
   end interface
 
-end module data_partition_m
+end module sourcery_data_partition_m

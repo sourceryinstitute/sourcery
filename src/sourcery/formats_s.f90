@@ -1,4 +1,4 @@
-submodule(formats_m) formats_s
+submodule(sourcery_formats_m) formats_s
   !! Construct separated-value formats 
   implicit none
 

@@ -1,4 +1,4 @@
-module bin_m
+module sourcery_bin_m
   !! distribute item numbers across bins such that the number of items differs by at most 1 between any two bins
   implicit none
 
@@ -42,4 +42,4 @@ module bin_m
 
   end interface
 
-end module bin_m
+end module sourcery_bin_m

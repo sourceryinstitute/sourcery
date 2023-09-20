@@ -1,4 +1,4 @@
-submodule(file_m) file_s
+submodule(sourcery_file_m) file_s
   use iso_fortran_env, only : iostat_end, iostat_eor, output_unit
   use assert_m, only : assert
   implicit none

@@ -1,4 +1,4 @@
-submodule(string_m) string_s
+submodule(sourcery_string_m) string_s
   implicit none
   
 contains

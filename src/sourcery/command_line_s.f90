@@ -1,4 +1,4 @@
-submodule(command_line_m) command_line_s
+submodule(sourcery_command_line_m) command_line_s
   implicit none
 
 contains

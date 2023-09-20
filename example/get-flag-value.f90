@@ -6,7 +6,7 @@ program get_flag_value
   !!
   !! result in normal termination.
   use assert_m, only : assert
-  use command_line_m, only : command_line_t
+  use sourcery_m, only : command_line_t
   implicit none
 
   type(command_line_t) command_line
