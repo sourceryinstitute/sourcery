@@ -1,8 +1,8 @@
-module test_m
+module sourcery_test_m
   !! Define an abstract test_t type with deferred bindings ("subject" and "results")
   !! used by a type-bound procedure ("report") for reporting test results.  The "report"
   !! procedure thus represents an implementation of the Template Method pattern.
-  use test_result_m, only : test_result_t
+  use sourcery_test_result_m, only : test_result_t
   implicit none
 
   private
@@ -42,4 +42,4 @@ module test_m
 
   end interface
 
-end module test_m
+end module sourcery_test_m

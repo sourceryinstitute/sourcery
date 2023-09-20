@@ -4,7 +4,7 @@
 !     "Multi-Dimensional Physics Implementation into Fuel Analysis under Steady-state and Transients (FAST)",
 !     contract # NRC-HQ-60-17-C-0007
 !
-module user_defined_collectives_m
+module sourcery_user_defined_collectives_m
   !! author: Damian Rouson
   !! 
   !! This module contains user-defined collective subroutines.
@@ -23,4 +23,4 @@ module user_defined_collectives_m
 
   end interface
 
-end module user_defined_collectives_m
+end module sourcery_user_defined_collectives_m

@@ -1,6 +1,6 @@
-module file_m
+module sourcery_file_m
   !! A representation of a file as an object
-  use string_m, only : string_t
+  use sourcery_string_m, only : string_t
 
   private
   public :: file_t
@@ -45,4 +45,4 @@ module file_m
 
   end interface
 
-end module file_m
+end module sourcery_file_m

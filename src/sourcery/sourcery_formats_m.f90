@@ -1,4 +1,4 @@
-module formats_m
+module sourcery_formats_m
   !! Useful strings for formatting `print` and `write` statements
   implicit none
 

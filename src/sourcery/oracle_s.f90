@@ -1,4 +1,4 @@
-submodule(oracle_m) oracle_s
+submodule(sourcery_oracle_m) oracle_s
   !! define procedures corresponding to the interface bodies in oracle_m
   implicit none
 

@@ -1,4 +1,4 @@
-module string_m
+module sourcery_string_m
   implicit none
   
   private
@@ -45,4 +45,4 @@ module string_m
 
   end interface
   
-end module string_m
+end module sourcery_string_m

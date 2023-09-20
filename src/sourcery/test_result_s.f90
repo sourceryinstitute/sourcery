@@ -1,4 +1,4 @@
-submodule(test_result_m) test_result_s
+submodule(sourcery_test_result_m) test_result_s
   implicit none
 
 contains

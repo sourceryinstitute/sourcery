@@ -1,6 +1,6 @@
-module oracle_m
+module sourcery_oracle_m
   !! verify actual output against expected
-  use object_m, only : object_t
+  use sourcery_object_m, only : object_t
   implicit none
 
   private

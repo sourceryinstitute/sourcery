@@ -4,7 +4,7 @@
 !     "Multi-Dimensional Physics Implementation into Fuel Analysis under Steady-state and Transients (FAST)",
 !     contract # NRC-HQ-60-17-C-0007
 !
-module array_functions_m
+module sourcery_array_functions_m
   !! author: Damian Rouson
   !! date: 04/25/2019
   !!

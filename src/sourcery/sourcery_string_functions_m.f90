@@ -4,7 +4,7 @@
 !     "Multi-Dimensional Physics Implementation into Fuel Analysis under Steady-state and Transients (FAST)",
 !     contract # NRC-HQ-60-17-C-0007
 !
-module string_functions_m
+module sourcery_string_functions_m
   !! author: Damian Rouson
   !! date: August 23, 2019
   !! summary: utilities for manipulating or producing character variables
