@@ -1,4 +1,4 @@
-submodule(sourcery_bin_m) bin_s
+submodule(sourcery_bin_m) sourcery_bin_s
   use assert_m, only : assert, intrinsic_array_t
   implicit none
 
@@ -30,4 +30,4 @@ contains
     last_item_number = self%last_
   end procedure
 
-end submodule bin_s
+end submodule sourcery_bin_s

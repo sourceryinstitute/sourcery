@@ -4,7 +4,7 @@
 !     "Multi-Dimensional Physics Implementation into Fuel Analysis under Steady-state and Transients (FAST)",
 !     contract # NRC-HQ-60-17-C-0007
 !
-submodule(sourcery_user_defined_collectives_m) user_defined_collectives_s
+submodule(sourcery_user_defined_collectives_m) sourcery_user_defined_collectives_s
   implicit none
 
 contains
@@ -19,4 +19,4 @@ contains
     end function
   end procedure
 
-end submodule user_defined_collectives_s
+end submodule sourcery_user_defined_collectives_s

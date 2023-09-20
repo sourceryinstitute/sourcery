@@ -1,5 +1,5 @@
-submodule(sourcery_test_m) test_s
-  use sourcery_m, only : co_all
+submodule(sourcery_test_m) sourcery_test_s
+  use sourcery_user_defined_collectives_m, only : co_all
   implicit none
 
 contains
@@ -34,4 +34,4 @@ contains
 
   end procedure
 
-end submodule test_s
+end submodule sourcery_test_s

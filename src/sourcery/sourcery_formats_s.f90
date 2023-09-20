@@ -1,4 +1,4 @@
-submodule(sourcery_formats_m) formats_s
+submodule(sourcery_formats_m) sourcery_formats_s
   !! Construct separated-value formats 
   implicit none
 
@@ -28,4 +28,4 @@ contains
     end select
   end procedure
 
-end submodule formats_s
+end submodule sourcery_formats_s

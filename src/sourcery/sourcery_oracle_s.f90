@@ -1,4 +1,4 @@
-submodule(sourcery_oracle_m) oracle_s
+submodule(sourcery_oracle_m) sourcery_oracle_s
   !! define procedures corresponding to the interface bodies in oracle_m
   implicit none
 
@@ -12,4 +12,4 @@ contains
 
   end procedure
 
-end submodule oracle_s
+end submodule sourcery_oracle_s

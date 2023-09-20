@@ -1,4 +1,8 @@
+<<<<<<< HEAD:src/sourcery/string_s.f90
 submodule(sourcery_string_m) string_s
+=======
+submodule(sourcery_string_m) sourcery_string_s
+>>>>>>> 03abe88 (chore: prefix sourcery_ to submodule names):src/sourcery/sourcery_string_s.f90
   implicit none
   
 contains
@@ -37,4 +41,4 @@ contains
 
   end procedure
 
-end submodule string_s
+end submodule sourcery_string_s
