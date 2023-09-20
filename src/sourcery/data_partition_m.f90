@@ -28,14 +28,14 @@ module data_partition_m
     pure module function first(image_number) result(first_index)
       !! the result is the first identification number owned by the executing image
       implicit none
-      integer, intent(in) :: image_number
+      integer, intent(in), optional :: image_number
       integer first_index
     end function
 
     pure module function last(image_number) result(last_index)
       !! the result is the last identification number owned by the executing image
       implicit none
-      integer, intent(in) :: image_number
+      integer, intent(in), optional :: image_number
       integer last_index
     end function
 
