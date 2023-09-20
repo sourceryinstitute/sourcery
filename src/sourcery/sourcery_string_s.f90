@@ -1,4 +1,4 @@
-submodule(sourcery_string_m) string_s
+submodule(sourcery_string_m) sourcery_string_s
   implicit none
   
 contains
@@ -37,4 +37,4 @@ contains
 
   end procedure
 
-end submodule string_s
+end submodule sourcery_string_s

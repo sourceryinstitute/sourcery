@@ -1,4 +1,4 @@
-submodule(sourcery_data_partition_m) data_partition_s
+submodule(sourcery_data_partition_m) sourcery_data_partition_s
   use assert_m, only : assert
   use sourcery_bin_m, only : bin_t
   implicit none
@@ -233,4 +233,4 @@ contains
     end associate
   end procedure
 
-end submodule data_partition_s
+end submodule sourcery_data_partition_s

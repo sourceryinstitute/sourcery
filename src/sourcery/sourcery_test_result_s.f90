@@ -1,4 +1,4 @@
-submodule(sourcery_test_result_m) test_result_s
+submodule(sourcery_test_result_m) sourcery_test_result_s
   implicit none
 
 contains
@@ -16,4 +16,4 @@ contains
       test_passed = self%passed_
     end procedure
 
-end submodule test_result_s
+end submodule sourcery_test_result_s
