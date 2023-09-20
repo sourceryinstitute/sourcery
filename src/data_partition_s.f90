@@ -14,13 +14,29 @@ contains
   end procedure
 
   module procedure first
+    integer image
+
     call assert( allocated(bin), "data_partition_s(first): allocated(bin)")
-    first_index = bin(image_number)%first()
+
+    if (present(image_number)) then
+      image = image_number
+    else
+      image = this_image()
+    end if
+    first_index = bin(image)%first()
   end procedure
 
   module procedure last
+    integer image
+
     call assert( allocated(bin), "data_partition_s(last): allocated(bin)")
-    last_index = bin(image_number)%last()
+
+    if (present(image_number)) then
+      image = image_number
+    else
+      image = this_image()
+    end if
+    last_index = bin(image)%last()
   end procedure
 
   module procedure gather_real32_1D_array
