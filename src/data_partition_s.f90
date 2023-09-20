@@ -1,6 +1,6 @@
-submodule(data_partition_m) data_partition_s
+submodule(sourcery_data_partition_m) data_partition_s
   use assert_m, only : assert
-  use bin_m, only : bin_t
+  use sourcery_bin_m, only : bin_t
   implicit none
 
   logical, parameter :: verbose=.false.

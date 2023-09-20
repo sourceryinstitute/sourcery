@@ -1,5 +1,5 @@
-submodule(test_m) test_s
-  use user_defined_collectives_m, only : co_all
+submodule(sourcery_test_m) test_s
+  use sourcery_m, only : co_all
   implicit none
 
 contains

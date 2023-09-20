@@ -1,4 +1,4 @@
-submodule(bin_m) bin_s
+submodule(sourcery_bin_m) bin_s
   use assert_m, only : assert, intrinsic_array_t
   implicit none
 
