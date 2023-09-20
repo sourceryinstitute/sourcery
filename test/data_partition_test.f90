@@ -32,6 +32,7 @@ contains
       associate( my_first=>partition%first(me), my_last=>partition%last(me) )
         test_results = [ &
           test_result_t("partitioning data in nearly even blocks", verify_block_partitioning()), &
+          test_result_t("default image_number is this_image()", verify_default_image_number()), &
           test_result_t("partitioning all data across all images without data loss", verify_all_particles_partitioned()), &
           test_result_t("gathering a 1D real array onto all images", verify_all_gather_1D_real_array()), &
           test_result_t("gathering dimension 1 of 2D real array onto all images witout dim argument", &
@@ -61,6 +62,16 @@ contains
           end associate
         end associate
       end associate
+    end associate
+  end function
+
+  function verify_default_image_number() result(test_passes)
+    !! Verify that the first and last functions assume image_number == this_image() if image_number is not  present
+    type(data_partition_t) partition
+    logical test_passes
+
+    associate( me=>this_image() )
+      test_passes = partition%first() == partition%first(me) .and.partition%last() == partition%last(me)
     end associate
   end function
 
