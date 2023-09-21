@@ -64,12 +64,15 @@ See the [Sourcery GitHub Pages site] for HTML documentation generated with [`for
 
 Prerequisites
 -------------
-[FORD] 6.1.0 or later is required for producing HTML documentation (see
-"[Building the documentation]" below for instructions).  The Fortran Package
-Manager ([fpm]) is required to build Sourcery from source.  See the
-[fpm manifest](./fpm.toml) for the dependencies and developer dependencies,
-all of which [fpm] automatically downloads and builds via the `fpm` command
-provided in the "[Downloding, Building, and Testing]" section below.
+* [FORD] 6.1.0 or later is required for producing HTML documentation (see
+"[Building the documentation]" below for instructions).  
+* The Fortran Package Manager ([fpm]) is required to build Sourcery from source.
+* GCC (`gfortran`) 13.1.0
+* OpenCoarrays 2.10.1 for parallel execution
+
+See [fpm manifest](./fpm.toml) for the dependencies and developer dependencies,
+that [fpm] automatically downloads and builds via the `fpm` command provided in
+the "[Downloding, Building, and Testing]" section below.
 
 
 Downloding, Building, and Testing
