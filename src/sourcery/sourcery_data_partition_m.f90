@@ -20,12 +20,22 @@ module sourcery_data_partition_m
     generic :: gather => gather_real32_2D_array, gather_real64_2D_array,  gather_real32_1D_array, gather_real64_1D_array
   end type
 
+  interface data_partition_t
+
+    pure module function construct(cardinality) result(data_partition)
+      implicit none
+      type(data_partition_t) data_partition
+      integer, intent(in) :: cardinality
+    end function
+
+  end interface
+
   interface
 
-    module subroutine define_partitions(self, cardinality)
+    pure module subroutine define_partitions(self, cardinality)
       !! define the range of data identification numbers owned by the executing image
       implicit none
-      class(data_partition_t), intent(out) :: self
+      class(data_partition_t), intent(inout) :: self
       integer, intent(in) :: cardinality
     end subroutine
 

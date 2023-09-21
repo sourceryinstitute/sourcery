@@ -8,7 +8,13 @@ contains
 
   module procedure define_partitions
     integer image
-    self%bin = [( bin_t(num_items=cardinality, num_bins=num_images(), bin_number=image), image=1,num_images() )]
+    associate(ni => num_images())
+      self%bin = [( bin_t(num_items=cardinality, num_bins=ni, bin_number=image), image=1,ni )]
+    end associate
+  end procedure
+
+  module procedure construct
+    call data_partition%define_partitions(cardinality)
   end procedure
 
   module procedure first

@@ -47,9 +47,7 @@ contains
     logical test_passes
     integer my_particles
 
-    call partition%define_partitions(cardinality=num_particles)
-
-    associate( me=>this_image() )
+    associate( me=>this_image(), partition => data_partition_t(cardinality=num_particles))
       associate( my_first=>partition%first(me), my_last=>partition%last(me) )
         my_particles = my_last - my_first + 1
         associate( ni=>num_images() )
@@ -67,9 +65,7 @@ contains
     type(data_partition_t) partition
     logical test_passes
 
-    call partition%define_partitions(cardinality=num_particles)
-
-    associate( me=>this_image() )
+    associate( me=>this_image(), partition => data_partition_t(cardinality=num_particles))
       test_passes = partition%first() == partition%first(me) .and.partition%last() == partition%last(me)
     end associate
   end function
@@ -81,9 +77,7 @@ contains
     logical test_passes
     integer particles
 
-    call partition%define_partitions(cardinality=num_particles)
-
-    associate(me => this_image())
+    associate( me=>this_image(), partition => data_partition_t(cardinality=num_particles))
       associate( my_first=>partition%first(me), my_last=>partition%last(me) )
         particles = my_last - my_first + 1
         call co_sum(particles)
@@ -98,9 +92,7 @@ contains
    real(real64) :: particle_scalar(num_particles)
    real(real64), parameter :: junk=-12345._real64, expected=1._real64
 
-   call partition%define_partitions(cardinality=num_particles)
-
-   associate(me => this_image())
+   associate( me=>this_image(), partition => data_partition_t(cardinality=num_particles))
      associate( first=>partition%first(me), last=>partition%last(me) )
        particle_scalar(first:last) = expected !! values to be gathered
        particle_scalar(1:first-1)  = junk !! values to be overwritten by the gather
@@ -118,9 +110,7 @@ contains
    real(real64) particle_vector(vec_space_dim, num_particles)
    real(real64), parameter :: junk=-12345._real64, expected=1._real64
 
-   call partition%define_partitions(cardinality=num_particles)
-
-   associate(me => this_image())
+   associate( me=>this_image(), partition => data_partition_t(cardinality=num_particles))
      associate( first=>partition%first(me), last=>partition%last(me) )
 
        particle_vector(:, first:last) = expected !! values to be gathered
@@ -139,9 +129,7 @@ contains
    real(real64) :: vector_transpose(num_particles, vec_space_dim)
    real(real64), parameter :: junk=-12345._real64, expected=1._real64
 
-   call partition%define_partitions(cardinality=num_particles)
-
-   associate(me => this_image())
+   associate( me=>this_image(), partition => data_partition_t(cardinality=num_particles))
      associate( first=>partition%first(me), last=>partition%last(me) )
 
        vector_transpose(first:last, :) = expected !! values to be gathered
@@ -163,9 +151,7 @@ contains
    real(real64) :: vector_transpose(num_particles, vec_space_dim)
    real(real64), parameter :: junk=-12345._real64, expected=1._real64
 
-   call partition%define_partitions(cardinality=num_particles)
-
-   associate(me => this_image())
+   associate( me=>this_image(), partition => data_partition_t(cardinality=num_particles))
      associate( first=>partition%first(me), last=>partition%last(me) )
 
        vector_transpose(first:last, :) = expected !! values to be gathered
