@@ -1,42 +1,46 @@
 submodule(sourcery_data_partition_m) sourcery_data_partition_s
   use assert_m, only : assert
-  use sourcery_bin_m, only : bin_t
   implicit none
 
   logical, parameter :: verbose=.false.
-  type(bin_t), allocatable :: bin(:)
 
 contains
 
   module procedure define_partitions
     integer image
-    bin = [( bin_t(num_items=cardinality, num_bins=num_images(), bin_number=image), image=1,num_images() )]
+    associate(ni => num_images())
+      self%bin = [( bin_t(num_items=cardinality, num_bins=ni, bin_number=image), image=1,ni )]
+    end associate
+  end procedure
+
+  module procedure construct
+    call data_partition%define_partitions(cardinality)
   end procedure
 
   module procedure first
     integer image
 
-    call assert( allocated(bin), "data_partition_s(first): allocated(bin)")
+    call assert( allocated(self%bin), "data_partition_s(first): allocated(self%bin)")
 
     if (present(image_number)) then
       image = image_number
     else
       image = this_image()
     end if
-    first_index = bin(image)%first()
+    first_index = self%bin(image)%first()
   end procedure
 
   module procedure last
     integer image
 
-    call assert( allocated(bin), "data_partition_s(last): allocated(bin)")
+    call assert( allocated(self%bin), "data_partition_s(last): allocated(self%in)")
 
     if (present(image_number)) then
       image = image_number
     else
       image = this_image()
     end if
-    last_index = bin(image)%last()
+    last_index = self%bin(image)%last()
   end procedure
 
   module procedure gather_real32_1D_array
@@ -48,7 +52,7 @@ contains
         write(6,*) 'gather_real_1D_array(): executing on image', me
         flush(6)
       end if
-      associate( first=>first(me), last=>last(me) )
+      associate(first=>self%first(me), last=>self%last(me))
         if (.not. present(result_image)) then
           a(1:first-1)  = 0.
           a(last+1:)  = 0.
@@ -80,7 +84,7 @@ contains
         write(6,*) 'gather_real_1D_array(): executing on image', me
         flush(6)
       end if
-      associate( first=>first(me), last=>last(me) )
+      associate(first=>self%first(me), last=>self%last(me))
         if (.not. present(result_image)) then
           a(1:first-1)  = 0.
           a(last+1:)  = 0.
@@ -117,7 +121,7 @@ contains
         write(6,*) 'gather_real32_2D_array(): executing on image', me
         flush(6)
       end if
-      associate( first => first(me), last => last(me) )
+      associate(first=>self%first(me), last=>self%last(me))
         if (.not. present(result_image)) then
           select case(dim_)
             case(1)
@@ -182,7 +186,7 @@ contains
         write(6,*) 'gather_real64_2D_array(): executing on image', me
         flush(6)
       end if
-      associate( first => first(me), last => last(me) )
+      associate(first => self%first(me), last => self%last(me))
         if (.not. present(result_image)) then
           select case(dim_)
             case(1)
