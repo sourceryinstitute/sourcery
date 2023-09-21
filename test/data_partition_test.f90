@@ -26,24 +26,18 @@ contains
   function results() result(test_results)
     type(test_result_t), allocatable :: test_results(:)
 
-    call partition%define_partitions(cardinality=num_particles)
-
-    associate( me=>this_image() )
-      associate( my_first=>partition%first(me), my_last=>partition%last(me) )
-        test_results = [ &
-          test_result_t("partitioning data in nearly even blocks", verify_block_partitioning()), &
-          test_result_t("default image_number is this_image()", verify_default_image_number()), &
-          test_result_t("partitioning all data across all images without data loss", verify_all_particles_partitioned()), &
-          test_result_t("gathering a 1D real array onto all images", verify_all_gather_1D_real_array()), &
-          test_result_t("gathering dimension 1 of 2D real array onto all images witout dim argument", &
-            verify_all_gather_2D_real_array()), &
-          test_result_t("gathering dimension 1 of 2D real array onton all images with dim argument", &
-            verify_all_gather_2D_real_array_dim1()), &
-          test_result_t("gathering dimension 1 of 2D real array onto result_image with dim argument", &
-            verify_gather_2D_real_array_dim1()) &
-        ]
-      end associate
-    end associate
+    test_results = [ &
+      test_result_t("partitioning data in nearly even blocks", verify_block_partitioning()), &
+      test_result_t("default image_number is this_image()", verify_default_image_number()), &
+      test_result_t("partitioning all data across all images without data loss", verify_all_particles_partitioned()), &
+      test_result_t("gathering a 1D real array onto all images", verify_all_gather_1D_real_array()), &
+      test_result_t("gathering dimension 1 of 2D real array onto all images witout dim argument", &
+        verify_all_gather_2D_real_array()), &
+      test_result_t("gathering dimension 1 of 2D real array onton all images with dim argument", &
+        verify_all_gather_2D_real_array_dim1()), &
+      test_result_t("gathering dimension 1 of 2D real array onto result_image with dim argument", &
+        verify_gather_2D_real_array_dim1()) &
+    ]
   end function
 
   function verify_block_partitioning() result(test_passes)
@@ -52,6 +46,8 @@ contains
     type(data_partition_t) partition
     logical test_passes
     integer my_particles
+
+    call partition%define_partitions(cardinality=num_particles)
 
     associate( me=>this_image() )
       associate( my_first=>partition%first(me), my_last=>partition%last(me) )
@@ -63,12 +59,15 @@ contains
         end associate
       end associate
     end associate
+
   end function
 
   function verify_default_image_number() result(test_passes)
     !! Verify that the first and last functions assume image_number == this_image() if image_number is not  present
     type(data_partition_t) partition
     logical test_passes
+
+    call partition%define_partitions(cardinality=num_particles)
 
     associate( me=>this_image() )
       test_passes = partition%first() == partition%first(me) .and.partition%last() == partition%last(me)
@@ -81,6 +80,8 @@ contains
     type(data_partition_t) partition
     logical test_passes
     integer particles
+
+    call partition%define_partitions(cardinality=num_particles)
 
     associate(me => this_image())
       associate( my_first=>partition%first(me), my_last=>partition%last(me) )
@@ -96,6 +97,8 @@ contains
    logical test_passes
    real(real64) :: particle_scalar(num_particles)
    real(real64), parameter :: junk=-12345._real64, expected=1._real64
+
+   call partition%define_partitions(cardinality=num_particles)
 
    associate(me => this_image())
      associate( first=>partition%first(me), last=>partition%last(me) )
@@ -115,6 +118,8 @@ contains
    real(real64) particle_vector(vec_space_dim, num_particles)
    real(real64), parameter :: junk=-12345._real64, expected=1._real64
 
+   call partition%define_partitions(cardinality=num_particles)
+
    associate(me => this_image())
      associate( first=>partition%first(me), last=>partition%last(me) )
 
@@ -133,6 +138,8 @@ contains
    integer, parameter :: vec_space_dim=3
    real(real64) :: vector_transpose(num_particles, vec_space_dim)
    real(real64), parameter :: junk=-12345._real64, expected=1._real64
+
+   call partition%define_partitions(cardinality=num_particles)
 
    associate(me => this_image())
      associate( first=>partition%first(me), last=>partition%last(me) )
@@ -155,6 +162,8 @@ contains
    integer, parameter :: vec_space_dim=3
    real(real64) :: vector_transpose(num_particles, vec_space_dim)
    real(real64), parameter :: junk=-12345._real64, expected=1._real64
+
+   call partition%define_partitions(cardinality=num_particles)
 
    associate(me => this_image())
      associate( first=>partition%first(me), last=>partition%last(me) )
