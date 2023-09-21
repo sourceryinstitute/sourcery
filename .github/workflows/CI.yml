@@ -43,5 +43,5 @@ jobs:
 
     - name: Build, run, and test
       run: |
-        source OpenCoarrays-2.10.0/prerequisites/installations/opencoarrays/2.10.1/setup.sh
+        source OpenCoarrays-2.10.1/prerequisites/installations/opencoarrays/2.10.1/setup.sh
         fpm test --compiler caf --runner "cafrun -n 2" 
