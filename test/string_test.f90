@@ -22,7 +22,9 @@ contains
     type(test_result_t), allocatable :: test_results(:)
 
     test_results = [ &
-      test_result_t("is_allocated() result .true. if & only if the string_t component(s) is/are allocated", check_allocation()) &
+      test_result_t("is_allocated() result .true. if & only if the string_t component(s) is/are allocated", check_allocation()), &
+      test_result_t("extracting key string from colon-separated key/value pair", extracts_key()), &
+      test_result_t("extracting string value from colon-separated key/value pair", extracts_string_scalar_value()) &
     ]
   end function
 
@@ -34,6 +36,22 @@ contains
     array_allocated = [string_t("yada yada"), string_t("blah blah blah")]
     passed = (.not. any([scalar_not_allocated%is_allocated(), array_not_allocated%is_allocated()])) .and. &
              (all([scalar_allocated%is_allocated(), array_allocated%is_allocated()]))
+  end function
+
+  function extracts_key() result(passed)
+    logical passed
+    
+    associate(line => string_t('"foo" : "bar"'))
+      passed = line%get_json_key() == string_t("foo")
+    end associate
+  end function
+
+  function extracts_string_scalar_value() result(passed)
+    logical passed
+    
+    associate(line => string_t('"foo" : "bar"'))
+      passed = line%get_json_value(key=string_t("foo"), mold=string_t("")) == string_t("bar")
+    end associate
   end function
 
 end module string_test_m

@@ -11,6 +11,11 @@ module sourcery_string_m
   contains
     procedure :: string
     procedure :: is_allocated
+    procedure :: get_json_key
+    procedure :: get_json_string_scalar_value
+    generic :: get_json_value => get_json_string_scalar_value
+    procedure :: equivalent
+    generic :: operator(==) => equivalent
   end type
 
   interface string_t
@@ -41,6 +46,24 @@ module sourcery_string_m
       implicit none
       class(string_t), intent(in) :: self
       logical string_allocated
+    end function
+
+    elemental module function get_json_key(self) result(unquoted_key)
+      implicit none
+      class(string_t), intent(in) :: self
+      type(string_t) unquoted_key
+    end function
+
+    elemental module function get_json_string_scalar_value(self, key, mold) result(value_)
+      implicit none
+      class(string_t), intent(in) :: self, key, mold
+      type(string_t) :: value_
+    end function
+
+    elemental module function equivalent(lhs, rhs) result(lhs_eqv_rhs)
+      implicit none
+      class(string_t), intent(in) :: lhs, rhs
+      logical lhs_eqv_rhs
     end function
 
   end interface
