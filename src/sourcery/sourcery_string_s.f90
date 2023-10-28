@@ -8,7 +8,7 @@ contains
     new_string%string_ = string
   end procedure
 
-  module procedure string
+  module procedure as_character
     raw_string = self%string_
   end procedure
 
@@ -54,7 +54,7 @@ contains
 
    character(len=:), allocatable :: raw_line
 
-   call assert(key==self%get_json_key(), "key==self%get_json_key()", key%string())
+   call assert(key==self%get_json_key(), "key==self%get_json_key()", key)
 
    raw_line = self%string()
    associate(text_after_colon => raw_line(index(raw_line, ':')+1:))

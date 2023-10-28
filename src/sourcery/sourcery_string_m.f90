@@ -1,15 +1,17 @@
 module sourcery_string_m
+  use assert_m, only : characterizable_t
   implicit none
   
   private
   public :: string_t
   public :: array_of_strings
 
-  type string_t
+  type, extends(characterizable_t) :: string_t
     private
     character(len=:), allocatable :: string_
   contains
-    procedure :: string
+    procedure :: as_character
+    generic :: string => as_character
     procedure :: is_allocated
     procedure :: get_json_key
     procedure :: get_json_string_scalar_value
@@ -30,7 +32,7 @@ module sourcery_string_m
 
   interface
 
-    pure module function string(self) result(raw_string)
+    pure module function as_character(self) result(raw_string)
       implicit none
       class(string_t), intent(in) :: self
       character(len=:), allocatable :: raw_string
@@ -49,7 +51,7 @@ module sourcery_string_m
     end function
 
     elemental module function get_json_key(self) result(unquoted_key)
-      implicit none
+     implicit none
       class(string_t), intent(in) :: self
       type(string_t) unquoted_key
     end function
