@@ -1,16 +1,25 @@
 module sourcery_string_m
+  use assert_m, only : characterizable_t
   implicit none
   
   private
   public :: string_t
   public :: array_of_strings
 
-  type string_t
+  type, extends(characterizable_t) :: string_t
     private
     character(len=:), allocatable :: string_
   contains
-    procedure :: string
+    procedure :: as_character
+    generic :: string => as_character
     procedure :: is_allocated
+    procedure :: get_json_key
+    procedure, private :: &
+      get_json_integer_array, get_json_logical, get_json_integer, get_json_string, get_json_real
+    generic :: get_json_value => &
+      get_json_integer_array, get_json_logical, get_json_integer, get_json_string, get_json_real
+    procedure, private :: equivalent
+    generic :: operator(==) => equivalent
   end type
 
   interface string_t
@@ -25,7 +34,7 @@ module sourcery_string_m
 
   interface
 
-    pure module function string(self) result(raw_string)
+    pure module function as_character(self) result(raw_string)
       implicit none
       class(string_t), intent(in) :: self
       character(len=:), allocatable :: raw_string
@@ -41,6 +50,52 @@ module sourcery_string_m
       implicit none
       class(string_t), intent(in) :: self
       logical string_allocated
+    end function
+
+    elemental module function get_json_key(self) result(unquoted_key)
+     implicit none
+      class(string_t), intent(in) :: self
+      type(string_t) unquoted_key
+    end function
+
+    elemental module function get_json_real(self, key, mold) result(value_)
+      implicit none
+      class(string_t), intent(in) :: self, key
+      real, intent(in) :: mold
+      real value_
+    end function
+
+    elemental module function get_json_string(self, key, mold) result(value_)
+      implicit none
+      class(string_t), intent(in) :: self, key, mold
+      type(string_t) :: value_
+    end function
+
+    elemental module function get_json_integer(self, key, mold) result(value_)
+      implicit none
+      class(string_t), intent(in) :: self, key
+      integer, intent(in) ::  mold
+      integer value_
+    end function
+
+    elemental module function get_json_logical(self, key, mold) result(value_)
+      implicit none
+      class(string_t), intent(in) :: self, key
+      logical, intent(in) :: mold
+      logical value_
+    end function
+
+    pure module function get_json_integer_array(self, key, mold) result(value_)
+      implicit none
+      class(string_t), intent(in) :: self, key
+      integer, intent(in) :: mold(:)
+      integer, allocatable :: value_(:)
+    end function
+
+    elemental module function equivalent(lhs, rhs) result(lhs_eqv_rhs)
+      implicit none
+      class(string_t), intent(in) :: lhs, rhs
+      logical lhs_eqv_rhs
     end function
 
   end interface
