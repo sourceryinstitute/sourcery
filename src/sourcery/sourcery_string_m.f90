@@ -18,8 +18,9 @@ module sourcery_string_m
       get_json_integer_array, get_json_logical, get_json_integer, get_json_string, get_json_real
     generic :: get_json_value => &
       get_json_integer_array, get_json_logical, get_json_integer, get_json_string, get_json_real
-    procedure, private :: equivalent
-    generic :: operator(==) => equivalent
+    procedure, private :: string_t_eq_string_t, string_t_eq_character
+    procedure, private, pass(rhs) :: character_eq_string_t
+    generic :: operator(==) => string_t_eq_string_t, string_t_eq_character, character_eq_string_t
   end type
 
   interface string_t
@@ -92,10 +93,24 @@ module sourcery_string_m
       integer, allocatable :: value_(:)
     end function
 
-    elemental module function equivalent(lhs, rhs) result(lhs_eqv_rhs)
+    elemental module function string_t_eq_string_t(lhs, rhs) result(lhs_eq_rhs)
       implicit none
       class(string_t), intent(in) :: lhs, rhs
-      logical lhs_eqv_rhs
+      logical lhs_eq_rhs
+    end function
+
+    elemental module function string_t_eq_character(lhs, rhs) result(lhs_eq_rhs)
+      implicit none
+      class(string_t), intent(in) :: lhs
+      character(len=*), intent(in) :: rhs
+      logical lhs_eq_rhs
+    end function
+
+    elemental module function character_eq_string_t(lhs, rhs) result(lhs_eq_rhs)
+      implicit none
+      class(string_t), intent(in) :: rhs
+      character(len=*), intent(in) :: lhs
+      logical lhs_eq_rhs
     end function
 
   end interface

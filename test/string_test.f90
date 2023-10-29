@@ -29,7 +29,8 @@ contains
       test_result_t("extracting a string value from a colon-separated key/value pair", extracts_string_value()), &
       test_result_t("extracting a logical value from a colon-separated key/value pair", extracts_logical_value()), &
       test_result_t("extracting an integer array value from a colon-separated key/value pair", extracts_integer_array_value()), &
-      test_result_t("extracting an integer value from a colon-separated key/value pair", extracts_integer_value()) &
+      test_result_t("extracting an integer value from a colon-separated key/value pair", extracts_integer_value()), &
+      test_result_t('supporting operator(==) for string_t and character operands', supports_equivalence_operator()) &
     ]
   end function
 
@@ -55,7 +56,7 @@ contains
     logical passed
     
     associate(line => string_t('"pi" : 3.14159'))
-      passed = line%get_json_value(key=string_t("pi"), mold=2.71828) == 3.14159
+      passed = line%get_json_value(key=string_t("pi"), mold=1.) == 3.14159
     end associate
   end function
 
@@ -101,6 +102,14 @@ contains
         passed = all(integer_array == [1, 2, 3])
       end associate
     end associate
+  end function
+
+  function supports_equivalence_operator() result(passed)
+    logical passed
+    passed = &
+      string_t("abcdefg") == string_t("abcdefg") .and. &
+      string_t("xyz pdq") ==          "xyz pdq"  .and. &
+               "123.456"  == string_t("123.456")
   end function
 
 end module string_test_m
