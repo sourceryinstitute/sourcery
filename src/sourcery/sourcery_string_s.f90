@@ -167,4 +167,16 @@ contains
     lhs_eq_rhs = lhs == rhs%string()
   end procedure
    
+  module procedure string_t_ne_string_t
+    lhs_ne_rhs = lhs%string() /= rhs%string()
+  end procedure
+   
+  module procedure string_t_ne_character
+    lhs_ne_rhs = lhs%string() /= rhs
+  end procedure
+
+  module procedure character_ne_string_t
+    lhs_ne_rhs = lhs /= rhs%string()
+  end procedure
+   
 end submodule sourcery_string_s
