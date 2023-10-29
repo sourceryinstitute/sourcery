@@ -14,14 +14,11 @@ module sourcery_string_m
     generic :: string => as_character
     procedure :: is_allocated
     procedure :: get_json_key
-    procedure :: get_json_real
-    procedure :: get_json_string
-    procedure :: get_json_logical
-    procedure :: get_json_integer
-    procedure :: get_json_integer_array
+    procedure, private :: &
+      get_json_integer_array, get_json_logical, get_json_integer, get_json_string, get_json_real
     generic :: get_json_value => &
-      get_json_string, get_json_logical, get_json_integer_array, get_json_integer, get_json_real
-    procedure :: equivalent
+      get_json_integer_array, get_json_logical, get_json_integer, get_json_string, get_json_real
+    procedure, private :: equivalent
     generic :: operator(==) => equivalent
   end type
 
