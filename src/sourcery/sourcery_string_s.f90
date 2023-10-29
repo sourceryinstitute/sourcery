@@ -51,10 +51,10 @@ contains
 
   end procedure
 
-  module procedure get_json_real_value
+  module procedure get_json_real
     character(len=:), allocatable :: raw_line, string_value
 
-    call assert(key==self%get_json_key(), "string_s(get_json_real_value): key==self%get_json_key()", key)
+    call assert(key==self%get_json_key(), "string_s(get_json_real): key==self%get_json_key()", key)
 
     raw_line = self%string()
     associate(text_after_colon => raw_line(index(raw_line, ':')+1:))
@@ -70,11 +70,11 @@ contains
 
   end procedure
 
-  module procedure get_json_string_value
+  module procedure get_json_string
 
     character(len=:), allocatable :: raw_line
 
-    call assert(key==self%get_json_key(), "key==self%get_string_json_value()", key)
+    call assert(key==self%get_json_key(), "key==self%get_string_json()", key)
 
     raw_line = self%string()
     associate(text_after_colon => raw_line(index(raw_line, ':')+1:))
@@ -91,10 +91,10 @@ contains
 
   end procedure
 
-  module procedure get_json_logical_value
+  module procedure get_json_logical
     character(len=:), allocatable :: raw_line, string_value
 
-    call assert(key==self%get_json_key(), "string_s(get_json_logical_value): key==self%get_json_key()", key)
+    call assert(key==self%get_json_key(), "string_s(get_json_logical): key==self%get_json_key()", key)
 
     raw_line = self%string()
     associate(text_after_colon => raw_line(index(raw_line, ':')+1:))
@@ -105,17 +105,17 @@ contains
           string_value = trim(adjustl((text_after_colon(:trailing_comma-1))))
         end if
         call assert(string_value=="true" .or. string_value=="false", &
-          'string_s(get_json_logical_value): string_value=="true" .or. string_value="false"', string_value)
+          'string_s(get_json_logical): string_value=="true" .or. string_value="false"', string_value)
         value_ = string_value == "true"
       end associate
     end associate
 
   end procedure
 
-  module procedure get_json_integer_value
+  module procedure get_json_integer
     character(len=:), allocatable :: raw_line, string_value
 
-    call assert(key==self%get_json_key(), "string_s(get_json_logical_value): key==self%get_json_key()", key)
+    call assert(key==self%get_json_key(), "string_s(get_json_logical): key==self%get_json_key()", key)
 
     raw_line = self%string()
     associate(text_after_colon => raw_line(index(raw_line, ':')+1:))
@@ -131,12 +131,12 @@ contains
 
   end procedure
 
-  module procedure get_json_integer_array_value
+  module procedure get_json_integer_array
     character(len=:), allocatable :: raw_line
     real, allocatable :: real_array(:)
     integer i
 
-    call assert(key==self%get_json_key(), "string_s(get_json_integer_array_value): key==self%get_json_key()", key)
+    call assert(key==self%get_json_key(), "string_s(get_json_integer_array): key==self%get_json_key()", key)
 
     raw_line = self%string()
     associate(colon => index(raw_line, ":"))
