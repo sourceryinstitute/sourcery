@@ -24,9 +24,10 @@ contains
 
     test_results = [ &
       test_result_t("is_allocated() result .true. if & only if the string_t component(s) is/are allocated", check_allocation()), &
-      test_result_t("extracting key string from colon-separated key/value pair", extracts_key()), &
-      test_result_t("extracting string value from colon-separated key/value pair", extracts_string_scalar_value()), &
-      test_result_t("extracting logical value from colon-separated key/value pair", extracts_logical_scalar_value()) &
+      test_result_t("extracting a key string from colon-separated key/value pair", extracts_key()), &
+      test_result_t("extracting a string value from colon-separated key/value pair", extracts_string_scalar_value()), &
+      test_result_t("extracting a logical value from colon-separated key/value pair", extracts_logical_scalar_value()), &
+      test_result_t("extracting an integer array value from colon-separated key/value pair", extracts_integer_array_value()) &
     ]
   end function
 
@@ -70,6 +71,16 @@ contains
          true_too => trailing_comma%get_json_value(key=string_t("trailing comma"), mold=.true.) &
       )
         passed = true .and. true_too .and. .not. false
+      end associate
+    end associate
+  end function
+
+  function extracts_integer_array_value() result(passed)
+    logical passed
+
+    associate(key_integer_array_pair => string_t('"some key" : [1, 2, 3],'))
+      associate(integer_array => key_integer_array_pair%get_json_value(key=string_t("some key"), mold=[integer::]))
+        passed = all(integer_array == [1, 2, 3])
       end associate
     end associate
   end function
