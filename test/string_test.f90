@@ -24,10 +24,11 @@ contains
 
     test_results = [ &
       test_result_t("is_allocated() result .true. if & only if the string_t component(s) is/are allocated", check_allocation()), &
-      test_result_t("extracting a key string from colon-separated key/value pair", extracts_key()), &
-      test_result_t("extracting a string value from colon-separated key/value pair", extracts_string_scalar_value()), &
-      test_result_t("extracting a logical value from colon-separated key/value pair", extracts_logical_scalar_value()), &
-      test_result_t("extracting an integer array value from colon-separated key/value pair", extracts_integer_array_value()) &
+      test_result_t("extracting a key string from a colon-separated key/value pair", extracts_key()), &
+      test_result_t("extracting a string value from a colon-separated key/value pair", extracts_string_value()), &
+      test_result_t("extracting a logical value from a colon-separated key/value pair", extracts_logical_value()), &
+      test_result_t("extracting an integer array value from a colon-separated key/value pair", extracts_integer_array_value()), &
+      test_result_t("extracting an integer value from a colon-separated key/value pair", extracts_integer_value()) &
     ]
   end function
 
@@ -49,7 +50,7 @@ contains
     end associate
   end function
 
-  function extracts_string_scalar_value() result(passed)
+  function extracts_string_value() result(passed)
     logical passed
     
     associate(line => string_t('"foo" : "bar"'))
@@ -57,7 +58,15 @@ contains
     end associate
   end function
 
-  function extracts_logical_scalar_value() result(passed)
+  function extracts_integer_value() result(passed)
+    logical passed
+    
+    associate(line => string_t('"an integer" : 99'))
+      passed = line%get_json_value(key=string_t("an integer"), mold=0) == 99
+    end associate
+  end function
+
+  function extracts_logical_value() result(passed)
     logical passed
     
     associate( &

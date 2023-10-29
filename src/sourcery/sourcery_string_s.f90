@@ -51,11 +51,11 @@ contains
 
   end procedure
 
-  module procedure get_json_string_scalar_value
+  module procedure get_json_string_value
 
     character(len=:), allocatable :: raw_line
 
-    call assert(key==self%get_json_key(), "key==self%get_string_scalar_json_value()", key)
+    call assert(key==self%get_json_key(), "key==self%get_string_json_value()", key)
 
     raw_line = self%string()
     associate(text_after_colon => raw_line(index(raw_line, ':')+1:))
@@ -72,22 +72,41 @@ contains
 
   end procedure
 
-  module procedure get_json_logical_scalar_value
+  module procedure get_json_logical_value
     character(len=:), allocatable :: raw_line, string_value
 
-    call assert(key==self%get_json_key(), "string_s(get_json_logical_scalar_value): key==self%get_json_key()", key)
+    call assert(key==self%get_json_key(), "string_s(get_json_logical_value): key==self%get_json_key()", key)
 
     raw_line = self%string()
     associate(text_after_colon => raw_line(index(raw_line, ':')+1:))
-      associate(comma => index(text_after_colon, ','))
-        if (comma == 0) then
+      associate(trailing_comma => index(text_after_colon, ','))
+        if (trailing_comma == 0) then
           string_value = trim(adjustl((text_after_colon)))
         else 
-          string_value = trim(adjustl((text_after_colon(:comma-1))))
+          string_value = trim(adjustl((text_after_colon(:trailing_comma-1))))
         end if
         call assert(string_value=="true" .or. string_value=="false", &
-          'string_s(get_json_logical_scalar_value): string_value=="true" .or. string_value="false"', string_value)
+          'string_s(get_json_logical_value): string_value=="true" .or. string_value="false"', string_value)
         value_ = string_value == "true"
+      end associate
+    end associate
+
+  end procedure
+
+  module procedure get_json_integer_value
+    character(len=:), allocatable :: raw_line, string_value
+
+    call assert(key==self%get_json_key(), "string_s(get_json_logical_value): key==self%get_json_key()", key)
+
+    raw_line = self%string()
+    associate(text_after_colon => raw_line(index(raw_line, ':')+1:))
+      associate(trailing_comma => index(text_after_colon, ','))
+        if (trailing_comma == 0) then
+          string_value = trim(adjustl((text_after_colon)))
+        else 
+          string_value = trim(adjustl((text_after_colon(:trailing_comma-1))))
+        end if
+        read(string_value, fmt=*) value_
       end associate
     end associate
 
@@ -108,7 +127,7 @@ contains
             associate(num_inputs => commas + 1)
               allocate(real_array(num_inputs))
               read(raw_line(opening_bracket+1:closing_bracket-1), fmt=*) real_array
-              value_ = real_array
+              value_ = int(real_array)
             end associate
           end associate
         end associate
