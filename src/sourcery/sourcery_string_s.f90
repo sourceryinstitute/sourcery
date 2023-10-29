@@ -54,7 +54,7 @@ contains
 
     character(len=:), allocatable :: raw_line
 
-    call assert(key==self%get_json_key(), "key==self%get_json_key()", key)
+    call assert(key==self%get_json_key(), "key==self%get_string_scalar_json_value()", key)
 
     raw_line = self%string()
     associate(text_after_colon => raw_line(index(raw_line, ':')+1:))
@@ -66,6 +66,27 @@ contains
             value_ = string_t(text_after_colon(opening_value_quotes+1:closing_value_quotes-1))
           end if
         end associate
+      end associate
+    end associate
+
+  end procedure
+
+  module procedure get_json_logical_scalar_value
+    character(len=:), allocatable :: raw_line, string_value
+
+    call assert(key==self%get_json_key(), "get_json_logical_scalar_value: key==self%get_json_key()", key)
+
+    raw_line = self%string()
+    associate(text_after_colon => raw_line(index(raw_line, ':')+1:))
+      associate(comma => index(text_after_colon, ','))
+        if (comma == 0) then
+          string_value = trim(adjustl((text_after_colon)))
+        else 
+          string_value = trim(adjustl((text_after_colon(:comma-1))))
+        end if
+        call assert(string_value=="true" .or. string_value=="false", &
+          'get_json_logical_scalar_value: string_value=="true" .or. string_value="false"', string_value)
+        value_ = string_value == "true"
       end associate
     end associate
 

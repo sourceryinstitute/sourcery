@@ -15,7 +15,9 @@ module sourcery_string_m
     procedure :: is_allocated
     procedure :: get_json_key
     procedure :: get_json_string_scalar_value
-    generic :: get_json_value => get_json_string_scalar_value
+    procedure :: get_json_logical_scalar_value
+    generic :: get_json_value => &
+                 get_json_string_scalar_value, get_json_logical_scalar_value
     procedure :: equivalent
     generic :: operator(==) => equivalent
   end type
@@ -60,6 +62,13 @@ module sourcery_string_m
       implicit none
       class(string_t), intent(in) :: self, key, mold
       type(string_t) :: value_
+    end function
+
+    elemental module function get_json_logical_scalar_value(self, key, mold) result(value_)
+      implicit none
+      class(string_t), intent(in) :: self, key
+      logical, intent(in) :: mold
+      logical value_
     end function
 
     elemental module function equivalent(lhs, rhs) result(lhs_eqv_rhs)
