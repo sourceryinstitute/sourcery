@@ -51,6 +51,25 @@ contains
 
   end procedure
 
+  module procedure get_json_real_value
+    character(len=:), allocatable :: raw_line, string_value
+
+    call assert(key==self%get_json_key(), "string_s(get_json_real_value): key==self%get_json_key()", key)
+
+    raw_line = self%string()
+    associate(text_after_colon => raw_line(index(raw_line, ':')+1:))
+      associate(trailing_comma => index(text_after_colon, ','))
+        if (trailing_comma == 0) then
+          string_value = trim(adjustl((text_after_colon)))
+        else 
+          string_value = trim(adjustl((text_after_colon(:trailing_comma-1))))
+        end if
+        read(string_value, fmt=*) value_
+      end associate
+    end associate
+
+  end procedure
+
   module procedure get_json_string_value
 
     character(len=:), allocatable :: raw_line

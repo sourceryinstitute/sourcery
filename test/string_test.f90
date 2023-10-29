@@ -25,6 +25,7 @@ contains
     test_results = [ &
       test_result_t("is_allocated() result .true. if & only if the string_t component(s) is/are allocated", check_allocation()), &
       test_result_t("extracting a key string from a colon-separated key/value pair", extracts_key()), &
+      test_result_t("extracting a real value from a colon-separated key/value pair", extracts_real_value()), &
       test_result_t("extracting a string value from a colon-separated key/value pair", extracts_string_value()), &
       test_result_t("extracting a logical value from a colon-separated key/value pair", extracts_logical_value()), &
       test_result_t("extracting an integer array value from a colon-separated key/value pair", extracts_integer_array_value()), &
@@ -47,6 +48,14 @@ contains
     
     associate(line => string_t('"foo" : "bar"'))
       passed = line%get_json_key() == string_t("foo")
+    end associate
+  end function
+
+  function extracts_real_value() result(passed)
+    logical passed
+    
+    associate(line => string_t('"pi" : 3.14159'))
+      passed = line%get_json_value(key=string_t("pi"), mold=2.71828) == 3.14159
     end associate
   end function
 
