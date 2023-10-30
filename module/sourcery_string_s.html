@@ -88,7 +88,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 9.1% of total for modules and submodules.">127 statements</a>
+    title=" 9.8% of total for modules and submodules.">142 statements</a>
      </li> 
     <li><i class="fa fa-code"></i><a href="../src/sourcery_string_s.f90"> Source File</a></li>
   </ul>
@@ -118,8 +118,9 @@
     <div class="list-group">
       <a class="list-group-item" href="../module/sourcery_string_s.html#proc-array_of_strings">array_of_strings</a>
       <a class="list-group-item" href="../module/sourcery_string_s.html#proc-as_character">as_character</a>
+      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-character_eq_string_t">character_eq_string_t</a>
+      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-character_ne_string_t">character_ne_string_t</a>
       <a class="list-group-item" href="../module/sourcery_string_s.html#proc-construct~4">construct</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-equivalent">equivalent</a>
       <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_integer">get_json_integer</a>
       <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_integer_array">get_json_integer_array</a>
       <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_key">get_json_key</a>
@@ -127,6 +128,10 @@
       <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_real">get_json_real</a>
       <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_string">get_json_string</a>
       <a class="list-group-item" href="../module/sourcery_string_s.html#proc-is_allocated">is_allocated</a>
+      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_eq_character">string_t_eq_character</a>
+      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_eq_string_t">string_t_eq_string_t</a>
+      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_ne_character">string_t_ne_character</a>
+      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_ne_string_t">string_t_ne_string_t</a>
     </div>
   </div>
 </div>
@@ -169,23 +174,23 @@
 <!-- module~sourcery_string_s -->
 <g id="module~~sourcery_string_s~~UsesGraph_node1" class="node">
 <title>module~sourcery_string_s</title>
-<polygon fill="none" stroke="black" points="726,-431 622,-431 622,-407 726,-407 726,-431"/>
-<text text-anchor="middle" x="674" y="-416.6" font-family="Helvetica,sans-Serif" font-size="10.50">sourcery_string_s</text>
+<polygon fill="none" stroke="black" points="726,-432 622,-432 622,-408 726,-408 726,-432"/>
+<text text-anchor="middle" x="674" y="-417.6" font-family="Helvetica,sans-Serif" font-size="10.50">sourcery_string_s</text>
 </g>
 <!-- module~sourcery_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_node2" class="node">
 <title>module~sourcery_m</title>
 <g id="a_module~~sourcery_string_s~~UsesGraph_node2"><a xlink:href=".././module/sourcery_m.html" xlink:title="sourcery_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="586,-290 512,-290 512,-266 586,-266 586,-290"/>
-<text text-anchor="middle" x="549" y="-275.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_m</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="586,-292 512,-292 512,-268 586,-268 586,-292"/>
+<text text-anchor="middle" x="549" y="-277.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_m</text>
 </a>
 </g>
 </g>
 <!-- module~sourcery_string_s&#45;&gt;module~sourcery_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_edge1" class="edge">
 <title>module~sourcery_string_s&#45;&gt;module~sourcery_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M662.51,-406.98C641.38,-382.75 593.47,-327.84 567.51,-298.07"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="570.02,-295.63 560.81,-290.39 564.75,-300.23 570.02,-295.63"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M662.08,-407.58C640.7,-383.23 593.11,-329.07 567.36,-299.76"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="569.94,-297.4 560.72,-292.2 564.69,-302.02 569.94,-297.4"/>
 </g>
 <!-- module~sourcery_string_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_node3" class="node">
@@ -199,7 +204,7 @@
 <!-- module~sourcery_string_s&#45;&gt;module~sourcery_string_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_edge3" class="edge">
 <title>module~sourcery_string_s&#45;&gt;module~sourcery_string_m</title>
-<path fill="none" stroke="#ff0000" d="M656.94,-431.22C613.38,-463.03 488.45,-545.6 372,-540"/>
+<path fill="none" stroke="#ff0000" d="M656.92,-432.12C613.33,-463.68 488.32,-545.59 372,-540"/>
 <path fill="none" stroke="#ff0000" d="M370,-540C312.93,-544.48 248.29,-528.31 207,-515.2"/>
 <polygon fill="#ff0000" stroke="#ff0000" points="207.87,-511.8 197.28,-512.03 205.71,-518.46 207.87,-511.8"/>
 </g>
@@ -218,188 +223,188 @@
 <!-- module~sourcery_m&#45;&gt;module~sourcery_string_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_edge6" class="edge">
 <title>module~sourcery_m&#45;&gt;module~sourcery_string_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M548.01,-290.09C547.33,-326.43 539.81,-435.11 476,-483 402.14,-538.43 288.49,-527.56 220.82,-514.13"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="221.27,-510.65 210.77,-512.04 219.85,-517.5 221.27,-510.65"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M547.96,-292.23C547.12,-328.48 539.18,-435.74 476,-483 402.06,-538.31 288.44,-527.49 220.79,-514.09"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="221.25,-510.61 210.75,-512.01 219.83,-517.46 221.25,-510.61"/>
 </g>
-<!-- module~sourcery_units_m -->
+<!-- module~sourcery_test_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_node5" class="node">
-<title>module~sourcery_units_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node5"><a xlink:href=".././module/sourcery_units_m.html" xlink:title="sourcery_units_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="423.5,-432 318.5,-432 318.5,-408 423.5,-408 423.5,-432"/>
-<text text-anchor="middle" x="371" y="-417.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_units_m</text>
+<title>module~sourcery_test_m</title>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node5"><a xlink:href=".././module/sourcery_test_m.html" xlink:title="sourcery_test_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="420.5,-394 321.5,-394 321.5,-370 420.5,-370 420.5,-394"/>
+<text text-anchor="middle" x="371" y="-379.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_m</text>
 </a>
 </g>
 </g>
-<!-- module~sourcery_m&#45;&gt;module~sourcery_units_m -->
+<!-- module~sourcery_m&#45;&gt;module~sourcery_test_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_edge4" class="edge">
-<title>module~sourcery_m&#45;&gt;module~sourcery_units_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M544.43,-290.26C536.53,-315.08 515.09,-371.29 476,-399 463.67,-407.74 448.56,-413.04 433.71,-416.2"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="432.73,-412.82 423.52,-418.06 433.98,-419.7 432.73,-412.82"/>
+<title>module~sourcery_m&#45;&gt;module~sourcery_test_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M540.87,-292.11C529.55,-310.19 505.69,-343.93 476,-361 462.31,-368.87 446.13,-373.82 430.66,-376.93"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="429.86,-373.52 420.63,-378.72 431.08,-380.41 429.86,-373.52"/>
 </g>
 <!-- module~sourcery_user_defined_collectives_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_node6" class="node">
 <title>module~sourcery_user_defined_collectives_m</title>
 <g id="a_module~~sourcery_string_s~~UsesGraph_node6"><a xlink:href=".././module/sourcery_user_defined_collectives_m.html" xlink:title="sourcery_user_defined_collectives_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="476,-390 266,-390 266,-366 476,-366 476,-390"/>
-<text text-anchor="middle" x="371" y="-375.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_user_defined_collectives_m</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="476,-352 266,-352 266,-328 476,-328 476,-352"/>
+<text text-anchor="middle" x="371" y="-337.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_user_defined_collectives_m</text>
 </a>
 </g>
 </g>
 <!-- module~sourcery_m&#45;&gt;module~sourcery_user_defined_collectives_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge7" class="edge">
-<title>module~sourcery_m&#45;&gt;module~sourcery_user_defined_collectives_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M539.52,-290.27C527.39,-306.86 503.5,-336.18 476,-352 468.7,-356.2 460.72,-359.73 452.54,-362.69"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="451.25,-359.43 442.87,-365.92 453.47,-366.07 451.25,-359.43"/>
-</g>
-<!-- module~sourcery_test_result_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node7" class="node">
-<title>module~sourcery_test_result_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node7"><a xlink:href=".././module/sourcery_test_result_m.html" xlink:title="sourcery_test_result_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="230,-331 97,-331 97,-307 230,-307 230,-331"/>
-<text text-anchor="middle" x="163.5" y="-316.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_result_m</text>
-</a>
-</g>
-</g>
-<!-- module~sourcery_m&#45;&gt;module~sourcery_test_result_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_edge8" class="edge">
-<title>module~sourcery_m&#45;&gt;module~sourcery_test_result_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M532.47,-290.03C518.56,-300 497.14,-313.4 476,-319 397.59,-339.76 304.14,-336.19 240.19,-329.68"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="240.5,-326.2 230.18,-328.61 239.76,-333.16 240.5,-326.2"/>
-</g>
-<!-- module~sourcery_bin_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node8" class="node">
-<title>module~sourcery_bin_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node8"><a xlink:href=".././module/sourcery_bin_m.html" xlink:title="sourcery_bin_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="211.5,-270 115.5,-270 115.5,-246 211.5,-246 211.5,-270"/>
-<text text-anchor="middle" x="163.5" y="-255.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_bin_m</text>
-</a>
-</g>
-</g>
-<!-- module~sourcery_m&#45;&gt;module~sourcery_bin_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge5" class="edge">
-<title>module~sourcery_m&#45;&gt;module~sourcery_bin_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M511.92,-276.12C445.27,-272.64 302.35,-265.19 222.14,-261.01"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="221.89,-257.49 211.73,-260.46 221.53,-264.48 221.89,-257.49"/>
-</g>
-<!-- module~sourcery_command_line_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node9" class="node">
-<title>module~sourcery_command_line_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node9"><a xlink:href=".././module/sourcery_command_line_m.html" xlink:title="sourcery_command_line_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="450,-188 292,-188 292,-164 450,-164 450,-188"/>
-<text text-anchor="middle" x="371" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_command_line_m</text>
-</a>
-</g>
-</g>
-<!-- module~sourcery_m&#45;&gt;module~sourcery_command_line_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge9" class="edge">
-<title>module~sourcery_m&#45;&gt;module~sourcery_command_line_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M540.87,-265.89C529.55,-247.81 505.69,-214.07 476,-197 470.88,-194.06 465.42,-191.53 459.78,-189.34"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="460.73,-185.97 450.14,-185.99 458.43,-192.58 460.73,-185.97"/>
+<title>module~sourcery_m&#45;&gt;module~sourcery_user_defined_collectives_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M525.46,-292.05C511.51,-299.15 493.05,-307.91 476,-314 464.11,-318.25 451.21,-322.07 438.68,-325.4"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="437.55,-322.07 428.73,-327.95 439.29,-328.85 437.55,-322.07"/>
 </g>
 <!-- module~sourcery_object_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node10" class="node">
+<g id="module~~sourcery_string_s~~UsesGraph_node7" class="node">
 <title>module~sourcery_object_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node10"><a xlink:href=".././module/sourcery_object_m.html" xlink:title="sourcery_object_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="219.5,-128 107.5,-128 107.5,-104 219.5,-104 219.5,-128"/>
-<text text-anchor="middle" x="163.5" y="-113.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_object_m</text>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node7"><a xlink:href=".././module/sourcery_object_m.html" xlink:title="sourcery_object_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="219.5,-292 107.5,-292 107.5,-268 219.5,-268 219.5,-292"/>
+<text text-anchor="middle" x="163.5" y="-277.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_object_m</text>
 </a>
 </g>
 </g>
 <!-- module~sourcery_m&#45;&gt;module~sourcery_object_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge10" class="edge">
+<g id="module~~sourcery_string_s~~UsesGraph_edge9" class="edge">
 <title>module~sourcery_m&#45;&gt;module~sourcery_object_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M544.77,-265.69C537.4,-240.21 516.7,-181.83 476,-155 436.81,-129.16 309.31,-120.44 230.1,-117.49"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="229.85,-113.98 219.73,-117.13 229.6,-120.98 229.85,-113.98"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M511.74,-280.6C500.31,-280.77 487.63,-280.92 476,-281 382.67,-281.65 359.33,-281.46 266,-281 254.23,-280.94 241.69,-280.85 229.59,-280.74"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="229.58,-277.24 219.55,-280.64 229.51,-284.24 229.58,-277.24"/>
 </g>
-<!-- module~sourcery_test_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node11" class="node">
-<title>module~sourcery_test_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node11"><a xlink:href=".././module/sourcery_test_m.html" xlink:title="sourcery_test_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="420.5,-310 321.5,-310 321.5,-286 420.5,-286 420.5,-310"/>
-<text text-anchor="middle" x="371" y="-295.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_m</text>
+<!-- module~sourcery_command_line_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_node8" class="node">
+<title>module~sourcery_command_line_m</title>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node8"><a xlink:href=".././module/sourcery_command_line_m.html" xlink:title="sourcery_command_line_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="450,-230 292,-230 292,-206 450,-206 450,-230"/>
+<text text-anchor="middle" x="371" y="-215.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_command_line_m</text>
 </a>
 </g>
 </g>
-<!-- module~sourcery_m&#45;&gt;module~sourcery_test_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge11" class="edge">
-<title>module~sourcery_m&#45;&gt;module~sourcery_test_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M511.96,-282.1C488.59,-284.75 457.62,-288.27 430.75,-291.32"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="430.21,-287.86 420.67,-292.47 431,-294.82 430.21,-287.86"/>
+<!-- module~sourcery_m&#45;&gt;module~sourcery_command_line_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge5" class="edge">
+<title>module~sourcery_m&#45;&gt;module~sourcery_command_line_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M530.44,-267.88C516.32,-258.67 495.67,-246.37 476,-239 469.68,-236.63 463.05,-234.51 456.31,-232.62"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="456.96,-229.17 446.39,-230 455.17,-235.94 456.96,-229.17"/>
+</g>
+<!-- module~sourcery_formats_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_node9" class="node">
+<title>module~sourcery_formats_m</title>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node9"><a xlink:href=".././module/sourcery_formats_m.html" xlink:title="sourcery_formats_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="431.5,-188 310.5,-188 310.5,-164 431.5,-164 431.5,-188"/>
+<text text-anchor="middle" x="371" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_formats_m</text>
+</a>
+</g>
+</g>
+<!-- module~sourcery_m&#45;&gt;module~sourcery_formats_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge7" class="edge">
+<title>module~sourcery_m&#45;&gt;module~sourcery_formats_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M541.13,-267.89C529.99,-249.44 506.16,-214.58 476,-197 465.56,-190.91 453.63,-186.57 441.67,-183.47"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="442.19,-179.99 431.65,-181.15 440.61,-186.81 442.19,-179.99"/>
+</g>
+<!-- module~sourcery_data_partition_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_node10" class="node">
+<title>module~sourcery_data_partition_m</title>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node10"><a xlink:href=".././module/sourcery_data_partition_m.html" xlink:title="sourcery_data_partition_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="448,-108 294,-108 294,-84 448,-84 448,-108"/>
+<text text-anchor="middle" x="371" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_data_partition_m</text>
+</a>
+</g>
+</g>
+<!-- module~sourcery_m&#45;&gt;module~sourcery_data_partition_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge10" class="edge">
+<title>module~sourcery_m&#45;&gt;module~sourcery_data_partition_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M546.15,-267.96C540.92,-238.31 523.27,-161.34 476,-122 470.39,-117.33 464.07,-113.49 457.37,-110.32"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="458.62,-107.05 448.05,-106.41 455.91,-113.5 458.62,-107.05"/>
 </g>
 <!-- module~sourcery_file_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node12" class="node">
+<g id="module~~sourcery_string_s~~UsesGraph_node11" class="node">
 <title>module~sourcery_file_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node12"><a xlink:href=".././module/sourcery_file_m.html" xlink:title="sourcery_file_m">
+<g id="a_module~~sourcery_string_s~~UsesGraph_node11"><a xlink:href=".././module/sourcery_file_m.html" xlink:title="sourcery_file_m">
 <polygon fill="#337ab7" stroke="#337ab7" points="419,-474 323,-474 323,-450 419,-450 419,-474"/>
 <text text-anchor="middle" x="371" y="-459.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_file_m</text>
 </a>
 </g>
 </g>
 <!-- module~sourcery_m&#45;&gt;module~sourcery_file_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge12" class="edge">
+<g id="module~~sourcery_string_s~~UsesGraph_edge11" class="edge">
 <title>module~sourcery_m&#45;&gt;module~sourcery_file_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M546.45,-290.1C541.87,-320.65 525.43,-401.27 476,-441 462.86,-451.56 445.83,-457.25 429.36,-460.21"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="428.6,-456.79 419.22,-461.72 429.63,-463.71 428.6,-456.79"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M546.02,-292.32C540.58,-321.92 522.64,-397.38 476,-436 462.88,-446.86 445.86,-453.28 429.39,-457.05"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="428.37,-453.68 419.25,-459.06 429.74,-460.54 428.37,-453.68"/>
 </g>
-<!-- module~sourcery_data_partition_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node13" class="node">
-<title>module~sourcery_data_partition_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node13"><a xlink:href=".././module/sourcery_data_partition_m.html" xlink:title="sourcery_data_partition_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="448,-230 294,-230 294,-206 448,-206 448,-230"/>
-<text text-anchor="middle" x="371" y="-215.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_data_partition_m</text>
+<!-- module~sourcery_units_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_node12" class="node">
+<title>module~sourcery_units_m</title>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node12"><a xlink:href=".././module/sourcery_units_m.html" xlink:title="sourcery_units_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="423.5,-66 318.5,-66 318.5,-42 423.5,-42 423.5,-66"/>
+<text text-anchor="middle" x="371" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_units_m</text>
 </a>
 </g>
 </g>
-<!-- module~sourcery_m&#45;&gt;module~sourcery_data_partition_m -->
+<!-- module~sourcery_m&#45;&gt;module~sourcery_units_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge12" class="edge">
+<title>module~sourcery_m&#45;&gt;module~sourcery_units_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M547.66,-267.81C545.97,-232.13 535.9,-127.13 476,-75 464.26,-64.78 448.94,-59.02 433.68,-55.89"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="434.15,-52.42 423.7,-54.19 432.97,-59.32 434.15,-52.42"/>
+</g>
+<!-- module~sourcery_bin_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_node13" class="node">
+<title>module~sourcery_bin_m</title>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node13"><a xlink:href=".././module/sourcery_bin_m.html" xlink:title="sourcery_bin_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="211.5,-148 115.5,-148 115.5,-124 211.5,-124 211.5,-148"/>
+<text text-anchor="middle" x="163.5" y="-133.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_bin_m</text>
+</a>
+</g>
+</g>
+<!-- module~sourcery_m&#45;&gt;module~sourcery_bin_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_edge13" class="edge">
-<title>module~sourcery_m&#45;&gt;module~sourcery_data_partition_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M525.46,-265.95C511.51,-258.85 493.05,-250.09 476,-244 464.11,-239.75 451.21,-235.93 438.68,-232.6"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="439.29,-229.15 428.73,-230.05 437.55,-235.93 439.29,-229.15"/>
+<title>module~sourcery_m&#45;&gt;module~sourcery_bin_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M545.08,-267.68C538.17,-241.61 518.16,-181.11 476,-155 434.95,-129.57 300.05,-130.34 221.89,-133.16"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="221.58,-129.67 211.72,-133.55 221.85,-136.66 221.58,-129.67"/>
 </g>
 <!-- module~sourcery_oracle_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_node14" class="node">
 <title>module~sourcery_oracle_m</title>
 <g id="a_module~~sourcery_string_s~~UsesGraph_node14"><a xlink:href=".././module/sourcery_oracle_m.html" xlink:title="sourcery_oracle_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="427.5,-108 314.5,-108 314.5,-84 427.5,-84 427.5,-108"/>
-<text text-anchor="middle" x="371" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_oracle_m</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="427.5,-272 314.5,-272 314.5,-248 427.5,-248 427.5,-272"/>
+<text text-anchor="middle" x="371" y="-257.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_oracle_m</text>
 </a>
 </g>
 </g>
 <!-- module~sourcery_m&#45;&gt;module~sourcery_oracle_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_edge14" class="edge">
 <title>module~sourcery_m&#45;&gt;module~sourcery_oracle_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M546.02,-265.68C540.58,-236.08 522.64,-160.62 476,-122 465.04,-112.93 451.36,-106.95 437.55,-103.04"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="438.06,-99.56 427.51,-100.53 436.36,-106.35 438.06,-99.56"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M511.96,-275.9C490.66,-273.48 463.03,-270.34 437.95,-267.49"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="438.08,-263.99 427.75,-266.34 437.29,-270.94 438.08,-263.99"/>
+</g>
+<!-- module~sourcery_test_result_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_node15" class="node">
+<title>module~sourcery_test_result_m</title>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node15"><a xlink:href=".././module/sourcery_test_result_m.html" xlink:title="sourcery_test_result_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="230,-414 97,-414 97,-390 230,-390 230,-414"/>
+<text text-anchor="middle" x="163.5" y="-399.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_result_m</text>
+</a>
+</g>
+</g>
+<!-- module~sourcery_m&#45;&gt;module~sourcery_test_result_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge15" class="edge">
+<title>module~sourcery_m&#45;&gt;module~sourcery_test_result_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M545.13,-292.33C538.33,-318.38 518.5,-378.63 476,-403 394.17,-449.92 279.25,-432.44 214.31,-416.53"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="214.88,-413.07 204.33,-414.01 213.16,-419.85 214.88,-413.07"/>
 </g>
 <!-- module~sourcery_co_object_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node15" class="node">
+<g id="module~~sourcery_string_s~~UsesGraph_node16" class="node">
 <title>module~sourcery_co_object_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node15"><a xlink:href=".././module/sourcery_co_object_m.html" xlink:title="sourcery_co_object_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="436,-66 306,-66 306,-42 436,-42 436,-66"/>
-<text text-anchor="middle" x="371" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_co_object_m</text>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node16"><a xlink:href=".././module/sourcery_co_object_m.html" xlink:title="sourcery_co_object_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="436,-24 306,-24 306,0 436,0 436,-24"/>
+<text text-anchor="middle" x="371" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_co_object_m</text>
 </a>
 </g>
 </g>
 <!-- module~sourcery_m&#45;&gt;module~sourcery_co_object_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge15" class="edge">
-<title>module~sourcery_m&#45;&gt;module~sourcery_co_object_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M547.62,-265.93C545.82,-230.59 535.46,-126.58 476,-75 467.39,-67.53 456.87,-62.45 445.86,-59.03"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="446.66,-55.62 436.1,-56.44 444.86,-62.39 446.66,-55.62"/>
-</g>
-<!-- module~sourcery_formats_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node16" class="node">
-<title>module~sourcery_formats_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node16"><a xlink:href=".././module/sourcery_formats_m.html" xlink:title="sourcery_formats_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="431.5,-24 310.5,-24 310.5,0 431.5,0 431.5,-24"/>
-<text text-anchor="middle" x="371" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_formats_m</text>
-</a>
-</g>
-</g>
-<!-- module~sourcery_m&#45;&gt;module~sourcery_formats_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_edge16" class="edge">
-<title>module~sourcery_m&#45;&gt;module~sourcery_formats_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M548.46,-265.84C549.27,-225.84 546.09,-97.27 476,-33 466.37,-24.17 454.1,-18.62 441.38,-15.21"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="442.13,-11.8 431.6,-13.01 440.59,-18.62 442.13,-11.8"/>
+<title>module~sourcery_m&#45;&gt;module~sourcery_co_object_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M548.5,-267.74C549.42,-227.43 546.55,-97.83 476,-33 467.56,-25.24 457.07,-20.01 446.03,-16.54"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="446.79,-13.12 436.22,-13.93 444.98,-19.89 446.79,-13.12"/>
 </g>
 <!-- module~sourcery_string_m&#45;&gt;assert_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_edge17" class="edge">
@@ -410,41 +415,41 @@
 <!-- module~sourcery_test_m&#45;&gt;module~sourcery_test_result_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_edge18" class="edge">
 <title>module~sourcery_test_m&#45;&gt;module~sourcery_test_result_m</title>
-<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M321.3,-302.98C297.2,-305.44 267.55,-308.47 240.55,-311.23"/>
-<polygon fill="#00ffff" stroke="#00ffff" points="239.94,-307.77 230.35,-312.27 240.65,-314.74 239.94,-307.77"/>
-</g>
-<!-- module~sourcery_file_m&#45;&gt;module~sourcery_string_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge19" class="edge">
-<title>module~sourcery_file_m&#45;&gt;module~sourcery_string_m</title>
-<path fill="none" stroke="#007fff" stroke-dasharray="5,2" d="M322.85,-470.72C294.85,-475.9 258.97,-482.53 228.45,-488.18"/>
-<polygon fill="#007fff" stroke="#007fff" points="227.51,-484.79 218.32,-490.05 228.79,-491.67 227.51,-484.79"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M321.3,-386.74C297.2,-389.09 267.55,-391.97 240.55,-394.6"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="239.96,-391.14 230.35,-395.59 240.64,-398.11 239.96,-391.14"/>
 </g>
 <!-- module~sourcery_data_partition_m&#45;&gt;module~sourcery_bin_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_edge20" class="edge">
 <title>module~sourcery_data_partition_m&#45;&gt;module~sourcery_bin_m</title>
-<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M308.34,-230C280.88,-235.35 248.72,-241.61 221.79,-246.85"/>
-<polygon fill="#0000ff" stroke="#0000ff" points="220.89,-243.46 211.74,-248.81 222.22,-250.33 220.89,-243.46"/>
+<path fill="none" stroke="#00ff7f" stroke-dasharray="5,2" d="M308.34,-108C280.88,-113.35 248.72,-119.61 221.79,-124.85"/>
+<polygon fill="#00ff7f" stroke="#00ff7f" points="220.89,-121.46 211.74,-126.81 222.22,-128.33 220.89,-121.46"/>
 </g>
 <!-- iso_fortran_env -->
 <g id="module~~sourcery_string_s~~UsesGraph_node17" class="node">
 <title>iso_fortran_env</title>
 <g id="a_module~~sourcery_string_s~~UsesGraph_node17"><a xlink:href="https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html" xlink:title="iso_fortran_env">
-<polygon fill="#337ab7" stroke="#337ab7" points="210.5,-228 116.5,-228 116.5,-204 210.5,-204 210.5,-228"/>
-<text text-anchor="middle" x="163.5" y="-213.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="210.5,-106 116.5,-106 116.5,-82 210.5,-82 210.5,-106"/>
+<text text-anchor="middle" x="163.5" y="-91.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
 </a>
 </g>
 </g>
 <!-- module~sourcery_data_partition_m&#45;&gt;iso_fortran_env -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge21" class="edge">
+<g id="module~~sourcery_string_s~~UsesGraph_edge19" class="edge">
 <title>module~sourcery_data_partition_m&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M293.77,-217.26C269.6,-217.02 243.33,-216.77 220.82,-216.55"/>
-<polygon fill="#0000ff" stroke="#0000ff" points="220.8,-213.05 210.77,-216.45 220.73,-220.05 220.8,-213.05"/>
+<path fill="none" stroke="#00ff7f" stroke-dasharray="5,2" d="M293.77,-95.26C269.6,-95.02 243.33,-94.77 220.82,-94.55"/>
+<polygon fill="#00ff7f" stroke="#00ff7f" points="220.8,-91.05 210.77,-94.45 220.73,-98.05 220.8,-91.05"/>
+</g>
+<!-- module~sourcery_file_m&#45;&gt;module~sourcery_string_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge21" class="edge">
+<title>module~sourcery_file_m&#45;&gt;module~sourcery_string_m</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M322.85,-470.72C294.85,-475.9 258.97,-482.53 228.45,-488.18"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="227.51,-484.79 218.32,-490.05 228.79,-491.67 227.51,-484.79"/>
 </g>
 <!-- module~sourcery_oracle_m&#45;&gt;module~sourcery_object_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_edge22" class="edge">
 <title>module~sourcery_oracle_m&#45;&gt;module~sourcery_object_m</title>
-<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M314.39,-101.41C288.35,-103.95 257.17,-106.98 230,-109.63"/>
-<polygon fill="#7f00ff" stroke="#7f00ff" points="229.41,-106.17 219.8,-110.62 230.09,-113.13 229.41,-106.17"/>
+<path fill="none" stroke="#7f00ff" stroke-dasharray="5,2" d="M314.39,-265.41C288.35,-267.95 257.17,-270.98 230,-273.63"/>
+<polygon fill="#7f00ff" stroke="#7f00ff" points="229.41,-270.17 219.8,-274.62 230.09,-277.13 229.41,-270.17"/>
 </g>
 </g>
 </svg>
@@ -522,8 +527,9 @@
     <div class="list-group">
       <a class="list-group-item" href="../module/sourcery_string_s.html#proc-array_of_strings">array_of_strings</a>
       <a class="list-group-item" href="../module/sourcery_string_s.html#proc-as_character">as_character</a>
+      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-character_eq_string_t">character_eq_string_t</a>
+      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-character_ne_string_t">character_ne_string_t</a>
       <a class="list-group-item" href="../module/sourcery_string_s.html#proc-construct~4">construct</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-equivalent">equivalent</a>
       <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_integer">get_json_integer</a>
       <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_integer_array">get_json_integer_array</a>
       <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_key">get_json_key</a>
@@ -531,6 +537,10 @@
       <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_real">get_json_real</a>
       <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_string">get_json_string</a>
       <a class="list-group-item" href="../module/sourcery_string_s.html#proc-is_allocated">is_allocated</a>
+      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_eq_character">string_t_eq_character</a>
+      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_eq_string_t">string_t_eq_string_t</a>
+      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_ne_character">string_t_ne_character</a>
+      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_ne_string_t">string_t_ne_string_t</a>
     </div>
   </div>
 </div>
@@ -602,16 +612,7 @@
   </div>
 
           <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-construct~4"></span><h3>module procedure <a href='../proc/construct~4.html'>construct</a> <small>module procedure construct()</small></h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <em>None</em>
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-equivalent"></span><h3>module procedure <a href='../proc/equivalent.html'>equivalent</a> <small>elemental module module function equivalent(lhs, rhs) result(lhs_eqv_rhs)</small>   <a href='../interface/equivalent.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+  <div class="panel-heading codesum"><span class="anchor" id="proc-character_eq_string_t"></span><h3>module procedure <a href='../proc/character_eq_string_t.html'>character_eq_string_t</a> <small>elemental module module function character_eq_string_t(lhs, rhs) result(lhs_eq_rhs)</small>   <a href='../interface/character_eq_string_t.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
 </h3></div>
   <div class="panel-body">
            
@@ -619,7 +620,7 @@
 <thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
 <tbody>
 <tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
+  <td><span class="anchor" ></span>character(len=*),</td>
 <td>intent(in)</td>
   <td></td>  <td></td><td>::</td>
   <td><strong>lhs</strong></td><td></td>
@@ -634,6 +635,43 @@
 </table>
 
 <h4>Return Value <small>logical</small></h4>  
+
+  </div>
+  </div>
+
+          <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-character_ne_string_t"></span><h3>module procedure <a href='../proc/character_ne_string_t.html'>character_ne_string_t</a> <small>elemental module module function character_ne_string_t(lhs, rhs) result(lhs_ne_rhs)</small>   <a href='../interface/character_ne_string_t.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+  <div class="panel-body">
+           
+<h4>Arguments</h4>      <table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
+<tbody>
+<tr>
+  <td><span class="anchor" ></span>character(len=*),</td>
+<td>intent(in)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
+<td>intent(in)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>rhs</strong></td><td></td>
+</tr>
+</tbody>
+</table>
+
+<h4>Return Value <small>logical</small></h4>  
+
+  </div>
+  </div>
+
+          <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-construct~4"></span><h3>module procedure <a href='../proc/construct~4.html'>construct</a> <small>module procedure construct()</small></h3></div>
+  <div class="panel-body">
+           
+<h4>Arguments</h4>      <em>None</em>
 
   </div>
   </div>
@@ -852,6 +890,118 @@
   </div>
   </div>
 
+          <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-string_t_eq_character"></span><h3>module procedure <a href='../proc/string_t_eq_character.html'>string_t_eq_character</a> <small>elemental module module function string_t_eq_character(lhs, rhs) result(lhs_eq_rhs)</small>   <a href='../interface/string_t_eq_character.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+  <div class="panel-body">
+           
+<h4>Arguments</h4>      <table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
+<tbody>
+<tr>
+  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
+<td>intent(in)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" ></span>character(len=*),</td>
+<td>intent(in)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>rhs</strong></td><td></td>
+</tr>
+</tbody>
+</table>
+
+<h4>Return Value <small>logical</small></h4>  
+
+  </div>
+  </div>
+
+          <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-string_t_eq_string_t"></span><h3>module procedure <a href='../proc/string_t_eq_string_t.html'>string_t_eq_string_t</a> <small>elemental module module function string_t_eq_string_t(lhs, rhs) result(lhs_eq_rhs)</small>   <a href='../interface/string_t_eq_string_t.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+  <div class="panel-body">
+           
+<h4>Arguments</h4>      <table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
+<tbody>
+<tr>
+  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
+<td>intent(in)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
+<td>intent(in)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>rhs</strong></td><td></td>
+</tr>
+</tbody>
+</table>
+
+<h4>Return Value <small>logical</small></h4>  
+
+  </div>
+  </div>
+
+          <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-string_t_ne_character"></span><h3>module procedure <a href='../proc/string_t_ne_character.html'>string_t_ne_character</a> <small>elemental module module function string_t_ne_character(lhs, rhs) result(lhs_ne_rhs)</small>   <a href='../interface/string_t_ne_character.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+  <div class="panel-body">
+           
+<h4>Arguments</h4>      <table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
+<tbody>
+<tr>
+  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
+<td>intent(in)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" ></span>character(len=*),</td>
+<td>intent(in)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>rhs</strong></td><td></td>
+</tr>
+</tbody>
+</table>
+
+<h4>Return Value <small>logical</small></h4>  
+
+  </div>
+  </div>
+
+          <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-string_t_ne_string_t"></span><h3>module procedure <a href='../proc/string_t_ne_string_t.html'>string_t_ne_string_t</a> <small>elemental module module function string_t_ne_string_t(lhs, rhs) result(lhs_ne_rhs)</small>   <a href='../interface/string_t_ne_string_t.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+  <div class="panel-body">
+           
+<h4>Arguments</h4>      <table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
+<tbody>
+<tr>
+  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
+<td>intent(in)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
+<td>intent(in)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>rhs</strong></td><td></td>
+</tr>
+</tbody>
+</table>
+
+<h4>Return Value <small>logical</small></h4>  
+
+  </div>
+  </div>
+
         </section>    
     
     </div>
@@ -869,7 +1019,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-10-29 04:16            </p>
+ on 2023-10-30 00:56            </p>
         </div>
       </div>
       <br>

@@ -88,7 +88,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 9.1% of total for source files.">127 statements</a>
+    title=" 9.8% of total for source files.">142 statements</a>
      </li> 
     <li><i class="fa fa-code"></i><a href="../src/sourcery_string_s.f90"> Source File</a></li>
   </ul>
@@ -612,11 +612,31 @@
 <a id="ln-155" name="ln-155" href="#ln-155"></a>
 <a id="ln-156" name="ln-156" href="#ln-156"></a><span class="k">  end procedure</span>
 <a id="ln-157" name="ln-157" href="#ln-157"></a>
-<a id="ln-158" name="ln-158" href="#ln-158"></a><span class="k">  module procedure </span><span class="n">equivalent</span><span class="w"></span>
-<a id="ln-159" name="ln-159" href="#ln-159"></a><span class="w">    </span><span class="n">lhs_eqv_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">rhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"></span>
+<a id="ln-158" name="ln-158" href="#ln-158"></a><span class="k">  module procedure </span><span class="n">string_t_eq_string_t</span><span class="w"></span>
+<a id="ln-159" name="ln-159" href="#ln-159"></a><span class="w">    </span><span class="n">lhs_eq_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">rhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"></span>
 <a id="ln-160" name="ln-160" href="#ln-160"></a><span class="w">  </span><span class="k">end procedure</span>
 <a id="ln-161" name="ln-161" href="#ln-161"></a><span class="k">   </span>
-<a id="ln-162" name="ln-162" href="#ln-162"></a><span class="k">end submodule </span><span class="n">sourcery_string_s</span><span class="w"></span>
+<a id="ln-162" name="ln-162" href="#ln-162"></a><span class="k">  module procedure </span><span class="n">string_t_eq_character</span><span class="w"></span>
+<a id="ln-163" name="ln-163" href="#ln-163"></a><span class="w">    </span><span class="n">lhs_eq_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">rhs</span><span class="w"></span>
+<a id="ln-164" name="ln-164" href="#ln-164"></a><span class="w">  </span><span class="k">end procedure</span>
+<a id="ln-165" name="ln-165" href="#ln-165"></a>
+<a id="ln-166" name="ln-166" href="#ln-166"></a><span class="k">  module procedure </span><span class="n">character_eq_string_t</span><span class="w"></span>
+<a id="ln-167" name="ln-167" href="#ln-167"></a><span class="w">    </span><span class="n">lhs_eq_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">rhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"></span>
+<a id="ln-168" name="ln-168" href="#ln-168"></a><span class="w">  </span><span class="k">end procedure</span>
+<a id="ln-169" name="ln-169" href="#ln-169"></a><span class="k">   </span>
+<a id="ln-170" name="ln-170" href="#ln-170"></a><span class="k">  module procedure </span><span class="n">string_t_ne_string_t</span><span class="w"></span>
+<a id="ln-171" name="ln-171" href="#ln-171"></a><span class="w">    </span><span class="n">lhs_ne_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">rhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"></span>
+<a id="ln-172" name="ln-172" href="#ln-172"></a><span class="w">  </span><span class="k">end procedure</span>
+<a id="ln-173" name="ln-173" href="#ln-173"></a><span class="k">   </span>
+<a id="ln-174" name="ln-174" href="#ln-174"></a><span class="k">  module procedure </span><span class="n">string_t_ne_character</span><span class="w"></span>
+<a id="ln-175" name="ln-175" href="#ln-175"></a><span class="w">    </span><span class="n">lhs_ne_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">rhs</span><span class="w"></span>
+<a id="ln-176" name="ln-176" href="#ln-176"></a><span class="w">  </span><span class="k">end procedure</span>
+<a id="ln-177" name="ln-177" href="#ln-177"></a>
+<a id="ln-178" name="ln-178" href="#ln-178"></a><span class="k">  module procedure </span><span class="n">character_ne_string_t</span><span class="w"></span>
+<a id="ln-179" name="ln-179" href="#ln-179"></a><span class="w">    </span><span class="n">lhs_ne_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">rhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"></span>
+<a id="ln-180" name="ln-180" href="#ln-180"></a><span class="w">  </span><span class="k">end procedure</span>
+<a id="ln-181" name="ln-181" href="#ln-181"></a><span class="k">   </span>
+<a id="ln-182" name="ln-182" href="#ln-182"></a><span class="k">end submodule </span><span class="n">sourcery_string_s</span><span class="w"></span>
 </pre></div>
 
     </section>
@@ -635,7 +655,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-10-29 04:16            </p>
+ on 2023-10-30 00:56            </p>
         </div>
       </div>
       <br>
