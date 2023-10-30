@@ -179,4 +179,12 @@ contains
     lhs_ne_rhs = lhs /= rhs%string()
   end procedure
    
+  module procedure assign_string_t_to_character
+    lhs = rhs%string()
+  end procedure
+   
+  module procedure assign_character_to_string_t
+    lhs%string_ = rhs
+  end procedure
+   
 end submodule sourcery_string_s

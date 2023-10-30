@@ -31,7 +31,9 @@ contains
       test_result_t("extracting an integer array value from a colon-separated key/value pair", extracts_integer_array_value()), &
       test_result_t("extracting an integer value from a colon-separated key/value pair", extracts_integer_value()), &
       test_result_t('supporting operator(==) for string_t and character operands', supports_equivalence_operator()), &
-      test_result_t('supporting operator(/=) for string_t and character operands', supports_non_equivalence_operator()) &
+      test_result_t('supporting operator(/=) for string_t and character operands', supports_non_equivalence_operator()), &
+      test_result_t('assigning a string_t object to a character variable', assigns_string_t_to_character()), &
+      test_result_t('assigning a character variable to a string_t object', assigns_character_to_string_t()) &
     ]
   end function
 
@@ -119,6 +121,24 @@ contains
       string_t("abcdefg") /= string_t("xyz pdq") .and. &
       string_t("xyz pdq") /=          "abcdefg"  .and. &
                "123.456"  /= string_t("456.123")
+  end function
+
+  function assigns_string_t_to_character() result(passed)
+    logical passed
+    character(len=:), allocatable :: lhs
+
+    associate(rhs => string_t("ya don't say"))
+      lhs = rhs
+      passed = lhs == rhs
+    end associate
+  end function
+
+  function assigns_character_to_string_t() result(passed)
+    logical passed
+    character(len=*), parameter :: rhs = "well, alrighty then"
+    type(string_t) lhs
+    lhs = rhs
+    passed = lhs == rhs
   end function
 
 end module string_test_m
