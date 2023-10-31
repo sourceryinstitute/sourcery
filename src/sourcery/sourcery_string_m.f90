@@ -76,7 +76,7 @@ module sourcery_string_m
       type(string_t) :: value_
     end function
 
-    elemental module function get_json_integer(self, key, mold) result(value_)
+    pure module function get_json_integer(self, key, mold) result(value_)
       implicit none
       class(string_t), intent(in) :: self, key
       integer, intent(in) ::  mold
