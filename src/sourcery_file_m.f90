@@ -23,7 +23,7 @@ module sourcery_file_m
 
     pure module function construct(lines) result(file_object)
       implicit none
-      type(string_t), intent(in), allocatable :: lines(:)
+      type(string_t), intent(in) :: lines(:)
       type(file_t) file_object
     end function
 
