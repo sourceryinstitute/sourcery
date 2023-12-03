@@ -33,7 +33,8 @@ contains
       test_result_t('supporting operator(==) for string_t and character operands', supports_equivalence_operator()), &
       test_result_t('supporting operator(/=) for string_t and character operands', supports_non_equivalence_operator()), &
       test_result_t('assigning a string_t object to a character variable', assigns_string_t_to_character()), &
-      test_result_t('assigning a character variable to a string_t object', assigns_character_to_string_t()) &
+      test_result_t('assigning a character variable to a string_t object', assigns_character_to_string_t()), &
+      test_result_t('supporting operator(//) for string_t and character operands', supports_concatenation_operator()) &
     ]
   end function
 
@@ -139,6 +140,15 @@ contains
     type(string_t) lhs
     lhs = rhs
     passed = lhs == rhs
+  end function
+
+  function supports_concatenation_operator() result(passed)
+    logical passed
+    character(len=*), parameter :: prefix = "foo", postfix="bar"
+
+    associate(infix => string_t(" yada yada "))
+      passed = prefix // infix // postfix == prefix // infix%string() // postfix 
+    end associate
   end function
 
 end module string_test_m
