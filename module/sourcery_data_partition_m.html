@@ -88,7 +88,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 4.8% of total for modules and submodules.">71 statements</a>
+    title=" 4.7% of total for modules and submodules.">71 statements</a>
      </li> 
     <li><i class="fa fa-code"></i><a href="../src/sourcery_data_partition_m.f90"> Source File</a></li>
   </ul>
@@ -118,12 +118,12 @@
     <div class="list-group">
       <a class="list-group-item" href="../module/sourcery_data_partition_m.html#interface-data_partition_t">data_partition_t</a>
       <a class="list-group-item" href="../module/sourcery_data_partition_m.html#interface-define_partitions">define_partitions</a>
-      <a class="list-group-item" href="../module/sourcery_data_partition_m.html#interface-first~2">first</a>
+      <a class="list-group-item" href="../module/sourcery_data_partition_m.html#interface-first">first</a>
       <a class="list-group-item" href="../module/sourcery_data_partition_m.html#interface-gather_real32_1d_array">gather_real32_1D_array</a>
       <a class="list-group-item" href="../module/sourcery_data_partition_m.html#interface-gather_real32_2d_array">gather_real32_2D_array</a>
       <a class="list-group-item" href="../module/sourcery_data_partition_m.html#interface-gather_real64_1d_array">gather_real64_1D_array</a>
       <a class="list-group-item" href="../module/sourcery_data_partition_m.html#interface-gather_real64_2d_array">gather_real64_2D_array</a>
-      <a class="list-group-item" href="../module/sourcery_data_partition_m.html#interface-last~2">last</a>
+      <a class="list-group-item" href="../module/sourcery_data_partition_m.html#interface-last">last</a>
     </div>
   </div>
 </div>
@@ -415,12 +415,12 @@ items differs by at most 1 between any two images.</p>
     <div class="list-group">
       <a class="list-group-item" href="../module/sourcery_data_partition_m.html#interface-data_partition_t">data_partition_t</a>
       <a class="list-group-item" href="../module/sourcery_data_partition_m.html#interface-define_partitions">define_partitions</a>
-      <a class="list-group-item" href="../module/sourcery_data_partition_m.html#interface-first~2">first</a>
+      <a class="list-group-item" href="../module/sourcery_data_partition_m.html#interface-first">first</a>
       <a class="list-group-item" href="../module/sourcery_data_partition_m.html#interface-gather_real32_1d_array">gather_real32_1D_array</a>
       <a class="list-group-item" href="../module/sourcery_data_partition_m.html#interface-gather_real32_2d_array">gather_real32_2D_array</a>
       <a class="list-group-item" href="../module/sourcery_data_partition_m.html#interface-gather_real64_1d_array">gather_real64_1D_array</a>
       <a class="list-group-item" href="../module/sourcery_data_partition_m.html#interface-gather_real64_2d_array">gather_real64_2D_array</a>
-      <a class="list-group-item" href="../module/sourcery_data_partition_m.html#interface-last~2">last</a>
+      <a class="list-group-item" href="../module/sourcery_data_partition_m.html#interface-last">last</a>
     </div>
   </div>
 </div>
@@ -500,7 +500,7 @@ items differs by at most 1 between any two images.</p>
 </div>
 
      <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-first~2"></span><h3>interface   </h3></div>
+  <div class="panel-heading codesum"><span class="anchor" id="interface-first"></span><h3>interface   </h3></div>
   <div class="panel-body">
     <p>Gathers are inherently expensive and are best used either
 1. Near the beginning/end of execution to amortize costs across an entire run or
@@ -508,7 +508,7 @@ items differs by at most 1 between any two images.</p>
   </div>
   <ul class="list-group">
     <li class="list-group-item">
-    <h3>private pure module module function first(self, image_number) result(first_index)   <a href='../proc/first~2.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+    <h3>private pure module module function first(self, image_number) result(first_index)   <a href='../proc/first.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
 </h3><p>the result is the first identification number owned by the executing image</p>
     
 <h4>Arguments</h4>      <table class="table table-striped varlist">
@@ -724,7 +724,7 @@ items differs by at most 1 between any two images.</p>
 </div>
 
      <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-last~2"></span><h3>interface   </h3></div>
+  <div class="panel-heading codesum"><span class="anchor" id="interface-last"></span><h3>interface   </h3></div>
   <div class="panel-body">
     <p>Gathers are inherently expensive and are best used either
 1. Near the beginning/end of execution to amortize costs across an entire run or
@@ -732,7 +732,7 @@ items differs by at most 1 between any two images.</p>
   </div>
   <ul class="list-group">
     <li class="list-group-item">
-    <h3>private pure module module function last(self, image_number) result(last_index)   <a href='../proc/last~2.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+    <h3>private pure module module function last(self, image_number) result(last_index)   <a href='../proc/last.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
 </h3><p>the result is the last identification number owned by the executing image</p>
     
 <h4>Arguments</h4>      <table class="table table-striped varlist">
@@ -794,11 +794,11 @@ items differs by at most 1 between any two images.</p>
       <tbody>
        <tr><td>procedure, public :: <strong><a href='../type/data_partition_t.html#boundprocedure-define_partitions'>define_partitions</a></strong>  </td>
        <td></td></tr>
-       <tr><td>procedure, public :: <strong><a href='../type/data_partition_t.html#boundprocedure-first~2'>first</a></strong>  </td>
+       <tr><td>procedure, public :: <strong><a href='../type/data_partition_t.html#boundprocedure-first'>first</a></strong>  </td>
        <td></td></tr>
        <tr><td>generic, public :: <strong><a href='../type/data_partition_t.html#boundprocedure-gather'>gather</a></strong>  => gather_real32_2D_array, gather_real64_2D_array, gather_real32_1D_array, gather_real64_1D_array </td>
        <td></td></tr>
-       <tr><td>procedure, public :: <strong><a href='../type/data_partition_t.html#boundprocedure-last~2'>last</a></strong>  </td>
+       <tr><td>procedure, public :: <strong><a href='../type/data_partition_t.html#boundprocedure-last'>last</a></strong>  </td>
        <td></td></tr>
        <tr><td>procedure, private :: <strong><a href='../type/data_partition_t.html#boundprocedure-gather_real32_1d_array'>gather_real32_1D_array</a></strong>  </td>
        <td></td></tr>
@@ -833,7 +833,7 @@ items differs by at most 1 between any two images.</p>
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-11-06 07:41            </p>
+ on 2023-12-03 01:18            </p>
         </div>
       </div>
       <br>
