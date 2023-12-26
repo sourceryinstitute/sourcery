@@ -1,4 +1,5 @@
 submodule(sourcery_test_result_m) sourcery_test_result_s
+  use sourcery_user_defined_collectives_m, only : co_all
   implicit none
 
 contains
@@ -14,6 +15,7 @@ contains
 
     module procedure passed
       test_passed = self%passed_
+      call co_all(test_passed)
     end procedure
 
 end submodule sourcery_test_result_s
