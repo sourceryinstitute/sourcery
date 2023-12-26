@@ -23,7 +23,8 @@ contains
     type(test_result_t), allocatable :: test_results(:)
 
     test_results = [ &
-      test_result_t("constructs and array of test_result_t objects elementally", check_array_result_construction()) &
+      test_result_t("constructing an array of test_result_t objects elementally", check_array_result_construction()), &
+      test_result_t("reporting failure if the test fails on one image", check_single_image_failure()) &
     ]
   end function
 
@@ -34,6 +35,19 @@ contains
     test_results = test_result_t(["foo","bar"], [.true.,.false.])
 
     passed = size(test_results)==2
+  end function
+
+  function check_single_image_failure() result(passed)
+    type(test_result_t), allocatable :: test_result
+    logical passed
+
+    if (this_image()==1) then
+      test_result = test_result_t("image 1 fails", .false.)
+    else
+      test_result = test_result_t("all images other than 1 pass", .true.)
+    end if
+
+    passed = .not. test_result%passed()
   end function
 
 end module test_result_test_m
