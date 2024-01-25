@@ -9,6 +9,7 @@ jobs:
     env:
       FC: gfortran
       GCC_V: 13
+      OC_V: 2.10.2
 
     steps:
     - name: Checkout code
@@ -29,19 +30,35 @@ jobs:
       id: cache-opencoarrays
       uses: actions/cache@v3
       with:
-        path: "OpenCoarrays-2.10.1/"
+        path: "${HOME}/app/OpenCoarrays/${OC_V}/"
         key: ${{ steps.time.outputs.time }}
 
-    - name: Install GFortran, OpenCoarrays
+    - name: Install GFortran
       run: |
         sudo apt update
-        sudo apt install -y build-essential gfortran-${GCC_V} g++-${GCC_V} pkg-config make
+        sudo apt install -y build-essential gfortran-${GCC_V} g++-${GCC_V} cmake
         sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-${GCC_V} 100 \
           --slave /usr/bin/gfortran gfortran /usr/bin/gfortran-${GCC_V} \
           --slave /usr/bin/g++ g++ /usr/bin/g++-${GCC_V}
-        if [ ! -d OpenCoarrays-2.10.1 ] ; then wget -P . https://github.com/sourceryinstitute/OpenCoarrays/releases/download/2.10.1/OpenCoarrays-2.10.1.tar.gz && tar -xf OpenCoarrays-2.10.1.tar.gz && cd OpenCoarrays-2.10.1 && TERM=xterm ./install.sh -y; fi
+
+    - name: Maybe install opencoarrays
+      if: steps.cache-opencoarrays.outputs.cache-hit != 'true'
+      run: |
+        wget https://github.com/sourceryinstitute/OpenCoarrays/releases/download/${OC_V}/OpenCoarrays-${OC_V}.tar.gz
+        tar xzvf OpenCoarrays-${OC_V}.tar.gz
+        cd OpenCoarrays-${OC_V}
+        mkdir -p "${HOME}/apps"
+        cmake -S . -B build -DCMAKE_INSTALL_PREFIX="${HOME}/apps/OpenCoarrays"
+        cmake --build build -j
+        cmake --build build -t install -j
+        cd ..
+        echo "${HOME}/apps/OpenCoarrays/bin" >> $GITHUB_PATH
 
     - name: Build, run, and test
       run: |
-        source OpenCoarrays-2.10.1/prerequisites/installations/opencoarrays/2.10.1/setup.sh
-        fpm test --compiler caf --runner "cafrun -n 2" 
+        source OpenCoarrays-${OC_V}/prerequisites/installations/opencoarrays/${OC_V}/setup.sh
+        caf --show
+        cafrun --show
+        export FPM_FC=caf
+        fpm build || fpm build --verbose
+        fpm test --runner "cafrun -n 2" || fpm test --runner "cafrun -n 2" --verbose
