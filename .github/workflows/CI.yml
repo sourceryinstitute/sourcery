@@ -13,25 +13,19 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Install fpm
-      uses: fortran-lang/setup-fpm@v4
+      uses: fortran-lang/setup-fpm@v5
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Get Time
-      id: time
-      uses: nanzm/get-time-action@v1.1
-      with:
-        format: 'YYYY-MM'
-
     - name: Setup cache for opencoarrays
       id: cache-opencoarrays
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: "${HOME}/app/OpenCoarrays/${OC_V}/"
-        key: ${{ steps.time.outputs.time }}
+        key: OC-${{ env.OC_V }}
 
     - name: Install GFortran
       run: |
@@ -53,12 +47,11 @@ jobs:
         cmake --build build -t install -j
         cd ..
         echo "${HOME}/apps/OpenCoarrays/bin" >> $GITHUB_PATH
+        caf --show
+        cafrun --show
 
     - name: Build, run, and test
       run: |
-        source OpenCoarrays-${OC_V}/prerequisites/installations/opencoarrays/${OC_V}/setup.sh
-        caf --show
-        cafrun --show
         export FPM_FC=caf
         fpm build || fpm build --verbose
         fpm test --runner "cafrun -n 2" || fpm test --runner "cafrun -n 2" --verbose
