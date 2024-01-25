@@ -47,11 +47,11 @@ jobs:
         cmake --build build -t install -j
         cd ..
         echo "${HOME}/apps/OpenCoarrays/bin" >> $GITHUB_PATH
-        caf --show
-        cafrun --show
 
     - name: Build, run, and test
       run: |
+        caf --show
+        cafrun --show
         export FPM_FC=caf
         fpm build || fpm build --verbose
         fpm test --runner "cafrun -n 2" || fpm test --runner "cafrun -n 2" --verbose
