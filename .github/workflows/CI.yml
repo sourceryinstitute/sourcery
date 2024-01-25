@@ -36,7 +36,7 @@ jobs:
     - name: Install GFortran
       run: |
         sudo apt update
-        sudo apt install -y build-essential gfortran-${GCC_V} g++-${GCC_V} cmake
+        sudo apt install -y build-essential gfortran-${GCC_V} g++-${GCC_V} cmake mpich
         sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-${GCC_V} 100 \
           --slave /usr/bin/gfortran gfortran /usr/bin/gfortran-${GCC_V} \
           --slave /usr/bin/g++ g++ /usr/bin/g++-${GCC_V}
