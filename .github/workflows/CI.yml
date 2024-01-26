@@ -52,9 +52,8 @@ jobs:
 
     - name: Build, run, and test
       run: |
-        ls ~/apps/OpenCoarrays/*
         which caf
-        caf --version
         caf --show
-        fpm run --example get-flag-value -- --input-file some_file_name || fpm run --verbose --example get-flag-value -- --input-file some_file_name
-        fpm test --compiler caf --runner "cafrun -n 2" || fpm test --compiler caf --runner "cafrun -n 2" --verbose
+        # Build the example executable to test the commandline without caf first, since you cannot spawn new MPI jobs from within an MPI job
+        fpm run --example get-flag-value -- --input-file some_file_name
+        fpm test --compiler caf --runner "cafrun -n 2"
