@@ -44,11 +44,11 @@ jobs:
         mkdir -p "~/apps/OpenCoarrays/${OC_V}"
         cmake -S . -B build -DCMAKE_INSTALL_PREFIX="~/apps/OpenCoarrays/${OC_V}"
         cmake --build build -t install -j
-        echo     - name: Add to PATH if cache hit
+        echo echo "~/apps/OpenCoarrays/${{ env.OC_V }}/bin" >> $GITHUB_PATH
 
     - name: Add to PATH if cache hit
       if: steps.cache-opencoarrays.outputs.cache-hit == 'true'
-      run: echo "${HOME}/apps/OpenCoarrays/${{ env.OC_V }}/bin" >> $GITHUB_PATH"${HOME}/apps/OpenCoarrays/${OC_V}/bin" >> $GITHUB_PATH
+      run: echo "~/apps/OpenCoarrays/${{ env.OC_V }}/bin" >> $GITHUB_PATH
 
     - name: Build, run, and test
       run: |
