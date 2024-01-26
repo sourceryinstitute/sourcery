@@ -36,22 +36,17 @@ jobs:
           --slave /usr/bin/g++ g++ /usr/bin/g++-${GCC_V}
 
     - name: Maybe install opencoarrays
-      if: steps.cache-opencoarrays.outputs.cache-hit != 'true'
+      # if: steps.cache-opencoarrays.outputs.cache-hit != 'true'
       run: |
         wget https://github.com/sourceryinstitute/OpenCoarrays/releases/download/${OC_V}/OpenCoarrays-${OC_V}.tar.gz
         tar xzvf OpenCoarrays-${OC_V}.tar.gz
         cd OpenCoarrays-${OC_V}
         mkdir -p "${HOME}/apps"
         cmake -S . -B build -DCMAKE_INSTALL_PREFIX="${HOME}/apps/OpenCoarrays"
-        cmake --build build -j
         cmake --build build -t install -j
-        cd ..
         echo "${HOME}/apps/OpenCoarrays/bin" >> $GITHUB_PATH
 
     - name: Build, run, and test
       run: |
-        caf --show
-        cafrun --show
-        export FPM_FC=caf
-        fpm build || fpm build --verbose
-        fpm test --runner "cafrun -n 2" || fpm test --runner "cafrun -n 2" --verbose
+        fpm run --example get-flag-value -- --input-file some_file_name
+        fpm test --compiler caf --runner "cafrun -n 2"
