@@ -48,5 +48,5 @@ jobs:
 
     - name: Build, run, and test
       run: |
-        fpm run --example get-flag-value -- --input-file some_file_name
-        fpm test --compiler caf --runner "cafrun -n 2"
+        fpm run --example get-flag-value -- --input-file some_file_name || fpm run --verbose --example get-flag-value -- --input-file some_file_name
+        fpm test --compiler caf --runner "cafrun -n 2" || !! --verbose
