@@ -24,7 +24,7 @@ jobs:
       id: cache-opencoarrays
       uses: actions/cache@v4
       with:
-        path: "${HOME}/app/OpenCoarrays/${OC_V}/"
+        path: "${HOME}/apps/OpenCoarrays/${OC_V}/"
         key: OC-${{ env.OC_V }}
 
     - name: Install GFortran
@@ -36,7 +36,7 @@ jobs:
           --slave /usr/bin/g++ g++ /usr/bin/g++-${GCC_V}
 
     - name: Maybe install opencoarrays
-      # if: steps.cache-opencoarrays.outputs.cache-hit != 'true'
+      if: steps.cache-opencoarrays.outputs.cache-hit != 'true'
       run: |
         wget https://github.com/sourceryinstitute/OpenCoarrays/releases/download/${OC_V}/OpenCoarrays-${OC_V}.tar.gz
         tar xzvf OpenCoarrays-${OC_V}.tar.gz
