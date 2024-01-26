@@ -24,7 +24,7 @@ jobs:
       id: cache-opencoarrays
       uses: actions/cache@v4
       with:
-        path: "${HOME}/apps/OpenCoarrays/${OC_V}/"
+        path: "${HOME}/apps/OpenCoarrays/${OC_V}"
         key: OC-${{ env.OC_V }}
 
     - name: Install GFortran
@@ -41,10 +41,10 @@ jobs:
         wget https://github.com/sourceryinstitute/OpenCoarrays/releases/download/${OC_V}/OpenCoarrays-${OC_V}.tar.gz
         tar xzvf OpenCoarrays-${OC_V}.tar.gz
         cd OpenCoarrays-${OC_V}
-        mkdir -p "${HOME}/apps"
-        cmake -S . -B build -DCMAKE_INSTALL_PREFIX="${HOME}/apps/OpenCoarrays"
+        mkdir -p "${HOME}/apps/OpenCoarrays/${OC_V}"
+        cmake -S . -B build -DCMAKE_INSTALL_PREFIX="${HOME}/apps/OpenCoarrays/${OC_V}"
         cmake --build build -t install -j
-        echo "${HOME}/apps/OpenCoarrays/bin" >> $GITHUB_PATH
+        echo "${HOME}/apps/OpenCoarrays/${OC_V}/bin" >> $GITHUB_PATH
 
     - name: Build, run, and test
       run: |
