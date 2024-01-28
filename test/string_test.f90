@@ -34,7 +34,9 @@ contains
       test_result_t('assigning a string_t object to a character variable', assigns_string_t_to_character()), &
       test_result_t('assigning a character variable to a string_t object', assigns_character_to_string_t()), &
       test_result_t('supporting operator(//) for string_t and character operands', supports_concatenation_operator()), &
-      test_result_t('constructing from a default integer', constructs_from_default_integer()) &
+      test_result_t('constructing from a default integer', constructs_from_default_integer()), &
+      test_result_t('extracting file base name', extracts_file_base_name()), &
+      test_result_t('extracting file name extension', extracts_file_name_extension()) &
     ]
   end function
 
@@ -155,6 +157,20 @@ contains
     logical passed
     associate(string => string_t(1234567890))
       passed = adjustl(trim(string%string())) == "1234567890"
+    end associate
+  end function
+
+  function extracts_file_base_name() result(passed)
+    logical passed
+    associate(string => string_t(" foo .bar.too "))
+      passed = string%base_name() == "foo .bar"
+    end associate
+  end function
+
+  function extracts_file_name_extension() result(passed)
+    logical passed
+    associate(string => string_t(" foo .bar.too "))
+      passed = string%file_extension() == "too"
     end associate
   end function
 

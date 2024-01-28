@@ -58,6 +58,34 @@ contains
 
   end procedure
 
+  module procedure file_extension
+    character(len=:), allocatable :: name_
+
+    name_ = trim(adjustl(self%string()))
+
+    associate( dot_location => index(name_, '.', back=.true.) )
+      if (dot_location < len(name_)) then
+        extension = trim(adjustl(name_(dot_location+1:)))
+      else
+        extension = ""
+      end if
+    end associate
+  end procedure
+
+  module procedure base_name
+    character(len=:), allocatable :: name_
+
+    name_ = self%string()
+    
+    associate(dot_location => index(name_, '.', back=.true.) )
+      if (dot_location < len(name_)) then
+        base = trim(adjustl(name_(1:dot_location-1)))
+      else
+        base = ""
+      end if
+    end associate
+  end procedure
+
   module procedure get_json_real
     character(len=:), allocatable :: raw_line, string_value
 
