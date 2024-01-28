@@ -38,6 +38,12 @@ module sourcery_string_m
       type(string_t) new_string
     end function
 
+    elemental module function from_default_integer(i) result(string)
+      implicit none
+      integer, intent(in) :: i
+      type(string_t) string
+    end function
+
   end interface
 
   interface

@@ -2,7 +2,6 @@ module string_test_m
   use sourcery_m, only : test_t, test_result_t, string_t
   implicit none
 
-
   private
   public :: string_test_t
 
@@ -34,7 +33,8 @@ contains
       test_result_t('supporting operator(/=) for string_t and character operands', supports_non_equivalence_operator()), &
       test_result_t('assigning a string_t object to a character variable', assigns_string_t_to_character()), &
       test_result_t('assigning a character variable to a string_t object', assigns_character_to_string_t()), &
-      test_result_t('supporting operator(//) for string_t and character operands', supports_concatenation_operator()) &
+      test_result_t('supporting operator(//) for string_t and character operands', supports_concatenation_operator()), &
+      test_result_t('constructing from a default integer', constructs_from_default_integer()) &
     ]
   end function
 
@@ -148,6 +148,13 @@ contains
 
     associate(infix => string_t(" yada yada "))
       passed = prefix // infix // postfix == prefix // infix%string() // postfix 
+    end associate
+  end function
+
+  function constructs_from_default_integer() result(passed)
+    logical passed
+    associate(string => string_t(1234567890))
+      passed = adjustl(trim(string%string())) == "1234567890"
     end associate
   end function
 

@@ -17,6 +17,13 @@ contains
     string_allocated = allocated(self%string_)
   end procedure
 
+  module procedure from_default_integer
+    integer, parameter :: sign_width = 1, digits_width = range(i) + 1
+    character(len = digits_width + sign_width) characters
+    write(characters, '(i0)') i
+    string = string_t(characters)
+  end procedure
+
   module procedure array_of_strings
     character(len=:), allocatable :: remainder, next_string
     integer next_delimiter, string_end
