@@ -88,7 +88,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p>18.3% of total for derived types.</p>Including implementation: 23 statements, 18.5% of total for derived types.">23 statements</a>
+    title="<p>21.6% of total for derived types.</p>Including implementation: 25 statements, 19.8% of total for derived types.">25 statements</a>
      </li> 
     <li><i class="fa fa-code"></i><a href="../src/sourcery_string_m.f90"> Source File</a></li>
   </ul>
@@ -135,6 +135,8 @@
     <div class="list-group">
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-as_character">as_character</a>
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-assignment%28%3D%20%29">assignment(= )</a>
+      <a class="list-group-item" href="../type/string_t.html#boundprocedure-base_name">base_name</a>
+      <a class="list-group-item" href="../type/string_t.html#boundprocedure-file_extension">file_extension</a>
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-get_json_key">get_json_key</a>
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-get_json_value">get_json_value</a>
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-is_allocated">is_allocated</a>
@@ -346,6 +348,8 @@
     <div class="list-group">
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-as_character">as_character</a>
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-assignment%28%3D%20%29">assignment(= )</a>
+      <a class="list-group-item" href="../type/string_t.html#boundprocedure-base_name">base_name</a>
+      <a class="list-group-item" href="../type/string_t.html#boundprocedure-file_extension">file_extension</a>
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-get_json_key">get_json_key</a>
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-get_json_value">get_json_value</a>
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-is_allocated">is_allocated</a>
@@ -414,6 +418,23 @@
 <h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
 
     </li>
+    <li class="list-group-item">
+    <h3>private elemental module function from_default_integer(i) result(string)</h3>    
+<h4>Arguments</h4>      <table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
+<tbody>
+<tr>
+  <td><span class="anchor" ></span>integer,</td>
+<td>intent(in)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>i</strong></td><td></td>
+</tr>
+</tbody>
+</table>
+
+<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
+
+    </li>
   </ul>
 </div>
 
@@ -462,6 +483,62 @@
       <li class="list-group-item">
             <h3>private interface <a href='../interface/assign_character_to_string_t.html'>assign_character_to_string_t</a>()</h3>    
 <h4>Arguments</h4>      <em>None</em>
+
+      </li>
+  </ul>
+</div>
+
+     <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-base_name"></span><h3>procedure, public :: <strong>base_name</strong>    </h3></div>
+  <ul class="list-group">
+      <li class="list-group-item">
+          <h3>interface
+          </h3>
+  
+          <h3>private pure module module function base_name(self) result(base)   <a href='../proc/base_name.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+</h3><p>result contains all characters in file_name before the last dot (.)</p>
+    
+<h4>Arguments</h4>      <table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
+<tbody>
+<tr>
+  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
+<td>intent(in)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>self</strong></td><td></td>
+</tr>
+</tbody>
+</table>
+
+<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
+
+      </li>
+  </ul>
+</div>
+
+     <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-file_extension"></span><h3>procedure, public :: <strong>file_extension</strong>    </h3></div>
+  <ul class="list-group">
+      <li class="list-group-item">
+          <h3>interface
+          </h3>
+  
+          <h3>private elemental module module function file_extension(self) result(extension)   <a href='../proc/file_extension.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+</h3><p>result contains all characters in file_name after the last dot (.)</p>
+    
+<h4>Arguments</h4>      <table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
+<tbody>
+<tr>
+  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
+<td>intent(in)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>self</strong></td><td></td>
+</tr>
+</tbody>
+</table>
+
+<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
 
       </li>
   </ul>
@@ -1193,14 +1270,14 @@
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-6"><p> was developed by Damian Rouson<br>&copy; 2023 
+        <div class="col-xs-6 col-md-6"><p> was developed by Damian Rouson<br>&copy; 2024 
 </p>
         </div>
         <div class="col-xs-6 col-md-6">
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-12-26 14:18            </p>
+ on 2024-01-29 02:43            </p>
         </div>
       </div>
       <br>
