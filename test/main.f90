@@ -29,7 +29,7 @@ program main
   call test_result_test%report(passes, tests)
   call string_test%report(passes, tests)
 
-  if (.not. GitHub_CI())  call command_line_test%report(passes, tests)
+  call command_line_test%report(passes, tests)
 
   if (this_image()==1) print *, new_line('a'), "_________ In total, ",passes," of ",tests, " tests pass. _________"
 

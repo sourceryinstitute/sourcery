@@ -33,10 +33,14 @@ contains
     integer exit_status, command_status
     character(len=132) command_message
 
+    !! Can't spawn an MPI process from an MPI process, this will fail if example is compiled with MPI and the test is too.
+    !! This triggers a full rebuild of the library and example if using caf. This can cause problems in some circumstances.
+    !! Try to sanitize the environment and unset FPM_FC if it is caf.
     call execute_command_line( &
-      command = "fpm run --example get-flag-value -- --input-file some_file_name", &
+      command = "if [[ ${FPM_FC:-x} == *'caf' ]] ; then unset FPM_FC ; fi ; &
+        &fpm run --example get-flag-value -- --input-file some_file_name", &
       wait = .true., exitstat = exit_status, cmdstat = command_status, cmdmsg = command_message &
-    )   
+    )
     test_passes = exit_status == 0 
 
   end function
