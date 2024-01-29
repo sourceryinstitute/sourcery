@@ -17,6 +17,13 @@ contains
     string_allocated = allocated(self%string_)
   end procedure
 
+  module procedure from_default_integer
+    integer, parameter :: sign_width = 1, digits_width = range(i) + 1
+    character(len = digits_width + sign_width) characters
+    write(characters, '(i0)') i
+    string = string_t(characters)
+  end procedure
+
   module procedure array_of_strings
     character(len=:), allocatable :: remainder, next_string
     integer next_delimiter, string_end
@@ -49,6 +56,34 @@ contains
       end associate
     end associate
 
+  end procedure
+
+  module procedure file_extension
+    character(len=:), allocatable :: name_
+
+    name_ = trim(adjustl(self%string()))
+
+    associate( dot_location => index(name_, '.', back=.true.) )
+      if (dot_location < len(name_)) then
+        extension = trim(adjustl(name_(dot_location+1:)))
+      else
+        extension = ""
+      end if
+    end associate
+  end procedure
+
+  module procedure base_name
+    character(len=:), allocatable :: name_
+
+    name_ = self%string()
+    
+    associate(dot_location => index(name_, '.', back=.true.) )
+      if (dot_location < len(name_)) then
+        base = trim(adjustl(name_(1:dot_location-1)))
+      else
+        base = ""
+      end if
+    end associate
   end procedure
 
   module procedure get_json_real
