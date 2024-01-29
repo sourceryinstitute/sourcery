@@ -35,8 +35,9 @@ contains
       test_result_t('assigning a character variable to a string_t object', assigns_character_to_string_t()), &
       test_result_t('supporting operator(//) for string_t and character operands', supports_concatenation_operator()), &
       test_result_t('constructing from a default integer', constructs_from_default_integer()), &
-      test_result_t('extracting file base name', extracts_file_base_name()), &
-      test_result_t('extracting file name extension', extracts_file_name_extension()) &
+      test_result_t('constructing from a real value', constructs_from_real()), &
+      test_result_t('extracting a file base name', extracts_file_base_name()), &
+      test_result_t('extracting a file name extension', extracts_file_name_extension()) &
     ]
   end function
 
@@ -157,6 +158,13 @@ contains
     logical passed
     associate(string => string_t(1234567890))
       passed = adjustl(trim(string%string())) == "1234567890"
+    end associate
+  end function
+
+  function constructs_from_real() result(passed)
+    logical passed
+    associate(string => string_t(123456789E+09))
+      passed = adjustl(trim(string%string())) == "0.123456791E+18"
     end associate
   end function
 

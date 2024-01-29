@@ -5,6 +5,7 @@ module sourcery_string_m
   private
   public :: string_t
   public :: array_of_strings
+  public :: concatenate_elements
 
   type, extends(characterizable_t) :: string_t
     private
@@ -46,9 +47,21 @@ module sourcery_string_m
       type(string_t) string
     end function
 
+    elemental module function from_real(x) result(string)
+      implicit none
+      real, intent(in) :: x
+      type(string_t) string
+    end function
+
   end interface
 
   interface
+
+    pure module function concatenate_elements(strings) result(concatenated_strings)
+      implicit none
+      type(string_t), intent(in) :: strings(:)
+      type(string_t) concatenated_strings
+    end function
 
     pure module function as_character(self) result(raw_string)
       implicit none
