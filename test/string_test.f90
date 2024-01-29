@@ -142,6 +142,7 @@ contains
     logical passed
     character(len=*), parameter :: rhs = "well, alrighty then"
     type(string_t) lhs
+
     lhs = rhs
     passed = lhs == rhs
   end function
@@ -157,6 +158,7 @@ contains
 
   function constructs_from_default_integer() result(passed)
     logical passed
+
     associate(string => string_t(1234567890))
       passed = adjustl(trim(string%string())) == "1234567890"
     end associate
@@ -164,13 +166,15 @@ contains
 
   function constructs_from_real() result(passed)
     logical passed
-    associate(string => string_t(123456789E+09))
-      passed = adjustl(trim(string%string())) == "0.123456791E+18"
+
+    associate(string => string_t(-1.53018260E-15))
+      passed = adjustl(trim(string%string())) == "-0.153018260E-14"
     end associate
   end function
 
   function extracts_file_base_name() result(passed)
     logical passed
+
     associate(string => string_t(" foo .bar.too "))
       passed = string%base_name() == "foo .bar"
     end associate
@@ -178,6 +182,7 @@ contains
 
   function extracts_file_name_extension() result(passed)
     logical passed
+
     associate(string => string_t(" foo .bar.too "))
       passed = string%file_extension() == "too"
     end associate
@@ -185,6 +190,7 @@ contains
 
   function concatenates_elements() result(passed)
     logical passed
+
     associate(elements => [string_t("foo"), string_t("bar")])
       passed = .cat. elements  == "foobar"
     end associate
