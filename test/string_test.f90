@@ -1,5 +1,5 @@
 module string_test_m
-  use sourcery_m, only : test_t, test_result_t, string_t
+  use sourcery_m, only : test_t, test_result_t, string_t, operator(.cat.)
   implicit none
 
   private
@@ -23,20 +23,22 @@ contains
 
     test_results = [ &
       test_result_t("is_allocated() result .true. if & only if the string_t component(s) is/are allocated", check_allocation()), &
+      test_result_t('supporting operator(==) for string_t and character operands', supports_equivalence_operator()), &
+      test_result_t('supporting operator(/=) for string_t and character operands', supports_non_equivalence_operator()), &
+      test_result_t('supporting operator(//) for string_t and character operands', supports_concatenation_operator()), &
+      test_result_t('assigning a string_t object to a character variable', assigns_string_t_to_character()), &
+      test_result_t('assigning a character variable to a string_t object', assigns_character_to_string_t()), &
+      test_result_t('constructing from a default integer', constructs_from_default_integer()), &
+      test_result_t('constructing from a real value', constructs_from_real()), &
+      test_result_t('supporting unary operator(.cat.) for array arguments', concatenates_elements()), &
       test_result_t("extracting a key string from a colon-separated key/value pair", extracts_key()), &
       test_result_t("extracting a real value from a colon-separated key/value pair", extracts_real_value()), &
       test_result_t("extracting a string value from a colon-separated key/value pair", extracts_string_value()), &
       test_result_t("extracting a logical value from a colon-separated key/value pair", extracts_logical_value()), &
       test_result_t("extracting an integer array value from a colon-separated key/value pair", extracts_integer_array_value()), &
       test_result_t("extracting an integer value from a colon-separated key/value pair", extracts_integer_value()), &
-      test_result_t('supporting operator(==) for string_t and character operands', supports_equivalence_operator()), &
-      test_result_t('supporting operator(/=) for string_t and character operands', supports_non_equivalence_operator()), &
-      test_result_t('assigning a string_t object to a character variable', assigns_string_t_to_character()), &
-      test_result_t('assigning a character variable to a string_t object', assigns_character_to_string_t()), &
-      test_result_t('supporting operator(//) for string_t and character operands', supports_concatenation_operator()), &
-      test_result_t('constructing from a default integer', constructs_from_default_integer()), &
-      test_result_t('extracting file base name', extracts_file_base_name()), &
-      test_result_t('extracting file name extension', extracts_file_name_extension()) &
+      test_result_t('extracting a file base name', extracts_file_base_name()), &
+      test_result_t('extracting a file name extension', extracts_file_name_extension()) &
     ]
   end function
 
@@ -160,6 +162,13 @@ contains
     end associate
   end function
 
+  function constructs_from_real() result(passed)
+    logical passed
+    associate(string => string_t(123456789E+09))
+      passed = adjustl(trim(string%string())) == "0.123456791E+18"
+    end associate
+  end function
+
   function extracts_file_base_name() result(passed)
     logical passed
     associate(string => string_t(" foo .bar.too "))
@@ -171,6 +180,13 @@ contains
     logical passed
     associate(string => string_t(" foo .bar.too "))
       passed = string%file_extension() == "too"
+    end associate
+  end function
+
+  function concatenates_elements() result(passed)
+    logical passed
+    associate(elements => [string_t("foo"), string_t("bar")])
+      passed = .cat. elements  == "foobar"
     end associate
   end function
 

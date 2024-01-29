@@ -24,6 +24,24 @@ contains
     string = string_t(characters)
   end procedure
 
+  module procedure from_real
+    integer, parameter :: sign_ = 1, decimal_ = 1, digits = precision(x) + 3, exponent_width = 4
+    character(len=sign_ + decimal_ + digits + exponent_width) characters
+    write(characters, '(g0)') x
+    string = string_t(characters)
+  end procedure
+
+  module procedure concatenate_elements
+    integer s 
+
+    !allocate(concatenated_strings(sum(len(strings%string()))))
+
+    concatenated_strings = ""
+    do s = 1, size(strings)
+      concatenated_strings = concatenated_strings // strings(s)%string()
+    end do
+  end procedure
+
   module procedure array_of_strings
     character(len=:), allocatable :: remainder, next_string
     integer next_delimiter, string_end
