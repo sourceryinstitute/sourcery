@@ -54,39 +54,64 @@ contains
 
   function extracts_key() result(passed)
     logical passed
-    
+
+#ifndef _CRAYFTN
     associate(line => string_t('"foo" : "bar"'))
       passed = line%get_json_key() == string_t("foo")
     end associate
+#else
+    type(string_t) line
+    line = string_t('"foo" : "bar"')
+    passed = line%get_json_key() == string_t("foo")
+#endif
   end function
 
   function extracts_real_value() result(passed)
     logical passed
-    
+
+#ifndef _CRAYFTN
     associate(line => string_t('"pi" : 3.14159'))
       passed = line%get_json_value(key=string_t("pi"), mold=1.) == 3.14159
     end associate
+#else
+    type(string_t) line
+    line = string_t('"pi" : 3.14159')
+    passed = line%get_json_value(key=string_t("pi"), mold=1.) == 3.14159
+#endif
   end function
 
   function extracts_string_value() result(passed)
     logical passed
     
+#ifndef _CRAYFTN
     associate(line => string_t('"foo" : "bar"'))
       passed = line%get_json_value(key=string_t("foo"), mold=string_t("")) == string_t("bar")
     end associate
+#else
+    type(string_t) line
+    line = string_t('"foo" : "bar"')
+    passed = line%get_json_value(key=string_t("foo"), mold=string_t("")) == string_t("bar")
+#endif
   end function
 
   function extracts_integer_value() result(passed)
     logical passed
-    
+
+#ifndef _CRAYFTN
     associate(line => string_t('"an integer" : 99'))
       passed = line%get_json_value(key=string_t("an integer"), mold=0) == 99
     end associate
+#else
+    type(string_t) line
+    line = string_t('"an integer" : 99')
+    passed = line%get_json_value(key=string_t("an integer"), mold=0) == 99
+#endif
   end function
 
   function extracts_logical_value() result(passed)
     logical passed
     
+#ifndef _CRAYFTN
     associate( &
       key_true_pair => string_t('"yada yada" : true'), &
       key_false_pair => string_t('"blah blah" : false'), &
@@ -100,16 +125,38 @@ contains
         passed = true .and. true_too .and. .not. false
       end associate
     end associate
+#else
+    type(string_t) key_true_pair, key_false_pair, trailing_comma
+    logical  true, false, true_too
+
+    key_true_pair = string_t('"yada yada" : true')
+    key_false_pair = string_t('"blah blah" : false')
+    trailing_comma = string_t('"trailing comma" : true,')
+
+    true = key_true_pair%get_json_value(key=string_t("yada yada"), mold=.true.)
+    false = key_false_pair%get_json_value(key=string_t("blah blah"), mold=.true.)
+    true_too = trailing_comma%get_json_value(key=string_t("trailing comma"), mold=.true.)
+
+    passed = true .and. true_too .and. .not. false
+#endif
   end function
 
   function extracts_integer_array_value() result(passed)
     logical passed
 
+#ifndef _CRAYFTN
     associate(key_integer_array_pair => string_t('"some key" : [1, 2, 3],'))
       associate(integer_array => key_integer_array_pair%get_json_value(key=string_t("some key"), mold=[integer::]))
         passed = all(integer_array == [1, 2, 3])
       end associate
     end associate
+#else
+    type(string_t) key_integer_array_pair
+    integer, allocatable :: integer_array(:)
+    key_integer_array_pair = string_t('"some key" : [1, 2, 3],')
+    integer_array = key_integer_array_pair%get_json_value(key=string_t("some key"), mold=[integer::])
+    passed = all(integer_array == [1, 2, 3])
+#endif
   end function
 
   function supports_equivalence_operator() result(passed)
@@ -151,41 +198,71 @@ contains
     logical passed
     character(len=*), parameter :: prefix = "foo", postfix="bar"
 
+#ifndef _CRAYFTN
     associate(infix => string_t(" yada yada "))
       passed = prefix // infix // postfix == prefix // infix%string() // postfix 
     end associate
+#else
+    type(string_t) infix
+    infix = string_t(" yada yada ")
+    passed = prefix // infix // postfix == prefix // infix%string() // postfix 
+#endif
   end function
 
   function constructs_from_default_integer() result(passed)
     logical passed
 
+#ifndef _CRAYFTN
     associate(string => string_t(1234567890))
       passed = adjustl(trim(string%string())) == "1234567890"
     end associate
+#else
+    type(string_t) string
+    string = string_t(1234567890)
+    passed = adjustl(trim(string%string())) == "1234567890"
+#endif
   end function
 
   function constructs_from_real() result(passed)
     logical passed
 
+#ifndef _CRAYFTN
     associate(string => string_t(-1.53018260E-15))
       passed = adjustl(trim(string%string())) == "-0.153018260E-14"
     end associate
+#else
+    type(string_t) string
+    string = string_t(-1.53018260E-15)
+    passed = adjustl(trim(string%string())) == "-0.153018260E-14"
+#endif
   end function
 
   function extracts_file_base_name() result(passed)
     logical passed
 
+#ifndef _CRAYFTN
     associate(string => string_t(" foo .bar.too "))
       passed = string%base_name() == "foo .bar"
     end associate
+#else
+    type(string_t) string
+    string = string_t(" foo .bar.too ")
+    passed = string%base_name() == "foo .bar"
+#endif
   end function
 
   function extracts_file_name_extension() result(passed)
     logical passed
 
+#ifndef _CRAYFTN
     associate(string => string_t(" foo .bar.too "))
       passed = string%file_extension() == "too"
     end associate
+#else
+    type(string_t) string
+    string = string_t(" foo .bar.too ")
+    passed = string%file_extension() == "too"
+#endif
   end function
 
   function concatenates_elements() result(passed)
