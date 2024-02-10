@@ -6,4 +6,4 @@ maintainer = "damian@archaeologic.codes"
 copyright = "2020-2023 Sourcery Institute"
 
 [dependencies]
-assert = {git = "https://github.com/sourceryinstitute/assert", tag = "1.5.0"}
+assert = {git = "https://github.com/sourceryinstitute/assert", tag = "1.6.0"}
