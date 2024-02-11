@@ -243,17 +243,20 @@ contains
     logical passed
     real, parameter :: real_value = -1./1024. ! use a negative power of 2 an exactly representable rational number
     real read_value
+    character(len=:), allocatable :: character_representation
 
 #ifndef _CRAYFTN
     associate(string => string_t(real_value))
-      read(string%string(), *) read_value
+      character_representation = string%string()
+      read(character_representation, *) read_value
       passed = read_value == real_value
     end associate
 #else
     block
       type(string_t) string
       string = string_t(real_value)
-      read(string%string(), *) read_value
+      character_representation = string%string()
+      read(character_representation, *) read_value
       passed = read_value == real_value
     end block
 #endif
