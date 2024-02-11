@@ -245,7 +245,7 @@ contains
     real read_value
 
 #ifndef _CRAYFTN
-    associate(string => string_t(real_value)
+    associate(string => string_t(real_value))
       read(string%string(), *) read_value
       passed = read_value == real_value
     end associate
