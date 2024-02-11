@@ -8,6 +8,8 @@ contains
 
     associate(me => this_image())
       if (me==1) print *, new_line('a'), test%subject()
+
+#ifndef _CRAYFTN
       associate(test_results => test%results())
         associate(num_tests => size(test_results))
           tests = tests + num_tests
@@ -30,6 +32,30 @@ contains
           end block
         end associate
       end associate
+#else
+      block
+        logical, allocatable :: passing_tests(:)
+        type(test_result_t), allocatable :: test_results(:)
+        integer i
+
+        test_results = test%results()
+        associate(num_tests => size(test_results))
+          tests = tests + num_tests
+          if (me==1) then
+            do i=1,num_tests
+              if (me==1) print *,"   ",test_results(i)%characterize()
+            end do
+          end if
+          passing_tests = test_results%passed()
+          call co_all(passing_tests)
+          associate(num_passes => count(passing_tests))
+            if (me==1) print '(a,2(i0,a))'," ",num_passes," of ", num_tests," tests pass."
+            passes = passes + num_passes
+          end associate
+        end associate
+      end block
+#endif
+
     end associate
 
   end procedure

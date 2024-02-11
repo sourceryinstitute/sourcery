@@ -25,16 +25,13 @@ contains
   end procedure
 
   module procedure from_real
-    integer, parameter :: sign_ = 1, decimal_ = 1, digits = precision(x) + 6, exponent = 4
-    character(len=sign_ + decimal_ + digits + exponent) characters
+    character(len=100) characters
     write(characters, '(g0)') x
     string = string_t(characters)
   end procedure
 
   module procedure concatenate_elements
     integer s 
-
-    !allocate(concatenated_strings(sum(len(strings%string()))))
 
     concatenated_strings = ""
     do s = 1, size(strings)

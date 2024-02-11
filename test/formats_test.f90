@@ -16,7 +16,7 @@ contains
 
   pure function subject() result(specimen)
     character(len=:), allocatable :: specimen
-    specimen = "The csv format" 
+    specimen = "A format string" 
   end function
 
   function results() result(test_results)
@@ -32,68 +32,54 @@ contains
 
   function check_csv_reals() result(test_passes)
     logical test_passes
-    character(len=*), parameter :: longest_expected_output =  "0.00000000,1.00000000,2.00000000"
-    character(len=len(longest_expected_output)) captured_output 
-    character(len=:), allocatable :: substring 
+    character(len=100) captured_output 
+    real zero, one, two
 
     write(captured_output, fmt = separated_values(separator=",", mold=[integer::])) [0.,1.,2.]
 
-    substring = adjustl(trim(captured_output))
-    associate(leading_real_zero => index(substring, "0.") == 1)
-      substring = adjustl(substring(index(substring, ",")+1:)) ! get remaining string after fierst comma
-      associate(followed_by_real_one => index(substring, "1.") == 1 )
-        substring = adjustl(substring(index(substring, ",")+1:)) ! get remaining string after fierst comma
-        associate(followed_by_real_two => index(substring, "2.") == 1 )
-          test_passes = leading_real_zero .and. followed_by_real_one .and.followed_by_real_two
-        end associate
+    associate(first_comma => index(captured_output, ','))
+      associate(second_comma => first_comma + index(captured_output(first_comma+1:), ','))
+        read(captured_output(:first_comma-1), *) zero
+        read(captured_output(first_comma+1:second_comma-1), *) one
+        read(captured_output(second_comma+1:), *) two
+        test_passes = (zero==0.) .and. (one==1.) .and. (two==2.)
       end associate
     end associate
   end function
 
   function check_space_separated_complex() result(test_passes)
     logical test_passes 
-    character(len=*), parameter :: longest_expected_output = "(0.00000000,1.00000000) (1.00000000,0.00000000)"
-    character(len=len(longest_expected_output)) captured_output 
+    character(len=100) captured_output 
+    character(len=:), allocatable :: i_string, one_string
     complex, parameter :: i = (0.,1.), one = (1.,0.)
-    character(len=:), allocatable :: i_imag_part, one_imag_part, i_string, one_string
+    complex i_read, one_read
 
     write(captured_output, fmt = separated_values(separator=" ", mold=[complex::])) i,one
 
-    i_string = adjustl(trim(captured_output(:index(captured_output,")"))))
-    one_string = adjustl(trim(captured_output(len(i_string)+1:)))
+    i_string = captured_output(:index(captured_output,")"))
+    one_string = captured_output(len(i_string)+1:)
 
-    associate( &
-      i_real_part_zero => index(i_string,"(0.") == 1, &
-      one_real_part_one => index(one_string,"(1.") == 1 &
-    )
-      i_imag_part = adjustl(i_string(index(i_string,",")+1:index(i_string,")")-1))
-      one_imag_part = adjustl(one_string(index(one_string,",")+1:index(one_string,")")-1))
-      associate( &
-        i_imag_part_one => index(i_imag_part,"1.") == 1, &
-        one_imag_part_zero => index(one_imag_part,"0.") == 1 &
-      )
-        test_passes = i_real_part_zero .and. i_imag_part_one .and. one_real_part_one .and. one_imag_part_zero
-      end associate
-    end associate
+    read(i_string,*) i_read
+    read(one_string,*) one_read
+    
+    test_passes = i_read == i .and. one_read == one
   end function
 
-  pure function check_new_line_separated_integers() result(test_passes)
+  function check_csv_character() result(test_passes)
     logical test_passes
-    character(len=*), parameter :: expected_output = ( "0" // new_line("") // "1" //new_line("") // "2")
-    character(len=len(expected_output)) captured_output 
+    character(len=200) captured_output 
+    character(len=*), parameter :: expected_output = "Yodel, Ay, Hee, Hoo!"
+
+    write(captured_output, fmt = separated_values(separator=", ", mold=[integer::])) "Yodel", "Ay", "Hee", "Hoo!"
+    test_passes = expected_output == captured_output
+  end function
+
+  function check_new_line_separated_integers() result(test_passes)
+    logical test_passes
+    character(len=100) captured_output 
 
     write(captured_output, fmt = separated_values(separator=new_line(""), mold=[integer::])) [0,1,2]
     test_passes = captured_output == "0" // new_line("") // "1" //new_line("") // "2"
-  end function
-
-  pure function check_csv_character() result(test_passes)
-    logical test_passes
-    integer, parameter :: num_spaces=3
-    character(len=*), parameter :: expected_output = "Yodel, Ay, Hee, Hoo!"
-    character(len=len(expected_output)+num_spaces) captured_output 
-
-    write(captured_output, fmt = separated_values(separator=", ", mold=[integer::])) "Yodel", "Ay", "Hee", "Hoo!"
-    test_passes= expected_output == captured_output
   end function
 
 end module formats_test_m
