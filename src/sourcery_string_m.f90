@@ -57,7 +57,7 @@ module sourcery_string_m
 
   interface operator(.cat.)
 
-    pure module function concatenate_elements(strings) result(concatenated_strings)
+   pure  module function concatenate_elements(strings) result(concatenated_strings)
       implicit none
       type(string_t), intent(in) :: strings(:)
       type(string_t) concatenated_strings
