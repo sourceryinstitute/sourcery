@@ -25,8 +25,8 @@ program main
   call data_partition_test%report(passes, tests)
   call collectives_test%report(passes, tests)
   call object_test%report(passes, tests)
-  call formats_test%report(passes, tests)
   call test_result_test%report(passes, tests)
+  call formats_test%report(passes, tests)
   call string_test%report(passes, tests)
 
   if (.not. GitHub_CI())  call command_line_test%report(passes, tests)

@@ -225,16 +225,23 @@ contains
 
   function constructs_from_real() result(passed)
     logical passed
+    real, parameter :: real_value = -1./1024. ! use a negative power of 2 an exactly representable rational number
+    real read_value
 
 #ifndef _CRAYFTN
-    associate(string => string_t(-1.53018260E-15))
-      passed = adjustl(trim(string%string())) == "-0.153018260E-14"
+    associate(string => string_t(real_value)
+      read(string%string(), *) read_value
+      passed = read_value == real_value
     end associate
 #else
-    type(string_t) string
-    string = string_t(-1.53018260E-15)
-    passed = adjustl(trim(string%string())) == "-0.153018260E-14"
+    block
+      type(string_t) string
+      string = string_t(real_value)
+      read(string%string(), *) read_value
+      passed = read_value == real_value
+    end block
 #endif
+
   end function
 
   function extracts_file_base_name() result(passed)
@@ -267,10 +274,7 @@ contains
 
   function concatenates_elements() result(passed)
     logical passed
-
-    associate(elements => [string_t("foo"), string_t("bar")])
-      passed = .cat. elements  == "foobar"
-    end associate
+    passed = (.cat. [string_t("foo"), string_t("bar")]) == "foobar"
   end function
 
 end module string_test_m
