@@ -36,6 +36,7 @@ contains
       test_result_t("extracting a string value from a colon-separated key/value pair", extracts_string_value()), &
       test_result_t("extracting a logical value from a colon-separated key/value pair", extracts_logical_value()), &
       test_result_t("extracting an integer array value from a colon-separated key/value pair", extracts_integer_array_value()), &
+      test_result_t("extracting an real array value from a colon-separated key/value pair", extracts_real_array_value()), &
       test_result_t("extracting an integer value from a colon-separated key/value pair", extracts_integer_value()), &
       test_result_t('extracting a file base name', extracts_file_base_name()), &
       test_result_t('extracting a file name extension', extracts_file_name_extension()) &
@@ -167,6 +168,26 @@ contains
       key_integer_array_pair = string_t('"some key" : [1, 2, 3],')
       integer_array = key_integer_array_pair%get_json_value(key=string_t("some key"), mold=[integer::])
       passed = all(integer_array == [1, 2, 3])
+    end block
+#endif
+  end function
+
+  function extracts_real_array_value() result(passed)
+    logical passed
+
+#ifndef _CRAYFTN
+    associate(key_real_array_pair => string_t('"a key" : [1., 2., 4.],'))
+      associate(real_array => key_real_array_pair%get_json_value(key=string_t("a key"), mold=[real::]))
+        passed = all(real_array == [1., 2., 4.])
+      end associate
+    end associate
+#else
+    block
+      type(string_t) key_real_array_pair
+      real, allocatable :: real_array(:)
+      key_real_array_pair = string_t('"a key" : [1., 2., 4.],')
+      real_array = key_real_array_pair%get_json_value(key=string_t("a key"), mold=[real::])
+      passed = all(real_array == [1., 2., 4.])
     end block
 #endif
   end function

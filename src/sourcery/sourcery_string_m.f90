@@ -21,8 +21,10 @@ module sourcery_string_m
     generic :: operator(/=)   => string_t_ne_string_t, string_t_ne_character, character_ne_string_t
     generic :: operator(==)   => string_t_eq_string_t, string_t_eq_character, character_eq_string_t
     generic :: assignment(= ) => assign_string_t_to_character, assign_character_to_string_t
-    generic :: get_json_value =>     get_json_integer_array, get_json_logical, get_json_integer, get_json_string, get_json_real
-    procedure, private            :: get_json_integer_array, get_json_logical, get_json_integer, get_json_string, get_json_real
+    generic :: get_json_value =>     get_json_integer_array, get_json_logical, get_json_integer, get_json_string, get_json_real, &
+                                     get_json_real_array
+    procedure, private            :: get_json_integer_array, get_json_logical, get_json_integer, get_json_string, get_json_real, &
+                                     get_json_real_array
     procedure, private            :: string_t_ne_string_t, string_t_ne_character
     procedure, private            :: string_t_eq_string_t, string_t_eq_character
     procedure, private            :: assign_character_to_string_t
@@ -102,7 +104,7 @@ module sourcery_string_m
       type(string_t) base
     end function
 
-    elemental module function get_json_real(self, key, mold) result(value_)
+    pure module function get_json_real(self, key, mold) result(value_)
       implicit none
       class(string_t), intent(in) :: self, key
       real, intent(in) :: mold
@@ -134,6 +136,13 @@ module sourcery_string_m
       class(string_t), intent(in) :: self, key
       integer, intent(in) :: mold(:)
       integer, allocatable :: value_(:)
+    end function
+
+    pure module function get_json_real_array(self, key, mold) result(value_)
+      implicit none
+      class(string_t), intent(in) :: self, key
+      real, intent(in) :: mold(:)
+      real, allocatable :: value_(:)
     end function
 
     elemental module function string_t_eq_string_t(lhs, rhs) result(lhs_eq_rhs)
