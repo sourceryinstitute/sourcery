@@ -153,6 +153,7 @@
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-get_json_integer_array">get_json_integer_array</a>
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-get_json_logical">get_json_logical</a>
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-get_json_real">get_json_real</a>
+      <a class="list-group-item" href="../type/string_t.html#boundprocedure-get_json_real_array">get_json_real_array</a>
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-get_json_string">get_json_string</a>
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-string_t_cat_character">string_t_cat_character</a>
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-string_t_cat_string_t">string_t_cat_string_t</a>
@@ -366,6 +367,7 @@
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-get_json_integer_array">get_json_integer_array</a>
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-get_json_logical">get_json_logical</a>
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-get_json_real">get_json_real</a>
+      <a class="list-group-item" href="../type/string_t.html#boundprocedure-get_json_real_array">get_json_real_array</a>
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-get_json_string">get_json_string</a>
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-string_t_cat_character">string_t_cat_character</a>
       <a class="list-group-item" href="../type/string_t.html#boundprocedure-string_t_cat_string_t">string_t_cat_string_t</a>
@@ -589,7 +591,7 @@
 </div>
 
      <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-get_json_value"></span><h3>generic, public :: <strong>get_json_value</strong>  => <a href='../type/string_t.html#boundprocedure-get_json_integer_array'>get_json_integer_array</a>, <a href='../type/string_t.html#boundprocedure-get_json_logical'>get_json_logical</a>, <a href='../type/string_t.html#boundprocedure-get_json_integer'>get_json_integer</a>, <a href='../type/string_t.html#boundprocedure-get_json_string'>get_json_string</a>, <a href='../type/string_t.html#boundprocedure-get_json_real'>get_json_real</a>   </h3></div>
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-get_json_value"></span><h3>generic, public :: <strong>get_json_value</strong>  => <a href='../type/string_t.html#boundprocedure-get_json_integer_array'>get_json_integer_array</a>, <a href='../type/string_t.html#boundprocedure-get_json_logical'>get_json_logical</a>, <a href='../type/string_t.html#boundprocedure-get_json_integer'>get_json_integer</a>, <a href='../type/string_t.html#boundprocedure-get_json_string'>get_json_string</a>, <a href='../type/string_t.html#boundprocedure-get_json_real'>get_json_real</a>, <a href='../type/string_t.html#boundprocedure-get_json_real_array'>get_json_real_array</a>   </h3></div>
   <ul class="list-group">
       <li class="list-group-item">
             <h3>private interface <a href='../interface/get_json_integer_array.html'>get_json_integer_array</a>()</h3>    
@@ -613,6 +615,11 @@
       </li>
       <li class="list-group-item">
             <h3>private interface <a href='../interface/get_json_real.html'>get_json_real</a>()</h3>    
+<h4>Arguments</h4>      <em>None</em>
+
+      </li>
+      <li class="list-group-item">
+            <h3>private interface <a href='../interface/get_json_real_array.html'>get_json_real_array</a>()</h3>    
 <h4>Arguments</h4>      <em>None</em>
 
       </li>
@@ -1007,7 +1014,7 @@
           <h3>interface
           </h3>
   
-          <h3>private elemental module module function get_json_real(self, key, mold) result(value_)   <a href='../proc/get_json_real.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+          <h3>private pure module module function get_json_real(self, key, mold) result(value_)   <a href='../proc/get_json_real.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
 </h3>    
 <h4>Arguments</h4>      <table class="table table-striped varlist">
 <thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
@@ -1034,6 +1041,45 @@
 </table>
 
 <h4>Return Value <small>real</small></h4>  
+
+      </li>
+  </ul>
+</div>
+
+     <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-get_json_real_array"></span><h3>procedure, private :: <strong>get_json_real_array</strong>    </h3></div>
+  <ul class="list-group">
+      <li class="list-group-item">
+          <h3>interface
+          </h3>
+  
+          <h3>private pure module module function get_json_real_array(self, key, mold) result(value_)   <a href='../proc/get_json_real_array.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+</h3>    
+<h4>Arguments</h4>      <table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
+<tbody>
+<tr>
+  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
+<td>intent(in)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>self</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
+<td>intent(in)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>key</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" ></span>real,</td>
+<td>intent(in)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>mold</strong>(:)</td><td></td>
+</tr>
+</tbody>
+</table>
+
+<h4>Return Value <small>real,allocatable, (:)</small></h4>  
 
       </li>
   </ul>
@@ -1294,7 +1340,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-02-11 02:05            </p>
+ on 2024-03-29 01:31            </p>
         </div>
       </div>
       <br>
