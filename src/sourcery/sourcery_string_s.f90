@@ -205,6 +205,30 @@ contains
 
   end procedure
 
+  module procedure get_json_real_array
+    character(len=:), allocatable :: raw_line
+    real, allocatable :: real_array(:)
+    integer i
+
+    call assert(key==self%get_json_key(), "string_s(get_json_real_array): key==self%get_json_key()", key)
+
+    raw_line = self%string()
+    associate(colon => index(raw_line, ":"))
+      associate(opening_bracket => colon + index(raw_line(colon+1:), "["))
+        associate(closing_bracket => opening_bracket + index(raw_line(opening_bracket+1:), "]"))
+          associate(commas => count("," == [(raw_line(i:i), i=opening_bracket+1,closing_bracket-1)]))
+            associate(num_inputs => commas + 1)
+              allocate(real_array(num_inputs))
+              read(raw_line(opening_bracket+1:closing_bracket-1), fmt=*) real_array
+              value_ = real_array
+            end associate
+          end associate
+        end associate
+      end associate
+    end associate
+
+  end procedure
+
   module procedure string_t_eq_string_t
     lhs_eq_rhs = lhs%string() == rhs%string()
   end procedure
