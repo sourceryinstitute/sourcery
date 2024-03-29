@@ -182,27 +182,7 @@ contains
   end procedure
 
   module procedure get_json_integer_array
-    character(len=:), allocatable :: raw_line
-    real, allocatable :: real_array(:)
-    integer i
-
-    call assert(key==self%get_json_key(), "string_s(get_json_integer_array): key==self%get_json_key()", key)
-
-    raw_line = self%string()
-    associate(colon => index(raw_line, ":"))
-      associate(opening_bracket => colon + index(raw_line(colon+1:), "["))
-        associate(closing_bracket => opening_bracket + index(raw_line(opening_bracket+1:), "]"))
-          associate(commas => count("," == [(raw_line(i:i), i=opening_bracket+1,closing_bracket-1)]))
-            associate(num_inputs => commas + 1)
-              allocate(real_array(num_inputs))
-              read(raw_line(opening_bracket+1:closing_bracket-1), fmt=*) real_array
-              value_ = int(real_array)
-            end associate
-          end associate
-        end associate
-      end associate
-    end associate
-
+    value_ = int(self%get_json_real_array(key,mold=[0.]))
   end procedure
 
   module procedure get_json_real_array
@@ -210,7 +190,7 @@ contains
     real, allocatable :: real_array(:)
     integer i
 
-    call assert(key==self%get_json_key(), "string_s(get_json_real_array): key==self%get_json_key()", key)
+    call assert(key==self%get_json_key(), "string_s(get_json_{real,integer}_array): key==self%get_json_key()", key)
 
     raw_line = self%string()
     associate(colon => index(raw_line, ":"))
