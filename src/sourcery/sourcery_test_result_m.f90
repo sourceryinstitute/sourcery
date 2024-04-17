@@ -1,14 +1,15 @@
 module sourcery_test_result_m
   !! Define an abstraction for describing test intentions and results
+  use sourcery_string_m, only : string_t
   implicit none
 
   private
   public :: test_result_t
 
   type test_result_t
-    !! Encapsulate test descriptions and outcomes and reporting
+    !! Encapsulate test descriptions and outcomes
     private
-    character(len=:), allocatable :: description_
+    type(string_t) description_
     logical passed_ 
   contains
     procedure :: characterize
