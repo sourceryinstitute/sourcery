@@ -1,6 +1,7 @@
 module command_line_test_m
   !! Verify object pattern asbtract parent
-  use sourcery_m, only : test_t, test_result_t, command_line_t
+  use sourcery_m, only : &
+    test_t, test_result_t, command_line_t, test_description_substring, test_function_i, string_t, test_description_t
   implicit none
 
   private
@@ -21,10 +22,21 @@ contains
 
   function results() result(test_results)
     type(test_result_t), allocatable :: test_results(:)
-
-    test_results = [ &
-      test_result_t("returning the value passed after a command-line flag", check_flag_value()) &
-    ]
+    type(test_description_t), allocatable :: test_descriptions(:)
+#ifndef __GFORTRAN__
+    test_descriptions = [ & 
+      test_description_t(string_t("returning the value passed after a command-line flag"), check_flag_value) &
+    ]   
+#else
+    ! Work around missing Fortran 2008 feature: associating a procedure actual argument with a procedure pointer dummy argument:
+    procedure(test_function_i), pointer :: check_flag_ptr
+    check_flag_ptr => check_flag_value 
+    test_descriptions = [ & 
+      test_description_t(string_t("returning the value passed after a command-line flag"), check_flag_ptr) &
+    ]   
+#endif
+    test_descriptions = pack(test_descriptions, test_descriptions%contains_text(string_t(test_description_substring)))
+    test_results = test_descriptions%run()
   end function
 
   function check_flag_value() result(test_passes)
