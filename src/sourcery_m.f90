@@ -6,8 +6,9 @@ module sourcery_m
   use sourcery_formats_m, only : csv, cscv, separated_values
   use sourcery_file_m, only : file_t
   use sourcery_string_m, only : string_t, operator(.cat.)
-  use sourcery_test_result_m, only : test_result_t
   use sourcery_test_m, only : test_t, test_description_substring
+  use sourcery_test_description_m, only : test_description_t
+  use sourcery_test_result_m, only : test_result_t
   use sourcery_user_defined_collectives_m, only : co_all
 
   !! legacy modules (likely to be removed in a future release):
