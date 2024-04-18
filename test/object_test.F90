@@ -21,7 +21,7 @@ contains
 
   pure function subject() result(specimen)
     character(len=:), allocatable :: specimen
-    specimen = "The object_m type" 
+    specimen = "The object_t type" 
   end function
 
   function results() result(test_results)
@@ -43,7 +43,9 @@ contains
       test_description_t(string_t("object being user_defined() after call to mark_as_defined"), check_mark_ptr) &
     ]   
 #endif
-    test_descriptions = pack(test_descriptions, test_descriptions%contains_text(string_t(test_description_substring)))
+    test_descriptions = pack(test_descriptions, &
+      index(subject(), test_description_substring) /= 0 .or. &
+      test_descriptions%contains_text(string_t(test_description_substring)))
     test_results = test_descriptions%run()
 
   end function

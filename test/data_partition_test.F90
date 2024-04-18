@@ -67,7 +67,9 @@ contains
         string_t("gathering dimension 1 of 2D real array onto result_image with dim argument"), check_gather_2D_real_array_ptr) &
     ]   
 #endif
-    test_descriptions = pack(test_descriptions, test_descriptions%contains_text(string_t(test_description_substring)))
+    test_descriptions = pack(test_descriptions, &
+      index(subject(), test_description_substring) /= 0 .or. &
+      test_descriptions%contains_text(string_t(test_description_substring)))
     test_results = test_descriptions%run()
   end function
 

@@ -41,7 +41,9 @@ contains
       test_description_t(string_t("reporting failure if the test fails on one image"), check_single_ptr) &
     ]
 #endif
-    test_descriptions = pack(test_descriptions, test_descriptions%contains_text(string_t(test_description_substring)))
+    test_descriptions = pack(test_descriptions, &
+      index(subject(), test_description_substring) /= 0 .or. &
+      test_descriptions%contains_text(string_t(test_description_substring)))
     test_results = test_descriptions%run()
   end function
 

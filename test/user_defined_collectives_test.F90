@@ -41,7 +41,9 @@ contains
         (string_t("setting all arguments to .false. when previously .false. on image 1"), check_co_all_one_false_ptr) &
     ]
 #endif
-    test_descriptions = pack(test_descriptions, test_descriptions%contains_text(string_t(test_description_substring)))
+    test_descriptions = pack(test_descriptions, &
+      index(subject(), test_description_substring) /= 0 .or. &
+      test_descriptions%contains_text(string_t(test_description_substring)))
     test_results = test_descriptions%run()
   end function
 
