@@ -24,6 +24,7 @@ module sourcery_test_description_m
     procedure(test_function_i), pointer, nopass :: test_function_ => null()
   contains
     procedure run
+    procedure contains_text
   end type
 
   interface test_description_t
@@ -45,6 +46,14 @@ module sourcery_test_description_m
       implicit none
       class(test_description_t), intent(in) :: self
       type(test_result_t) test_result
+    end function
+
+    impure elemental module function contains_text(self, substring) result(match)
+      !! The result is .true. if the test description includes the value of substring 
+      implicit none
+      class(test_description_t), intent(in) :: self
+      type(string_t), intent(in) :: substring
+      logical match
     end function
 
   end interface

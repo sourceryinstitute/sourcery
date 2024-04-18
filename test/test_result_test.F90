@@ -1,8 +1,9 @@
 module test_result_test_m
   !! Verify test_result_t object behavior
   use sourcery_string_m, only : string_t
-  use sourcery_test_m, only : test_t, test_result_t
+  use sourcery_test_result_m, only : test_result_t
   use sourcery_test_description_m, only : test_description_t
+  use sourcery_test_m, only : test_t, test_description_substring
 #ifdef __GFORTRAN__
   use sourcery_test_description_m, only : test_function_i
 #endif
@@ -27,6 +28,7 @@ contains
   function results() result(test_results)
     type(test_result_t), allocatable :: test_results(:)
     type(test_description_t), allocatable :: test_descriptions(:)
+
 #ifndef __GFORTRAN__
     test_descriptions = [ &
       test_description_t(string_t("constructing an array of test_result_t objects elementally"), check_array_result_construction) &
@@ -35,16 +37,15 @@ contains
 #else
     ! Work around missing Fortran 2008 feature: associating a procedure actual argument with a procedure pointer dummy argument:
     procedure(test_function_i), pointer :: check_array_ptr, check_single_ptr
-
     check_array_ptr => check_array_result_construction
     check_single_ptr => check_single_image_failure
-
     test_descriptions = [ &
       test_description_t(string_t("constructing an array of test_result_t objects elementally"), check_array_ptr), &
       test_description_t(string_t("reporting failure if the test fails on one image"), check_single_ptr) &
     ]
 #endif
-     test_results = test_descriptions%run()
+    test_descriptions = pack(test_descriptions, test_descriptions%contains_text(string_t(test_description_substring)))
+    test_results = test_descriptions%run()
   end function
 
   function check_array_result_construction() result(passed)
