@@ -1,7 +1,7 @@
 Sourcery Library
 ================
 
-A grab bag of useful tricks in Fortran 2018.  
+A grab bag of useful tricks in Fortran 2023.  
 
 ```fortran
                       -:/+-
@@ -99,8 +99,10 @@ Substitute the desired number of images for the `4` above.
 
 ### Testing with the Numerical Algorithms Group (`nagfor`) compiler
 ```zsh
-fpm test --compiler nagfor --flag "-fpp -coarray=cosmp"
+fpm test --compiler nagfor --profile release --flag "-fpp"
 ```
+where the `--profile release` is required to work around a recently identified
+compiler bug that necessitates using an optimization level above `-O0`. 
 
 ### Building and testing with the Cray Compiler Environment (CCE)
 Because `fpm` uses the compiler name to determine the compiler identity and because
