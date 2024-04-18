@@ -1,9 +1,6 @@
 module test_result_test_m
   !! Verify test_result_t object behavior
-  use sourcery_string_m, only : string_t
-  use sourcery_test_result_m, only : test_result_t
-  use sourcery_test_description_m, only : test_description_t
-  use sourcery_test_m, only : test_t, test_description_substring
+  use sourcery_m, only : string_t, test_result_t, test_description_t, test_t, test_description_substring
 #ifdef __GFORTRAN__
   use sourcery_test_description_m, only : test_function_i
 #endif
