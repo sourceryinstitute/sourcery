@@ -1,5 +1,8 @@
 module user_defined_collectives_test_m
-    use sourcery_m, only : co_all, test_t, test_result_t, test_description_t, test_description_substring, test_function_i, string_t
+    use sourcery_m, only : co_all, test_t, test_result_t, test_description_t, test_description_substring, string_t
+#ifdef __GFORTRAN__
+    use sourcery_m, only : test_function_i
+#endif
     implicit none
 
     private
@@ -26,7 +29,7 @@ contains
     test_descriptions = [ & 
       test_description_t &
         (string_t("setting all arguments to .true. when previously .true. on all images"), check_co_all_with_all_true), &
-      test_description_t
+      test_description_t &
         (string_t("setting all arguments to .false. when previously .false. on image 1"), check_co_all_with_one_false) &
     ]   
 #else

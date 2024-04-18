@@ -20,7 +20,6 @@ program main
 
   integer :: passes=0, tests=0
 
-
   call bin_test%report(passes, tests)
   call data_partition_test%report(passes, tests)
   call collectives_test%report(passes, tests)

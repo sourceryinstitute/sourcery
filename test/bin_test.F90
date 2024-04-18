@@ -1,6 +1,9 @@
 module bin_test_m
   !! Check data partitioning across bins
-  use sourcery_m, only : bin_t, test_t, test_result_t, test_description_t, test_description_substring, test_function_i, string_t
+  use sourcery_m, only : bin_t, test_t, test_result_t, test_description_t, test_description_substring, string_t
+#ifdef __GFORTRAN__
+  use sourcery_m, only : test_function_i
+#endif
   use assert_m, only : assert
   implicit none
 

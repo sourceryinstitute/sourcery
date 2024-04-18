@@ -1,6 +1,9 @@
 module object_m_test_m
   !! Verify object pattern asbtract parent
-  use sourcery_m, only : test_t, test_result_t, object_t, test_description_t, test_function_i, string_t, test_description_substring
+  use sourcery_m, only : test_t, test_result_t, object_t, test_description_t, string_t, test_description_substring
+#ifdef __GFORTRAN__
+  use sourcery_m, only : test_function_i
+#endif
   implicit none
 
   private

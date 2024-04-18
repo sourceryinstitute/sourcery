@@ -1,7 +1,11 @@
 module data_partition_test_m
   !! check data partitioning across images and data gathering
   use sourcery_m, only : &
-    data_partition_t, test_t, test_result_t, test_description_substring, test_description_t, test_function_i, string_t
+    data_partition_t, test_t, test_result_t, test_description_substring, test_description_t, string_t
+#ifdef __GFORTRAN__
+  use sourcery_m, only : test_function_i
+#endif
+    
   use iso_fortran_env, only : real64
   implicit none
 
@@ -37,7 +41,7 @@ contains
         check_all_gather_2D_real_array), &
       test_description_t(string_t("gathering dimension 1 of 2D real array onton all images with dim argument"), &
         check_all_gather_2D_real_array_dim1), &
-      test_description_t(strint_t("gathering dimension 1 of 2D real array onto result_image with dim argument"), &
+      test_description_t(string_t("gathering dimension 1 of 2D real array onto result_image with dim argument"), &
         check_gather_2D_real_array_dim1) &
     ]   
 #else
