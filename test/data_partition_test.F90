@@ -1,6 +1,7 @@
 module data_partition_test_m
-  !! verify data partitioning across images and data gathering
-  use sourcery_m, only : data_partition_t, test_t, test_result_t
+  !! check data partitioning across images and data gathering
+  use sourcery_m, only : &
+    data_partition_t, test_t, test_result_t, test_description_substring, test_description_t, test_function_i, string_t
   use iso_fortran_env, only : real64
   implicit none
 
@@ -25,23 +26,53 @@ contains
 
   function results() result(test_results)
     type(test_result_t), allocatable :: test_results(:)
+    type(test_description_t), allocatable :: test_descriptions(:)
+#ifndef __GFORTRAN__
+    test_descriptions = [ & 
+      test_description_t(string_t("partitioning data in nearly even blocks"), check_block_partitioning), &
+      test_description_t(string_t("default image_number is this_image()"), check_default_image_number), &
+      test_description_t(string_t("partitioning all data across all images without data loss"), check_all_particles_partitioned), &
+      test_description_t(string_t("gathering a 1D real array onto all images"), check_all_gather_1D_real_array), &
+      test_description_t(string_t("gathering dimension 1 of 2D real array onto all images witout dim argument"), &
+        check_all_gather_2D_real_array), &
+      test_description_t(string_t("gathering dimension 1 of 2D real array onton all images with dim argument"), &
+        check_all_gather_2D_real_array_dim1), &
+      test_description_t(strint_t("gathering dimension 1 of 2D real array onto result_image with dim argument"), &
+        check_gather_2D_real_array_dim1) &
+    ]   
+#else
+    ! Work around missing Fortran 2008 feature: associating a procedure actual argument with a procedure pointer dummy argument:
+    procedure(test_function_i), pointer :: &
+      check_block_ptr, check_default_ptr, check_all_particles_ptr, check_all_gather_ptr, check_all_gather_2D_ptr, &
+      check_all_gather_2D_real_ptr, check_gather_2D_real_array_ptr
 
-    test_results = [ &
-      test_result_t("partitioning data in nearly even blocks", verify_block_partitioning()), &
-      test_result_t("default image_number is this_image()", verify_default_image_number()), &
-      test_result_t("partitioning all data across all images without data loss", verify_all_particles_partitioned()), &
-      test_result_t("gathering a 1D real array onto all images", verify_all_gather_1D_real_array()), &
-      test_result_t("gathering dimension 1 of 2D real array onto all images witout dim argument", &
-        verify_all_gather_2D_real_array()), &
-      test_result_t("gathering dimension 1 of 2D real array onton all images with dim argument", &
-        verify_all_gather_2D_real_array_dim1()), &
-      test_result_t("gathering dimension 1 of 2D real array onto result_image with dim argument", &
-        verify_gather_2D_real_array_dim1()) &
-    ]
+    check_block_ptr => check_block_partitioning
+    check_default_ptr => check_default_image_number
+    check_all_particles_ptr => check_all_particles_partitioned
+    check_all_gather_ptr => check_all_gather_1D_real_array
+    check_all_gather_2D_ptr => check_all_gather_2D_real_array
+    check_all_gather_2D_real_ptr => check_all_gather_2D_real_array_dim1
+    check_gather_2D_real_array_ptr => check_gather_2D_real_array_dim1
+
+    test_descriptions = [ & 
+      test_description_t(string_t("partitioning data in nearly even blocks"), check_block_ptr), &
+      test_description_t(string_t("default image_number is this_image()"), check_default_ptr), &
+      test_description_t(string_t("partitioning all data across all images without data loss"), check_all_particles_ptr), &
+      test_description_t(string_t("gathering a 1D real array onto all images"), check_all_gather_ptr), &
+      test_description_t( &
+        string_t("gathering dimension 1 of 2D real array onto all images witout dim argument"), check_all_gather_ptr), &
+      test_description_t( &
+        string_t("gathering dimension 1 of 2D real array onton all images with dim argument"), check_all_gather_2D_ptr), &
+      test_description_t( &
+        string_t("gathering dimension 1 of 2D real array onto result_image with dim argument"), check_gather_2D_real_array_ptr) &
+    ]   
+#endif
+    test_descriptions = pack(test_descriptions, test_descriptions%contains_text(string_t(test_description_substring)))
+    test_results = test_descriptions%run()
   end function
 
-  function verify_block_partitioning() result(test_passes)
-    !! Verify that the data is partitioned across images evenly to
+  function check_block_partitioning() result(test_passes)
+    !! check that the data is partitioned across images evenly to
     !! within a difference of one datum between any two images.
     logical test_passes
 
@@ -72,8 +103,8 @@ contains
 
   end function
 
-  function verify_default_image_number() result(test_passes)
-    !! Verify that the first and last functions assume image_number == this_image() if image_number is not  present
+  function check_default_image_number() result(test_passes)
+    !! check that the first and last functions assume image_number == this_image() if image_number is not  present
     logical test_passes
 
 #ifndef _CRAYFTN
@@ -90,8 +121,8 @@ contains
 #endif
   end function
 
-  function verify_all_particles_partitioned() result(test_passes)
-    !! Verify that the number of particles on each image sums to the
+  function check_all_particles_partitioned() result(test_passes)
+    !! check that the number of particles on each image sums to the
     !! total number of particles distributed.
     logical test_passes
     integer particles
@@ -118,7 +149,7 @@ contains
 #endif
   end function
 
- function verify_all_gather_1D_real_array() result(test_passes)
+ function check_all_gather_1D_real_array() result(test_passes)
    logical test_passes
    real(real64) :: particle_scalar(num_particles)
    real(real64), parameter :: junk=-12345._real64, expected=1._real64
@@ -149,7 +180,7 @@ contains
 #endif
  end function
 
- function verify_all_gather_2D_real_array() result(test_passes)
+ function check_all_gather_2D_real_array() result(test_passes)
    logical test_passes
    integer, parameter :: vec_space_dim=3
    real(real64) particle_vector(vec_space_dim, num_particles)
@@ -181,7 +212,7 @@ contains
 #endif
  end function
 
- function verify_all_gather_2D_real_array_dim1() result(test_passes)
+ function check_all_gather_2D_real_array_dim1() result(test_passes)
    logical test_passes
    integer, parameter :: vec_space_dim=3
    real(real64) :: vector_transpose(num_particles, vec_space_dim)
@@ -213,7 +244,7 @@ contains
 #endif
  end function
 
- function verify_gather_2D_real_array_dim1() result(test_passes)
+ function check_gather_2D_real_array_dim1() result(test_passes)
    logical test_passes
    integer, parameter :: vec_space_dim=3
    real(real64) :: vector_transpose(num_particles, vec_space_dim)
