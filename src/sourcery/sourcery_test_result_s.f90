@@ -4,13 +4,18 @@ submodule(sourcery_test_result_m) sourcery_test_result_s
 
 contains
 
-    module procedure construct
+    module procedure construct_from_character
+      test_result%description_ = description
+      test_result%passed_ = passed
+    end procedure
+
+    module procedure construct_from_string
       test_result%description_ = description
       test_result%passed_ = passed
     end procedure
 
     module procedure characterize
-      characterization = trim(merge("passes on ", "FAILS on  ", self%passed_)) // " " // trim(self%description_) // "."
+      characterization = trim(merge("passes on ", "FAILS on  ", self%passed_)) // " " // trim(self%description_%string()) // "."
     end procedure
 
     module procedure passed

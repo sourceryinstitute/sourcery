@@ -7,6 +7,7 @@ program main
   use test_result_test_m, only : test_result_test_t  
   use command_line_test_m, only : command_line_test_t
   use string_test_m, only : string_test_t
+  use sourcery_m, only : command_line_t
   implicit none
 
   type(collectives_test_t) collectives_test
@@ -20,6 +21,17 @@ program main
 
   integer :: passes=0, tests=0
 
+  block 
+    type(command_line_t) command_line
+    character(len=*), parameter :: usage = &
+      new_line('') // new_line('') // &
+      'Usage: fpm test -- [--help] | [--contains <substring>]' // &
+      new_line('') // new_line('') // &
+      'where square brackets ([]) denote optional arguments, a pipe (|) separates alternative arguments,' // new_line('') // &
+      'angular brackets (<>) denote a user-provided value, and passing a substring limits execution to' // new_line('') // &
+      'the tests with test subjects or test descriptions containing the user-specified substring.' // new_line('') 
+    if (command_line%argument_present([character(len=len("--help"))::"--help","-h"])) stop usage
+  end block
 
   call bin_test%report(passes, tests)
   call data_partition_test%report(passes, tests)

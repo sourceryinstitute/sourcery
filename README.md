@@ -1,7 +1,7 @@
 Sourcery Library
 ================
 
-A grab bag of useful tricks in Fortran 2018.  
+A grab bag of useful tricks in Fortran 2023.  
 
 ```fortran
                       -:/+-
@@ -82,6 +82,16 @@ git clone git@github.com:sourceryinstitute/sourcery
 
 Building and Testing
 --------------------
+### Test-Suite Usage
+Executing `fpm test -- --help` prints the following message:
+```
+Usage: fpm test -- [--help] | [--contains <substring>]
+
+where square brackets ([]) denote optional arguments, a pipe (|) separates alternative arguments,
+angular brackets (<>) denote a user-provided value, and passing a substring limits execution to
+the tests with test subjects or test descriptions containing the user-specified substring.
+```
+
 ### Single-image (serial) testing with GNU Fortran (`gfortran`) 
 With recent versions of [GNU Fortran] (gfortran) and [OpenCoarrays] installed, 
 execute the following command in a `zsh` or `bash`-like shell:
@@ -99,7 +109,7 @@ Substitute the desired number of images for the `4` above.
 
 ### Testing with the Numerical Algorithms Group (`nagfor`) compiler
 ```zsh
-fpm test --compiler nagfor --flag "-fpp -coarray=cosmp"
+fpm test --compiler nagfor --flag -fpp
 ```
 
 ### Building and testing with the Cray Compiler Environment (CCE)
@@ -147,4 +157,3 @@ documentation.
 [Building the documentation]: #building-the-documentation
 [Sourcery GitHub Pages site]: http://sourceryinstitute.github.io/sourcery/
 [`ford`]: https://github.com/Fortran-FOSS-Programmers/ford
-
