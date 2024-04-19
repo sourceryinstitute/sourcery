@@ -99,10 +99,8 @@ Substitute the desired number of images for the `4` above.
 
 ### Testing with the Numerical Algorithms Group (`nagfor`) compiler
 ```zsh
-fpm test --compiler nagfor --profile release --flag "-fpp"
+fpm test --compiler nagfor --flag -fpp
 ```
-where the `--profile release` is required to work around a recently identified
-compiler bug that necessitates using an optimization level above `-O0`. 
 
 ### Building and testing with the Cray Compiler Environment (CCE)
 Because `fpm` uses the compiler name to determine the compiler identity and because
@@ -149,4 +147,3 @@ documentation.
 [Building the documentation]: #building-the-documentation
 [Sourcery GitHub Pages site]: http://sourceryinstitute.github.io/sourcery/
 [`ford`]: https://github.com/Fortran-FOSS-Programmers/ford
-
