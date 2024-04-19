@@ -38,7 +38,7 @@ contains
     handle_missing_value_ptr => handle_missing_flag_value
     test_descriptions = [ & 
       test_description_t(string_t("returning the value passed after a command-line flag"), check_flag_ptr), &
-      test_description_t(string_t("return an empty string when a flag value is missing"), handle_missing_value_ptr) &
+      test_description_t(string_t("returning an empty string when a flag value is missing"), handle_missing_value_ptr) &
     ]   
 #endif
     test_descriptions = pack(test_descriptions, &
