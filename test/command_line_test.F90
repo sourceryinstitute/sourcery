@@ -29,7 +29,7 @@ contains
 #ifndef __GFORTRAN__
     test_descriptions = [ & 
       test_description_t(string_t("returning the value passed after a command-line flag"), check_flag_value), &
-      test_description_t(string_t("return an empty string when a flag value is missing"), handle_missing_flag_value) &
+      test_description_t(string_t("returning an empty string when a flag value is missing"), handle_missing_flag_value) &
     ]   
 #else
     ! Work around missing Fortran 2008 feature: associating a procedure actual argument with a procedure pointer dummy argument:
