@@ -92,7 +92,7 @@ https://github.com/sourceryinstitute/sourcery" role="button">GitHub</a>
         <div class="col-md-8">
           <h1></h1>
           <h1 id="sourcery-library">Sourcery Library</h1>
-<p>A grab bag of useful tricks in Fortran 2018.  </p>
+<p>A grab bag of useful tricks in Fortran 2023.  </p>
 <div class="codehilite"><pre><span></span><code><span class="w">                      </span><span class="o">-</span><span class="p">:</span><span class="o">/+-</span><span class="w"></span>
 <span class="w">                    </span><span class="p">.</span><span class="o">/</span><span class="n">oydddy</span><span class="o">/</span><span class="p">.</span><span class="w"></span>
 <span class="w">                   </span><span class="p">.</span><span class="o">/</span><span class="n">sdmNNmmdh</span><span class="o">/</span><span class="p">.</span><span class="w"></span>
@@ -163,6 +163,15 @@ the "<a href="#downloding-building-and-testing">Downloding, Building, and Testin
 </code></pre></div>
 
 <h2 id="building-and-testing">Building and Testing</h2>
+<h3 id="test-suite-usage">Test-Suite Usage</h3>
+<p>Executing <code>fpm test -- --help</code> prints the following message:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">Usage</span><span class="o">:</span><span class="w"> </span><span class="n">fpm</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="o">[--</span><span class="n">help</span><span class="o">]</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">[--</span><span class="n">contains</span><span class="w"> </span><span class="o">&lt;</span><span class="n">substring</span><span class="o">&gt;]</span><span class="w"></span>
+
+<span class="n">where</span><span class="w"> </span><span class="n">square</span><span class="w"> </span><span class="n">brackets</span><span class="w"> </span><span class="o">([])</span><span class="w"> </span><span class="n">denote</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="k">arguments</span><span class="o">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pipe</span><span class="w"> </span><span class="o">(|)</span><span class="w"> </span><span class="n">separates</span><span class="w"> </span><span class="n">alternative</span><span class="w"> </span><span class="k">arguments</span><span class="o">,</span><span class="w"></span>
+<span class="n">angular</span><span class="w"> </span><span class="n">brackets</span><span class="w"> </span><span class="o">(&lt;&gt;)</span><span class="w"> </span><span class="n">denote</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">user</span><span class="o">-</span><span class="n">provided</span><span class="w"> </span><span class="n">value</span><span class="o">,</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">passing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">substring</span><span class="w"> </span><span class="n">limits</span><span class="w"> </span><span class="n">execution</span><span class="w"> </span><span class="n">to</span><span class="w"></span>
+<span class="n">the</span><span class="w"> </span><span class="n">tests</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">subjects</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">descriptions</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="o">-</span><span class="n">specified</span><span class="w"> </span><span class="n">substring</span><span class="o">.</span><span class="w"></span>
+</code></pre></div>
+
 <h3 id="single-image-serial-testing-with-gnu-fortran-gfortran">Single-image (serial) testing with GNU Fortran (<code>gfortran</code>)</h3>
 <p>With recent versions of <a href="https://gcc.gnu.org">GNU Fortran</a> (gfortran) and <a href="https://github.com/sourceryinstitute/opencoarrays">OpenCoarrays</a> installed, 
 execute the following command in a <code>zsh</code> or <code>bash</code>-like shell:</p>
@@ -177,7 +186,7 @@ execute the following command in a <code>zsh</code> or <code>bash</code>-like sh
 
 <p>Substitute the desired number of images for the <code>4</code> above.</p>
 <h3 id="testing-with-the-numerical-algorithms-group-nagfor-compiler">Testing with the Numerical Algorithms Group (<code>nagfor</code>) compiler</h3>
-<div class="codehilite"><pre><span></span><code>fpm <span class="nb">test</span> --compiler nagfor --flag <span class="s2">&quot;-fpp -coarray=cosmp&quot;</span>
+<div class="codehilite"><pre><span></span><code>fpm <span class="nb">test</span> --compiler nagfor --flag -fpp
 </code></pre></div>
 
 <h3 id="building-and-testing-with-the-cray-compiler-environment-cce">Building and testing with the Cray Compiler Environment (CCE)</h3>
@@ -272,8 +281,8 @@ documentation.</p>
                     <li><a href='./type/object_t.html'>object_t</a></li>
                     <li><a href='./type/oracle_t.html'>oracle_t</a></li>
                     <li><a href='./type/string_t.html'>string_t</a></li>
+                    <li><a href='./type/test_description_t.html'>test_description_t</a></li>
                     <li><a href='./type/test_result_t.html'>test_result_t</a></li>
-                    <li><a href='./type/test_t.html'>test_t</a></li>
 </ul>
           </div>
       </div>
@@ -289,7 +298,7 @@ documentation.</p>
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-03-29 01:31            </p>
+ on 2024-04-19 04:49            </p>
         </div>
       </div>
       <br>

@@ -1,5 +1,6 @@
 submodule(sourcery_test_m) sourcery_test_s
   use sourcery_user_defined_collectives_m, only : co_all
+  use sourcery_command_line_m, only : command_line_t
   implicit none
 
 contains
@@ -7,8 +8,29 @@ contains
   module procedure report
 
     associate(me => this_image())
-      if (me==1) print *, new_line('a'), test%subject()
 
+      if (me==1) then
+
+        first_report: &
+        if (.not. allocated(test_description_substring)) then
+          block 
+            type(command_line_t) command_line
+            test_description_substring = command_line%flag_value("--contains")
+          end block
+          if (len(test_description_substring)==0) then
+            print *,"Running all tests."
+            print *,"(Add '-- --contains <string> to run only tests with descriptions containing the specified string.)"
+          else
+            print *,"Running only tests with descriptions containing '", test_description_substring,"'."
+          end if
+        end if first_report
+
+        print *, new_line('a'), test%subject()
+
+      end if
+
+      call co_broadcast(test_description_substring, source_image=1)
+      
 #ifndef _CRAYFTN
       associate(test_results => test%results())
         associate(num_tests => size(test_results))

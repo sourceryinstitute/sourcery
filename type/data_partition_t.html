@@ -88,7 +88,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p> 9.7% of total for derived types.</p>Including implementation: 10 statements,  7.9% of total for derived types.">10 statements</a>
+    title="<p> 8.6% of total for derived types.</p>Including implementation: 10 statements,  7.5% of total for derived types.">10 statements</a>
      </li> 
     <li><i class="fa fa-code"></i><a href="../src/sourcery_data_partition_m.f90"> Source File</a></li>
   </ul>
@@ -134,9 +134,9 @@
   <div id="boundprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       <a class="list-group-item" href="../type/data_partition_t.html#boundprocedure-define_partitions">define_partitions</a>
-      <a class="list-group-item" href="../type/data_partition_t.html#boundprocedure-first~2">first</a>
+      <a class="list-group-item" href="../type/data_partition_t.html#boundprocedure-first">first</a>
       <a class="list-group-item" href="../type/data_partition_t.html#boundprocedure-gather">gather</a>
-      <a class="list-group-item" href="../type/data_partition_t.html#boundprocedure-last~2">last</a>
+      <a class="list-group-item" href="../type/data_partition_t.html#boundprocedure-last">last</a>
       <a class="list-group-item" href="../type/data_partition_t.html#boundprocedure-gather_real32_1d_array">gather_real32_1D_array</a>
       <a class="list-group-item" href="../type/data_partition_t.html#boundprocedure-gather_real32_2d_array">gather_real32_2D_array</a>
       <a class="list-group-item" href="../type/data_partition_t.html#boundprocedure-gather_real64_1d_array">gather_real64_1D_array</a>
@@ -255,9 +255,9 @@
   <div id="boundprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       <a class="list-group-item" href="../type/data_partition_t.html#boundprocedure-define_partitions">define_partitions</a>
-      <a class="list-group-item" href="../type/data_partition_t.html#boundprocedure-first~2">first</a>
+      <a class="list-group-item" href="../type/data_partition_t.html#boundprocedure-first">first</a>
       <a class="list-group-item" href="../type/data_partition_t.html#boundprocedure-gather">gather</a>
-      <a class="list-group-item" href="../type/data_partition_t.html#boundprocedure-last~2">last</a>
+      <a class="list-group-item" href="../type/data_partition_t.html#boundprocedure-last">last</a>
       <a class="list-group-item" href="../type/data_partition_t.html#boundprocedure-gather_real32_1d_array">gather_real32_1D_array</a>
       <a class="list-group-item" href="../type/data_partition_t.html#boundprocedure-gather_real32_2d_array">gather_real32_2D_array</a>
       <a class="list-group-item" href="../type/data_partition_t.html#boundprocedure-gather_real64_1d_array">gather_real64_1D_array</a>
@@ -354,7 +354,7 @@
 </div>
 
      <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-first~2"></span><h3>procedure, public :: <strong>first</strong>    </h3></div>
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-first"></span><h3>procedure, public :: <strong>first</strong>    </h3></div>
   <ul class="list-group">
       <li class="list-group-item">
           <h3>interface
@@ -363,7 +363,7 @@
             <p>Gathers are inherently expensive and are best used either
 1. Near the beginning/end of execution to amortize costs across an entire run or
 2. Temporarily while developing/debugging code.</p>
-          <h3>private pure module module function first(self, image_number) result(first_index)   <a href='../proc/first~2.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+          <h3>private pure module module function first(self, image_number) result(first_index)   <a href='../proc/first.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
 </h3><p>the result is the first identification number owned by the executing image</p>
     
 <h4>Arguments</h4>      <table class="table table-striped varlist">
@@ -433,7 +433,7 @@
 </div>
 
      <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-last~2"></span><h3>procedure, public :: <strong>last</strong>    </h3></div>
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-last"></span><h3>procedure, public :: <strong>last</strong>    </h3></div>
   <ul class="list-group">
       <li class="list-group-item">
           <h3>interface
@@ -442,7 +442,7 @@
             <p>Gathers are inherently expensive and are best used either
 1. Near the beginning/end of execution to amortize costs across an entire run or
 2. Temporarily while developing/debugging code.</p>
-          <h3>private pure module module function last(self, image_number) result(last_index)   <a href='../proc/last~2.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+          <h3>private pure module module function last(self, image_number) result(last_index)   <a href='../proc/last.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
 </h3><p>the result is the last identification number owned by the executing image</p>
     
 <h4>Arguments</h4>      <table class="table table-striped varlist">
@@ -679,7 +679,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-03-29 01:31            </p>
+ on 2024-04-19 04:49            </p>
         </div>
       </div>
       <br>
