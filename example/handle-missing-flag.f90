@@ -1,5 +1,9 @@
 program handle_missing_flag
-  !! Verify that a missing command-line flag value returns a zero-length string.
+  !! This program serves the dual purposes of
+  !!
+  !! 1. Showing an example of a command-line with an expected flag missing an
+  !! 2. Supporting the test suite check that the returned value has zero length.
+  !!
   !! Running this program as follows with the command
   !!
   !! fpm run --example handle-missing-flag -- --empty-flag
