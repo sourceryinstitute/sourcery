@@ -82,6 +82,16 @@ git clone git@github.com:sourceryinstitute/sourcery
 
 Building and Testing
 --------------------
+### Test-Suite Usage
+Executing `fpm test -- --help` prints the following message:
+```
+Usage: fpm test -- [--help] | [--contains <substring>]
+
+where square brackets ([]) denote optional arguments, a pipe (|) separates alternative arguments,
+angular brackets (<>) denote a user-provided value, and passing a substring limits execution to
+the tests with test subjects or test descriptions containing the user-specified substring.
+```
+
 ### Single-image (serial) testing with GNU Fortran (`gfortran`) 
 With recent versions of [GNU Fortran] (gfortran) and [OpenCoarrays] installed, 
 execute the following command in a `zsh` or `bash`-like shell:
