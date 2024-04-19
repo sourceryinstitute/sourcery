@@ -28,14 +28,17 @@ contains
     type(test_description_t), allocatable :: test_descriptions(:)
 #ifndef __GFORTRAN__
     test_descriptions = [ & 
-      test_description_t(string_t("returning the value passed after a command-line flag"), check_flag_value) &
+      test_description_t(string_t("returning the value passed after a command-line flag"), check_flag_value), &
+      test_description_t(string_t("return an empty string when a flag value is missing"), handle_missing_flag_value) &
     ]   
 #else
     ! Work around missing Fortran 2008 feature: associating a procedure actual argument with a procedure pointer dummy argument:
-    procedure(test_function_i), pointer :: check_flag_ptr
+    procedure(test_function_i), pointer :: check_flag_ptr, handle_missing_value_ptr 
     check_flag_ptr => check_flag_value 
+    handle_missing_value_ptr => handle_missing_flag_value
     test_descriptions = [ & 
-      test_description_t(string_t("returning the value passed after a command-line flag"), check_flag_ptr) &
+      test_description_t(string_t("returning the value passed after a command-line flag"), check_flag_ptr), &
+      test_description_t(string_t("return an empty string when a flag value is missing"), handle_missing_value_ptr) &
     ]   
 #endif
     test_descriptions = pack(test_descriptions, &
@@ -46,7 +49,6 @@ contains
 
   function check_flag_value() result(test_passes)
     logical test_passes
-
     integer exit_status, command_status
     character(len=132) command_message
 
@@ -55,7 +57,18 @@ contains
       wait = .true., exitstat = exit_status, cmdstat = command_status, cmdmsg = command_message &
     )   
     test_passes = exit_status == 0 
+  end function
 
+  function handle_missing_flag_value() result(test_passes)
+    logical test_passes
+    integer exit_status, command_status
+    character(len=132) command_message
+
+    call execute_command_line( &
+      command = "fpm run --example handle-missing-flag -- --empty-flag", &
+      wait = .true., exitstat = exit_status, cmdstat = command_status, cmdmsg = command_message &
+    )   
+    test_passes = exit_status == 0 
   end function
 
 end module command_line_test_m
