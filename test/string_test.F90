@@ -1,5 +1,8 @@
 module string_test_m
-  use sourcery_m, only : test_t, test_result_t, string_t, operator(.cat.)
+  use sourcery_m, only : test_t, test_result_t, string_t, operator(.cat.), test_description_t, test_description_substring
+#ifdef __GFORTRAN__
+  use sourcery_m, only : test_function_i
+#endif
   implicit none
 
   private
@@ -20,26 +23,104 @@ contains
 
   function results() result(test_results)
     type(test_result_t), allocatable :: test_results(:)
+    type(test_description_t), allocatable :: test_descriptions(:)
 
-    test_results = [ &
-      test_result_t("is_allocated() result .true. if & only if the string_t component(s) is/are allocated", check_allocation()), &
-      test_result_t('supporting operator(==) for string_t and character operands', supports_equivalence_operator()), &
-      test_result_t('supporting operator(/=) for string_t and character operands', supports_non_equivalence_operator()), &
-      test_result_t('supporting operator(//) for string_t and character operands', supports_concatenation_operator()), &
-      test_result_t('assigning a string_t object to a character variable', assigns_string_t_to_character()), &
-      test_result_t('assigning a character variable to a string_t object', assigns_character_to_string_t()), &
-      test_result_t('constructing from a default integer', constructs_from_default_integer()), &
-      test_result_t('constructing from a real value', constructs_from_real()), &
-      test_result_t('supporting unary operator(.cat.) for array arguments', concatenates_elements()), &
-      test_result_t("extracting a key string from a colon-separated key/value pair", extracts_key()), &
-      test_result_t("extracting a real value from a colon-separated key/value pair", extracts_real_value()), &
-      test_result_t("extracting a string value from a colon-separated key/value pair", extracts_string_value()), &
-      test_result_t("extracting a logical value from a colon-separated key/value pair", extracts_logical_value()), &
-      test_result_t("extracting an integer array value from a colon-separated key/value pair", extracts_integer_array_value()), &
-      test_result_t("extracting an integer value from a colon-separated key/value pair", extracts_integer_value()), &
-      test_result_t('extracting a file base name', extracts_file_base_name()), &
-      test_result_t('extracting a file name extension', extracts_file_name_extension()) &
+#ifndef __GFORTRAN__
+    test_descriptions = [ & 
+      test_description_t &
+        (string_t("is_allocated() result .true. if & only if the string_t component(s) is/are allocated"), check_allocation), &
+      test_description_t &
+        (string_t('supporting operator(==) for string_t and character operands'), supports_equivalence_operator), &
+      test_description_t &
+        (string_t('supporting operator(/=) for string_t and character operands'), supports_non_equivalence_operator), &
+      test_description_t &
+        (string_t('supporting operator(//) for string_t and character operands'), supports_concatenation_operator), &
+      test_description_t &
+        (string_t('assigning a string_t object to a character variable'), assigns_string_t_to_character), &
+      test_description_t &
+        (string_t('assigning a character variable to a string_t object'), assigns_character_to_string_t), &
+      test_description_t &
+        (string_t('constructing from a default integer'), constructs_from_default_integer), &
+      test_description_t &
+        (string_t('constructing from a real value'), constructs_from_real), &
+      test_description_t &
+        (string_t('supporting unary operator(.cat.) for array arguments'), concatenates_elements), &
+      test_description_t &
+        (string_t("extracting a key string from a colon-separated key/value pair"), extracts_key), &
+      test_description_t &
+        (string_t("extracting a real value from a colon-separated key/value pair"), extracts_real_value), &
+      test_description_t &
+        (string_t("extracting a string value from a colon-separated key/value pair"), extracts_string_value), &
+      test_description_t &
+        (string_t("extracting a logical value from a colon-separated key/value pair"), extracts_logical_value), &
+      test_description_t &
+        (string_t("extracting an integer array value from a colon-separated key/value pair"), extracts_integer_array_value), &
+      test_description_t &
+        (string_t("extracting an real array value from a colon-separated key/value pair"), extracts_real_array_value), &
+      test_description_t &
+        (string_t("extracting an integer value from a colon-separated key/value pair"), extracts_integer_value), &
+      test_description_t &
+        (string_t('extracting a file base name'), extracts_file_base_name), &
+      test_description_t &
+        (string_t('extracting a file name extension'), extracts_file_name_extension) &
     ]
+#else
+    ! Work around missing Fortran 2008 feature: associating a procedure actual argument with a procedure pointer dummy argument:
+    procedure(test_function_i), pointer :: &
+      check_allocation_ptr, supports_equivalence_ptr, supports_non_equivalence_ptr, supports_concatenation_ptr, &
+      assigns_string_ptr, assigns_character_ptr, constructs_from_integer_ptr, constructs_from_real_ptr, concatenates_ptr, &
+      extracts_key_ptr, extracts_real_ptr, extracts_string_ptr, extracts_logical_ptr, extracts_integer_array_ptr, &
+      extracts_real_array_ptr, extracts_integer_ptr, extracts_file_base_ptr, extracts_file_name_ptr
+
+    check_allocation_ptr => check_allocation
+    supports_equivalence_ptr => supports_equivalence_operator
+    supports_non_equivalence_ptr => supports_non_equivalence_operator
+    supports_concatenation_ptr => supports_concatenation_operator
+    assigns_string_ptr => assigns_string_t_to_character
+    assigns_character_ptr => assigns_character_to_string_t
+    constructs_from_integer_ptr => constructs_from_default_integer
+    constructs_from_real_ptr => constructs_from_real
+    concatenates_ptr => concatenates_elements
+    extracts_key_ptr => extracts_key
+    extracts_real_ptr => extracts_real_value
+    extracts_string_ptr => extracts_string_value
+    extracts_logical_ptr => extracts_logical_value
+    extracts_integer_array_ptr  => extracts_integer_array_value
+    extracts_real_array_ptr => extracts_real_array_value
+    extracts_integer_ptr => extracts_integer_value
+    extracts_file_base_ptr => extracts_file_base_name
+    extracts_file_name_ptr => extracts_file_name_extension
+
+    test_descriptions = [ & 
+      test_description_t( &
+        string_t("is_allocated() result .true. if & only if the string_t component(s) is/are allocated"), check_allocation_ptr), &
+      test_description_t(string_t('supporting operator(==) for string_t and character operands'), supports_equivalence_ptr), &
+      test_description_t( &
+        string_t('supporting operator(/=) for string_t and character operands'), supports_non_equivalence_ptr), &
+      test_description_t( &
+        string_t('supporting operator(//) for string_t and character operands'), supports_concatenation_ptr), &
+      test_description_t(string_t('assigning a string_t object to a character variable'), assigns_string_ptr), &
+      test_description_t(string_t('assigning a character variable to a string_t object'), assigns_character_ptr), &
+      test_description_t(string_t('constructing from a default integer'), constructs_from_integer_ptr), &
+      test_description_t(string_t('constructing from a real value'), constructs_from_real_ptr), &
+      test_description_t(string_t('supporting unary operator(.cat.) for array arguments'), concatenates_ptr), &
+      test_description_t(string_t("extracting a key string from a colon-separated key/value pair"), extracts_key_ptr), &
+      test_description_t(string_t("extracting a real value from a colon-separated key/value pair"), extracts_real_ptr), &
+      test_description_t(string_t("extracting a string value from a colon-separated key/value pair"), extracts_string_ptr), &
+      test_description_t(string_t("extracting a logical value from a colon-separated key/value pair"), extracts_logical_ptr), &
+      test_description_t( &
+        string_t("extracting an integer array value from a colon-separated key/value pair"), extracts_integer_array_ptr), &
+      test_description_t( &
+        string_t("extracting an real array value from a colon-separated key/value pair"), extracts_real_array_ptr), &
+      test_description_t(string_t("extracting an integer value from a colon-separated key/value pair"), extracts_integer_ptr), &
+      test_description_t(string_t('extracting a file base name'), extracts_file_base_ptr), &
+      test_description_t(string_t('extracting a file name extension'), extracts_file_name_ptr) &
+    ]   
+#endif
+    test_descriptions = pack(test_descriptions, &
+      index(subject(), test_description_substring) /= 0 .or. &
+      test_descriptions%contains_text(string_t(test_description_substring)))
+    test_results = test_descriptions%run()
   end function
 
   pure function check_allocation() result(passed)
@@ -167,6 +248,26 @@ contains
       key_integer_array_pair = string_t('"some key" : [1, 2, 3],')
       integer_array = key_integer_array_pair%get_json_value(key=string_t("some key"), mold=[integer::])
       passed = all(integer_array == [1, 2, 3])
+    end block
+#endif
+  end function
+
+  function extracts_real_array_value() result(passed)
+    logical passed
+
+#ifndef _CRAYFTN
+    associate(key_real_array_pair => string_t('"a key" : [1., 2., 4.],'))
+      associate(real_array => key_real_array_pair%get_json_value(key=string_t("a key"), mold=[real::]))
+        passed = all(real_array == [1., 2., 4.])
+      end associate
+    end associate
+#else
+    block
+      type(string_t) key_real_array_pair
+      real, allocatable :: real_array(:)
+      key_real_array_pair = string_t('"a key" : [1., 2., 4.],')
+      real_array = key_real_array_pair%get_json_value(key=string_t("a key"), mold=[real::])
+      passed = all(real_array == [1., 2., 4.])
     end block
 #endif
   end function

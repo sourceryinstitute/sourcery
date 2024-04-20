@@ -1,6 +1,9 @@
 module object_m_test_m
   !! Verify object pattern asbtract parent
-  use sourcery_m, only : test_t, test_result_t, object_t
+  use sourcery_m, only : test_t, test_result_t, object_t, test_description_t, string_t, test_description_substring
+#ifdef __GFORTRAN__
+  use sourcery_m, only : test_function_i
+#endif
   implicit none
 
   private
@@ -21,16 +24,33 @@ contains
 
   pure function subject() result(specimen)
     character(len=:), allocatable :: specimen
-    specimen = "The object_m type" 
+    specimen = "The object_t type" 
   end function
 
   function results() result(test_results)
     type(test_result_t), allocatable :: test_results(:)
+    type(test_description_t), allocatable :: test_descriptions(:)
 
-    test_results = [ &
-      test_result_t("object being .not. user_defined() if it is only default-initialized", check_default_initialization()), &
-      test_result_t("object being user_defined() after call to mark_as_defined", check_mark_as_defined()) &
-    ]
+#ifndef __GFORTRAN__
+    test_descriptions = [ & 
+      test_description_t(string_t("object being .not. user_defined() if it is only default-initialized"), check_default_initialization), &
+      test_description_t(string_t("object being user_defined() after call to mark_as_defined"), check_mark_as_defined) &
+    ]   
+#else
+    ! Work around missing Fortran 2008 feature: associating a procedure actual argument with a procedure pointer dummy argument:
+    procedure(test_function_i), pointer :: check_default_ptr, check_mark_ptr 
+    check_default_ptr => check_default_initialization
+    check_mark_ptr => check_mark_as_defined
+    test_descriptions = [ & 
+      test_description_t(string_t("object being .not. user_defined() if it is only default-initialized"), check_default_ptr), &
+      test_description_t(string_t("object being user_defined() after call to mark_as_defined"), check_mark_ptr) &
+    ]   
+#endif
+    test_descriptions = pack(test_descriptions, &
+      index(subject(), test_description_substring) /= 0 .or. &
+      test_descriptions%contains_text(string_t(test_description_substring)))
+    test_results = test_descriptions%run()
+
   end function
 
   pure function check_default_initialization() result(passed)
