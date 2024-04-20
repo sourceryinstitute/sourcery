@@ -92,22 +92,28 @@ angular brackets (<>) denote a user-provided value, and passing a substring limi
 the tests with test subjects or test descriptions containing the user-specified substring.
 ```
 
-### Single-image (serial) testing with GNU Fortran (`gfortran`) 
+### GNU Fortran (`gfortran`)  compiler
+#### Single-image (serial) testing
 With recent versions of [GNU Fortran] (gfortran) and [OpenCoarrays] installed, 
 execute the following command in a `zsh` or `bash`-like shell:
 ```zsh
 fpm test
 ```
 
-### Multi-image (parallel) testing with `gfortran` and OpenCoarrays
-With recent versions of [GNU Fortran] (gfortran) and [OpenCoarrays] installed, 
+#### Multi-image (parallel) testing
+With recent versions of `gfortran` and [OpenCoarrays] installed, 
 execute the following command in a `zsh` or `bash`-like shell:
 ```zsh
 fpm test --compiler caf --runner "cafrun -n 4"
 ```
 Substitute the desired number of images for the `4` above.
 
-### Testing with the Numerical Algorithms Group (`nagfor`) compiler
+### Intel (`ifx`) compiler
+```zsh
+fpm test --compiler ifx --flag "-coarray"
+```
+
+### Numerical Algorithms Group (`nagfor`) compiler
 ```zsh
 fpm test --compiler nagfor --flag -fpp
 ```
@@ -116,7 +122,7 @@ fpm test --compiler nagfor --flag -fpp
 Because `fpm` uses the compiler name to determine the compiler identity and because
 CCE provides one compiler wrapper, `ftn`, for invoking all compilers, you will
 need to invoke `ftn` in a shell script named to identify CCE compiler. For example,
-place a script named `crayftn.sh` in your path with the following contents and with
+place a script named `crayftn.sh` in your PATH with the following contents and with
 executable privileges set appropriately:
 ```
 #!/bin/bash
