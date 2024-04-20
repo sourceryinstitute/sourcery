@@ -1,9 +1,12 @@
 submodule(sourcery_test_description_m) sourcery_test_description_s
   implicit none
-
 contains
+    module procedure construct_from_character
+      test_description%description_ = description
+      test_description%test_function_ => test_function
+    end procedure
 
-    module procedure construct
+    module procedure construct_from_string_t
       test_description%description_ = description
       test_description%test_function_ => test_function
     end procedure
@@ -16,4 +19,7 @@ contains
       match = index(self%description_%string(), substring%string()) /= 0
     end procedure
 
+    module procedure equals
+      lhs_eq_rhs = (lhs%description_ == rhs%description_) .and. associated(lhs%test_function_, rhs%test_function_)
+    end procedure
 end submodule sourcery_test_description_s

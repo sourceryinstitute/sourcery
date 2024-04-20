@@ -88,7 +88,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="<p> 8.1% of total for derived types.</p>Including implementation: 8 statements,  6.0% of total for derived types.">8 statements</a>
+    title="<p>11.7% of total for derived types.</p>Including implementation: 10 statements,  7.4% of total for derived types.">10 statements</a>
      </li> 
     <li><i class="fa fa-code"></i><a href="../src/sourcery_test_description_m.F90"> Source File</a></li>
   </ul>
@@ -129,6 +129,15 @@
   <div id="cons-0" class="panel-collapse collapse">
     <div class="list-group">
       <a class="list-group-item" href="../type/test_description_t.html#interface-test_description_t">test_description_t</a>
+    </div>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#boundprocs-0">Type-Bound Procedures</a></h3></div>
+  <div id="boundprocs-0" class="panel-collapse collapse">
+    <div class="list-group">
+      <a class="list-group-item" href="../type/test_description_t.html#boundprocedure-operator%28%3D%3D%29~2">operator(==)</a>
+      <a class="list-group-item" href="../type/test_description_t.html#boundprocedure-equals">equals</a>
     </div>
   </div>
 </div>
@@ -253,6 +262,15 @@
     </div>
   </div>
 </div>
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#boundprocs-1">Type-Bound Procedures</a></h3></div>
+  <div id="boundprocs-1" class="panel-collapse collapse">
+    <div class="list-group">
+      <a class="list-group-item" href="../type/test_description_t.html#boundprocedure-operator%28%3D%3D%29~2">operator(==)</a>
+      <a class="list-group-item" href="../type/test_description_t.html#boundprocedure-equals">equals</a>
+    </div>
+  </div>
+</div>
 
     </section>
     <br class="visible-xs visible-sm hidden-md">
@@ -294,7 +312,31 @@
   <div class="panel-heading codesum"><span class="anchor" id="interface-test_description_t"></span><h3>public interface <a href='../interface/test_description_t.html'>test_description_t</a>  </h3></div>
   <ul class="list-group">
     <li class="list-group-item">
-    <h3>private module function construct(description, test_function) result(test_description)</h3><p>The result is a test_description_t object with the components defined by the dummy arguments</p>
+    <h3>private module function construct_from_character(description, test_function) result(test_description)</h3><p>The result is a test_description_t object with the components defined by the dummy arguments</p>
+    
+<h4>Arguments</h4>      <table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
+<tbody>
+<tr>
+  <td><span class="anchor" ></span>character(len=*),</td>
+<td>intent(in)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>description</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" ></span>procedure(<a href='../interface/test_function_i.html'>test_function_i</a>),</td>
+<td>intent(in),</td>
+  <td></td>  <td>pointer</td><td>::</td>
+  <td><strong>test_function</strong></td><td></td>
+</tr>
+</tbody>
+</table>
+
+<h4>Return Value <small>type(<a href='../type/test_description_t.html'>test_description_t</a>)</small></h4>  
+
+    </li>
+    <li class="list-group-item">
+    <h3>private module function construct_from_string_t(description, test_function) result(test_description)</h3><p>The result is a test_description_t object with the components defined by the dummy arguments</p>
     
 <h4>Arguments</h4>      <table class="table table-striped varlist">
 <thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
@@ -324,6 +366,55 @@
    <br>
     
     
+ 
+    <section>
+    <h2>Type-Bound Procedures</h2>
+     <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-operator%28%3D%3D%29~2"></span><h3>generic, public :: <strong>operator(==)</strong>  => <a href='../type/test_description_t.html#boundprocedure-equals'>equals</a>   </h3></div>
+  <ul class="list-group">
+      <li class="list-group-item">
+            <h3>private interface <a href='../interface/equals.html'>equals</a>()</h3>    
+<h4>Arguments</h4>      <em>None</em>
+
+      </li>
+  </ul>
+</div>
+
+     <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-equals"></span><h3>procedure, private :: <strong>equals</strong>    </h3></div>
+  <ul class="list-group">
+      <li class="list-group-item">
+          <h3>interface
+          </h3>
+  
+          <h3>private elemental module module function equals(lhs, rhs) result(lhs_eq_rhs)   <a href='../proc/equals.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+</h3><p>The result is .true. if the components of the lhs &amp; rhs are equal</p>
+    
+<h4>Arguments</h4>      <table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
+<tbody>
+<tr>
+  <td><span class="anchor" ></span>class(<a href='../type/test_description_t.html'>test_description_t</a>),</td>
+<td>intent(in)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>lhs</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" ></span>class(<a href='../type/test_description_t.html'>test_description_t</a>),</td>
+<td>intent(in)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>rhs</strong></td><td></td>
+</tr>
+</tbody>
+</table>
+
+<h4>Return Value <small>logical</small></h4>  
+
+      </li>
+  </ul>
+</div>
+
+    </section>
     
     
     </div>
@@ -341,7 +432,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-04-19 13:47            </p>
+ on 2024-04-20 00:53            </p>
         </div>
       </div>
       <br>
