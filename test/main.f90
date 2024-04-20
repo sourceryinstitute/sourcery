@@ -8,6 +8,7 @@ program main
   use sourcery_m, only : command_line_t
   use test_result_test_m, only : test_result_test_t  
   use test_description_test_m, only : test_description_test_t  
+  use vector_test_description_test_m, only : vector_test_description_test_t  
   use user_defined_collectives_test_m, only : collectives_test_t  
   implicit none
 
@@ -20,6 +21,7 @@ program main
   type(string_test_t) string_test
   type(test_result_test_t) test_result_test
   type(test_description_test_t) test_description_test
+  type(vector_test_description_test_t) vector_test_description_test
 
   integer :: passes=0, tests=0
 
@@ -43,6 +45,7 @@ program main
   call string_test%report(passes, tests)
   call test_result_test%report(passes, tests)
   call test_description_test%report(passes, tests)
+  call vector_test_description_test%report(passes,tests)
   if (.not. GitHub_CI())  call command_line_test%report(passes, tests)
 
   if (this_image()==1) print *, new_line('a'), "_________ In total, ",passes," of ",tests, " tests pass. _________"

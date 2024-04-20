@@ -23,4 +23,8 @@ contains
       call co_all(test_passed)
     end procedure
 
+    module procedure description_contains
+      substring_found = index(self%description_%string(), substring%string()) /= 0
+    end procedure
+
 end submodule sourcery_test_result_s

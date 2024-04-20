@@ -6,9 +6,7 @@ module sourcery_test_description_m
 
   private
   public :: test_description_t
-#ifdef __GFORTRAN__
   public :: test_function_i
-#endif
 
   abstract interface
     function test_function_i() result(passes)

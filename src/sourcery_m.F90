@@ -7,11 +7,9 @@ module sourcery_m
   use sourcery_file_m, only : file_t
   use sourcery_string_m, only : string_t, operator(.cat.)
   use sourcery_test_m, only : test_t, test_description_substring
-  use sourcery_test_description_m, only : test_description_t
-#ifdef __GFORTRAN__
-  use sourcery_test_description_m, only : test_function_i
-#endif
+  use sourcery_test_description_m, only : test_description_t, test_function_i
   use sourcery_test_result_m, only : test_result_t
+  use sourcery_vector_test_description_m, only : vector_test_description_t, vector_function_strategy_t
   use sourcery_user_defined_collectives_m, only : co_all
 
   !! legacy modules (likely to be removed in a future release):
