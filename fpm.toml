@@ -1,5 +1,5 @@
 name = "sourcery"
-version = "4.7.0"
+version = "4.7.1"
 license = "BSD"
 author = ["Damian Rouson"]
 maintainer = "damian@sourceryinstitute.org"
