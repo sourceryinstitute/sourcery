@@ -5,7 +5,7 @@ on: [push, pull_request]
 
 jobs:
   Build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
@@ -15,11 +15,12 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt install -y python3-dev python3 build-essential graphviz
-        sudo pip install ford markdown==3.3.4
+        sudo pip install ford
 
     - name: Build Developer Documenation
       run: |
         cd doc
+        ford --version
         ford ford.md
 
     - name: Upload Documentation
