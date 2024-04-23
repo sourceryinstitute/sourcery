@@ -11,6 +11,7 @@ contains
 
       if (me==1) then
 
+
         first_report: &
         if (.not. allocated(test_description_substring)) then
           block 
@@ -18,10 +19,10 @@ contains
             test_description_substring = command_line%flag_value("--contains")
           end block
           if (len(test_description_substring)==0) then
-            print *,"Running all tests."
-            print *,"(Add '-- --contains <string> to run only tests with descriptions containing the specified string.)"
+            print*,"Running all tests."
+            print*,"(Add '-- --contains <string>' to run only tests with subjects or descriptions containing the specified string.)"
           else
-            print *,"Running only tests with descriptions containing '", test_description_substring,"'."
+            print *,"Running only tests with subjects or descriptions containing '", test_description_substring,"'."
           end if
         end if first_report
 

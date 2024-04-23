@@ -8,12 +8,13 @@ module sourcery_test_result_m
 
   type test_result_t
     !! Encapsulate test descriptions and outcomes
-    private
+    !private
     type(string_t) description_
     logical passed_ 
   contains
     procedure :: characterize
     procedure :: passed
+    procedure :: description_contains
   end type
 
   interface test_result_t
@@ -26,7 +27,7 @@ module sourcery_test_result_m
       type(test_result_t) test_result 
     end function
 
-    module function construct_from_string(description, passed) result(test_result)
+    elemental module function construct_from_string(description, passed) result(test_result)
       !! The result is a test_result_t object with the components defined by the dummy arguments
       implicit none
       type(string_t), intent(in) :: description
@@ -50,6 +51,14 @@ module sourcery_test_result_m
       implicit none
       class(test_result_t), intent(in) :: self
       logical test_passed
+    end function
+
+    elemental module function description_contains(self, substring) result(substring_found)
+      !! The result is true if and only if the test description contains the substring
+      implicit none
+      class(test_result_t), intent(in) :: self
+      type(string_t), intent(in) :: substring
+      logical substring_found
     end function
 
   end interface
