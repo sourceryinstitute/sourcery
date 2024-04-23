@@ -20,6 +20,7 @@ jobs:
     - name: Build Developer Documenation
       run: |
         cd doc
+        ford --version
         ford ford.md
 
     - name: Upload Documentation
