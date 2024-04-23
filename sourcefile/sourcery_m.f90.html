@@ -1,416 +1,475 @@
+<!-- -*- mode: jinja2 -*- -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="description" content="A Fortran 2018 utility library.">
+      <meta name="description" content="A Fortran 2018 utility library.">
     <meta name="author" content="Damian Rouson" >
     <link rel="icon" href="../favicon.png">
 
     <title>sourcery_m.F90 &ndash; </title>
 
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
-    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="../js/svg-pan-zoom.min.js"></script>
-
   </head>
 
   <body>
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
           <a class="navbar-brand" href="../index.html"> </a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
-              <a href="#" class="dropdown-toggle"
-              data-toggle="dropdown" role="button"
-              aria-haspopup="true"
-     aria-expanded="false">Contents <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="../lists/files.html">Source Files</a></li>
-            <li><a href="../lists/modules.html">Modules</a></li>
-            <li><a href="../lists/procedures.html">Procedures</a></li>
-            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
-                   <li><a href="../lists/types.html">Derived Types</a></li>
-       
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
             </ul>
-        
-            </li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
-                             <li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
-          </ul>
-        <form action="../search.html" class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
         </div>
-<!--
-        <button type="submit" class="btn btn-default">Submit</button>
--->
-        </form>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+      </nav>
+    </div>
 
     <div class="container">
   <div class="row">
     <h1>sourcery_m.F90
-    <small>Source File</small>
+      <small>Source File</small>
+      
     </h1>
-    <div class="row">
-  <div class="col-lg-12">
-<div class="well well-sm">
-  <ul class="list-inline" style="margin-bottom:0px;display:inline">
-     <li><i class="fa fa-list-ol"></i>
-       <a data-toggle="tooltip"
-    data-placement="bottom" data-html="true"
-    title=" 1.1% of total for source files.">18 statements</a>
-     </li> 
-    <li><i class="fa fa-code"></i><a href="../src/sourcery_m.F90"> Source File</a></li>
-  </ul>
-  <ol class="breadcrumb in-well text-right">
-     <li class="active">sourcery_m.F90</li>
-  </ol>
-</div>
-</div>
-</div>
-<script>
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 1.1% of total for source files.">18 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/sourcery_m.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+            <li class="breadcrumb-item active" aria-current="page">sourcery_m.F90</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
 
   </div>
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-    <div id="sidebar">
-  <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#mods-0">Modules</a></h3></div>
-  <div id="mods-0" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../module/sourcery_m.html">sourcery_m</a>
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#mods-0"
+         aria-expanded="false" aria-controls="mods-0">
+         <h4 class="card-header bg-primary text-white">Modules</h4>
+      </a>
+      <div id="mods-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/sourcery_m.html">sourcery_m</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../sourcefile/sourcery_m.f90.html#src">sourcery_m.F90</a>
-  </div>
-</div>
 
-</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../sourcefile/sourcery_m.f90.html#src">sourcery_m.F90</a>
+      </div>
+    </div>
+
+
+  </div>
 
     </div>
     <div class="col-md-9" id='text'>
       
       <br>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-  <h3 class="panel-title">This file depends on</h3>
-      </div>
-      <div class="panel-body">
-  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">This file depends on</h3>
+          </div>
+          <div class="card-body">
+            <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: sourcefile~~sourcery_m.f90~~EfferentGraph Pages: 1 -->
-<svg id="sourcefilesourcery_mf90EfferentGraph" width="641pt" height="458pt"
- viewBox="0.00 0.00 641.00 458.49" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph" class="graph" transform="scale(1.13 1.13) rotate(0) translate(4 516)">
+<svg id="sourcefilesourcery_mf90EfferentGraph" width="641pt" height="535pt"
+ viewBox="0.00 0.00 641.00 535.47" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph" class="graph" transform="scale(1.13 1.13) rotate(0) translate(4 603.32)">
 <title>sourcefile~~sourcery_m.f90~~EfferentGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-516 723,-516 723,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-603.32 723,-603.32 723,4 -4,4"/>
 <!-- sourcefile~sourcery_m.f90 -->
 <g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node1" class="node">
 <title>sourcefile~sourcery_m.f90</title>
-<polygon fill="none" stroke="black" points="719,-268 622,-268 622,-244 719,-244 719,-268"/>
-<text text-anchor="middle" x="670.5" y="-253.6" font-family="Helvetica,sans-Serif" font-size="10.50">sourcery_m.F90</text>
-</g>
-<!-- sourcefile~sourcery_formats_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node2" class="node">
-<title>sourcefile~sourcery_formats_m.f90</title>
-<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node2"><a xlink:href=".././sourcefile/sourcery_formats_m.f90.html" xlink:title="sourcery_formats_m.F90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="542.5,-512 399.5,-512 399.5,-488 542.5,-488 542.5,-512"/>
-<text text-anchor="middle" x="471" y="-497.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_formats_m.F90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_formats_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge1" class="edge">
-<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_formats_m.f90</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M668.92,-268.24C666.42,-306.17 653.34,-422.59 586,-479 576.38,-487.06 564.69,-492.43 552.5,-495.96"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="551.52,-492.6 542.65,-498.41 553.2,-499.39 551.52,-492.6"/>
-</g>
-<!-- sourcefile~sourcery_user_defined_collectives_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node3" class="node">
-<title>sourcefile~sourcery_user_defined_collectives_m.f90</title>
-<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node3"><a xlink:href=".././sourcefile/sourcery_user_defined_collectives_m.f90.html" xlink:title="sourcery_user_defined_collectives_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="586,-470 356,-470 356,-446 586,-446 586,-470"/>
-<text text-anchor="middle" x="471" y="-455.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_user_defined_collectives_m.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_user_defined_collectives_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge4" class="edge">
-<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_user_defined_collectives_m.f90</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M667.5,-268.06C661.5,-300.16 640.61,-388.2 586,-432 581.38,-435.7 576.34,-438.9 571.03,-441.66"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="569.47,-438.52 561.86,-445.89 572.41,-444.87 569.47,-438.52"/>
-</g>
-<!-- sourcefile~sourcery_string_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node4" class="node">
-<title>sourcefile~sourcery_string_m.f90</title>
-<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node4"><a xlink:href=".././sourcefile/sourcery_string_m.f90.html" xlink:title="sourcery_string_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="130,-186 0,-186 0,-162 130,-162 130,-186"/>
-<text text-anchor="middle" x="65" y="-171.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_string_m.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge2" class="edge">
-<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M657.43,-243.83C642.2,-229.25 614.53,-205.26 586,-193 538.81,-172.73 522.78,-181.74 472,-174"/>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M470,-174C370.7,-158.87 344.35,-169.61 244,-174"/>
-</g>
-<!-- sourcefile~sourcery_test_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node5" class="node">
-<title>sourcefile~sourcery_test_m.f90</title>
-<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node5"><a xlink:href=".././sourcefile/sourcery_test_m.f90.html" xlink:title="sourcery_test_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="530.5,-104 411.5,-104 411.5,-80 530.5,-80 530.5,-104"/>
-<text text-anchor="middle" x="471" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_m.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_test_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge3" class="edge">
-<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_test_m.f90</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M666.14,-243.63C657.8,-215.42 633.29,-146.21 586,-113 572.7,-103.66 556.45,-98.13 540.44,-94.92"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="540.97,-91.46 530.52,-93.21 539.78,-98.36 540.97,-91.46"/>
-</g>
-<!-- sourcefile~sourcery_object_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node6" class="node">
-<title>sourcefile~sourcery_object_m.f90</title>
-<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node6"><a xlink:href=".././sourcefile/sourcery_object_m.f90.html" xlink:title="sourcery_object_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="309.5,-369 176.5,-369 176.5,-345 309.5,-345 309.5,-369"/>
-<text text-anchor="middle" x="243" y="-354.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_object_m.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_object_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge5" class="edge">
-<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_object_m.f90</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M657.8,-268.17C642.74,-282.99 615.02,-307.46 586,-319 539.19,-337.62 405.64,-348.2 319.94,-353.25"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="319.52,-349.77 309.73,-353.84 319.92,-356.76 319.52,-349.77"/>
-</g>
-<!-- sourcefile~sourcery_co_object_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node7" class="node">
-<title>sourcefile~sourcery_co_object_m.f90</title>
-<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node7"><a xlink:href=".././sourcefile/sourcery_co_object_m.f90.html" xlink:title="sourcery_co_object_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="546.5,-310 395.5,-310 395.5,-286 546.5,-286 546.5,-310"/>
-<text text-anchor="middle" x="471" y="-295.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_co_object_m.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_co_object_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge6" class="edge">
-<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_co_object_m.f90</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M623.69,-268.08C611.48,-271.15 598.27,-274.33 586,-277 574.82,-279.43 562.99,-281.82 551.34,-284.06"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="550.34,-280.69 541.17,-285.99 551.65,-287.57 550.34,-280.69"/>
-</g>
-<!-- sourcefile~sourcery_command_line_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node8" class="node">
-<title>sourcefile~sourcery_command_line_m.f90</title>
-<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node8"><a xlink:href=".././sourcefile/sourcery_command_line_m.f90.html" xlink:title="sourcery_command_line_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="560,-268 382,-268 382,-244 560,-244 560,-268"/>
-<text text-anchor="middle" x="471" y="-253.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_command_line_m.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_command_line_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge7" class="edge">
-<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_command_line_m.f90</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M621.94,-256C606.24,-256 588.16,-256 570.11,-256"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="570.09,-252.5 560.09,-256 570.09,-259.5 570.09,-252.5"/>
-</g>
-<!-- sourcefile~sourcery_data_partition_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node9" class="node">
-<title>sourcefile~sourcery_data_partition_m.f90</title>
-<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node9"><a xlink:href=".././sourcefile/sourcery_data_partition_m.f90.html" xlink:title="sourcery_data_partition_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="558,-226 384,-226 384,-202 558,-202 558,-226"/>
-<text text-anchor="middle" x="471" y="-211.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_data_partition_m.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_data_partition_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge8" class="edge">
-<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_data_partition_m.f90</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M623.69,-243.92C611.48,-240.85 598.27,-237.67 586,-235 574.82,-232.57 562.99,-230.18 551.34,-227.94"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="551.65,-224.43 541.17,-226.01 550.34,-231.31 551.65,-224.43"/>
-</g>
-<!-- sourcefile~sourcery_file_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node10" class="node">
-<title>sourcefile~sourcery_file_m.f90</title>
-<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node10"><a xlink:href=".././sourcefile/sourcery_file_m.f90.html" xlink:title="sourcery_file_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="301,-420 185,-420 185,-396 301,-396 301,-420"/>
-<text text-anchor="middle" x="243" y="-405.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_file_m.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_file_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge9" class="edge">
-<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_file_m.f90</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M666.7,-268.03C659.3,-296.78 636.23,-369.28 586,-399 497.45,-451.4 372.14,-437 300.36,-422.22"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="300.69,-418.71 290.17,-420.04 299.22,-425.55 300.69,-418.71"/>
+<polygon fill="none" stroke="black" points="719,-310 622,-310 622,-286 719,-286 719,-310"/>
+<text text-anchor="middle" x="670.5" y="-295.6" font-family="Helvetica,sans-Serif" font-size="10.50">sourcery_m.F90</text>
 </g>
 <!-- sourcefile~sourcery_bin_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node11" class="node">
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node2" class="node">
 <title>sourcefile~sourcery_bin_m.f90</title>
-<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node11"><a xlink:href=".././sourcefile/sourcery_bin_m.f90.html" xlink:title="sourcery_bin_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="301,-226 185,-226 185,-202 301,-202 301,-226"/>
-<text text-anchor="middle" x="243" y="-211.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_bin_m.f90</text>
+<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node2"><a xlink:href="../sourcefile/sourcery_bin_m.f90.html" xlink:title="sourcery_bin_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="301,-485 185,-485 185,-461 301,-461 301,-485"/>
+<text text-anchor="middle" x="243" y="-470.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_bin_m.f90</text>
 </a>
 </g>
 </g>
 <!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_bin_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge10" class="edge">
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge1" class="edge">
 <title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_bin_m.f90</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M470,-174C405.18,-164.12 330.31,-183.47 285.1,-198.55"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="283.69,-195.34 275.36,-201.89 285.96,-201.96 283.69,-195.34"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M670.15,-310.27C671.71,-353.73 670.41,-501.1 586,-563 503.57,-623.45 452.42,-596.94 356,-563 316.57,-549.12 280.76,-514.84 260.74,-492.82"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="263.11,-490.22 253.86,-485.05 257.87,-494.86 263.11,-490.22"/>
+</g>
+<!-- sourcefile~sourcery_co_object_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node3" class="node">
+<title>sourcefile~sourcery_co_object_m.f90</title>
+<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node3"><a xlink:href="../sourcefile/sourcery_co_object_m.f90.html" xlink:title="sourcery_co_object_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="546.5,-554 395.5,-554 395.5,-530 546.5,-530 546.5,-554"/>
+<text text-anchor="middle" x="471" y="-539.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_co_object_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_co_object_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge2" class="edge">
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_co_object_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M668.92,-310.24C666.42,-348.17 653.34,-464.59 586,-521 577.35,-528.25 567.02,-533.33 556.16,-536.84"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="555.2,-533.48 546.51,-539.54 557.08,-540.22 555.2,-533.48"/>
+</g>
+<!-- sourcefile~sourcery_command_line_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node4" class="node">
+<title>sourcefile~sourcery_command_line_m.f90</title>
+<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node4"><a xlink:href="../sourcefile/sourcery_command_line_m.f90.html" xlink:title="sourcery_command_line_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="560,-512 382,-512 382,-488 560,-488 560,-512"/>
+<text text-anchor="middle" x="471" y="-497.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_command_line_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_command_line_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge3" class="edge">
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_command_line_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M667.79,-310.05C662.44,-342.95 642.85,-434.85 586,-479 580.94,-482.93 575.38,-486.21 569.51,-488.93"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="568.02,-485.76 560.08,-492.78 570.66,-492.24 568.02,-485.76"/>
+</g>
+<!-- sourcefile~sourcery_data_partition_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node5" class="node">
+<title>sourcefile~sourcery_data_partition_m.f90</title>
+<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node5"><a xlink:href="../sourcefile/sourcery_data_partition_m.f90.html" xlink:title="sourcery_data_partition_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="558,-470 384,-470 384,-446 558,-446 558,-470"/>
+<text text-anchor="middle" x="471" y="-455.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_data_partition_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_data_partition_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge4" class="edge">
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_data_partition_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M665.53,-310.26C656.24,-336.94 630.43,-400.36 586,-432 580.33,-436.04 574.14,-439.46 567.67,-442.35"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="565.98,-439.26 558.01,-446.24 568.59,-445.76 565.98,-439.26"/>
+</g>
+<!-- sourcefile~sourcery_file_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node6" class="node">
+<title>sourcefile~sourcery_file_m.f90</title>
+<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node6"><a xlink:href="../sourcefile/sourcery_file_m.f90.html" xlink:title="sourcery_file_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="301,-415 185,-415 185,-391 301,-391 301,-415"/>
+<text text-anchor="middle" x="243" y="-400.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_file_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_file_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge5" class="edge">
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_file_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M663.84,-310.25C652.67,-332.77 625.41,-380.16 586,-399 495.62,-442.2 375.84,-430.2 304.65,-416.99"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="304.99,-413.49 294.51,-415.04 303.67,-420.37 304.99,-413.49"/>
+</g>
+<!-- sourcefile~sourcery_formats_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node7" class="node">
+<title>sourcefile~sourcery_formats_m.f90</title>
+<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node7"><a xlink:href="../sourcefile/sourcery_formats_m.f90.html" xlink:title="sourcery_formats_m.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="542.5,-390 399.5,-390 399.5,-366 542.5,-366 542.5,-390"/>
+<text text-anchor="middle" x="471" y="-375.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_formats_m.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_formats_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge6" class="edge">
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_formats_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M654.42,-310.1C638.36,-322.39 611.77,-341.13 586,-352 575.44,-356.45 563.99,-360.21 552.56,-363.35"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="551.34,-360.06 542.55,-365.97 553.11,-366.83 551.34,-360.06"/>
+</g>
+<!-- sourcefile~sourcery_object_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node8" class="node">
+<title>sourcefile~sourcery_object_m.f90</title>
+<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node8"><a xlink:href="../sourcefile/sourcery_object_m.f90.html" xlink:title="sourcery_object_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="309.5,-330 176.5,-330 176.5,-306 309.5,-306 309.5,-330"/>
+<text text-anchor="middle" x="243" y="-315.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_object_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_object_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge7" class="edge">
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_object_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M629.95,-310.07C616.18,-313.7 600.54,-317.2 586,-319 494.88,-330.28 389.04,-327.57 319.53,-323.65"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="319.73,-320.16 309.54,-323.07 319.32,-327.15 319.73,-320.16"/>
+</g>
+<!-- sourcefile~sourcery_oracle_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node9" class="node">
+<title>sourcefile~sourcery_oracle_m.f90</title>
+<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node9"><a xlink:href="../sourcefile/sourcery_oracle_m.f90.html" xlink:title="sourcery_oracle_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="537.5,-310 404.5,-310 404.5,-286 537.5,-286 537.5,-310"/>
+<text text-anchor="middle" x="471" y="-295.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_oracle_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_oracle_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge8" class="edge">
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_oracle_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M621.94,-298C599.77,-298 572.84,-298 547.96,-298"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="547.8,-294.5 537.8,-298 547.8,-301.5 547.8,-294.5"/>
+</g>
+<!-- sourcefile~sourcery_string_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node10" class="node">
+<title>sourcefile~sourcery_string_m.f90</title>
+<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node10"><a xlink:href="../sourcefile/sourcery_string_m.f90.html" xlink:title="sourcery_string_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="130,-229 0,-229 0,-205 130,-205 130,-229"/>
+<text text-anchor="middle" x="65" y="-214.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_string_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge9" class="edge">
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M628.19,-285.95C614.84,-282.51 599.89,-279.11 586,-277 435.5,-254.11 395.87,-268.56 244,-258"/>
 </g>
 <!-- sourcefile~sourcery_test_description_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node12" class="node">
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node11" class="node">
 <title>sourcefile~sourcery_test_description_m.f90</title>
-<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node12"><a xlink:href=".././sourcefile/sourcery_test_description_m.f90.html" xlink:title="sourcery_test_description_m.F90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="564,-146 378,-146 378,-122 564,-122 564,-146"/>
-<text text-anchor="middle" x="471" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_description_m.F90</text>
+<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node11"><a xlink:href="../sourcefile/sourcery_test_description_m.f90.html" xlink:title="sourcery_test_description_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="563,-230 379,-230 379,-206 563,-206 563,-230"/>
+<text text-anchor="middle" x="471" y="-215.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_description_m.f90</text>
 </a>
 </g>
 </g>
 <!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_test_description_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge11" class="edge">
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge10" class="edge">
 <title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_test_description_m.f90</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M662.5,-243.79C649.96,-223.11 621.63,-181.34 586,-160 579,-155.81 571.4,-152.3 563.54,-149.35"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="564.46,-145.96 553.86,-146.02 562.19,-152.58 564.46,-145.96"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M654.42,-285.9C638.36,-273.61 611.77,-254.87 586,-244 575.44,-239.55 563.99,-235.79 552.56,-232.65"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="553.11,-229.17 542.55,-230.03 551.34,-235.94 553.11,-229.17"/>
+</g>
+<!-- sourcefile~sourcery_test_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node12" class="node">
+<title>sourcefile~sourcery_test_m.f90</title>
+<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node12"><a xlink:href="../sourcefile/sourcery_test_m.f90.html" xlink:title="sourcery_test_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="530.5,-188 411.5,-188 411.5,-164 530.5,-164 530.5,-188"/>
+<text text-anchor="middle" x="471" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_test_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge11" class="edge">
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_test_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M663.14,-285.69C651.21,-263.92 623.27,-218.89 586,-197 572.41,-189.02 556.46,-183.95 540.87,-180.77"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="541.16,-177.26 530.7,-178.94 539.92,-184.15 541.16,-177.26"/>
 </g>
 <!-- sourcefile~sourcery_test_result_m.f90 -->
 <g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node13" class="node">
 <title>sourcefile~sourcery_test_result_m.f90</title>
-<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node13"><a xlink:href=".././sourcefile/sourcery_test_result_m.f90.html" xlink:title="sourcery_test_result_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="320,-125 166,-125 166,-101 320,-101 320,-125"/>
-<text text-anchor="middle" x="243" y="-110.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_result_m.f90</text>
+<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node13"><a xlink:href="../sourcefile/sourcery_test_result_m.f90.html" xlink:title="sourcery_test_result_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="320,-188 166,-188 166,-164 320,-164 320,-188"/>
+<text text-anchor="middle" x="243" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_result_m.f90</text>
 </a>
 </g>
 </g>
 <!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90 -->
 <g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge12" class="edge">
 <title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M668.35,-243.62C664.37,-208.98 647.87,-110.95 586,-71 487.77,-7.57 340.16,-65.49 275.85,-96.42"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="274.05,-93.41 266.62,-100.96 277.14,-99.69 274.05,-93.41"/>
-</g>
-<!-- sourcefile~sourcery_oracle_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node14" class="node">
-<title>sourcefile~sourcery_oracle_m.f90</title>
-<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node14"><a xlink:href=".././sourcefile/sourcery_oracle_m.f90.html" xlink:title="sourcery_oracle_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="537.5,-390 404.5,-390 404.5,-366 537.5,-366 537.5,-390"/>
-<text text-anchor="middle" x="471" y="-375.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_oracle_m.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_oracle_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge13" class="edge">
-<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_oracle_m.f90</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M662.5,-268.21C649.96,-288.89 621.63,-330.66 586,-352 574.3,-359.01 560.89,-364.13 547.47,-367.87"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="546.54,-364.49 537.72,-370.36 548.27,-371.28 546.54,-364.49"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M666.75,-285.89C659.46,-256.95 636.61,-184.06 586,-155 489.33,-99.5 350.95,-136.5 283.71,-160.32"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="282.13,-157.17 273.93,-163.87 284.52,-163.75 282.13,-157.17"/>
 </g>
 <!-- sourcefile~sourcery_units_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node15" class="node">
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node14" class="node">
 <title>sourcefile~sourcery_units_m.f90</title>
-<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node15"><a xlink:href=".././sourcefile/sourcery_units_m.f90.html" xlink:title="sourcery_units_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="533.5,-24 408.5,-24 408.5,0 533.5,0 533.5,-24"/>
-<text text-anchor="middle" x="471" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_units_m.f90</text>
+<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node14"><a xlink:href="../sourcefile/sourcery_units_m.f90.html" xlink:title="sourcery_units_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="533.5,-108 408.5,-108 408.5,-84 533.5,-84 533.5,-108"/>
+<text text-anchor="middle" x="471" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_units_m.f90</text>
 </a>
 </g>
 </g>
 <!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_units_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge14" class="edge">
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge13" class="edge">
 <title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_units_m.f90</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M668.7,-243.88C665.57,-206.86 650.9,-94.31 586,-38 574.11,-27.69 558.97,-21.24 543.64,-17.25"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="544.09,-13.77 533.57,-14.98 542.55,-20.6 544.09,-13.77"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M667.5,-285.94C661.5,-253.84 640.61,-165.8 586,-122 573.85,-112.26 558.75,-106.02 543.56,-102.06"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="544.12,-98.6 533.59,-99.77 542.55,-105.42 544.12,-98.6"/>
 </g>
-<!-- sourcefile~sourcery_test_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90 -->
+<!-- sourcefile~sourcery_user_defined_collectives_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node15" class="node">
+<title>sourcefile~sourcery_user_defined_collectives_m.f90</title>
+<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node15"><a xlink:href="../sourcefile/sourcery_user_defined_collectives_m.f90.html" xlink:title="sourcery_user_defined_collectives_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="586,-66 356,-66 356,-42 586,-42 586,-66"/>
+<text text-anchor="middle" x="471" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_user_defined_collectives_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_user_defined_collectives_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge14" class="edge">
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_user_defined_collectives_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M668.92,-285.76C666.42,-247.83 653.34,-131.41 586,-75 584.59,-73.82 583.15,-72.7 581.66,-71.64"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="583.08,-68.4 572.73,-66.11 579.39,-74.35 583.08,-68.4"/>
+</g>
+<!-- sourcefile~sourcery_vector_test_description_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_node16" class="node">
+<title>sourcefile~sourcery_vector_test_description_m.f90</title>
+<g id="a_sourcefile~~sourcery_m.f90~~EfferentGraph_node16"><a xlink:href="../sourcefile/sourcery_vector_test_description_m.f90.html" xlink:title="sourcery_vector_test_description_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="582.5,-24 359.5,-24 359.5,0 582.5,0 582.5,-24"/>
+<text text-anchor="middle" x="471" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_vector_test_description_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_vector_test_description_m.f90 -->
 <g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge15" class="edge">
-<title>sourcefile~sourcery_test_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90</title>
-<path fill="none" stroke="#b6ff00" stroke-dasharray="5,2" d="M411.21,-97.46C386.63,-99.75 357.55,-102.45 330.6,-104.95"/>
-<polygon fill="#b6ff00" stroke="#b6ff00" points="330.02,-101.49 320.39,-105.9 330.67,-108.46 330.02,-101.49"/>
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_vector_test_description_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M669.74,-285.96C669.87,-243.88 664.25,-102.16 586,-33 584.65,-31.81 583.26,-30.68 581.83,-29.6"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="583.51,-26.52 573.22,-24 579.7,-32.39 583.51,-26.52"/>
 </g>
 <!-- sourcefile~sourcery_data_partition_m.f90&#45;&gt;sourcefile~sourcery_bin_m.f90 -->
 <g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge16" class="edge">
 <title>sourcefile~sourcery_data_partition_m.f90&#45;&gt;sourcefile~sourcery_bin_m.f90</title>
-<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M383.91,-214C359.9,-214 334.16,-214 311.39,-214"/>
-<polygon fill="#00ffff" stroke="#00ffff" points="311.16,-210.5 301.16,-214 311.16,-217.5 311.16,-210.5"/>
+<path fill="none" stroke="#cbff00" stroke-dasharray="5,2" d="M383.91,-463.71C359.9,-465.31 334.16,-467.02 311.39,-468.53"/>
+<polygon fill="#cbff00" stroke="#cbff00" points="310.91,-465.05 301.16,-469.21 311.37,-472.04 310.91,-465.05"/>
 </g>
 <!-- sourcefile~sourcery_file_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90 -->
 <g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge17" class="edge">
 <title>sourcefile~sourcery_file_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90</title>
-<path fill="none" stroke="#0091ff" stroke-dasharray="5,2" d="M195.45,-395.87C184.89,-391.51 174.34,-385.7 166,-378 110.4,-326.67 81.97,-237.7 71.22,-196.34"/>
-<polygon fill="#0091ff" stroke="#0091ff" points="74.57,-195.3 68.75,-186.45 67.77,-197 74.57,-195.3"/>
-</g>
-<!-- sourcefile~sourcery_test_description_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge18" class="edge">
-<title>sourcefile~sourcery_test_description_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90</title>
-<path fill="none" stroke="#4800ff" stroke-dasharray="5,2" d="M412.19,-146.02C356.42,-157.28 275.9,-172.6 244,-174"/>
-<path fill="none" stroke="#4800ff" stroke-dasharray="5,2" d="M242,-174C208.81,-175.45 172.08,-175.67 140.79,-175.44"/>
-<polygon fill="#4800ff" stroke="#4800ff" points="140.43,-171.94 130.4,-175.35 140.36,-178.94 140.43,-171.94"/>
-</g>
-<!-- sourcefile~sourcery_test_description_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge19" class="edge">
-<title>sourcefile~sourcery_test_description_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90</title>
-<path fill="none" stroke="#4800ff" stroke-dasharray="5,2" d="M377.75,-125.43C362.03,-123.97 345.76,-122.46 330.2,-121.01"/>
-<polygon fill="#4800ff" stroke="#4800ff" points="330.38,-117.51 320.1,-120.07 329.73,-124.48 330.38,-117.51"/>
-</g>
-<!-- sourcefile~sourcery_test_result_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge20" class="edge">
-<title>sourcefile~sourcery_test_result_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90</title>
-<path fill="none" stroke="#b600ff" stroke-dasharray="5,2" d="M207.23,-125.05C179.51,-134.66 140.5,-148.18 110.5,-158.58"/>
-<polygon fill="#b600ff" stroke="#b600ff" points="109,-155.39 100.7,-161.97 111.29,-162.01 109,-155.39"/>
+<path fill="none" stroke="#65ff00" stroke-dasharray="5,2" d="M225.83,-390.81C209.92,-378.48 185.26,-358.52 166,-339 133.11,-305.67 99.54,-262.43 80.87,-237.39"/>
+<polygon fill="#65ff00" stroke="#65ff00" points="83.46,-235 74.7,-229.04 77.83,-239.17 83.46,-235"/>
 </g>
 <!-- sourcefile~sourcery_oracle_m.f90&#45;&gt;sourcefile~sourcery_object_m.f90 -->
-<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge21" class="edge">
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge18" class="edge">
 <title>sourcefile~sourcery_oracle_m.f90&#45;&gt;sourcefile~sourcery_object_m.f90</title>
-<path fill="none" stroke="#ff00da" stroke-dasharray="5,2" d="M404.33,-371.9C377.98,-369.45 347.44,-366.61 320.13,-364.07"/>
-<polygon fill="#ff00da" stroke="#ff00da" points="320.12,-360.56 309.84,-363.12 319.47,-367.53 320.12,-360.56"/>
+<path fill="none" stroke="#00ffcb" stroke-dasharray="5,2" d="M404.33,-303.81C377.98,-306.14 347.44,-308.85 320.13,-311.26"/>
+<polygon fill="#00ffcb" stroke="#00ffcb" points="319.49,-307.81 309.84,-312.17 320.11,-314.78 319.49,-307.81"/>
+</g>
+<!-- sourcefile~sourcery_test_description_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge19" class="edge">
+<title>sourcefile~sourcery_test_description_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90</title>
+<path fill="none" stroke="#0066ff" stroke-dasharray="5,2" d="M418.83,-230.04C363,-242.64 277.14,-260.31 244,-258"/>
+<path fill="none" stroke="#0066ff" stroke-dasharray="5,2" d="M242,-258C197.13,-254.88 147.33,-242.4 112.18,-232.02"/>
+<polygon fill="#0066ff" stroke="#0066ff" points="112.81,-228.55 102.22,-229.02 110.79,-235.25 112.81,-228.55"/>
+</g>
+<!-- sourcefile~sourcery_test_description_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge20" class="edge">
+<title>sourcefile~sourcery_test_description_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90</title>
+<path fill="none" stroke="#0066ff" stroke-dasharray="5,2" d="M404.59,-205.99C388.68,-203.06 371.73,-199.92 356,-197 343.72,-194.72 330.69,-192.28 318.02,-189.91"/>
+<polygon fill="#0066ff" stroke="#0066ff" points="318.43,-186.43 307.96,-188.03 317.14,-193.31 318.43,-186.43"/>
+</g>
+<!-- sourcefile~sourcery_test_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge21" class="edge">
+<title>sourcefile~sourcery_test_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M411.21,-176C386.63,-176 357.55,-176 330.6,-176"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="330.39,-172.5 320.39,-176 330.39,-179.5 330.39,-172.5"/>
+</g>
+<!-- sourcefile~sourcery_test_result_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge22" class="edge">
+<title>sourcefile~sourcery_test_result_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90</title>
+<path fill="none" stroke="#6500ff" stroke-dasharray="5,2" d="M190.15,-188.08C170.54,-192.65 148.04,-197.89 127.62,-202.65"/>
+<polygon fill="#6500ff" stroke="#6500ff" points="126.73,-199.26 117.79,-204.94 128.32,-206.08 126.73,-199.26"/>
+</g>
+<!-- sourcefile~sourcery_vector_test_description_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge23" class="edge">
+<title>sourcefile~sourcery_vector_test_description_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90</title>
+<path fill="none" stroke="#ff0066" stroke-dasharray="5,2" d="M384.63,-24C374.82,-26.47 365.09,-29.44 356,-33 247.31,-75.63 135.22,-160.7 88.53,-198.34"/>
+<polygon fill="#ff0066" stroke="#ff0066" points="86.14,-195.77 80.59,-204.8 90.55,-201.2 86.14,-195.77"/>
+</g>
+<!-- sourcefile~sourcery_vector_test_description_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90 -->
+<g id="sourcefile~~sourcery_m.f90~~EfferentGraph_edge24" class="edge">
+<title>sourcefile~sourcery_vector_test_description_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90</title>
+<path fill="none" stroke="#ff0066" stroke-dasharray="5,2" d="M372.93,-24.03C366.99,-26.53 361.28,-29.49 356,-33 331.67,-49.17 337.59,-64.67 320,-88 301.62,-112.38 278.43,-138.67 262.53,-156.1"/>
+<polygon fill="#ff0066" stroke="#ff0066" points="259.55,-154.17 255.36,-163.9 264.7,-158.91 259.55,-154.17"/>
 </g>
 </g>
 </svg>
-</div><script>var pansourcefilesourcery_mf90EfferentGraph = svgPanZoom('#sourcefilesourcery_mf90EfferentGraph', {zoomEnabled: true,controlIconsEnabled: true, fit: true, center: true,}); </script><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</div>                <script>
+                  var pansourcefilesourcery_mf90EfferentGraph = svgPanZoom('#sourcefilesourcery_mf90EfferentGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#EfferentGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="EfferentGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -436,20 +495,24 @@
 </g>
 </svg>
 
-    
-    <p>Solid arrows point from a file to a file which it depends on. A file
-    is dependent upon another if the latter must be compiled before the former
-    can be. Where possible, edges connecting nodes are given different colours to make them easier to distinguish in large graphs.
-    </p>
-    </div></div></div></div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-  <h3 class="panel-title">Files dependent on this one</h3>
-      </div>
-      <div class="panel-body">
-  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<p>Solid arrows point from a file to a file which it depends on. A file
+is dependent upon another if the latter must be compiled before the former
+can be.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Files dependent on this one</h3>
+          </div>
+          <div class="card-body">
+            <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -469,7 +532,7 @@
 <!-- sourcefile~sourcery_string_s.f90 -->
 <g id="sourcefile~~sourcery_m.f90~~AfferentGraph_node2" class="node">
 <title>sourcefile~sourcery_string_s.f90</title>
-<g id="a_sourcefile~~sourcery_m.f90~~AfferentGraph_node2"><a xlink:href=".././sourcefile/sourcery_string_s.f90.html" xlink:title="sourcery_string_s.f90">
+<g id="a_sourcefile~~sourcery_m.f90~~AfferentGraph_node2"><a xlink:href="../sourcefile/sourcery_string_s.f90.html" xlink:title="sourcery_string_s.f90">
 <polygon fill="#f0ad4e" stroke="#f0ad4e" points="257,-24 133,-24 133,0 257,0 257,-24"/>
 <text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_string_s.f90</text>
 </a>
@@ -483,9 +546,19 @@
 </g>
 </g>
 </svg>
-</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#AfferentGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="AfferentGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -511,113 +584,92 @@
 </g>
 </svg>
 
-    
-    <p>Solid arrows point from a file to a file which it depends on. A file
-    is dependent upon another if the latter must be compiled before the former
-    can be. Where possible, edges connecting nodes are given different colours to make them easier to distinguish in large graphs.
-    </p>
-    </div></div></div></div>
-      </div>
-    </div>
+<p>Solid arrows point from a file to a file which it depends on. A file
+is dependent upon another if the latter must be compiled before the former
+can be.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
 <br>
-    <section class="visible-xs visible-sm hidden-md">
-      <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#mods-1">Modules</a></h3></div>
-  <div id="mods-1" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../module/sourcery_m.html">sourcery_m</a>
-    </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../sourcefile/sourcery_m.f90.html#src">sourcery_m.F90</a>
-  </div>
-</div>
-
-    </section>
-    <br class="visible-xs visible-sm hidden-md">
-
-    <section>
-      <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="k">module </span><span class="n">sourcery_m</span><span class="w"></span>
+      <section>
+        <h2><span class="anchor" id="src"></span>Source Code</h2>
+        <div class="hl codehilite"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="k">module </span><span class="n">sourcery_m</span>
 <a id="ln-2" name="ln-2" href="#ln-2"></a><span class="w">  </span><span class="c">!! export all public entities from every other sourcery module</span>
-<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_command_line_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">command_line_t</span><span class="w"></span>
-<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_data_partition_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">data_partition_t</span><span class="w"></span>
-<a id="ln-5" name="ln-5" href="#ln-5"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_bin_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">bin_t</span><span class="w"></span>
-<a id="ln-6" name="ln-6" href="#ln-6"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_formats_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="n">cscv</span><span class="p">,</span><span class="w"> </span><span class="n">separated_values</span><span class="w"></span>
-<a id="ln-7" name="ln-7" href="#ln-7"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_file_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">file_t</span><span class="w"></span>
-<a id="ln-8" name="ln-8" href="#ln-8"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_string_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">string_t</span><span class="p">,</span><span class="w"> </span><span class="n">operator</span><span class="p">(.</span><span class="n">cat</span><span class="p">.)</span><span class="w"></span>
-<a id="ln-9" name="ln-9" href="#ln-9"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_test_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">test_t</span><span class="p">,</span><span class="w"> </span><span class="n">test_description_substring</span><span class="w"></span>
-<a id="ln-10" name="ln-10" href="#ln-10"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_test_description_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">test_description_t</span><span class="w"></span>
-<a id="ln-11" name="ln-11" href="#ln-11"></a><span class="cp">#ifdef __GFORTRAN__</span>
-<a id="ln-12" name="ln-12" href="#ln-12"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_test_description_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">test_function_i</span><span class="w"></span>
-<a id="ln-13" name="ln-13" href="#ln-13"></a><span class="cp">#endif</span>
-<a id="ln-14" name="ln-14" href="#ln-14"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_test_result_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">test_result_t</span><span class="w"></span>
-<a id="ln-15" name="ln-15" href="#ln-15"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_user_defined_collectives_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">co_all</span><span class="w"></span>
-<a id="ln-16" name="ln-16" href="#ln-16"></a>
-<a id="ln-17" name="ln-17" href="#ln-17"></a><span class="w">  </span><span class="c">!! legacy modules (likely to be removed in a future release):</span>
-<a id="ln-18" name="ln-18" href="#ln-18"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_object_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">object_t</span><span class="w"></span>
-<a id="ln-19" name="ln-19" href="#ln-19"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_co_object_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">co_object</span><span class="w"></span>
-<a id="ln-20" name="ln-20" href="#ln-20"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_oracle_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">oracle_t</span><span class="w"></span>
-<a id="ln-21" name="ln-21" href="#ln-21"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_units_m</span><span class="w"></span>
+<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_command_line_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">command_line_t</span>
+<a id="ln-4" name="ln-4" href="#ln-4"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_data_partition_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">data_partition_t</span>
+<a id="ln-5" name="ln-5" href="#ln-5"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_bin_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">bin_t</span>
+<a id="ln-6" name="ln-6" href="#ln-6"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_formats_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">csv</span><span class="p">,</span><span class="w"> </span><span class="n">cscv</span><span class="p">,</span><span class="w"> </span><span class="n">separated_values</span>
+<a id="ln-7" name="ln-7" href="#ln-7"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_file_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">file_t</span>
+<a id="ln-8" name="ln-8" href="#ln-8"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_string_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">string_t</span><span class="p">,</span><span class="w"> </span><span class="n">operator</span><span class="p">(.</span><span class="n">cat</span><span class="p">.)</span>
+<a id="ln-9" name="ln-9" href="#ln-9"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_test_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">test_t</span><span class="p">,</span><span class="w"> </span><span class="n">test_description_substring</span>
+<a id="ln-10" name="ln-10" href="#ln-10"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_test_description_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">test_description_t</span><span class="p">,</span><span class="w"> </span><span class="n">test_function_i</span>
+<a id="ln-11" name="ln-11" href="#ln-11"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_test_result_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">test_result_t</span>
+<a id="ln-12" name="ln-12" href="#ln-12"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_vector_test_description_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">vector_test_description_t</span><span class="p">,</span><span class="w"> </span><span class="n">vector_function_strategy_t</span>
+<a id="ln-13" name="ln-13" href="#ln-13"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_user_defined_collectives_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">co_all</span>
+<a id="ln-14" name="ln-14" href="#ln-14"></a>
+<a id="ln-15" name="ln-15" href="#ln-15"></a><span class="w">  </span><span class="c">!! legacy modules (likely to be removed in a future release):</span>
+<a id="ln-16" name="ln-16" href="#ln-16"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_object_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">object_t</span>
+<a id="ln-17" name="ln-17" href="#ln-17"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_co_object_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">co_object</span>
+<a id="ln-18" name="ln-18" href="#ln-18"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_oracle_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">oracle_t</span>
+<a id="ln-19" name="ln-19" href="#ln-19"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_units_m</span>
+<a id="ln-20" name="ln-20" href="#ln-20"></a>
+<a id="ln-21" name="ln-21" href="#ln-21"></a><span class="w">  </span><span class="k">implicit none</span>
 <a id="ln-22" name="ln-22" href="#ln-22"></a>
-<a id="ln-23" name="ln-23" href="#ln-23"></a><span class="w">  </span><span class="k">implicit none</span>
-<a id="ln-24" name="ln-24" href="#ln-24"></a>
-<a id="ln-25" name="ln-25" href="#ln-25"></a><span class="k">end module </span><span class="n">sourcery_m</span><span class="w"></span>
+<a id="ln-23" name="ln-23" href="#ln-23"></a><span class="k">end module </span><span class="n">sourcery_m</span>
 </pre></div>
 
-    </section>
+      </section>
     </div>
   </div>
 
-    <hr>    
+      <hr>
     </div> <!-- /container -->
     <footer>
       <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-md-6"><p> was developed by Damian Rouson<br>&copy; 2024 
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              
+ was developed by Damian Rouson<br>              &copy; 2024 
 </p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-04-23 05:25              </p>
+          </div>
         </div>
-        <div class="col-xs-6 col-md-6">
-          <p class="text-right">
-            Documentation generated by 
-            <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-04-20 03:25            </p>
-        </div>
-      </div>
-      <br>
-      </div> <!-- /container -->    
+        <br>
+      </div> <!-- /container -->
     </footer>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
+    <!-- Bootstrap core JavaScript -->
     <!-- Placed at the end of the document so the pages load faster -->
-<!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
--->
-    <script src="../js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
 
     <!-- MathJax JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-      });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script src="../tipuesearch/tipuesearch_content.js"></script>
-    <script src="../tipuesearch/tipuesearch_set.js"></script>
-    <script src="../tipuesearch/tipuesearch.js"></script>
-    
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
   </body>
 </html>

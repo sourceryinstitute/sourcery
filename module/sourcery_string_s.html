@@ -1,505 +1,572 @@
+<!-- -*- mode: jinja2 -*- -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="description" content="A Fortran 2018 utility library.">
+      <meta name="description" content="A Fortran 2018 utility library.">
     <meta name="author" content="Damian Rouson" >
     <link rel="icon" href="../favicon.png">
 
     <title>sourcery_string_s &ndash; </title>
 
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
-    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="../js/svg-pan-zoom.min.js"></script>
-
   </head>
 
   <body>
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
           <a class="navbar-brand" href="../index.html"> </a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
-              <a href="#" class="dropdown-toggle"
-              data-toggle="dropdown" role="button"
-              aria-haspopup="true"
-     aria-expanded="false">Contents <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="../lists/files.html">Source Files</a></li>
-            <li><a href="../lists/modules.html">Modules</a></li>
-            <li><a href="../lists/procedures.html">Procedures</a></li>
-            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
-                   <li><a href="../lists/types.html">Derived Types</a></li>
-       
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
             </ul>
-        
-            </li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
-                             <li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
-          </ul>
-        <form action="../search.html" class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
         </div>
-<!--
-        <button type="submit" class="btn btn-default">Submit</button>
--->
-        </form>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+      </nav>
+    </div>
 
     <div class="container">
   <div class="row">
-    <h1>sourcery_string_s 
-    <small>Submodule</small>
+    <h1>sourcery_string_s
+      <small>Submodule</small>
+      
     </h1>
-    <div class="row">
-  <div class="col-lg-12">
-<div class="well well-sm">
-  <ul class="list-inline" style="margin-bottom:0px;display:inline">
-     <li><i class="fa fa-list-ol"></i>
-       <a data-toggle="tooltip"
-    data-placement="bottom" data-html="true"
-    title="12.2% of total for modules and submodules.">200 statements</a>
-     </li> 
-    <li><i class="fa fa-code"></i><a href="../src/sourcery_string_s.f90"> Source File</a></li>
-  </ul>
-  <ol class="breadcrumb in-well text-right">
-     <li><a href='../sourcefile/sourcery_string_s.f90.html'>sourcery_string_s.f90</a></li>
-     <li class="active">sourcery_string_s</li>
-  </ol>
-</div>
-</div>
-</div>
-<script>
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
 
-  </div>
-  
-  <div class="row">
-    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-    <div id="sidebar">
-  <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#modprocs-0">Module Procedures</a></h3></div>
-  <div id="modprocs-0" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-array_of_strings">array_of_strings</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-as_character">as_character</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-assign_character_to_string_t">assign_character_to_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-assign_string_t_to_character">assign_string_t_to_character</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-base_name">base_name</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-character_cat_string_t">character_cat_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-character_eq_string_t">character_eq_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-character_ne_string_t">character_ne_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-concatenate_elements">concatenate_elements</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-construct">construct</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-file_extension">file_extension</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-from_default_integer">from_default_integer</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-from_real">from_real</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_integer">get_json_integer</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_integer_array">get_json_integer_array</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_key">get_json_key</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_logical">get_json_logical</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_real">get_json_real</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_real_array">get_json_real_array</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_string">get_json_string</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-is_allocated">is_allocated</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_cat_character">string_t_cat_character</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_cat_string_t">string_t_cat_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_eq_character">string_t_eq_character</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_eq_string_t">string_t_eq_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_ne_character">string_t_ne_character</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_ne_string_t">string_t_ne_string_t</a>
-    </div>
-  </div>
-</div>
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="11.7% of total for modules and submodules.">200 statements</a>
+            </li>
 
-</div>
-
-    </div>
-    
-    <div class="col-md-9" id='text'>
-    
-<br>        <div class="panel panel-default">
-      <div class="panel-heading">
-  <h3 class="panel-title">Uses</h3>
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/sourcery_string_s.f90"> Source File</a>
+            </li>
+        </ul>
       </div>
-      <ul class="list-group">
-      <li class="list-group-item">
-  <ul class="list-inline">
-    <li>assert_m</li>
-    <li><a href='../module/sourcery_m.html'>sourcery_m</a></li>
-  </ul>
-      </li>
-      <li class="list-group-item">
-  <ul class="list-inline">
-    <li><h5>Ancestors:</h5></li>
-    <li><a href='../module/sourcery_string_m.html'>sourcery_string_m</a></li>
-  </ul>
-      </li>
-      <li class="list-group-item">
-  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/sourcery_string_s.f90.html'>sourcery_string_s.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">sourcery_string_s</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#modprocs-0"
+         aria-expanded="false" aria-controls="modprocs-0">
+         <h4 class="card-header bg-primary text-white">Module Procedures</h4>
+      </a>
+      <div id="modprocs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-array_of_strings">array_of_strings</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-as_character">as_character</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-assign_character_to_string_t">assign_character_to_string_t</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-assign_string_t_to_character">assign_string_t_to_character</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-base_name">base_name</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-character_cat_string_t">character_cat_string_t</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-character_eq_string_t">character_eq_string_t</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-character_ne_string_t">character_ne_string_t</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-concatenate_elements">concatenate_elements</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-construct~4">construct</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-file_extension">file_extension</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-from_default_integer">from_default_integer</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-from_real">from_real</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_integer">get_json_integer</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_integer_array">get_json_integer_array</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_key">get_json_key</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_logical">get_json_logical</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_real">get_json_real</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_real_array">get_json_real_array</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_string">get_json_string</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-is_allocated">is_allocated</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_cat_character">string_t_cat_character</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_cat_string_t">string_t_cat_string_t</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_eq_character">string_t_eq_character</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_eq_string_t">string_t_eq_string_t</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_ne_character">string_t_ne_character</a>
+            <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_ne_string_t">string_t_ne_string_t</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      
+<br>          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='sourcery_m.html'>sourcery_m</a></li>
+                  <li class="list-inline-item">assert_m</li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <ul class="list-inline">
+                <li><h5>Ancestors:</h5></li>
+                  <li class="list-inline-item"><a href='sourcery_string_m.html'>sourcery_string_m</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: module~~sourcery_string_s~~UsesGraph Pages: 1 -->
-<svg id="modulesourcery_string_sUsesGraph" width="641pt" height="429pt"
- viewBox="0.00 0.00 641.00 428.70" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="module~~sourcery_string_s~~UsesGraph" class="graph" transform="scale(1.37 1.37) rotate(0) translate(4 583.87)">
+<svg id="modulesourcery_string_sUsesGraph" width="641pt" height="441pt"
+ viewBox="0.00 0.00 641.00 440.72" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~sourcery_string_s~~UsesGraph" class="graph" transform="scale(1.37 1.37) rotate(0) translate(4 600.35)">
 <title>module~~sourcery_string_s~~UsesGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-583.87 875,-583.87 875,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-600.35 875,-600.35 875,4 -4,4"/>
 <!-- module~sourcery_string_s -->
 <g id="module~~sourcery_string_s~~UsesGraph_node1" class="node">
 <title>module~sourcery_string_s</title>
-<polygon fill="none" stroke="black" points="871,-311.87 767,-311.87 767,-287.87 871,-287.87 871,-311.87"/>
-<text text-anchor="middle" x="819" y="-297.47" font-family="Helvetica,sans-Serif" font-size="10.50">sourcery_string_s</text>
+<polygon fill="none" stroke="black" points="871,-454 767,-454 767,-430 871,-430 871,-454"/>
+<text text-anchor="middle" x="819" y="-439.6" font-family="Helvetica,sans-Serif" font-size="10.50">sourcery_string_s</text>
 </g>
 <!-- assert_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_node2" class="node">
 <title>assert_m</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="61,-450.87 0,-450.87 0,-426.87 61,-426.87 61,-450.87"/>
-<text text-anchor="middle" x="30.5" y="-436.47" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">assert_m</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="61,-476 0,-476 0,-452 61,-452 61,-476"/>
+<text text-anchor="middle" x="30.5" y="-461.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">assert_m</text>
 </g>
 <!-- module~sourcery_string_s&#45;&gt;assert_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_edge1" class="edge">
 <title>module~sourcery_string_s&#45;&gt;assert_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M812.56,-311.9C787.42,-365.49 676.87,-579.87 517,-579.87 517,-579.87 517,-579.87 307.5,-579.87 201.35,-579.87 94.89,-496.13 51.64,-457.72"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="53.85,-455 44.09,-450.89 49.16,-460.19 53.85,-455"/>
-</g>
-<!-- module~sourcery_string_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node3" class="node">
-<title>module~sourcery_string_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node3"><a xlink:href=".././module/sourcery_string_m.html" xlink:title="sourcery_string_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="206,-393.87 97,-393.87 97,-369.87 206,-369.87 206,-393.87"/>
-<text text-anchor="middle" x="151.5" y="-379.47" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_string_m</text>
-</a>
-</g>
-</g>
-<!-- module~sourcery_string_s&#45;&gt;module~sourcery_string_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge3" class="edge">
-<title>module~sourcery_string_s&#45;&gt;module~sourcery_string_m</title>
-<path fill="none" stroke="#ff0000" d="M813.71,-287.62C797.27,-242.88 733.55,-87.95 621,-30.87 537.76,11.35 495.37,9.04 411,-30.87 266.16,-99.39 184.09,-294.64 160.03,-360.14"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="156.63,-359.24 156.55,-369.83 163.22,-361.6 156.63,-359.24"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M307.5,-582C211.2,-565.7 107.97,-510.02 59.58,-481.36"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="61.3,-478.31 50.92,-476.17 57.7,-484.31 61.3,-478.31"/>
 </g>
 <!-- module~sourcery_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node4" class="node">
+<g id="module~~sourcery_string_s~~UsesGraph_node3" class="node">
 <title>module~sourcery_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node4"><a xlink:href=".././module/sourcery_m.html" xlink:title="sourcery_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="731,-311.87 657,-311.87 657,-287.87 731,-287.87 731,-311.87"/>
-<text text-anchor="middle" x="694" y="-297.47" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_m</text>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node3"><a xlink:href="../module/sourcery_m.html" xlink:title="sourcery_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="731,-314 657,-314 657,-290 731,-290 731,-314"/>
+<text text-anchor="middle" x="694" y="-299.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_m</text>
 </a>
 </g>
 </g>
 <!-- module~sourcery_string_s&#45;&gt;module~sourcery_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_edge2" class="edge">
 <title>module~sourcery_string_s&#45;&gt;module~sourcery_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M766.91,-299.87C758.37,-299.87 749.55,-299.87 741.14,-299.87"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="741.14,-296.37 731.14,-299.87 741.14,-303.37 741.14,-296.37"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M807.08,-429.58C785.7,-405.23 738.11,-351.07 712.36,-321.76"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="714.94,-319.4 705.72,-314.2 709.69,-324.02 714.94,-319.4"/>
 </g>
-<!-- module~sourcery_string_m&#45;&gt;assert_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge4" class="edge">
-<title>module~sourcery_string_m&#45;&gt;assert_m</title>
-<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M125.26,-393.96C107.99,-402.23 84.87,-413.31 65.91,-422.39"/>
-<polygon fill="#00ff00" stroke="#00ff00" points="64.21,-419.32 56.7,-426.8 67.23,-425.64 64.21,-419.32"/>
+<!-- module~sourcery_string_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_node4" class="node">
+<title>module~sourcery_string_m</title>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node4"><a xlink:href="../module/sourcery_string_m.html" xlink:title="sourcery_string_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="206,-476 97,-476 97,-452 206,-452 206,-476"/>
+<text text-anchor="middle" x="151.5" y="-461.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_string_m</text>
+</a>
+</g>
+</g>
+<!-- module~sourcery_string_s&#45;&gt;module~sourcery_string_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge3" class="edge">
+<title>module~sourcery_string_s&#45;&gt;module~sourcery_string_m</title>
+<path fill="none" stroke="#ff0000" d="M802.84,-454.29C771.27,-479.07 695.21,-534.67 621,-558 488.53,-599.64 446.12,-606.82 309.5,-582"/>
+<path fill="none" stroke="#ff0000" d="M307.5,-582C245.93,-571.58 192.54,-514.81 167.56,-483.96"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="170.23,-481.7 161.29,-476.01 164.74,-486.03 170.23,-481.7"/>
 </g>
 <!-- module~sourcery_m&#45;&gt;module~sourcery_string_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge13" class="edge">
+<g id="module~~sourcery_string_s~~UsesGraph_edge12" class="edge">
 <title>module~sourcery_m&#45;&gt;module~sourcery_string_m</title>
-<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M693.51,-312.04C694.39,-350.79 691.22,-471.75 621,-522.87 552.59,-572.67 314.67,-529.22 242,-485.87 207.51,-465.29 179.62,-426.7 164.61,-402.76"/>
-<polygon fill="#0000ff" stroke="#0000ff" points="167.51,-400.79 159.32,-394.07 161.53,-404.43 167.51,-400.79"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M515,-544C459.48,-568.81 299.46,-544.93 242,-525 215.89,-515.94 190.27,-497.19 173.17,-482.85"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="175.36,-480.11 165.5,-476.22 170.78,-485.41 175.36,-480.11"/>
 </g>
 <!-- module~sourcery_bin_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_node5" class="node">
 <title>module~sourcery_bin_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node5"><a xlink:href=".././module/sourcery_bin_m.html" xlink:title="sourcery_bin_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="356.5,-392.87 260.5,-392.87 260.5,-368.87 356.5,-368.87 356.5,-392.87"/>
-<text text-anchor="middle" x="308.5" y="-378.47" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_bin_m</text>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node5"><a xlink:href="../module/sourcery_bin_m.html" xlink:title="sourcery_bin_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="356.5,-354 260.5,-354 260.5,-330 356.5,-330 356.5,-354"/>
+<text text-anchor="middle" x="308.5" y="-339.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_bin_m</text>
 </a>
 </g>
 </g>
 <!-- module~sourcery_m&#45;&gt;module~sourcery_bin_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge5" class="edge">
+<g id="module~~sourcery_string_s~~UsesGraph_edge4" class="edge">
 <title>module~sourcery_m&#45;&gt;module~sourcery_bin_m</title>
-<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M683.59,-312.01C671.13,-327.04 647.6,-351.99 621,-362.87 537.6,-396.99 431.05,-394.36 366.66,-388.34"/>
-<polygon fill="#0000ff" stroke="#0000ff" points="367,-384.86 356.7,-387.35 366.3,-391.83 367,-384.86"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M657.48,-314.06C645.97,-317.51 633.06,-320.9 621,-323 533.15,-338.29 429.5,-341.78 366.68,-342.31"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="366.56,-338.81 356.58,-342.38 366.6,-345.81 366.56,-338.81"/>
 </g>
-<!-- module~sourcery_test_result_m -->
+<!-- module~sourcery_co_object_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_node6" class="node">
-<title>module~sourcery_test_result_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node6"><a xlink:href=".././module/sourcery_test_result_m.html" xlink:title="sourcery_test_result_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="375,-269.87 242,-269.87 242,-245.87 375,-245.87 375,-269.87"/>
-<text text-anchor="middle" x="308.5" y="-255.47" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_result_m</text>
+<title>module~sourcery_co_object_m</title>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node6"><a xlink:href="../module/sourcery_co_object_m.html" xlink:title="sourcery_co_object_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="581,-272 451,-272 451,-248 581,-248 581,-272"/>
+<text text-anchor="middle" x="516" y="-257.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_co_object_m</text>
 </a>
 </g>
 </g>
-<!-- module~sourcery_m&#45;&gt;module~sourcery_test_result_m -->
+<!-- module~sourcery_m&#45;&gt;module~sourcery_co_object_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge5" class="edge">
+<title>module~sourcery_m&#45;&gt;module~sourcery_co_object_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M656.9,-290.82C645.48,-287.46 632.76,-283.9 621,-281 611.34,-278.62 601.13,-276.31 591.03,-274.15"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="591.5,-270.67 580.99,-272.03 590.06,-277.52 591.5,-270.67"/>
+</g>
+<!-- module~sourcery_command_line_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_node7" class="node">
+<title>module~sourcery_command_line_m</title>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node7"><a xlink:href="../module/sourcery_command_line_m.html" xlink:title="sourcery_command_line_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="595,-230 437,-230 437,-206 595,-206 595,-230"/>
+<text text-anchor="middle" x="516" y="-215.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_command_line_m</text>
+</a>
+</g>
+</g>
+<!-- module~sourcery_m&#45;&gt;module~sourcery_command_line_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_edge6" class="edge">
-<title>module~sourcery_m&#45;&gt;module~sourcery_test_result_m</title>
-<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M691.31,-287.5C686.54,-257.94 669.95,-183.4 621,-152.87 541.81,-103.48 496.92,-116.42 411,-152.87 370.67,-169.98 338.54,-211.82 321.92,-237.22"/>
-<polygon fill="#0000ff" stroke="#0000ff" points="318.91,-235.44 316.51,-245.76 324.82,-239.18 318.91,-235.44"/>
+<title>module~sourcery_m&#45;&gt;module~sourcery_command_line_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M682.88,-289.94C670.03,-275.47 646.46,-251.58 621,-239 615.82,-236.44 610.34,-234.19 604.72,-232.21"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="605.75,-228.87 595.16,-229.14 603.61,-235.53 605.75,-228.87"/>
+</g>
+<!-- module~sourcery_data_partition_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_node8" class="node">
+<title>module~sourcery_data_partition_m</title>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node8"><a xlink:href="../module/sourcery_data_partition_m.html" xlink:title="sourcery_data_partition_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="593,-314 439,-314 439,-290 593,-290 593,-314"/>
+<text text-anchor="middle" x="516" y="-299.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_data_partition_m</text>
+</a>
+</g>
+</g>
+<!-- module~sourcery_m&#45;&gt;module~sourcery_data_partition_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge7" class="edge">
+<title>module~sourcery_m&#45;&gt;module~sourcery_data_partition_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M656.96,-302C641.36,-302 622.36,-302 603.46,-302"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="603.3,-298.5 593.3,-302 603.3,-305.5 603.3,-298.5"/>
 </g>
 <!-- module~sourcery_file_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node7" class="node">
+<g id="module~~sourcery_string_s~~UsesGraph_node9" class="node">
 <title>module~sourcery_file_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node7"><a xlink:href=".././module/sourcery_file_m.html" xlink:title="sourcery_file_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="356.5,-476.87 260.5,-476.87 260.5,-452.87 356.5,-452.87 356.5,-476.87"/>
-<text text-anchor="middle" x="308.5" y="-462.47" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_file_m</text>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node9"><a xlink:href="../module/sourcery_file_m.html" xlink:title="sourcery_file_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="356.5,-516 260.5,-516 260.5,-492 356.5,-492 356.5,-516"/>
+<text text-anchor="middle" x="308.5" y="-501.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_file_m</text>
 </a>
 </g>
 </g>
 <!-- module~sourcery_m&#45;&gt;module~sourcery_file_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_edge8" class="edge">
 <title>module~sourcery_m&#45;&gt;module~sourcery_file_m</title>
-<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M515,-461.87C466.91,-478.12 408.8,-477.24 366.66,-473.24"/>
-<polygon fill="#0000ff" stroke="#0000ff" points="366.89,-469.75 356.58,-472.2 366.17,-476.71 366.89,-469.75"/>
-</g>
-<!-- module~sourcery_object_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node8" class="node">
-<title>module~sourcery_object_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node8"><a xlink:href=".././module/sourcery_object_m.html" xlink:title="sourcery_object_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="364.5,-434.87 252.5,-434.87 252.5,-410.87 364.5,-410.87 364.5,-434.87"/>
-<text text-anchor="middle" x="308.5" y="-420.47" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_object_m</text>
-</a>
-</g>
-</g>
-<!-- module~sourcery_m&#45;&gt;module~sourcery_object_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge7" class="edge">
-<title>module~sourcery_m&#45;&gt;module~sourcery_object_m</title>
-<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M690.65,-312.2C684.6,-340.33 665.73,-409.39 621,-442.87 583.38,-471.03 561.51,-446.83 517,-461.87"/>
-<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M515,-461.87C486.62,-471.46 409.45,-452.49 358.18,-437.79"/>
-<polygon fill="#0000ff" stroke="#0000ff" points="358.87,-434.34 348.29,-434.91 356.92,-441.06 358.87,-434.34"/>
-</g>
-<!-- module~sourcery_data_partition_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node9" class="node">
-<title>module~sourcery_data_partition_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node9"><a xlink:href=".././module/sourcery_data_partition_m.html" xlink:title="sourcery_data_partition_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="593,-353.87 439,-353.87 439,-329.87 593,-329.87 593,-353.87"/>
-<text text-anchor="middle" x="516" y="-339.47" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_data_partition_m</text>
-</a>
-</g>
-</g>
-<!-- module~sourcery_m&#45;&gt;module~sourcery_data_partition_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge9" class="edge">
-<title>module~sourcery_m&#45;&gt;module~sourcery_data_partition_m</title>
-<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M656.9,-311.05C645.48,-314.41 632.76,-317.97 621,-320.87 611.34,-323.25 601.13,-325.56 591.03,-327.72"/>
-<polygon fill="#0000ff" stroke="#0000ff" points="590.06,-324.35 580.99,-329.83 591.5,-331.2 590.06,-324.35"/>
-</g>
-<!-- module~sourcery_units_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node10" class="node">
-<title>module~sourcery_units_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node10"><a xlink:href=".././module/sourcery_units_m.html" xlink:title="sourcery_units_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="568.5,-227.87 463.5,-227.87 463.5,-203.87 568.5,-203.87 568.5,-227.87"/>
-<text text-anchor="middle" x="516" y="-213.47" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_units_m</text>
-</a>
-</g>
-</g>
-<!-- module~sourcery_m&#45;&gt;module~sourcery_units_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge10" class="edge">
-<title>module~sourcery_m&#45;&gt;module~sourcery_units_m</title>
-<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M682.88,-287.81C670.03,-273.34 646.46,-249.45 621,-236.87 607.92,-230.4 592.97,-225.93 578.57,-222.83"/>
-<polygon fill="#0000ff" stroke="#0000ff" points="579.21,-219.39 568.72,-220.9 577.86,-226.26 579.21,-219.39"/>
-</g>
-<!-- module~sourcery_user_defined_collectives_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node11" class="node">
-<title>module~sourcery_user_defined_collectives_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node11"><a xlink:href=".././module/sourcery_user_defined_collectives_m.html" xlink:title="sourcery_user_defined_collectives_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="621,-185.87 411,-185.87 411,-161.87 621,-161.87 621,-185.87"/>
-<text text-anchor="middle" x="516" y="-171.47" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_user_defined_collectives_m</text>
-</a>
-</g>
-</g>
-<!-- module~sourcery_m&#45;&gt;module~sourcery_user_defined_collectives_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge11" class="edge">
-<title>module~sourcery_m&#45;&gt;module~sourcery_user_defined_collectives_m</title>
-<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M688.39,-287.85C679.2,-265.64 656.39,-218.29 621,-194.87 618.52,-193.23 615.93,-191.71 613.27,-190.3"/>
-<polygon fill="#0000ff" stroke="#0000ff" points="614.48,-187.01 603.94,-185.95 611.52,-193.35 614.48,-187.01"/>
-</g>
-<!-- module~sourcery_test_description_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node12" class="node">
-<title>module~sourcery_test_description_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node12"><a xlink:href=".././module/sourcery_test_description_m.html" xlink:title="sourcery_test_description_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="597.5,-311.87 434.5,-311.87 434.5,-287.87 597.5,-287.87 597.5,-311.87"/>
-<text text-anchor="middle" x="516" y="-297.47" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_description_m</text>
-</a>
-</g>
-</g>
-<!-- module~sourcery_m&#45;&gt;module~sourcery_test_description_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge12" class="edge">
-<title>module~sourcery_m&#45;&gt;module~sourcery_test_description_m</title>
-<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M656.96,-299.87C642.58,-299.87 625.33,-299.87 607.91,-299.87"/>
-<polygon fill="#0000ff" stroke="#0000ff" points="607.67,-296.37 597.67,-299.87 607.67,-303.37 607.67,-296.37"/>
-</g>
-<!-- module~sourcery_co_object_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node13" class="node">
-<title>module~sourcery_co_object_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node13"><a xlink:href=".././module/sourcery_co_object_m.html" xlink:title="sourcery_co_object_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="581,-105.87 451,-105.87 451,-81.87 581,-81.87 581,-105.87"/>
-<text text-anchor="middle" x="516" y="-91.47" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_co_object_m</text>
-</a>
-</g>
-</g>
-<!-- module~sourcery_m&#45;&gt;module~sourcery_co_object_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge14" class="edge">
-<title>module~sourcery_m&#45;&gt;module~sourcery_co_object_m</title>
-<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M691.87,-287.65C688.17,-255.1 673.49,-165.69 621,-119.87 612.38,-112.34 601.9,-106.93 590.95,-103.06"/>
-<polygon fill="#0000ff" stroke="#0000ff" points="591.83,-99.67 581.24,-100.03 589.75,-106.35 591.83,-99.67"/>
-</g>
-<!-- module~sourcery_test_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node14" class="node">
-<title>module~sourcery_test_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node14"><a xlink:href=".././module/sourcery_test_m.html" xlink:title="sourcery_test_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="565.5,-269.87 466.5,-269.87 466.5,-245.87 565.5,-245.87 565.5,-269.87"/>
-<text text-anchor="middle" x="516" y="-255.47" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_m</text>
-</a>
-</g>
-</g>
-<!-- module~sourcery_m&#45;&gt;module~sourcery_test_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge15" class="edge">
-<title>module~sourcery_m&#45;&gt;module~sourcery_test_m</title>
-<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M656.9,-288.69C645.48,-285.33 632.76,-281.77 621,-278.87 606.4,-275.27 590.53,-271.83 575.69,-268.82"/>
-<polygon fill="#0000ff" stroke="#0000ff" points="576.1,-265.33 565.6,-266.8 574.72,-272.19 576.1,-265.33"/>
-</g>
-<!-- module~sourcery_command_line_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node15" class="node">
-<title>module~sourcery_command_line_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node15"><a xlink:href=".././module/sourcery_command_line_m.html" xlink:title="sourcery_command_line_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="595,-63.87 437,-63.87 437,-39.87 595,-39.87 595,-63.87"/>
-<text text-anchor="middle" x="516" y="-49.47" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_command_line_m</text>
-</a>
-</g>
-</g>
-<!-- module~sourcery_m&#45;&gt;module~sourcery_command_line_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge16" class="edge">
-<title>module~sourcery_m&#45;&gt;module~sourcery_command_line_m</title>
-<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M693.14,-287.79C692.86,-249.78 686.54,-131.69 621,-72.87 616.14,-68.51 610.64,-64.95 604.76,-62.06"/>
-<polygon fill="#0000ff" stroke="#0000ff" points="605.82,-58.71 595.24,-58.05 603.1,-65.16 605.82,-58.71"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M693.1,-314.19C692.71,-351.98 686.02,-468.02 621,-525 585.66,-555.97 559.9,-524.83 517,-544"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M515,-544C486.94,-556.54 406.29,-535.06 354.76,-519.03"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="355.77,-515.68 345.18,-516.01 353.67,-522.36 355.77,-515.68"/>
 </g>
 <!-- module~sourcery_formats_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node16" class="node">
+<g id="module~~sourcery_string_s~~UsesGraph_node10" class="node">
 <title>module~sourcery_formats_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node16"><a xlink:href=".././module/sourcery_formats_m.html" xlink:title="sourcery_formats_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="576.5,-513.87 455.5,-513.87 455.5,-489.87 576.5,-489.87 576.5,-513.87"/>
-<text text-anchor="middle" x="516" y="-499.47" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_formats_m</text>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node10"><a xlink:href="../module/sourcery_formats_m.html" xlink:title="sourcery_formats_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="576.5,-188 455.5,-188 455.5,-164 576.5,-164 576.5,-188"/>
+<text text-anchor="middle" x="516" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_formats_m</text>
 </a>
 </g>
 </g>
 <!-- module~sourcery_m&#45;&gt;module~sourcery_formats_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge17" class="edge">
+<g id="module~~sourcery_string_s~~UsesGraph_edge9" class="edge">
 <title>module~sourcery_m&#45;&gt;module~sourcery_formats_m</title>
-<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M691.72,-312.29C687.7,-344.51 672.41,-431.35 621,-475.87 611.13,-484.41 598.87,-490.23 586.26,-494.17"/>
-<polygon fill="#0000ff" stroke="#0000ff" points="585.3,-490.8 576.59,-496.83 587.16,-497.55 585.3,-490.8"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M688.39,-289.98C679.2,-267.77 656.39,-220.42 621,-197 610.7,-190.18 598.65,-185.5 586.49,-182.29"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="587.27,-178.88 576.74,-180.03 585.69,-185.7 587.27,-178.88"/>
+</g>
+<!-- module~sourcery_object_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_node11" class="node">
+<title>module~sourcery_object_m</title>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node11"><a xlink:href="../module/sourcery_object_m.html" xlink:title="sourcery_object_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="364.5,-128 252.5,-128 252.5,-104 364.5,-104 364.5,-128"/>
+<text text-anchor="middle" x="308.5" y="-113.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_object_m</text>
+</a>
+</g>
+</g>
+<!-- module~sourcery_m&#45;&gt;module~sourcery_object_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge10" class="edge">
+<title>module~sourcery_m&#45;&gt;module~sourcery_object_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M690.98,-289.59C685.54,-260.6 667.72,-188.35 621,-155 582.74,-127.69 454.6,-119.48 375.08,-117.02"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="374.77,-113.51 364.68,-116.73 374.58,-120.51 374.77,-113.51"/>
 </g>
 <!-- module~sourcery_oracle_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_node17" class="node">
+<g id="module~~sourcery_string_s~~UsesGraph_node12" class="node">
 <title>module~sourcery_oracle_m</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node17"><a xlink:href=".././module/sourcery_oracle_m.html" xlink:title="sourcery_oracle_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="572.5,-433.87 459.5,-433.87 459.5,-409.87 572.5,-409.87 572.5,-433.87"/>
-<text text-anchor="middle" x="516" y="-419.47" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_oracle_m</text>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node12"><a xlink:href="../module/sourcery_oracle_m.html" xlink:title="sourcery_oracle_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="572.5,-108 459.5,-108 459.5,-84 572.5,-84 572.5,-108"/>
+<text text-anchor="middle" x="516" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_oracle_m</text>
 </a>
 </g>
 </g>
 <!-- module~sourcery_m&#45;&gt;module~sourcery_oracle_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge18" class="edge">
+<g id="module~~sourcery_string_s~~UsesGraph_edge11" class="edge">
 <title>module~sourcery_m&#45;&gt;module~sourcery_oracle_m</title>
-<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M687.37,-312.01C677.16,-332.59 653.63,-374.2 621,-395.87 609.46,-403.53 595.84,-408.94 582.32,-412.75"/>
-<polygon fill="#0000ff" stroke="#0000ff" points="581.35,-409.39 572.53,-415.25 583.08,-416.17 581.35,-409.39"/>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M691.87,-289.78C688.17,-257.23 673.49,-167.82 621,-122 610.23,-112.59 596.55,-106.49 582.68,-102.56"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="583.14,-99.07 572.59,-100.06 581.46,-105.86 583.14,-99.07"/>
 </g>
-<!-- module~sourcery_test_result_m&#45;&gt;module~sourcery_string_m -->
+<!-- module~sourcery_test_description_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_node13" class="node">
+<title>module~sourcery_test_description_m</title>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node13"><a xlink:href="../module/sourcery_test_description_m.html" xlink:title="sourcery_test_description_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="597.5,-516 434.5,-516 434.5,-492 597.5,-492 597.5,-516"/>
+<text text-anchor="middle" x="516" y="-501.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_description_m</text>
+</a>
+</g>
+</g>
+<!-- module~sourcery_m&#45;&gt;module~sourcery_test_description_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge13" class="edge">
+<title>module~sourcery_m&#45;&gt;module~sourcery_test_description_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M691.72,-314.42C687.7,-346.64 672.41,-433.48 621,-478 616.69,-481.73 611.93,-484.94 606.87,-487.7"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="605,-484.72 597.51,-492.2 608.04,-491.03 605,-484.72"/>
+</g>
+<!-- module~sourcery_test_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_node14" class="node">
+<title>module~sourcery_test_m</title>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node14"><a xlink:href="../module/sourcery_test_m.html" xlink:title="sourcery_test_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="565.5,-436 466.5,-436 466.5,-412 565.5,-412 565.5,-436"/>
+<text text-anchor="middle" x="516" y="-421.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_m</text>
+</a>
+</g>
+</g>
+<!-- module~sourcery_m&#45;&gt;module~sourcery_test_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge14" class="edge">
+<title>module~sourcery_m&#45;&gt;module~sourcery_test_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M687.96,-314.24C678.36,-335.89 655.33,-380.74 621,-403 607.63,-411.67 591.41,-416.88 575.8,-419.98"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="574.93,-416.58 565.66,-421.72 576.11,-423.48 574.93,-416.58"/>
+</g>
+<!-- module~sourcery_test_result_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_node15" class="node">
+<title>module~sourcery_test_result_m</title>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node15"><a xlink:href="../module/sourcery_test_result_m.html" xlink:title="sourcery_test_result_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="375,-436 242,-436 242,-412 375,-412 375,-436"/>
+<text text-anchor="middle" x="308.5" y="-421.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_result_m</text>
+</a>
+</g>
+</g>
+<!-- module~sourcery_m&#45;&gt;module~sourcery_test_result_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge15" class="edge">
+<title>module~sourcery_m&#45;&gt;module~sourcery_test_result_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M691.2,-314.04C686.16,-342.83 669.04,-415.4 621,-445 535.14,-497.9 409.56,-462.82 347.33,-439.7"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="348.5,-436.39 337.91,-436.1 346.01,-442.94 348.5,-436.39"/>
+</g>
+<!-- module~sourcery_units_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_node16" class="node">
+<title>module~sourcery_units_m</title>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node16"><a xlink:href="../module/sourcery_units_m.html" xlink:title="sourcery_units_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="568.5,-66 463.5,-66 463.5,-42 568.5,-42 568.5,-66"/>
+<text text-anchor="middle" x="516" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_units_m</text>
+</a>
+</g>
+</g>
+<!-- module~sourcery_m&#45;&gt;module~sourcery_units_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge16" class="edge">
+<title>module~sourcery_m&#45;&gt;module~sourcery_units_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M693.14,-289.92C692.86,-251.91 686.54,-133.82 621,-75 609.36,-64.55 594,-58.73 578.67,-55.6"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="579.08,-52.12 568.64,-53.92 577.93,-59.03 579.08,-52.12"/>
+</g>
+<!-- module~sourcery_user_defined_collectives_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_node17" class="node">
+<title>module~sourcery_user_defined_collectives_m</title>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node17"><a xlink:href="../module/sourcery_user_defined_collectives_m.html" xlink:title="sourcery_user_defined_collectives_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="621,-24 411,-24 411,0 621,0 621,-24"/>
+<text text-anchor="middle" x="516" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_user_defined_collectives_m</text>
+</a>
+</g>
+</g>
+<!-- module~sourcery_m&#45;&gt;module~sourcery_user_defined_collectives_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge17" class="edge">
+<title>module~sourcery_m&#45;&gt;module~sourcery_user_defined_collectives_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M691.43,-289.7C685.07,-241.9 659.76,-69.41 621,-33 619.87,-31.94 618.7,-30.92 617.49,-29.95"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="619.3,-26.94 609.07,-24.17 615.34,-32.72 619.3,-26.94"/>
+</g>
+<!-- module~sourcery_vector_test_description_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_node18" class="node">
+<title>module~sourcery_vector_test_description_m</title>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node18"><a xlink:href="../module/sourcery_vector_test_description_m.html" xlink:title="sourcery_vector_test_description_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="617,-394 415,-394 415,-370 617,-370 617,-394"/>
+<text text-anchor="middle" x="516" y="-379.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_vector_test_description_m</text>
+</a>
+</g>
+</g>
+<!-- module~sourcery_m&#45;&gt;module~sourcery_vector_test_description_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge18" class="edge">
+<title>module~sourcery_m&#45;&gt;module~sourcery_vector_test_description_m</title>
+<path fill="none" stroke="#00ff00" stroke-dasharray="5,2" d="M680.25,-314.1C666.62,-326.39 643.86,-345.12 621,-356 611.83,-360.36 601.85,-364.05 591.81,-367.15"/>
+<polygon fill="#00ff00" stroke="#00ff00" points="590.82,-363.79 582.2,-369.94 592.78,-370.51 590.82,-363.79"/>
+</g>
+<!-- module~sourcery_string_m&#45;&gt;assert_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_edge19" class="edge">
-<title>module~sourcery_test_result_m&#45;&gt;module~sourcery_string_m</title>
-<path fill="none" stroke="#ff7500" stroke-dasharray="5,2" d="M270.35,-269.92C260.68,-273.91 250.58,-278.9 242,-284.87 211.1,-306.39 182.98,-340.26 166.82,-361.75"/>
-<polygon fill="#ff7500" stroke="#ff7500" points="163.95,-359.74 160.84,-369.86 169.59,-363.89 163.95,-359.74"/>
-</g>
-<!-- module~sourcery_file_m&#45;&gt;module~sourcery_string_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge20" class="edge">
-<title>module~sourcery_file_m&#45;&gt;module~sourcery_string_m</title>
-<path fill="none" stroke="#ffeb00" stroke-dasharray="5,2" d="M263.8,-452.85C256.38,-450.25 248.85,-447.25 242,-443.87 217.67,-431.87 192.49,-413.84 175.06,-400.31"/>
-<polygon fill="#ffeb00" stroke="#ffeb00" points="177.18,-397.53 167.16,-394.08 172.84,-403.02 177.18,-397.53"/>
+<title>module~sourcery_string_m&#45;&gt;assert_m</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M96.92,-464C88.24,-464 79.4,-464 71.13,-464"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="71.03,-460.5 61.03,-464 71.03,-467.5 71.03,-460.5"/>
 </g>
 <!-- module~sourcery_data_partition_m&#45;&gt;module~sourcery_bin_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge22" class="edge">
+<g id="module~~sourcery_string_s~~UsesGraph_edge21" class="edge">
 <title>module~sourcery_data_partition_m&#45;&gt;module~sourcery_bin_m</title>
-<path fill="none" stroke="#27ff00" stroke-dasharray="5,2" d="M451.67,-353.89C424.48,-359.05 392.95,-365.03 366.5,-370.05"/>
-<polygon fill="#27ff00" stroke="#27ff00" points="365.81,-366.62 356.63,-371.92 367.11,-373.5 365.81,-366.62"/>
+<path fill="none" stroke="#b6ff00" stroke-dasharray="5,2" d="M453.34,-314C425.88,-319.35 393.72,-325.61 366.79,-330.85"/>
+<polygon fill="#b6ff00" stroke="#b6ff00" points="365.89,-327.46 356.74,-332.81 367.22,-334.33 365.89,-327.46"/>
 </g>
 <!-- iso_fortran_env -->
-<g id="module~~sourcery_string_s~~UsesGraph_node18" class="node">
+<g id="module~~sourcery_string_s~~UsesGraph_node19" class="node">
 <title>iso_fortran_env</title>
-<g id="a_module~~sourcery_string_s~~UsesGraph_node18"><a xlink:href="https://gcc.gnu.org/onlinedocs/gfortran/ISO_005fFORTRAN_005fENV.html" xlink:title="iso_fortran_env">
-<polygon fill="#337ab7" stroke="#337ab7" points="355.5,-350.87 261.5,-350.87 261.5,-326.87 355.5,-326.87 355.5,-350.87"/>
-<text text-anchor="middle" x="308.5" y="-336.47" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+<g id="a_module~~sourcery_string_s~~UsesGraph_node19"><a xlink:href="http://fortranwiki.org/fortran/show/iso_fortran_env" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="355.5,-312 261.5,-312 261.5,-288 355.5,-288 355.5,-312"/>
+<text text-anchor="middle" x="308.5" y="-297.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
 </a>
 </g>
 </g>
 <!-- module~sourcery_data_partition_m&#45;&gt;iso_fortran_env -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge21" class="edge">
+<g id="module~~sourcery_string_s~~UsesGraph_edge20" class="edge">
 <title>module~sourcery_data_partition_m&#45;&gt;iso_fortran_env</title>
-<path fill="none" stroke="#27ff00" stroke-dasharray="5,2" d="M438.77,-340.76C414.6,-340.4 388.33,-340.02 365.82,-339.69"/>
-<polygon fill="#27ff00" stroke="#27ff00" points="365.82,-336.19 355.77,-339.55 365.72,-343.19 365.82,-336.19"/>
+<path fill="none" stroke="#b6ff00" stroke-dasharray="5,2" d="M438.77,-301.26C414.6,-301.02 388.33,-300.77 365.82,-300.55"/>
+<polygon fill="#b6ff00" stroke="#b6ff00" points="365.8,-297.05 355.77,-300.45 365.73,-304.05 365.8,-297.05"/>
+</g>
+<!-- module~sourcery_file_m&#45;&gt;module~sourcery_string_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge22" class="edge">
+<title>module~sourcery_file_m&#45;&gt;module~sourcery_string_m</title>
+<path fill="none" stroke="#48ff00" stroke-dasharray="5,2" d="M260.99,-492C244.67,-487.79 226.15,-483.01 209.09,-478.6"/>
+<polygon fill="#48ff00" stroke="#48ff00" points="209.8,-475.17 199.24,-476.06 208.05,-481.95 209.8,-475.17"/>
+</g>
+<!-- module~sourcery_oracle_m&#45;&gt;module~sourcery_object_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge23" class="edge">
+<title>module~sourcery_oracle_m&#45;&gt;module~sourcery_object_m</title>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M459.39,-101.41C433.35,-103.95 402.17,-106.98 375,-109.63"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="374.41,-106.17 364.8,-110.62 375.09,-113.13 374.41,-106.17"/>
 </g>
 <!-- module~sourcery_test_description_m&#45;&gt;module~sourcery_string_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_edge24" class="edge">
 <title>module~sourcery_test_description_m&#45;&gt;module~sourcery_string_m</title>
-<path fill="none" stroke="#00c4ff" stroke-dasharray="5,2" d="M434.41,-293.77C378.77,-292.27 303.95,-295.73 242,-317.87 215.1,-327.48 189.09,-347.7 172.11,-362.86"/>
-<polygon fill="#00c4ff" stroke="#00c4ff" points="169.53,-360.48 164.53,-369.82 174.26,-365.63 169.53,-360.48"/>
+<path fill="none" stroke="#0091ff" stroke-dasharray="5,2" d="M440.65,-491.95C419.47,-488.76 396.36,-485.51 375,-483 321.6,-476.72 260.75,-471.67 216.2,-468.36"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="216.33,-464.86 206.1,-467.61 215.81,-471.84 216.33,-464.86"/>
 </g>
 <!-- module~sourcery_test_description_m&#45;&gt;module~sourcery_test_result_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge23" class="edge">
+<g id="module~~sourcery_string_s~~UsesGraph_edge25" class="edge">
 <title>module~sourcery_test_description_m&#45;&gt;module~sourcery_test_result_m</title>
-<path fill="none" stroke="#00c4ff" stroke-dasharray="5,2" d="M455.32,-287.87C440.81,-284.94 425.35,-281.8 411,-278.87 400.09,-276.64 388.53,-274.26 377.26,-271.94"/>
-<polygon fill="#00c4ff" stroke="#00c4ff" points="377.96,-268.51 367.46,-269.91 376.54,-275.36 377.96,-268.51"/>
+<path fill="none" stroke="#0091ff" stroke-dasharray="5,2" d="M449.18,-491.95C436.17,-488.36 422.88,-483.78 411,-478 392.77,-469.13 392.6,-460.06 375,-450 368.65,-446.37 361.69,-443.01 354.75,-440"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="355.95,-436.71 345.37,-436.12 353.27,-443.18 355.95,-436.71"/>
 </g>
 <!-- module~sourcery_test_m&#45;&gt;module~sourcery_test_result_m -->
-<g id="module~~sourcery_string_s~~UsesGraph_edge25" class="edge">
-<title>module~sourcery_test_m&#45;&gt;module~sourcery_test_result_m</title>
-<path fill="none" stroke="#2700ff" stroke-dasharray="5,2" d="M466.3,-257.87C442.2,-257.87 412.55,-257.87 385.55,-257.87"/>
-<polygon fill="#2700ff" stroke="#2700ff" points="385.35,-254.37 375.35,-257.87 385.35,-261.37 385.35,-254.37"/>
-</g>
-<!-- module~sourcery_oracle_m&#45;&gt;module~sourcery_object_m -->
 <g id="module~~sourcery_string_s~~UsesGraph_edge26" class="edge">
-<title>module~sourcery_oracle_m&#45;&gt;module~sourcery_object_m</title>
-<path fill="none" stroke="#ff0075" stroke-dasharray="5,2" d="M459.39,-422.14C433.35,-422.27 402.17,-422.42 375,-422.55"/>
-<polygon fill="#ff0075" stroke="#ff0075" points="374.78,-419.05 364.8,-422.6 374.82,-426.05 374.78,-419.05"/>
+<title>module~sourcery_test_m&#45;&gt;module~sourcery_test_result_m</title>
+<path fill="none" stroke="#0024ff" stroke-dasharray="5,2" d="M466.3,-424C442.2,-424 412.55,-424 385.55,-424"/>
+<polygon fill="#0024ff" stroke="#0024ff" points="385.35,-420.5 375.35,-424 385.35,-427.5 385.35,-420.5"/>
+</g>
+<!-- module~sourcery_test_result_m&#45;&gt;module~sourcery_string_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge27" class="edge">
+<title>module~sourcery_test_result_m&#45;&gt;module~sourcery_string_m</title>
+<path fill="none" stroke="#4800ff" stroke-dasharray="5,2" d="M260.99,-436C244.67,-440.21 226.15,-444.99 209.09,-449.4"/>
+<polygon fill="#4800ff" stroke="#4800ff" points="208.05,-446.05 199.24,-451.94 209.8,-452.83 208.05,-446.05"/>
+</g>
+<!-- module~sourcery_vector_test_description_m&#45;&gt;assert_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge28" class="edge">
+<title>module~sourcery_vector_test_description_m&#45;&gt;assert_m</title>
+<path fill="none" stroke="#ff006d" stroke-dasharray="5,2" d="M414.85,-378.18C381.24,-378.17 343.64,-379.55 309.5,-384"/>
+<path fill="none" stroke="#ff006d" stroke-dasharray="5,2" d="M307.5,-384C220.82,-395.29 123.51,-428.6 70.72,-448.5"/>
+<polygon fill="#ff006d" stroke="#ff006d" points="69.18,-445.34 61.08,-452.17 71.67,-451.88 69.18,-445.34"/>
+</g>
+<!-- module~sourcery_vector_test_description_m&#45;&gt;module~sourcery_string_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge29" class="edge">
+<title>module~sourcery_vector_test_description_m&#45;&gt;module~sourcery_string_m</title>
+<path fill="none" stroke="#ff006d" stroke-dasharray="5,2" d="M307.5,-384C277.44,-387.92 269.42,-390.08 242,-403 217.59,-414.5 192.42,-432.28 175.01,-445.68"/>
+<polygon fill="#ff006d" stroke="#ff006d" points="172.84,-442.94 167.13,-451.86 177.16,-448.45 172.84,-442.94"/>
+</g>
+<!-- module~sourcery_vector_test_description_m&#45;&gt;module~sourcery_test_result_m -->
+<g id="module~~sourcery_string_s~~UsesGraph_edge30" class="edge">
+<title>module~sourcery_vector_test_description_m&#45;&gt;module~sourcery_test_result_m</title>
+<path fill="none" stroke="#ff006d" stroke-dasharray="5,2" d="M455.32,-394C440.81,-396.93 425.35,-400.07 411,-403 400.09,-405.23 388.53,-407.61 377.26,-409.93"/>
+<polygon fill="#ff006d" stroke="#ff006d" points="376.54,-406.51 367.46,-411.96 377.96,-413.36 376.54,-406.51"/>
 </g>
 </g>
 </svg>
-</div><script>var panmodulesourcery_string_sUsesGraph = svgPanZoom('#modulesourcery_string_sUsesGraph', {zoomEnabled: true,controlIconsEnabled: true, fit: true, center: true,}); </script><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</div>                <script>
+                  var panmodulesourcery_string_sUsesGraph = svgPanZoom('#modulesourcery_string_sUsesGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -549,806 +616,1670 @@
 </g>
 </svg>
 
-    
-    <p>Solid arrows point from a submodule to the (sub)module which it is
-    descended from. Dashed arrows point from a module or program unit to 
-    modules which it uses. Where possible, edges connecting nodes are given different colours to make them easier to distinguish in large graphs.
-    </p>
-    </div></div></div></div>
-      </li>
-      </ul>
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
     </div>
 
-    
-    <br>
-
-    <section class="visible-xs visible-sm hidden-md">
-      <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#modprocs-1">Module Procedures</a></h3></div>
-  <div id="modprocs-1" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-array_of_strings">array_of_strings</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-as_character">as_character</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-assign_character_to_string_t">assign_character_to_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-assign_string_t_to_character">assign_string_t_to_character</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-base_name">base_name</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-character_cat_string_t">character_cat_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-character_eq_string_t">character_eq_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-character_ne_string_t">character_ne_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-concatenate_elements">concatenate_elements</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-construct">construct</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-file_extension">file_extension</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-from_default_integer">from_default_integer</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-from_real">from_real</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_integer">get_json_integer</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_integer_array">get_json_integer_array</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_key">get_json_key</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_logical">get_json_logical</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_real">get_json_real</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_real_array">get_json_real_array</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-get_json_string">get_json_string</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-is_allocated">is_allocated</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_cat_character">string_t_cat_character</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_cat_string_t">string_t_cat_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_eq_character">string_t_eq_character</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_eq_string_t">string_t_eq_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_ne_character">string_t_ne_character</a>
-      <a class="list-group-item" href="../module/sourcery_string_s.html#proc-string_t_ne_string_t">string_t_ne_string_t</a>
-    </div>
-  </div>
-</div>
-
-    </section>
-    <br class="visible-xs visible-sm hidden-md">
+      
+      <br>
 
 
-    
-    
 
-    
-    
 
-    
-    
+
+
+
+
+
 
 
         <section>
-        <h2>Module Procedures</h2>
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-array_of_strings"></span><h3>module procedure <a href='../proc/array_of_strings.html'>array_of_strings</a> <small>pure module module function array_of_strings(delimited_strings, delimiter) result(strings_array)</small>   <a href='../interface/array_of_strings.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+          <h2>Module Procedures</h2>
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-array_of_strings"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/array_of_strings.html'>array_of_strings</a> <small>pure module function array_of_strings(delimited_strings, delimiter) result(strings_array)</small>  
+    <a href="../interface/array_of_strings.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
 </h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>character(len=*),</td>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delimited_strings"></span>
+              character(len=*),
+            </td>
 <td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>delimited_strings</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>character(len=*),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>delimited_strings</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delimiter"></span>
+              character(len=*),
+            </td>
 <td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>delimiter</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>),allocatable, (:)</small></h4>  
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-as_character"></span><h3>module procedure <a href='../proc/as_character.html'>as_character</a> <small>pure module module function as_character(self) result(raw_string)</small>   <a href='../interface/as_character.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>character(len=:),allocatable</small></h4>  
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-assign_character_to_string_t"></span><h3>module procedure <a href='../proc/assign_character_to_string_t.html'>assign_character_to_string_t</a> <small>pure module module subroutine assign_character_to_string_t(lhs, rhs)</small>   <a href='../interface/assign_character_to_string_t.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(inout)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>character(len=*),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-assign_string_t_to_character"></span><h3>module procedure <a href='../proc/assign_string_t_to_character.html'>assign_string_t_to_character</a> <small>pure module module subroutine assign_string_t_to_character(lhs, rhs)</small>   <a href='../interface/assign_string_t_to_character.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>character(len=:),</td>
-<td>intent(out),</td>
-  <td></td>  <td>allocatable</td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-base_name"></span><h3>module procedure <a href='../proc/base_name.html'>base_name</a> <small>pure module module function base_name(self) result(base)</small>   <a href='../interface/base_name.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-character_cat_string_t"></span><h3>module procedure <a href='../proc/character_cat_string_t.html'>character_cat_string_t</a> <small>pure module module function character_cat_string_t(lhs, rhs) result(lhs_cat_rhs)</small>   <a href='../interface/character_cat_string_t.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>character(len=*),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-character_eq_string_t"></span><h3>module procedure <a href='../proc/character_eq_string_t.html'>character_eq_string_t</a> <small>elemental module module function character_eq_string_t(lhs, rhs) result(lhs_eq_rhs)</small>   <a href='../interface/character_eq_string_t.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>character(len=*),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>logical</small></h4>  
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-character_ne_string_t"></span><h3>module procedure <a href='../proc/character_ne_string_t.html'>character_ne_string_t</a> <small>elemental module module function character_ne_string_t(lhs, rhs) result(lhs_ne_rhs)</small>   <a href='../interface/character_ne_string_t.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>character(len=*),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>logical</small></h4>  
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-concatenate_elements"></span><h3>module procedure <a href='../proc/concatenate_elements.html'>concatenate_elements</a> <small>module procedure concatenate_elements()</small></h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <em>None</em>
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-construct"></span><h3>module procedure <a href='../proc/construct.html'>construct</a> <small>module procedure construct()</small></h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <em>None</em>
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-file_extension"></span><h3>module procedure <a href='../proc/file_extension.html'>file_extension</a> <small>elemental module module function file_extension(self) result(extension)</small>   <a href='../interface/file_extension.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-from_default_integer"></span><h3>module procedure <a href='../proc/from_default_integer.html'>from_default_integer</a> <small>module procedure from_default_integer()</small></h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <em>None</em>
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-from_real"></span><h3>module procedure <a href='../proc/from_real.html'>from_real</a> <small>module procedure from_real()</small></h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <em>None</em>
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-get_json_integer"></span><h3>module procedure <a href='../proc/get_json_integer.html'>get_json_integer</a> <small>pure module module function get_json_integer(self, key, mold) result(value_)</small>   <a href='../interface/get_json_integer.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>key</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>integer,</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>mold</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>integer</small></h4>  
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-get_json_integer_array"></span><h3>module procedure <a href='../proc/get_json_integer_array.html'>get_json_integer_array</a> <small>pure module module function get_json_integer_array(self, key, mold) result(value_)</small>   <a href='../interface/get_json_integer_array.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>key</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>integer,</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>mold</strong>(:)</td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>integer,allocatable, (:)</small></h4>  
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-get_json_key"></span><h3>module procedure <a href='../proc/get_json_key.html'>get_json_key</a> <small>elemental module module function get_json_key(self) result(unquoted_key)</small>   <a href='../interface/get_json_key.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-get_json_logical"></span><h3>module procedure <a href='../proc/get_json_logical.html'>get_json_logical</a> <small>elemental module module function get_json_logical(self, key, mold) result(value_)</small>   <a href='../interface/get_json_logical.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>key</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>logical,</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>mold</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>logical</small></h4>  
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-get_json_real"></span><h3>module procedure <a href='../proc/get_json_real.html'>get_json_real</a> <small>pure module module function get_json_real(self, key, mold) result(value_)</small>   <a href='../interface/get_json_real.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>key</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>real,</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>mold</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>real</small></h4>  
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-get_json_real_array"></span><h3>module procedure <a href='../proc/get_json_real_array.html'>get_json_real_array</a> <small>pure module module function get_json_real_array(self, key, mold) result(value_)</small>   <a href='../interface/get_json_real_array.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>key</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>real,</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>mold</strong>(:)</td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>real,allocatable, (:)</small></h4>  
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-get_json_string"></span><h3>module procedure <a href='../proc/get_json_string.html'>get_json_string</a> <small>elemental module module function get_json_string(self, key, mold) result(value_)</small>   <a href='../interface/get_json_string.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>key</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>mold</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-is_allocated"></span><h3>module procedure <a href='../proc/is_allocated.html'>is_allocated</a> <small>elemental module module function is_allocated(self) result(string_allocated)</small>   <a href='../interface/is_allocated.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>logical</small></h4>  
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-string_t_cat_character"></span><h3>module procedure <a href='../proc/string_t_cat_character.html'>string_t_cat_character</a> <small>pure module module function string_t_cat_character(lhs, rhs) result(lhs_cat_rhs)</small>   <a href='../interface/string_t_cat_character.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>character(len=*),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-string_t_cat_string_t"></span><h3>module procedure <a href='../proc/string_t_cat_string_t.html'>string_t_cat_string_t</a> <small>pure module module function string_t_cat_string_t(lhs, rhs) result(lhs_cat_rhs)</small>   <a href='../interface/string_t_cat_string_t.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-string_t_eq_character"></span><h3>module procedure <a href='../proc/string_t_eq_character.html'>string_t_eq_character</a> <small>elemental module module function string_t_eq_character(lhs, rhs) result(lhs_eq_rhs)</small>   <a href='../interface/string_t_eq_character.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>character(len=*),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>logical</small></h4>  
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-string_t_eq_string_t"></span><h3>module procedure <a href='../proc/string_t_eq_string_t.html'>string_t_eq_string_t</a> <small>elemental module module function string_t_eq_string_t(lhs, rhs) result(lhs_eq_rhs)</small>   <a href='../interface/string_t_eq_string_t.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>logical</small></h4>  
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-string_t_ne_character"></span><h3>module procedure <a href='../proc/string_t_ne_character.html'>string_t_ne_character</a> <small>elemental module module function string_t_ne_character(lhs, rhs) result(lhs_ne_rhs)</small>   <a href='../interface/string_t_ne_character.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>character(len=*),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>logical</small></h4>  
-
-  </div>
-  </div>
-
-          <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-string_t_ne_string_t"></span><h3>module procedure <a href='../proc/string_t_ne_string_t.html'>string_t_ne_string_t</a> <small>elemental module module function string_t_ne_string_t(lhs, rhs) result(lhs_ne_rhs)</small>   <a href='../interface/string_t_ne_string_t.html'><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
-</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>logical</small></h4>  
-
-  </div>
-  </div>
-
-        </section>    
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>delimiter</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>), allocatable, (:)</small>
+    </h4>
     
+
     </div>
   </div>
 
-    <hr>    
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-as_character"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/as_character.html'>as_character</a> <small>pure module function as_character(self) result(raw_string)</small>  
+    <a href="../interface/as_character.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~18"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=:), allocatable</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-assign_character_to_string_t"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/assign_character_to_string_t.html'>assign_character_to_string_t</a> <small>pure module subroutine assign_character_to_string_t(lhs, rhs)</small>  
+    <a href="../interface/assign_character_to_string_t.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~14"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~15"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-assign_string_t_to_character"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/assign_string_t_to_character.html'>assign_string_t_to_character</a> <small>pure module subroutine assign_string_t_to_character(lhs, rhs)</small>  
+    <a href="../interface/assign_string_t_to_character.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~15"></span>
+              character(len=:),
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~16"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-base_name"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/base_name.html'>base_name</a> <small>pure module function base_name(self) result(base)</small>  
+    <a href="../interface/base_name.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~22"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-character_cat_string_t"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/character_cat_string_t.html'>character_cat_string_t</a> <small>pure module function character_cat_string_t(lhs, rhs) result(lhs_cat_rhs)</small>  
+    <a href="../interface/character_cat_string_t.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~13"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~14"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-character_eq_string_t"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/character_eq_string_t.html'>character_eq_string_t</a> <small>elemental module function character_eq_string_t(lhs, rhs) result(lhs_eq_rhs)</small>  
+    <a href="../interface/character_eq_string_t.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~7"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~8"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-character_ne_string_t"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/character_ne_string_t.html'>character_ne_string_t</a> <small>elemental module function character_ne_string_t(lhs, rhs) result(lhs_ne_rhs)</small>  
+    <a href="../interface/character_ne_string_t.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~10"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~11"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-concatenate_elements"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/concatenate_elements.html'>concatenate_elements</a> <small>pure module function concatenate_elements(strings) result(concatenated_strings)</small>  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-strings"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>strings</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-construct~4"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/construct~4.html'>construct</a> <small>elemental module function construct(string) result(new_string)</small>  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-string~2"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>string</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-file_extension"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/file_extension.html'>file_extension</a> <small>elemental module function file_extension(self) result(extension)</small>  
+    <a href="../interface/file_extension.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~21"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-from_default_integer"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/from_default_integer.html'>from_default_integer</a> <small>elemental module function from_default_integer(i) result(string)</small>  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~4"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-from_real"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/from_real.html'>from_real</a> <small>elemental module function from_real(x) result(string)</small>  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-get_json_integer"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/get_json_integer.html'>get_json_integer</a> <small>pure module function get_json_integer(self, key, mold) result(value_)</small>  
+    <a href="../interface/get_json_integer.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~25"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-key~3"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>key</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mold~3"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-get_json_integer_array"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/get_json_integer_array.html'>get_json_integer_array</a> <small>pure module function get_json_integer_array(self, key, mold) result(value_)</small>  
+    <a href="../interface/get_json_integer_array.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~27"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-key~5"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>key</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mold~5"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer, allocatable, (:)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-get_json_key"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/get_json_key.html'>get_json_key</a> <small>elemental module function get_json_key(self) result(unquoted_key)</small>  
+    <a href="../interface/get_json_key.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~20"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-get_json_logical"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/get_json_logical.html'>get_json_logical</a> <small>elemental module function get_json_logical(self, key, mold) result(value_)</small>  
+    <a href="../interface/get_json_logical.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~26"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-key~4"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>key</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mold~4"></span>
+              logical,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-get_json_real"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/get_json_real.html'>get_json_real</a> <small>pure module function get_json_real(self, key, mold) result(value_)</small>  
+    <a href="../interface/get_json_real.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~23"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-key"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>key</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mold"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-get_json_real_array"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/get_json_real_array.html'>get_json_real_array</a> <small>pure module function get_json_real_array(self, key, mold) result(value_)</small>  
+    <a href="../interface/get_json_real_array.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~28"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-key~6"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>key</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mold~6"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real, allocatable, (:)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-get_json_string"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/get_json_string.html'>get_json_string</a> <small>elemental module function get_json_string(self, key, mold) result(value_)</small>  
+    <a href="../interface/get_json_string.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~24"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-key~2"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>key</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mold~2"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-is_allocated"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/is_allocated.html'>is_allocated</a> <small>elemental module function is_allocated(self) result(string_allocated)</small>  
+    <a href="../interface/is_allocated.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~19"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-string_t_cat_character"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/string_t_cat_character.html'>string_t_cat_character</a> <small>pure module function string_t_cat_character(lhs, rhs) result(lhs_cat_rhs)</small>  
+    <a href="../interface/string_t_cat_character.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~12"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~13"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-string_t_cat_string_t"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/string_t_cat_string_t.html'>string_t_cat_string_t</a> <small>pure module function string_t_cat_string_t(lhs, rhs) result(lhs_cat_rhs)</small>  
+    <a href="../interface/string_t_cat_string_t.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~11"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~12"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-string_t_eq_character"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/string_t_eq_character.html'>string_t_eq_character</a> <small>elemental module function string_t_eq_character(lhs, rhs) result(lhs_eq_rhs)</small>  
+    <a href="../interface/string_t_eq_character.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~6"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~7"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-string_t_eq_string_t"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/string_t_eq_string_t.html'>string_t_eq_string_t</a> <small>elemental module function string_t_eq_string_t(lhs, rhs) result(lhs_eq_rhs)</small>  
+    <a href="../interface/string_t_eq_string_t.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~5"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~6"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-string_t_ne_character"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/string_t_ne_character.html'>string_t_ne_character</a> <small>elemental module function string_t_ne_character(lhs, rhs) result(lhs_ne_rhs)</small>  
+    <a href="../interface/string_t_ne_character.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~9"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~10"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-string_t_ne_string_t"></span> <h3>module procedure /home/runner/work/sourcery/sourcery/doc/html/module/sourcery_string_s.html <a href='../proc/string_t_ne_string_t.html'>string_t_ne_string_t</a> <small>elemental module function string_t_ne_string_t(lhs, rhs) result(lhs_ne_rhs)</small>  
+    <a href="../interface/string_t_ne_string_t.html"><button type="button" class="btn btn-info depwarn">Interface &rarr;</button></a>
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~8"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~9"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+        </section>
+    </div>
+  </div>
+
+      <hr>
     </div> <!-- /container -->
     <footer>
       <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-md-6"><p> was developed by Damian Rouson<br>&copy; 2024 
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              
+ was developed by Damian Rouson<br>              &copy; 2024 
 </p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-04-23 05:25              </p>
+          </div>
         </div>
-        <div class="col-xs-6 col-md-6">
-          <p class="text-right">
-            Documentation generated by 
-            <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-04-20 03:25            </p>
-        </div>
-      </div>
-      <br>
-      </div> <!-- /container -->    
+        <br>
+      </div> <!-- /container -->
     </footer>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
+    <!-- Bootstrap core JavaScript -->
     <!-- Placed at the end of the document so the pages load faster -->
-<!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
--->
-    <script src="../js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
 
     <!-- MathJax JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-      });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script src="../tipuesearch/tipuesearch_content.js"></script>
-    <script src="../tipuesearch/tipuesearch_set.js"></script>
-    <script src="../tipuesearch/tipuesearch.js"></script>
-    
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
   </body>
 </html>

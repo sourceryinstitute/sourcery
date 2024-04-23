@@ -1,437 +1,497 @@
+<!-- -*- mode: jinja2 -*- -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="description" content="A Fortran 2018 utility library.">
+      <meta name="description" content="A Fortran 2018 utility library.">
     <meta name="author" content="Damian Rouson" >
     <link rel="icon" href="../favicon.png">
 
     <title>sourcery_string_s.f90 &ndash; </title>
 
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
-    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="../js/svg-pan-zoom.min.js"></script>
-
   </head>
 
   <body>
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
           <a class="navbar-brand" href="../index.html"> </a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
-              <a href="#" class="dropdown-toggle"
-              data-toggle="dropdown" role="button"
-              aria-haspopup="true"
-     aria-expanded="false">Contents <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="../lists/files.html">Source Files</a></li>
-            <li><a href="../lists/modules.html">Modules</a></li>
-            <li><a href="../lists/procedures.html">Procedures</a></li>
-            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
-                   <li><a href="../lists/types.html">Derived Types</a></li>
-       
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
             </ul>
-        
-            </li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
-                             <li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
-          </ul>
-        <form action="../search.html" class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
         </div>
-<!--
-        <button type="submit" class="btn btn-default">Submit</button>
--->
-        </form>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+      </nav>
+    </div>
 
     <div class="container">
   <div class="row">
     <h1>sourcery_string_s.f90
-    <small>Source File</small>
+      <small>Source File</small>
+      
     </h1>
-    <div class="row">
-  <div class="col-lg-12">
-<div class="well well-sm">
-  <ul class="list-inline" style="margin-bottom:0px;display:inline">
-     <li><i class="fa fa-list-ol"></i>
-       <a data-toggle="tooltip"
-    data-placement="bottom" data-html="true"
-    title="12.2% of total for source files.">200 statements</a>
-     </li> 
-    <li><i class="fa fa-code"></i><a href="../src/sourcery_string_s.f90"> Source File</a></li>
-  </ul>
-  <ol class="breadcrumb in-well text-right">
-     <li class="active">sourcery_string_s.f90</li>
-  </ol>
-</div>
-</div>
-</div>
-<script>
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="11.7% of total for source files.">200 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/sourcery_string_s.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+            <li class="breadcrumb-item active" aria-current="page">sourcery_string_s.f90</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
 
   </div>
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-    <div id="sidebar">
-  <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#submods-0">Submodules</a></h3></div>
-  <div id="submods-0" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../module/sourcery_string_s.html">sourcery_string_s</a>
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#submods-0"
+         aria-expanded="false" aria-controls="submods-0">
+         <h4 class="card-header bg-primary text-white">Submodules</h4>
+      </a>
+      <div id="submods-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/sourcery_string_s.html">sourcery_string_s</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../sourcefile/sourcery_string_s.f90.html#src">sourcery_string_s.f90</a>
-  </div>
-</div>
 
-</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../sourcefile/sourcery_string_s.f90.html#src">sourcery_string_s.f90</a>
+      </div>
+    </div>
+
+
+  </div>
 
     </div>
     <div class="col-md-9" id='text'>
       
       <br>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-  <h3 class="panel-title">This file depends on</h3>
-      </div>
-      <div class="panel-body">
-  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">This file depends on</h3>
+          </div>
+          <div class="card-body">
+            <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: sourcefile~~sourcery_string_s.f90~~EfferentGraph Pages: 1 -->
-<svg id="sourcefilesourcery_string_sf90EfferentGraph" width="641pt" height="389pt"
- viewBox="0.00 0.00 641.00 388.76" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph" class="graph" transform="scale(1.38 1.38) rotate(0) translate(4 533.95)">
+<svg id="sourcefilesourcery_string_sf90EfferentGraph" width="641pt" height="445pt"
+ viewBox="0.00 0.00 641.00 445.17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph" class="graph" transform="scale(1.38 1.38) rotate(0) translate(4 612.02)">
 <title>sourcefile~~sourcery_string_s.f90~~EfferentGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-533.95 883,-533.95 883,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-612.02 883,-612.02 883,4 -4,4"/>
 <!-- sourcefile~sourcery_string_s.f90 -->
 <g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node1" class="node">
 <title>sourcefile~sourcery_string_s.f90</title>
-<polygon fill="none" stroke="black" points="879,-409 755,-409 755,-385 879,-385 879,-409"/>
-<text text-anchor="middle" x="817" y="-394.6" font-family="Helvetica,sans-Serif" font-size="10.50">sourcery_string_s.f90</text>
-</g>
-<!-- sourcefile~sourcery_string_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node2" class="node">
-<title>sourcefile~sourcery_string_m.f90</title>
-<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node2"><a xlink:href=".././sourcefile/sourcery_string_m.f90.html" xlink:title="sourcery_string_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="130,-282 0,-282 0,-258 130,-258 130,-282"/>
-<text text-anchor="middle" x="65" y="-267.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_string_m.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~sourcery_string_s.f90&#45;&gt;sourcefile~sourcery_string_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge1" class="edge">
-<title>sourcefile~sourcery_string_s.f90&#45;&gt;sourcefile~sourcery_string_m.f90</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M799.2,-409.01C762.62,-434.32 672.14,-492.51 586,-513 486.55,-536.66 456.02,-534.12 356,-513 265.66,-493.92 235.85,-489.38 166,-429 120.62,-389.77 88.82,-324.81 74.52,-291.36"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="77.72,-289.94 70.64,-282.06 71.25,-292.63 77.72,-289.94"/>
+<polygon fill="none" stroke="black" points="879,-183.48 755,-183.48 755,-159.48 879,-159.48 879,-183.48"/>
+<text text-anchor="middle" x="817" y="-169.08" font-family="Helvetica,sans-Serif" font-size="10.50">sourcery_string_s.f90</text>
 </g>
 <!-- sourcefile~sourcery_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node3" class="node">
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node2" class="node">
 <title>sourcefile~sourcery_m.f90</title>
-<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node3"><a xlink:href=".././sourcefile/sourcery_m.f90.html" xlink:title="sourcery_m.F90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="719,-286 622,-286 622,-262 719,-262 719,-286"/>
-<text text-anchor="middle" x="670.5" y="-271.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_m.F90</text>
+<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node2"><a xlink:href="../sourcefile/sourcery_m.f90.html" xlink:title="sourcery_m.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="719,-327.48 622,-327.48 622,-303.48 719,-303.48 719,-327.48"/>
+<text text-anchor="middle" x="670.5" y="-313.08" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_m.F90</text>
 </a>
 </g>
 </g>
 <!-- sourcefile~sourcery_string_s.f90&#45;&gt;sourcefile~sourcery_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge2" class="edge">
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge1" class="edge">
 <title>sourcefile~sourcery_string_s.f90&#45;&gt;sourcefile~sourcery_m.f90</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M801.88,-384.98C776.7,-363.54 723.84,-318.55 693.74,-292.93"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="695.77,-290.07 685.89,-286.25 691.24,-295.4 695.77,-290.07"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M803.68,-183.76C778.62,-208.73 721.52,-265.63 691.23,-295.82"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="688.4,-293.7 683.79,-303.24 693.34,-298.66 688.4,-293.7"/>
+</g>
+<!-- sourcefile~sourcery_string_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node3" class="node">
+<title>sourcefile~sourcery_string_m.f90</title>
+<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node3"><a xlink:href="../sourcefile/sourcery_string_m.f90.html" xlink:title="sourcery_string_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="130,-285.48 0,-285.48 0,-261.48 130,-261.48 130,-285.48"/>
+<text text-anchor="middle" x="65" y="-271.08" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_string_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_string_s.f90&#45;&gt;sourcefile~sourcery_string_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge2" class="edge">
+<title>sourcefile~sourcery_string_s.f90&#45;&gt;sourcefile~sourcery_string_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M798.88,-159.21C727.83,-109.88 450.32,66.76 244,-27.48"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M242,-27.48C145.52,-72.31 91.52,-200.25 73.19,-251.68"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="69.77,-250.84 69.81,-261.44 76.39,-253.13 69.77,-250.84"/>
 </g>
 <!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge4" class="edge">
-<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90</title>
-<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M665.06,-261.78C655.18,-236.48 628.81,-178.43 586,-151 542.75,-123.29 521.57,-145.48 472,-132"/>
-<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M470,-132C421.54,-118.82 290.76,-113.68 244,-132"/>
-</g>
-<!-- sourcefile~sourcery_formats_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node4" class="node">
-<title>sourcefile~sourcery_formats_m.f90</title>
-<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node4"><a xlink:href=".././sourcefile/sourcery_formats_m.f90.html" xlink:title="sourcery_formats_m.F90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="542.5,-432 399.5,-432 399.5,-408 542.5,-408 542.5,-432"/>
-<text text-anchor="middle" x="471" y="-417.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_formats_m.F90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_formats_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge3" class="edge">
-<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_formats_m.f90</title>
-<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M665.08,-286.35C655.24,-311.95 628.95,-370.74 586,-399 575.95,-405.61 564.38,-410.28 552.55,-413.55"/>
-<polygon fill="#00ffff" stroke="#00ffff" points="551.46,-410.22 542.58,-415.99 553.12,-417.02 551.46,-410.22"/>
-</g>
-<!-- sourcefile~sourcery_user_defined_collectives_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node5" class="node">
-<title>sourcefile~sourcery_user_defined_collectives_m.f90</title>
-<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node5"><a xlink:href=".././sourcefile/sourcery_user_defined_collectives_m.f90.html" xlink:title="sourcery_user_defined_collectives_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="586,-390 356,-390 356,-366 586,-366 586,-390"/>
-<text text-anchor="middle" x="471" y="-375.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_user_defined_collectives_m.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_user_defined_collectives_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge6" class="edge">
-<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_user_defined_collectives_m.f90</title>
-<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M661.09,-286.17C647.57,-304.69 619.14,-339.65 586,-357 582.19,-359 578.22,-360.8 574.14,-362.44"/>
-<polygon fill="#00ffff" stroke="#00ffff" points="572.67,-359.26 564.47,-365.97 575.07,-365.83 572.67,-359.26"/>
-</g>
-<!-- sourcefile~sourcery_co_object_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node6" class="node">
-<title>sourcefile~sourcery_co_object_m.f90</title>
-<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node6"><a xlink:href=".././sourcefile/sourcery_co_object_m.f90.html" xlink:title="sourcery_co_object_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="546.5,-348 395.5,-348 395.5,-324 546.5,-324 546.5,-348"/>
-<text text-anchor="middle" x="471" y="-333.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_co_object_m.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_co_object_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge8" class="edge">
-<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_co_object_m.f90</title>
-<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M648.9,-286.1C632.4,-295.3 608.39,-307.6 586,-315 576.61,-318.1 566.63,-320.79 556.63,-323.1"/>
-<polygon fill="#00ffff" stroke="#00ffff" points="555.66,-319.73 546.64,-325.29 557.16,-326.57 555.66,-319.73"/>
-</g>
-<!-- sourcefile~sourcery_test_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node7" class="node">
-<title>sourcefile~sourcery_test_m.f90</title>
-<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node7"><a xlink:href=".././sourcefile/sourcery_test_m.f90.html" xlink:title="sourcery_test_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="530.5,-24 411.5,-24 411.5,0 530.5,0 530.5,-24"/>
-<text text-anchor="middle" x="471" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_m.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_test_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge5" class="edge">
-<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_test_m.f90</title>
-<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M669.09,-261.75C667.09,-222.63 655.3,-99.7 586,-38 573.44,-26.82 557.08,-20.15 540.69,-16.25"/>
-<polygon fill="#00ffff" stroke="#00ffff" points="541.01,-12.74 530.52,-14.16 539.61,-19.6 541.01,-12.74"/>
-</g>
-<!-- sourcefile~sourcery_object_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node8" class="node">
-<title>sourcefile~sourcery_object_m.f90</title>
-<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node8"><a xlink:href=".././sourcefile/sourcery_object_m.f90.html" xlink:title="sourcery_object_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="309.5,-184 176.5,-184 176.5,-160 309.5,-160 309.5,-184"/>
-<text text-anchor="middle" x="243" y="-169.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_object_m.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_object_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge7" class="edge">
-<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_object_m.f90</title>
-<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M470,-132C438.17,-123.34 352.99,-142.61 296.77,-157.31"/>
-<polygon fill="#00ffff" stroke="#00ffff" points="295.75,-153.96 286.98,-159.9 297.54,-160.73 295.75,-153.96"/>
-</g>
-<!-- sourcefile~sourcery_command_line_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node9" class="node">
-<title>sourcefile~sourcery_command_line_m.f90</title>
-<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node9"><a xlink:href=".././sourcefile/sourcery_command_line_m.f90.html" xlink:title="sourcery_command_line_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="560,-226 382,-226 382,-202 560,-202 560,-226"/>
-<text text-anchor="middle" x="471" y="-211.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_command_line_m.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_command_line_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge9" class="edge">
-<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_command_line_m.f90</title>
-<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M642.83,-261.85C626.64,-254.79 605.41,-246.12 586,-240 572.24,-235.66 557.32,-231.73 542.97,-228.31"/>
-<polygon fill="#00ffff" stroke="#00ffff" points="543.67,-224.87 533.13,-226.02 542.08,-231.69 543.67,-224.87"/>
-</g>
-<!-- sourcefile~sourcery_data_partition_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node10" class="node">
-<title>sourcefile~sourcery_data_partition_m.f90</title>
-<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node10"><a xlink:href=".././sourcefile/sourcery_data_partition_m.f90.html" xlink:title="sourcery_data_partition_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="558,-306 384,-306 384,-282 558,-282 558,-306"/>
-<text text-anchor="middle" x="471" y="-291.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_data_partition_m.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_data_partition_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge10" class="edge">
-<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_data_partition_m.f90</title>
-<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M621.94,-278.82C605.69,-280.46 586.88,-282.37 568.19,-284.26"/>
-<polygon fill="#00ffff" stroke="#00ffff" points="567.73,-280.79 558.14,-285.28 568.44,-287.75 567.73,-280.79"/>
-</g>
-<!-- sourcefile~sourcery_file_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node11" class="node">
-<title>sourcefile~sourcery_file_m.f90</title>
-<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node11"><a xlink:href=".././sourcefile/sourcery_file_m.f90.html" xlink:title="sourcery_file_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="301,-420 185,-420 185,-396 301,-396 301,-420"/>
-<text text-anchor="middle" x="243" y="-405.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_file_m.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_file_m.f90 -->
 <g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge11" class="edge">
-<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_file_m.f90</title>
-<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M669.04,-286.02C666.9,-323.17 654.75,-436.44 586,-483 501.36,-540.33 453.81,-512.72 356,-483 320.02,-472.07 285.09,-445.31 264.06,-426.91"/>
-<polygon fill="#00ffff" stroke="#00ffff" points="266.23,-424.15 256.45,-420.07 261.55,-429.36 266.23,-424.15"/>
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M470,-599.48C431.09,-615.49 196.54,-564.93 166,-538.48 91.18,-473.68 72.2,-346.96 67.5,-295.75"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="70.96,-295.17 66.66,-285.48 63.99,-295.74 70.96,-295.17"/>
 </g>
 <!-- sourcefile~sourcery_bin_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node12" class="node">
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node4" class="node">
 <title>sourcefile~sourcery_bin_m.f90</title>
-<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node12"><a xlink:href=".././sourcefile/sourcery_bin_m.f90.html" xlink:title="sourcery_bin_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="301,-286 185,-286 185,-262 301,-262 301,-286"/>
-<text text-anchor="middle" x="243" y="-271.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_bin_m.f90</text>
+<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node4"><a xlink:href="../sourcefile/sourcery_bin_m.f90.html" xlink:title="sourcery_bin_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="301,-529.48 185,-529.48 185,-505.48 301,-505.48 301,-529.48"/>
+<text text-anchor="middle" x="243" y="-515.08" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_bin_m.f90</text>
 </a>
 </g>
 </g>
 <!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_bin_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge12" class="edge">
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge3" class="edge">
 <title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_bin_m.f90</title>
-<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M621.81,-273.33C610.1,-273.19 597.6,-273.07 586,-273 483.78,-272.39 458.22,-272.54 356,-273 341.54,-273.06 326.04,-273.18 311.31,-273.3"/>
-<polygon fill="#00ffff" stroke="#00ffff" points="311.23,-269.8 301.26,-273.39 311.29,-276.8 311.23,-269.8"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M669.78,-327.57C670.05,-369.81 664.83,-511.99 586,-580.48 547.23,-614.17 519.5,-579.94 472,-599.48"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M470,-599.48C395.94,-629.94 305.96,-568.69 265.51,-536.08"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="267.59,-533.27 257.65,-529.6 263.14,-538.67 267.59,-533.27"/>
+</g>
+<!-- sourcefile~sourcery_co_object_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node5" class="node">
+<title>sourcefile~sourcery_co_object_m.f90</title>
+<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node5"><a xlink:href="../sourcefile/sourcery_co_object_m.f90.html" xlink:title="sourcery_co_object_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="546.5,-571.48 395.5,-571.48 395.5,-547.48 546.5,-547.48 546.5,-571.48"/>
+<text text-anchor="middle" x="471" y="-557.08" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_co_object_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_co_object_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge4" class="edge">
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_co_object_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M668.92,-327.72C666.42,-365.66 653.34,-482.07 586,-538.48 577.35,-545.73 567.02,-550.81 556.16,-554.32"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="555.2,-550.96 546.51,-557.02 557.08,-557.7 555.2,-550.96"/>
+</g>
+<!-- sourcefile~sourcery_command_line_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node6" class="node">
+<title>sourcefile~sourcery_command_line_m.f90</title>
+<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node6"><a xlink:href="../sourcefile/sourcery_command_line_m.f90.html" xlink:title="sourcery_command_line_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="560,-529.48 382,-529.48 382,-505.48 560,-505.48 560,-529.48"/>
+<text text-anchor="middle" x="471" y="-515.08" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_command_line_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_command_line_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge5" class="edge">
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_command_line_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M667.79,-327.53C662.44,-360.44 642.85,-452.33 586,-496.48 580.94,-500.41 575.38,-503.69 569.51,-506.41"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="568.02,-503.24 560.08,-510.26 570.66,-509.72 568.02,-503.24"/>
+</g>
+<!-- sourcefile~sourcery_data_partition_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node7" class="node">
+<title>sourcefile~sourcery_data_partition_m.f90</title>
+<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node7"><a xlink:href="../sourcefile/sourcery_data_partition_m.f90.html" xlink:title="sourcery_data_partition_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="558,-487.48 384,-487.48 384,-463.48 558,-463.48 558,-487.48"/>
+<text text-anchor="middle" x="471" y="-473.08" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_data_partition_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_data_partition_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge6" class="edge">
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_data_partition_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M665.53,-327.75C656.24,-354.42 630.43,-417.84 586,-449.48 580.33,-453.52 574.14,-456.94 567.67,-459.84"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="565.98,-456.74 558.01,-463.72 568.59,-463.24 565.98,-456.74"/>
+</g>
+<!-- sourcefile~sourcery_file_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node8" class="node">
+<title>sourcefile~sourcery_file_m.f90</title>
+<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node8"><a xlink:href="../sourcefile/sourcery_file_m.f90.html" xlink:title="sourcery_file_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="301,-418.48 185,-418.48 185,-394.48 301,-394.48 301,-418.48"/>
+<text text-anchor="middle" x="243" y="-404.08" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_file_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_file_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge7" class="edge">
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_file_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M663.86,-327.77C652.73,-350.37 625.52,-397.88 586,-416.48 490.08,-461.63 361.68,-438.97 292.71,-421.1"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="293.54,-417.7 282.98,-418.51 291.74,-424.46 293.54,-417.7"/>
+</g>
+<!-- sourcefile~sourcery_formats_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node9" class="node">
+<title>sourcefile~sourcery_formats_m.f90</title>
+<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node9"><a xlink:href="../sourcefile/sourcery_formats_m.f90.html" xlink:title="sourcery_formats_m.F90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="542.5,-407.48 399.5,-407.48 399.5,-383.48 542.5,-383.48 542.5,-407.48"/>
+<text text-anchor="middle" x="471" y="-393.08" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_formats_m.F90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_formats_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge8" class="edge">
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_formats_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M654.42,-327.58C638.36,-339.87 611.77,-358.61 586,-369.48 575.44,-373.94 563.99,-377.69 552.56,-380.84"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="551.34,-377.54 542.55,-383.45 553.11,-384.31 551.34,-377.54"/>
+</g>
+<!-- sourcefile~sourcery_object_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node10" class="node">
+<title>sourcefile~sourcery_object_m.f90</title>
+<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node10"><a xlink:href="../sourcefile/sourcery_object_m.f90.html" xlink:title="sourcery_object_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="309.5,-347.48 176.5,-347.48 176.5,-323.48 309.5,-323.48 309.5,-347.48"/>
+<text text-anchor="middle" x="243" y="-333.08" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_object_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_object_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge9" class="edge">
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_object_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M629.95,-327.55C616.18,-331.18 600.54,-334.68 586,-336.48 494.88,-347.76 389.04,-345.05 319.53,-341.13"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="319.73,-337.64 309.54,-340.55 319.32,-344.63 319.73,-337.64"/>
+</g>
+<!-- sourcefile~sourcery_oracle_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node11" class="node">
+<title>sourcefile~sourcery_oracle_m.f90</title>
+<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node11"><a xlink:href="../sourcefile/sourcery_oracle_m.f90.html" xlink:title="sourcery_oracle_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="537.5,-327.48 404.5,-327.48 404.5,-303.48 537.5,-303.48 537.5,-327.48"/>
+<text text-anchor="middle" x="471" y="-313.08" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_oracle_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_oracle_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge10" class="edge">
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_oracle_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M621.94,-315.48C599.77,-315.48 572.84,-315.48 547.96,-315.48"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="547.8,-311.98 537.8,-315.48 547.8,-318.98 547.8,-311.98"/>
 </g>
 <!-- sourcefile~sourcery_test_description_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node13" class="node">
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node12" class="node">
 <title>sourcefile~sourcery_test_description_m.f90</title>
-<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node13"><a xlink:href=".././sourcefile/sourcery_test_description_m.f90.html" xlink:title="sourcery_test_description_m.F90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="564,-104 378,-104 378,-80 564,-80 564,-104"/>
-<text text-anchor="middle" x="471" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_description_m.F90</text>
+<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node12"><a xlink:href="../sourcefile/sourcery_test_description_m.f90.html" xlink:title="sourcery_test_description_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="563,-285.48 379,-285.48 379,-261.48 563,-261.48 563,-285.48"/>
+<text text-anchor="middle" x="471" y="-271.08" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_description_m.f90</text>
 </a>
 </g>
 </g>
 <!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_test_description_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge13" class="edge">
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge12" class="edge">
 <title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_test_description_m.f90</title>
-<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M666.62,-261.57C659.03,-231.76 635.58,-155.83 586,-118 580.97,-114.16 575.47,-110.87 569.7,-108.06"/>
-<polygon fill="#00ffff" stroke="#00ffff" points="570.99,-104.8 560.43,-104.01 568.19,-111.22 570.99,-104.8"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M623.69,-303.4C611.48,-300.33 598.27,-297.15 586,-294.48 574.82,-292.05 562.99,-289.66 551.34,-287.42"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="551.65,-283.91 541.17,-285.49 550.34,-290.79 551.65,-283.91"/>
+</g>
+<!-- sourcefile~sourcery_test_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node13" class="node">
+<title>sourcefile~sourcery_test_m.f90</title>
+<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node13"><a xlink:href="../sourcefile/sourcery_test_m.f90.html" xlink:title="sourcery_test_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="530.5,-243.48 411.5,-243.48 411.5,-219.48 530.5,-219.48 530.5,-243.48"/>
+<text text-anchor="middle" x="471" y="-229.08" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_test_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge13" class="edge">
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_test_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M657.4,-303.39C642.13,-288.89 614.43,-264.98 586,-252.48 571.87,-246.27 555.97,-241.89 540.64,-238.81"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="541.14,-235.34 530.67,-236.97 539.86,-242.23 541.14,-235.34"/>
 </g>
 <!-- sourcefile~sourcery_test_result_m.f90 -->
 <g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node14" class="node">
 <title>sourcefile~sourcery_test_result_m.f90</title>
-<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node14"><a xlink:href=".././sourcefile/sourcery_test_result_m.f90.html" xlink:title="sourcery_test_result_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="320,-84 166,-84 166,-60 320,-60 320,-84"/>
-<text text-anchor="middle" x="243" y="-69.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_result_m.f90</text>
+<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node14"><a xlink:href="../sourcefile/sourcery_test_result_m.f90.html" xlink:title="sourcery_test_result_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="320,-243.48 166,-243.48 166,-219.48 320,-219.48 320,-243.48"/>
+<text text-anchor="middle" x="243" y="-229.08" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_result_m.f90</text>
 </a>
 </g>
 </g>
 <!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90 -->
 <g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge14" class="edge">
 <title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90</title>
-<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M668.88,-261.8C666.27,-225.16 652.96,-115.86 586,-71 495.73,-10.52 359.76,-37.02 289.55,-57.05"/>
-<polygon fill="#00ffff" stroke="#00ffff" points="288.29,-53.77 279.68,-59.95 290.26,-60.49 288.29,-53.77"/>
-</g>
-<!-- sourcefile~sourcery_oracle_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node15" class="node">
-<title>sourcefile~sourcery_oracle_m.f90</title>
-<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node15"><a xlink:href=".././sourcefile/sourcery_oracle_m.f90.html" xlink:title="sourcery_oracle_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="537.5,-184 404.5,-184 404.5,-160 537.5,-160 537.5,-184"/>
-<text text-anchor="middle" x="471" y="-169.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_oracle_m.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_oracle_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge15" class="edge">
-<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_oracle_m.f90</title>
-<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M660.79,-261.83C647.09,-243.68 618.67,-209.85 586,-193 574.24,-186.94 561,-182.6 547.82,-179.51"/>
-<polygon fill="#00ffff" stroke="#00ffff" points="548.29,-176.03 537.78,-177.38 546.83,-182.88 548.29,-176.03"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M664.34,-303.44C653.66,-280.29 626.7,-230.11 586,-210.48 487.39,-162.91 353.79,-194.6 286.49,-216.16"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="285.07,-212.95 276.66,-219.39 287.26,-219.6 285.07,-212.95"/>
 </g>
 <!-- sourcefile~sourcery_units_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node16" class="node">
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node15" class="node">
 <title>sourcefile~sourcery_units_m.f90</title>
-<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node16"><a xlink:href=".././sourcefile/sourcery_units_m.f90.html" xlink:title="sourcery_units_m.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="533.5,-474 408.5,-474 408.5,-450 533.5,-450 533.5,-474"/>
-<text text-anchor="middle" x="471" y="-459.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_units_m.f90</text>
+<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node15"><a xlink:href="../sourcefile/sourcery_units_m.f90.html" xlink:title="sourcery_units_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="533.5,-163.48 408.5,-163.48 408.5,-139.48 533.5,-139.48 533.5,-163.48"/>
+<text text-anchor="middle" x="471" y="-149.08" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_units_m.f90</text>
 </a>
 </g>
 </g>
 <!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_units_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge16" class="edge">
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge15" class="edge">
 <title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_units_m.f90</title>
-<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M667.3,-286.03C660.92,-317.19 639.37,-400.87 586,-441 573.73,-450.23 558.65,-455.82 543.52,-459.12"/>
-<polygon fill="#00ffff" stroke="#00ffff" points="542.79,-455.7 533.6,-460.98 544.08,-462.58 542.79,-455.7"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M665.78,-303.27C656.83,-276.05 631.4,-210.27 586,-177.48 573.58,-168.51 558.58,-162.57 543.59,-158.65"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="544.31,-155.23 533.77,-156.36 542.71,-162.04 544.31,-155.23"/>
 </g>
-<!-- sourcefile~sourcery_test_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90 -->
+<!-- sourcefile~sourcery_user_defined_collectives_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node16" class="node">
+<title>sourcefile~sourcery_user_defined_collectives_m.f90</title>
+<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node16"><a xlink:href="../sourcefile/sourcery_user_defined_collectives_m.f90.html" xlink:title="sourcery_user_defined_collectives_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="586,-121.48 356,-121.48 356,-97.48 586,-97.48 586,-121.48"/>
+<text text-anchor="middle" x="471" y="-107.08" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_user_defined_collectives_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_user_defined_collectives_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge16" class="edge">
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_user_defined_collectives_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M667.88,-303.18C662.76,-269.56 643.7,-175.68 586,-130.48 584.2,-129.07 582.33,-127.74 580.41,-126.49"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="582.07,-123.41 571.65,-121.51 578.61,-129.5 582.07,-123.41"/>
+</g>
+<!-- sourcefile~sourcery_vector_test_description_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_node17" class="node">
+<title>sourcefile~sourcery_vector_test_description_m.f90</title>
+<g id="a_sourcefile~~sourcery_string_s.f90~~EfferentGraph_node17"><a xlink:href="../sourcefile/sourcery_vector_test_description_m.f90.html" xlink:title="sourcery_vector_test_description_m.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="582.5,-79.48 359.5,-79.48 359.5,-55.48 582.5,-55.48 582.5,-79.48"/>
+<text text-anchor="middle" x="471" y="-65.08" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_vector_test_description_m.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_vector_test_description_m.f90 -->
 <g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge17" class="edge">
-<title>sourcefile~sourcery_test_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90</title>
-<path fill="none" stroke="#9cff00" stroke-dasharray="5,2" d="M413.56,-24.04C395.14,-28.2 374.64,-33.05 356,-38 334.58,-43.69 311.08,-50.7 291.16,-56.88"/>
-<polygon fill="#9cff00" stroke="#9cff00" points="289.9,-53.6 281.4,-59.93 291.99,-60.28 289.9,-53.6"/>
+<title>sourcefile~sourcery_m.f90&#45;&gt;sourcefile~sourcery_vector_test_description_m.f90</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M669.01,-303.3C666.78,-264.99 654.39,-146.12 586,-88.48 584.6,-87.3 583.15,-86.18 581.67,-85.11"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="583.1,-81.88 572.76,-79.57 579.4,-87.82 583.1,-81.88"/>
 </g>
 <!-- sourcefile~sourcery_data_partition_m.f90&#45;&gt;sourcefile~sourcery_bin_m.f90 -->
 <g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge18" class="edge">
 <title>sourcefile~sourcery_data_partition_m.f90&#45;&gt;sourcefile~sourcery_bin_m.f90</title>
-<path fill="none" stroke="#00ffc4" stroke-dasharray="5,2" d="M383.91,-286.38C359.9,-284.26 334.16,-281.98 311.39,-279.96"/>
-<polygon fill="#00ffc4" stroke="#00ffc4" points="311.43,-276.45 301.16,-279.06 310.81,-283.43 311.43,-276.45"/>
+<path fill="none" stroke="#b6ff00" stroke-dasharray="5,2" d="M404.59,-487.49C388.68,-490.42 371.73,-493.56 356,-496.48 341.54,-499.17 326.03,-502.07 311.31,-504.83"/>
+<polygon fill="#b6ff00" stroke="#b6ff00" points="310.44,-501.43 301.26,-506.71 311.73,-508.31 310.44,-501.43"/>
 </g>
 <!-- sourcefile~sourcery_file_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90 -->
 <g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge19" class="edge">
 <title>sourcefile~sourcery_file_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90</title>
-<path fill="none" stroke="#00c4ff" stroke-dasharray="5,2" d="M226.69,-395.99C195.87,-371.83 126.19,-317.19 89.54,-288.46"/>
-<polygon fill="#00c4ff" stroke="#00c4ff" points="91.43,-285.49 81.4,-282.08 87.11,-291 91.43,-285.49"/>
-</g>
-<!-- sourcefile~sourcery_test_description_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge20" class="edge">
-<title>sourcefile~sourcery_test_description_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90</title>
-<path fill="none" stroke="#2700ff" stroke-dasharray="5,2" d="M377.85,-99.93C335.95,-105.64 286.39,-115.39 244,-132"/>
-<path fill="none" stroke="#2700ff" stroke-dasharray="5,2" d="M242,-132C209.58,-144.7 195.53,-132.55 166,-151 126.08,-175.94 94.13,-222.14 77.83,-249.05"/>
-<polygon fill="#2700ff" stroke="#2700ff" points="74.79,-247.31 72.73,-257.7 80.82,-250.87 74.79,-247.31"/>
-</g>
-<!-- sourcefile~sourcery_test_description_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge21" class="edge">
-<title>sourcefile~sourcery_test_description_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90</title>
-<path fill="none" stroke="#2700ff" stroke-dasharray="5,2" d="M377.75,-83.84C362.03,-82.45 345.76,-81.01 330.2,-79.63"/>
-<polygon fill="#2700ff" stroke="#2700ff" points="330.37,-76.13 320.1,-78.73 329.75,-83.1 330.37,-76.13"/>
-</g>
-<!-- sourcefile~sourcery_test_result_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge22" class="edge">
-<title>sourcefile~sourcery_test_result_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90</title>
-<path fill="none" stroke="#9c00ff" stroke-dasharray="5,2" d="M215.74,-84.17C200.11,-92.27 180.55,-103.98 166,-118 124.94,-157.54 92.07,-216.87 76.26,-248.44"/>
-<polygon fill="#9c00ff" stroke="#9c00ff" points="73,-247.13 71.73,-257.65 79.28,-250.22 73,-247.13"/>
+<path fill="none" stroke="#48ff00" stroke-dasharray="5,2" d="M222.23,-394.32C206.65,-384.54 184.53,-370.2 166,-356.48 137.79,-335.6 106.94,-309.44 87.07,-292.14"/>
+<polygon fill="#48ff00" stroke="#48ff00" points="89.35,-289.48 79.52,-285.53 84.74,-294.75 89.35,-289.48"/>
 </g>
 <!-- sourcefile~sourcery_oracle_m.f90&#45;&gt;sourcefile~sourcery_object_m.f90 -->
-<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge23" class="edge">
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge20" class="edge">
 <title>sourcefile~sourcery_oracle_m.f90&#45;&gt;sourcefile~sourcery_object_m.f90</title>
-<path fill="none" stroke="#ff00eb" stroke-dasharray="5,2" d="M404.33,-172C377.98,-172 347.44,-172 320.13,-172"/>
-<polygon fill="#ff00eb" stroke="#ff00eb" points="319.84,-168.5 309.84,-172 319.84,-175.5 319.84,-168.5"/>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M404.33,-321.29C377.98,-323.62 347.44,-326.33 320.13,-328.74"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="319.49,-325.29 309.84,-329.66 320.11,-332.26 319.49,-325.29"/>
+</g>
+<!-- sourcefile~sourcery_test_description_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge21" class="edge">
+<title>sourcefile~sourcery_test_description_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90</title>
+<path fill="none" stroke="#0091ff" stroke-dasharray="5,2" d="M378.83,-273.48C306.78,-273.48 207.47,-273.48 140.23,-273.48"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="140.13,-269.98 130.13,-273.48 140.13,-276.98 140.13,-269.98"/>
+</g>
+<!-- sourcefile~sourcery_test_description_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge22" class="edge">
+<title>sourcefile~sourcery_test_description_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90</title>
+<path fill="none" stroke="#0091ff" stroke-dasharray="5,2" d="M404.59,-261.47C388.68,-258.54 371.73,-255.4 356,-252.48 343.72,-250.2 330.69,-247.77 318.02,-245.39"/>
+<polygon fill="#0091ff" stroke="#0091ff" points="318.43,-241.91 307.96,-243.51 317.14,-248.79 318.43,-241.91"/>
+</g>
+<!-- sourcefile~sourcery_test_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge23" class="edge">
+<title>sourcefile~sourcery_test_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90</title>
+<path fill="none" stroke="#0024ff" stroke-dasharray="5,2" d="M411.21,-231.48C386.63,-231.48 357.55,-231.48 330.6,-231.48"/>
+<polygon fill="#0024ff" stroke="#0024ff" points="330.39,-227.98 320.39,-231.48 330.39,-234.98 330.39,-227.98"/>
+</g>
+<!-- sourcefile~sourcery_test_result_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge24" class="edge">
+<title>sourcefile~sourcery_test_result_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90</title>
+<path fill="none" stroke="#4800ff" stroke-dasharray="5,2" d="M191.57,-243.52C171.22,-248.37 147.58,-254.01 126.33,-259.08"/>
+<polygon fill="#4800ff" stroke="#4800ff" points="125.36,-255.72 116.44,-261.44 126.98,-262.53 125.36,-255.72"/>
+</g>
+<!-- sourcefile~sourcery_vector_test_description_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge25" class="edge">
+<title>sourcefile~sourcery_vector_test_description_m.f90&#45;&gt;sourcefile~sourcery_string_m.f90</title>
+<path fill="none" stroke="#ff006d" stroke-dasharray="5,2" d="M419.61,-55.46C357.94,-41.23 259.72,-20.3 244,-27.48"/>
+</g>
+<!-- sourcefile~sourcery_vector_test_description_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90 -->
+<g id="sourcefile~~sourcery_string_s.f90~~EfferentGraph_edge26" class="edge">
+<title>sourcefile~sourcery_vector_test_description_m.f90&#45;&gt;sourcefile~sourcery_test_result_m.f90</title>
+<path fill="none" stroke="#ff006d" stroke-dasharray="5,2" d="M374.42,-79.59C367.98,-82.05 361.77,-84.99 356,-88.48 306.83,-118.24 270.9,-178.12 254.28,-210.14"/>
+<polygon fill="#ff006d" stroke="#ff006d" points="250.95,-208.97 249.57,-219.48 257.2,-212.13 250.95,-208.97"/>
 </g>
 </g>
 </svg>
-</div><script>var pansourcefilesourcery_string_sf90EfferentGraph = svgPanZoom('#sourcefilesourcery_string_sf90EfferentGraph', {zoomEnabled: true,controlIconsEnabled: true, fit: true, center: true,}); </script><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</div>                <script>
+                  var pansourcefilesourcery_string_sf90EfferentGraph = svgPanZoom('#sourcefilesourcery_string_sf90EfferentGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#EfferentGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="EfferentGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -457,174 +517,157 @@
 </g>
 </svg>
 
-    
-    <p>Solid arrows point from a file to a file which it depends on. A file
-    is dependent upon another if the latter must be compiled before the former
-    can be. Where possible, edges connecting nodes are given different colours to make them easier to distinguish in large graphs.
-    </p>
-    </div></div></div></div>
-      </div>
-    </div>
+<p>Solid arrows point from a file to a file which it depends on. A file
+is dependent upon another if the latter must be compiled before the former
+can be.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
 <br>
-    <section class="visible-xs visible-sm hidden-md">
-      <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#submods-1">Submodules</a></h3></div>
-  <div id="submods-1" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../module/sourcery_string_s.html">sourcery_string_s</a>
-    </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../sourcefile/sourcery_string_s.f90.html#src">sourcery_string_s.f90</a>
-  </div>
-</div>
-
-    </section>
-    <br class="visible-xs visible-sm hidden-md">
-
-    <section>
-      <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="k">submodule</span><span class="p">(</span><span class="n">sourcery_string_m</span><span class="p">)</span><span class="w"> </span><span class="n">sourcery_string_s</span><span class="w"></span>
-<a id="ln-2" name="ln-2" href="#ln-2"></a><span class="w">  </span><span class="k">use </span><span class="n">assert_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">assert</span><span class="w"></span>
-<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">csv</span><span class="w"></span>
+      <section>
+        <h2><span class="anchor" id="src"></span>Source Code</h2>
+        <div class="hl codehilite"><pre><span></span><a id="ln-1" name="ln-1" href="#ln-1"></a><span class="k">submodule</span><span class="p">(</span><span class="n">sourcery_string_m</span><span class="p">)</span><span class="w"> </span><span class="n">sourcery_string_s</span>
+<a id="ln-2" name="ln-2" href="#ln-2"></a><span class="w">  </span><span class="k">use </span><span class="n">assert_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">assert</span>
+<a id="ln-3" name="ln-3" href="#ln-3"></a><span class="w">  </span><span class="k">use </span><span class="n">sourcery_m</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">csv</span>
 <a id="ln-4" name="ln-4" href="#ln-4"></a><span class="w">  </span><span class="k">implicit none</span>
 <a id="ln-5" name="ln-5" href="#ln-5"></a><span class="k">  </span>
 <a id="ln-6" name="ln-6" href="#ln-6"></a><span class="k">contains</span>
 <a id="ln-7" name="ln-7" href="#ln-7"></a>
-<a id="ln-8" name="ln-8" href="#ln-8"></a><span class="k">  module procedure </span><span class="n">construct</span><span class="w"></span>
-<a id="ln-9" name="ln-9" href="#ln-9"></a><span class="w">    </span><span class="n">new_string</span><span class="p">%</span><span class="n">string_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string</span><span class="w"></span>
+<a id="ln-8" name="ln-8" href="#ln-8"></a><span class="k">  module procedure </span><span class="n">construct</span>
+<a id="ln-9" name="ln-9" href="#ln-9"></a><span class="w">    </span><span class="n">new_string</span><span class="p">%</span><span class="n">string_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string</span>
 <a id="ln-10" name="ln-10" href="#ln-10"></a><span class="w">  </span><span class="k">end procedure</span>
 <a id="ln-11" name="ln-11" href="#ln-11"></a>
-<a id="ln-12" name="ln-12" href="#ln-12"></a><span class="k">  module procedure </span><span class="n">as_character</span><span class="w"></span>
-<a id="ln-13" name="ln-13" href="#ln-13"></a><span class="w">    </span><span class="n">raw_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">%</span><span class="n">string_</span><span class="w"></span>
+<a id="ln-12" name="ln-12" href="#ln-12"></a><span class="k">  module procedure </span><span class="n">as_character</span>
+<a id="ln-13" name="ln-13" href="#ln-13"></a><span class="w">    </span><span class="n">raw_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">%</span><span class="n">string_</span>
 <a id="ln-14" name="ln-14" href="#ln-14"></a><span class="w">  </span><span class="k">end procedure</span>
 <a id="ln-15" name="ln-15" href="#ln-15"></a>
-<a id="ln-16" name="ln-16" href="#ln-16"></a><span class="k">  module procedure </span><span class="n">is_allocated</span><span class="w"></span>
-<a id="ln-17" name="ln-17" href="#ln-17"></a><span class="w">    </span><span class="n">string_allocated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">allocated</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">string_</span><span class="p">)</span><span class="w"></span>
+<a id="ln-16" name="ln-16" href="#ln-16"></a><span class="k">  module procedure </span><span class="n">is_allocated</span>
+<a id="ln-17" name="ln-17" href="#ln-17"></a><span class="w">    </span><span class="n">string_allocated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">allocated</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">string_</span><span class="p">)</span>
 <a id="ln-18" name="ln-18" href="#ln-18"></a><span class="w">  </span><span class="k">end procedure</span>
 <a id="ln-19" name="ln-19" href="#ln-19"></a>
-<a id="ln-20" name="ln-20" href="#ln-20"></a><span class="k">  module procedure </span><span class="n">from_default_integer</span><span class="w"></span>
-<a id="ln-21" name="ln-21" href="#ln-21"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">sign_width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">digits_width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<a id="ln-22" name="ln-22" href="#ln-22"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">digits_width</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sign_width</span><span class="p">)</span><span class="w"> </span><span class="n">characters</span><span class="w"></span>
-<a id="ln-23" name="ln-23" href="#ln-23"></a><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">characters</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;(i0)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
-<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_t</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span><span class="w"></span>
+<a id="ln-20" name="ln-20" href="#ln-20"></a><span class="k">  module procedure </span><span class="n">from_default_integer</span>
+<a id="ln-21" name="ln-21" href="#ln-21"></a><span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">sign_width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">digits_width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<a id="ln-22" name="ln-22" href="#ln-22"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">digits_width</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sign_width</span><span class="p">)</span><span class="w"> </span><span class="n">characters</span>
+<a id="ln-23" name="ln-23" href="#ln-23"></a><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">characters</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;(i0)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">i</span>
+<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_t</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span>
 <a id="ln-25" name="ln-25" href="#ln-25"></a><span class="w">  </span><span class="k">end procedure</span>
 <a id="ln-26" name="ln-26" href="#ln-26"></a>
-<a id="ln-27" name="ln-27" href="#ln-27"></a><span class="k">  module procedure </span><span class="n">from_real</span><span class="w"></span>
-<a id="ln-28" name="ln-28" href="#ln-28"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="n">characters</span><span class="w"></span>
-<a id="ln-29" name="ln-29" href="#ln-29"></a><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">characters</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;(g0)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
-<a id="ln-30" name="ln-30" href="#ln-30"></a><span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_t</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span><span class="w"></span>
+<a id="ln-27" name="ln-27" href="#ln-27"></a><span class="k">  module procedure </span><span class="n">from_real</span>
+<a id="ln-28" name="ln-28" href="#ln-28"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="n">characters</span>
+<a id="ln-29" name="ln-29" href="#ln-29"></a><span class="w">    </span><span class="k">write</span><span class="p">(</span><span class="n">characters</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;(g0)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">x</span>
+<a id="ln-30" name="ln-30" href="#ln-30"></a><span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_t</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span>
 <a id="ln-31" name="ln-31" href="#ln-31"></a><span class="w">  </span><span class="k">end procedure</span>
 <a id="ln-32" name="ln-32" href="#ln-32"></a>
-<a id="ln-33" name="ln-33" href="#ln-33"></a><span class="k">  module procedure </span><span class="n">concatenate_elements</span><span class="w"></span>
+<a id="ln-33" name="ln-33" href="#ln-33"></a><span class="k">  module procedure </span><span class="n">concatenate_elements</span>
 <a id="ln-34" name="ln-34" href="#ln-34"></a><span class="w">    </span><span class="kt">integer </span><span class="n">s</span><span class="w"> </span>
 <a id="ln-35" name="ln-35" href="#ln-35"></a>
-<a id="ln-36" name="ln-36" href="#ln-36"></a><span class="w">    </span><span class="n">concatenated_strings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
-<a id="ln-37" name="ln-37" href="#ln-37"></a><span class="w">    </span><span class="k">do </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">strings</span><span class="p">)</span><span class="w"></span>
-<a id="ln-38" name="ln-38" href="#ln-38"></a><span class="w">      </span><span class="n">concatenated_strings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">concatenated_strings</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">strings</span><span class="p">(</span><span class="n">s</span><span class="p">)%</span><span class="n">string</span><span class="p">()</span><span class="w"></span>
+<a id="ln-36" name="ln-36" href="#ln-36"></a><span class="w">    </span><span class="n">concatenated_strings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<a id="ln-37" name="ln-37" href="#ln-37"></a><span class="w">    </span><span class="k">do </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">strings</span><span class="p">)</span>
+<a id="ln-38" name="ln-38" href="#ln-38"></a><span class="w">      </span><span class="n">concatenated_strings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">concatenated_strings</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">strings</span><span class="p">(</span><span class="n">s</span><span class="p">)%</span><span class="n">string</span><span class="p">()</span>
 <a id="ln-39" name="ln-39" href="#ln-39"></a><span class="w">    </span><span class="k">end do</span>
 <a id="ln-40" name="ln-40" href="#ln-40"></a><span class="k">  end procedure</span>
 <a id="ln-41" name="ln-41" href="#ln-41"></a>
-<a id="ln-42" name="ln-42" href="#ln-42"></a><span class="k">  module procedure </span><span class="n">array_of_strings</span><span class="w"></span>
-<a id="ln-43" name="ln-43" href="#ln-43"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">remainder</span><span class="p">,</span><span class="w"> </span><span class="n">next_string</span><span class="w"></span>
-<a id="ln-44" name="ln-44" href="#ln-44"></a><span class="w">    </span><span class="kt">integer </span><span class="n">next_delimiter</span><span class="p">,</span><span class="w"> </span><span class="n">string_end</span><span class="w"></span>
+<a id="ln-42" name="ln-42" href="#ln-42"></a><span class="k">  module procedure </span><span class="n">array_of_strings</span>
+<a id="ln-43" name="ln-43" href="#ln-43"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">remainder</span><span class="p">,</span><span class="w"> </span><span class="n">next_string</span>
+<a id="ln-44" name="ln-44" href="#ln-44"></a><span class="w">    </span><span class="kt">integer </span><span class="n">next_delimiter</span><span class="p">,</span><span class="w"> </span><span class="n">string_end</span>
 <a id="ln-45" name="ln-45" href="#ln-45"></a>
-<a id="ln-46" name="ln-46" href="#ln-46"></a><span class="w">    </span><span class="n">remainder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">delimited_strings</span><span class="p">))</span><span class="w"></span>
-<a id="ln-47" name="ln-47" href="#ln-47"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">strings_array</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="w"></span>
+<a id="ln-46" name="ln-46" href="#ln-46"></a><span class="w">    </span><span class="n">remainder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">delimited_strings</span><span class="p">))</span>
+<a id="ln-47" name="ln-47" href="#ln-47"></a><span class="w">    </span><span class="k">allocate</span><span class="p">(</span><span class="n">strings_array</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 <a id="ln-48" name="ln-48" href="#ln-48"></a>
 <a id="ln-49" name="ln-49" href="#ln-49"></a><span class="w">    </span><span class="k">do  </span>
-<a id="ln-50" name="ln-50" href="#ln-50"></a><span class="k">      </span><span class="n">next_delimiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">remainder</span><span class="p">,</span><span class="w"> </span><span class="n">delimiter</span><span class="p">)</span><span class="w"></span>
-<a id="ln-51" name="ln-51" href="#ln-51"></a><span class="w">      </span><span class="n">string_end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">merge</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">remainder</span><span class="p">),</span><span class="w"> </span><span class="n">next_delimiter</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">next_delimiter</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
-<a id="ln-52" name="ln-52" href="#ln-52"></a><span class="w">      </span><span class="n">next_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">remainder</span><span class="p">(:</span><span class="n">string_end</span><span class="p">)))</span><span class="w"></span>
+<a id="ln-50" name="ln-50" href="#ln-50"></a><span class="k">      </span><span class="n">next_delimiter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">remainder</span><span class="p">,</span><span class="w"> </span><span class="n">delimiter</span><span class="p">)</span>
+<a id="ln-51" name="ln-51" href="#ln-51"></a><span class="w">      </span><span class="n">string_end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">merge</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">remainder</span><span class="p">),</span><span class="w"> </span><span class="n">next_delimiter</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">next_delimiter</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+<a id="ln-52" name="ln-52" href="#ln-52"></a><span class="w">      </span><span class="n">next_string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">remainder</span><span class="p">(:</span><span class="n">string_end</span><span class="p">)))</span>
 <a id="ln-53" name="ln-53" href="#ln-53"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">next_string</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">exit</span>
-<a id="ln-54" name="ln-54" href="#ln-54"></a><span class="k">      </span><span class="n">strings_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">strings_array</span><span class="p">,</span><span class="w"> </span><span class="n">string_t</span><span class="p">(</span><span class="n">next_string</span><span class="p">)]</span><span class="w"></span>
+<a id="ln-54" name="ln-54" href="#ln-54"></a><span class="k">      </span><span class="n">strings_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">strings_array</span><span class="p">,</span><span class="w"> </span><span class="n">string_t</span><span class="p">(</span><span class="n">next_string</span><span class="p">)]</span>
 <a id="ln-55" name="ln-55" href="#ln-55"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">next_delimiter</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<a id="ln-56" name="ln-56" href="#ln-56"></a><span class="k">        </span><span class="n">remainder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
+<a id="ln-56" name="ln-56" href="#ln-56"></a><span class="k">        </span><span class="n">remainder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
 <a id="ln-57" name="ln-57" href="#ln-57"></a><span class="w">      </span><span class="k">else</span>
-<a id="ln-58" name="ln-58" href="#ln-58"></a><span class="k">        </span><span class="n">remainder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">remainder</span><span class="p">(</span><span class="n">next_delimiter</span><span class="o">+</span><span class="mi">1</span><span class="p">:)))</span><span class="w"></span>
+<a id="ln-58" name="ln-58" href="#ln-58"></a><span class="k">        </span><span class="n">remainder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">remainder</span><span class="p">(</span><span class="n">next_delimiter</span><span class="o">+</span><span class="mi">1</span><span class="p">:)))</span>
 <a id="ln-59" name="ln-59" href="#ln-59"></a><span class="w">      </span><span class="k">end if</span>
 <a id="ln-60" name="ln-60" href="#ln-60"></a><span class="k">    end do</span>
 <a id="ln-61" name="ln-61" href="#ln-61"></a>
 <a id="ln-62" name="ln-62" href="#ln-62"></a><span class="k">  end procedure</span>
 <a id="ln-63" name="ln-63" href="#ln-63"></a>
-<a id="ln-64" name="ln-64" href="#ln-64"></a><span class="k">  module procedure </span><span class="n">get_json_key</span><span class="w"></span>
-<a id="ln-65" name="ln-65" href="#ln-65"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">raw_line</span><span class="w"></span>
+<a id="ln-64" name="ln-64" href="#ln-64"></a><span class="k">  module procedure </span><span class="n">get_json_key</span>
+<a id="ln-65" name="ln-65" href="#ln-65"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">raw_line</span>
 <a id="ln-66" name="ln-66" href="#ln-66"></a><span class="w">  </span>
-<a id="ln-67" name="ln-67" href="#ln-67"></a><span class="w">    </span><span class="n">raw_line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"></span>
-<a id="ln-68" name="ln-68" href="#ln-68"></a><span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">opening_key_quotes</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">raw_line</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&quot;&#39;</span><span class="p">),</span><span class="w"> </span><span class="n">separator</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">raw_line</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="p">))</span><span class="w"></span>
-<a id="ln-69" name="ln-69" href="#ln-69"></a><span class="w">      </span><span class="k">associate</span><span class="p">(</span><span class="n">closing_key_quotes</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">opening_key_quotes</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">raw_line</span><span class="p">(</span><span class="n">opening_key_quotes</span><span class="o">+</span><span class="mi">1</span><span class="p">:),</span><span class="w"> </span><span class="s1">&#39;&quot;&#39;</span><span class="p">))</span><span class="w"></span>
-<a id="ln-70" name="ln-70" href="#ln-70"></a><span class="w">        </span><span class="n">unquoted_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_t</span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="n">raw_line</span><span class="p">(</span><span class="n">opening_key_quotes</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">closing_key_quotes</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<a id="ln-67" name="ln-67" href="#ln-67"></a><span class="w">    </span><span class="n">raw_line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">%</span><span class="n">string</span><span class="p">()</span>
+<a id="ln-68" name="ln-68" href="#ln-68"></a><span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">opening_key_quotes</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">raw_line</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&quot;&#39;</span><span class="p">),</span><span class="w"> </span><span class="n">separator</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">raw_line</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="p">))</span>
+<a id="ln-69" name="ln-69" href="#ln-69"></a><span class="w">      </span><span class="k">associate</span><span class="p">(</span><span class="n">closing_key_quotes</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">opening_key_quotes</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">raw_line</span><span class="p">(</span><span class="n">opening_key_quotes</span><span class="o">+</span><span class="mi">1</span><span class="p">:),</span><span class="w"> </span><span class="s1">&#39;&quot;&#39;</span><span class="p">))</span>
+<a id="ln-70" name="ln-70" href="#ln-70"></a><span class="w">        </span><span class="n">unquoted_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_t</span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="n">raw_line</span><span class="p">(</span><span class="n">opening_key_quotes</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">closing_key_quotes</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span>
 <a id="ln-71" name="ln-71" href="#ln-71"></a><span class="w">      </span><span class="k">end associate</span>
 <a id="ln-72" name="ln-72" href="#ln-72"></a><span class="k">    end associate</span>
 <a id="ln-73" name="ln-73" href="#ln-73"></a>
 <a id="ln-74" name="ln-74" href="#ln-74"></a><span class="k">  end procedure</span>
 <a id="ln-75" name="ln-75" href="#ln-75"></a>
-<a id="ln-76" name="ln-76" href="#ln-76"></a><span class="k">  module procedure </span><span class="n">file_extension</span><span class="w"></span>
-<a id="ln-77" name="ln-77" href="#ln-77"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">name_</span><span class="w"></span>
+<a id="ln-76" name="ln-76" href="#ln-76"></a><span class="k">  module procedure </span><span class="n">file_extension</span>
+<a id="ln-77" name="ln-77" href="#ln-77"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">name_</span>
 <a id="ln-78" name="ln-78" href="#ln-78"></a>
-<a id="ln-79" name="ln-79" href="#ln-79"></a><span class="w">    </span><span class="n">name_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">string</span><span class="p">()))</span><span class="w"></span>
+<a id="ln-79" name="ln-79" href="#ln-79"></a><span class="w">    </span><span class="n">name_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">string</span><span class="p">()))</span>
 <a id="ln-80" name="ln-80" href="#ln-80"></a>
-<a id="ln-81" name="ln-81" href="#ln-81"></a><span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="w"> </span><span class="n">dot_location</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">back</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<a id="ln-81" name="ln-81" href="#ln-81"></a><span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="w"> </span><span class="n">dot_location</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">back</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span><span class="w"> </span><span class="p">)</span>
 <a id="ln-82" name="ln-82" href="#ln-82"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dot_location</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">name_</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
-<a id="ln-83" name="ln-83" href="#ln-83"></a><span class="k">        </span><span class="n">extension</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">name_</span><span class="p">(</span><span class="n">dot_location</span><span class="o">+</span><span class="mi">1</span><span class="p">:)))</span><span class="w"></span>
+<a id="ln-83" name="ln-83" href="#ln-83"></a><span class="k">        </span><span class="n">extension</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">name_</span><span class="p">(</span><span class="n">dot_location</span><span class="o">+</span><span class="mi">1</span><span class="p">:)))</span>
 <a id="ln-84" name="ln-84" href="#ln-84"></a><span class="w">      </span><span class="k">else</span>
-<a id="ln-85" name="ln-85" href="#ln-85"></a><span class="k">        </span><span class="n">extension</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
+<a id="ln-85" name="ln-85" href="#ln-85"></a><span class="k">        </span><span class="n">extension</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
 <a id="ln-86" name="ln-86" href="#ln-86"></a><span class="w">      </span><span class="k">end if</span>
 <a id="ln-87" name="ln-87" href="#ln-87"></a><span class="k">    end associate</span>
 <a id="ln-88" name="ln-88" href="#ln-88"></a><span class="k">  end procedure</span>
 <a id="ln-89" name="ln-89" href="#ln-89"></a>
-<a id="ln-90" name="ln-90" href="#ln-90"></a><span class="k">  module procedure </span><span class="n">base_name</span><span class="w"></span>
-<a id="ln-91" name="ln-91" href="#ln-91"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">name_</span><span class="w"></span>
+<a id="ln-90" name="ln-90" href="#ln-90"></a><span class="k">  module procedure </span><span class="n">base_name</span>
+<a id="ln-91" name="ln-91" href="#ln-91"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">name_</span>
 <a id="ln-92" name="ln-92" href="#ln-92"></a>
-<a id="ln-93" name="ln-93" href="#ln-93"></a><span class="w">    </span><span class="n">name_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"></span>
+<a id="ln-93" name="ln-93" href="#ln-93"></a><span class="w">    </span><span class="n">name_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">%</span><span class="n">string</span><span class="p">()</span>
 <a id="ln-94" name="ln-94" href="#ln-94"></a><span class="w">    </span>
-<a id="ln-95" name="ln-95" href="#ln-95"></a><span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">dot_location</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">back</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<a id="ln-95" name="ln-95" href="#ln-95"></a><span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">dot_location</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">name_</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">back</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span><span class="w"> </span><span class="p">)</span>
 <a id="ln-96" name="ln-96" href="#ln-96"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dot_location</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">name_</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
-<a id="ln-97" name="ln-97" href="#ln-97"></a><span class="k">        </span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">name_</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">dot_location</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<a id="ln-97" name="ln-97" href="#ln-97"></a><span class="k">        </span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">name_</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">dot_location</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span>
 <a id="ln-98" name="ln-98" href="#ln-98"></a><span class="w">      </span><span class="k">else</span>
-<a id="ln-99" name="ln-99" href="#ln-99"></a><span class="k">        </span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
+<a id="ln-99" name="ln-99" href="#ln-99"></a><span class="k">        </span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
 <a id="ln-100" name="ln-100" href="#ln-100"></a><span class="w">      </span><span class="k">end if</span>
 <a id="ln-101" name="ln-101" href="#ln-101"></a><span class="k">    end associate</span>
 <a id="ln-102" name="ln-102" href="#ln-102"></a><span class="k">  end procedure</span>
 <a id="ln-103" name="ln-103" href="#ln-103"></a>
-<a id="ln-104" name="ln-104" href="#ln-104"></a><span class="k">  module procedure </span><span class="n">get_json_real</span><span class="w"></span>
-<a id="ln-105" name="ln-105" href="#ln-105"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">raw_line</span><span class="p">,</span><span class="w"> </span><span class="n">string_value</span><span class="w"></span>
+<a id="ln-104" name="ln-104" href="#ln-104"></a><span class="k">  module procedure </span><span class="n">get_json_real</span>
+<a id="ln-105" name="ln-105" href="#ln-105"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">raw_line</span><span class="p">,</span><span class="w"> </span><span class="n">string_value</span>
 <a id="ln-106" name="ln-106" href="#ln-106"></a>
-<a id="ln-107" name="ln-107" href="#ln-107"></a><span class="w">    </span><span class="k">call </span><span class="n">assert</span><span class="p">(</span><span class="n">key</span><span class="o">==</span><span class="n">self</span><span class="p">%</span><span class="n">get_json_key</span><span class="p">(),</span><span class="w"> </span><span class="s2">&quot;string_s(get_json_real): key==self%get_json_key()&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"></span>
+<a id="ln-107" name="ln-107" href="#ln-107"></a><span class="w">    </span><span class="k">call </span><span class="n">assert</span><span class="p">(</span><span class="n">key</span><span class="o">==</span><span class="n">self</span><span class="p">%</span><span class="n">get_json_key</span><span class="p">(),</span><span class="w"> </span><span class="s2">&quot;string_s(get_json_real): key==self%get_json_key()&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span>
 <a id="ln-108" name="ln-108" href="#ln-108"></a>
-<a id="ln-109" name="ln-109" href="#ln-109"></a><span class="w">    </span><span class="n">raw_line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"></span>
-<a id="ln-110" name="ln-110" href="#ln-110"></a><span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">text_after_colon</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">raw_line</span><span class="p">(</span><span class="nb">index</span><span class="p">(</span><span class="n">raw_line</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:))</span><span class="w"></span>
-<a id="ln-111" name="ln-111" href="#ln-111"></a><span class="w">      </span><span class="k">associate</span><span class="p">(</span><span class="n">trailing_comma</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">text_after_colon</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">))</span><span class="w"></span>
+<a id="ln-109" name="ln-109" href="#ln-109"></a><span class="w">    </span><span class="n">raw_line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">%</span><span class="n">string</span><span class="p">()</span>
+<a id="ln-110" name="ln-110" href="#ln-110"></a><span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">text_after_colon</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">raw_line</span><span class="p">(</span><span class="nb">index</span><span class="p">(</span><span class="n">raw_line</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:))</span>
+<a id="ln-111" name="ln-111" href="#ln-111"></a><span class="w">      </span><span class="k">associate</span><span class="p">(</span><span class="n">trailing_comma</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">text_after_colon</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">))</span>
 <a id="ln-112" name="ln-112" href="#ln-112"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">trailing_comma</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<a id="ln-113" name="ln-113" href="#ln-113"></a><span class="k">          </span><span class="n">string_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">((</span><span class="n">text_after_colon</span><span class="p">)))</span><span class="w"></span>
+<a id="ln-113" name="ln-113" href="#ln-113"></a><span class="k">          </span><span class="n">string_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">((</span><span class="n">text_after_colon</span><span class="p">)))</span>
 <a id="ln-114" name="ln-114" href="#ln-114"></a><span class="w">        </span><span class="k">else </span>
-<a id="ln-115" name="ln-115" href="#ln-115"></a><span class="k">          </span><span class="n">string_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">((</span><span class="n">text_after_colon</span><span class="p">(:</span><span class="n">trailing_comma</span><span class="o">-</span><span class="mi">1</span><span class="p">))))</span><span class="w"></span>
+<a id="ln-115" name="ln-115" href="#ln-115"></a><span class="k">          </span><span class="n">string_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">((</span><span class="n">text_after_colon</span><span class="p">(:</span><span class="n">trailing_comma</span><span class="o">-</span><span class="mi">1</span><span class="p">))))</span>
 <a id="ln-116" name="ln-116" href="#ln-116"></a><span class="w">        </span><span class="k">end if</span>
-<a id="ln-117" name="ln-117" href="#ln-117"></a><span class="k">        read</span><span class="p">(</span><span class="n">string_value</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=*</span><span class="p">)</span><span class="w"> </span><span class="n">value_</span><span class="w"></span>
+<a id="ln-117" name="ln-117" href="#ln-117"></a><span class="k">        read</span><span class="p">(</span><span class="n">string_value</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=*</span><span class="p">)</span><span class="w"> </span><span class="n">value_</span>
 <a id="ln-118" name="ln-118" href="#ln-118"></a><span class="w">      </span><span class="k">end associate</span>
 <a id="ln-119" name="ln-119" href="#ln-119"></a><span class="k">    end associate</span>
 <a id="ln-120" name="ln-120" href="#ln-120"></a>
 <a id="ln-121" name="ln-121" href="#ln-121"></a><span class="k">  end procedure</span>
 <a id="ln-122" name="ln-122" href="#ln-122"></a>
-<a id="ln-123" name="ln-123" href="#ln-123"></a><span class="k">  module procedure </span><span class="n">get_json_string</span><span class="w"></span>
+<a id="ln-123" name="ln-123" href="#ln-123"></a><span class="k">  module procedure </span><span class="n">get_json_string</span>
 <a id="ln-124" name="ln-124" href="#ln-124"></a>
-<a id="ln-125" name="ln-125" href="#ln-125"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">raw_line</span><span class="w"></span>
+<a id="ln-125" name="ln-125" href="#ln-125"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">raw_line</span>
 <a id="ln-126" name="ln-126" href="#ln-126"></a>
-<a id="ln-127" name="ln-127" href="#ln-127"></a><span class="w">    </span><span class="k">call </span><span class="n">assert</span><span class="p">(</span><span class="n">key</span><span class="o">==</span><span class="n">self</span><span class="p">%</span><span class="n">get_json_key</span><span class="p">(),</span><span class="w"> </span><span class="s2">&quot;key==self%get_string_json()&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"></span>
+<a id="ln-127" name="ln-127" href="#ln-127"></a><span class="w">    </span><span class="k">call </span><span class="n">assert</span><span class="p">(</span><span class="n">key</span><span class="o">==</span><span class="n">self</span><span class="p">%</span><span class="n">get_json_key</span><span class="p">(),</span><span class="w"> </span><span class="s2">&quot;key==self%get_string_json()&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span>
 <a id="ln-128" name="ln-128" href="#ln-128"></a>
-<a id="ln-129" name="ln-129" href="#ln-129"></a><span class="w">    </span><span class="n">raw_line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"></span>
-<a id="ln-130" name="ln-130" href="#ln-130"></a><span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">text_after_colon</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">raw_line</span><span class="p">(</span><span class="nb">index</span><span class="p">(</span><span class="n">raw_line</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:))</span><span class="w"></span>
-<a id="ln-131" name="ln-131" href="#ln-131"></a><span class="w">      </span><span class="k">associate</span><span class="p">(</span><span class="n">opening_value_quotes</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">text_after_colon</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&quot;&#39;</span><span class="p">))</span><span class="w"></span>
-<a id="ln-132" name="ln-132" href="#ln-132"></a><span class="w">        </span><span class="k">associate</span><span class="p">(</span><span class="n">closing_value_quotes</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">opening_value_quotes</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">text_after_colon</span><span class="p">(</span><span class="n">opening_value_quotes</span><span class="o">+</span><span class="mi">1</span><span class="p">:),</span><span class="w"> </span><span class="s1">&#39;&quot;&#39;</span><span class="p">))</span><span class="w"></span>
+<a id="ln-129" name="ln-129" href="#ln-129"></a><span class="w">    </span><span class="n">raw_line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">%</span><span class="n">string</span><span class="p">()</span>
+<a id="ln-130" name="ln-130" href="#ln-130"></a><span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">text_after_colon</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">raw_line</span><span class="p">(</span><span class="nb">index</span><span class="p">(</span><span class="n">raw_line</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:))</span>
+<a id="ln-131" name="ln-131" href="#ln-131"></a><span class="w">      </span><span class="k">associate</span><span class="p">(</span><span class="n">opening_value_quotes</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">text_after_colon</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&quot;&#39;</span><span class="p">))</span>
+<a id="ln-132" name="ln-132" href="#ln-132"></a><span class="w">        </span><span class="k">associate</span><span class="p">(</span><span class="n">closing_value_quotes</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">opening_value_quotes</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">text_after_colon</span><span class="p">(</span><span class="n">opening_value_quotes</span><span class="o">+</span><span class="mi">1</span><span class="p">:),</span><span class="w"> </span><span class="s1">&#39;&quot;&#39;</span><span class="p">))</span>
 <a id="ln-133" name="ln-133" href="#ln-133"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">any</span><span class="p">([</span><span class="n">opening_value_quotes</span><span class="p">,</span><span class="w"> </span><span class="n">closing_value_quotes</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
-<a id="ln-134" name="ln-134" href="#ln-134"></a><span class="k">            </span><span class="n">value_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_t</span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">((</span><span class="n">text_after_colon</span><span class="p">))))</span><span class="w"></span>
+<a id="ln-134" name="ln-134" href="#ln-134"></a><span class="k">            </span><span class="n">value_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_t</span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">((</span><span class="n">text_after_colon</span><span class="p">))))</span>
 <a id="ln-135" name="ln-135" href="#ln-135"></a><span class="w">          </span><span class="k">else</span>
-<a id="ln-136" name="ln-136" href="#ln-136"></a><span class="k">            </span><span class="n">value_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_t</span><span class="p">(</span><span class="n">text_after_colon</span><span class="p">(</span><span class="n">opening_value_quotes</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">closing_value_quotes</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<a id="ln-136" name="ln-136" href="#ln-136"></a><span class="k">            </span><span class="n">value_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_t</span><span class="p">(</span><span class="n">text_after_colon</span><span class="p">(</span><span class="n">opening_value_quotes</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">closing_value_quotes</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
 <a id="ln-137" name="ln-137" href="#ln-137"></a><span class="w">          </span><span class="k">end if</span>
 <a id="ln-138" name="ln-138" href="#ln-138"></a><span class="k">        end associate</span>
 <a id="ln-139" name="ln-139" href="#ln-139"></a><span class="k">      end associate</span>
@@ -632,66 +675,66 @@
 <a id="ln-141" name="ln-141" href="#ln-141"></a>
 <a id="ln-142" name="ln-142" href="#ln-142"></a><span class="k">  end procedure</span>
 <a id="ln-143" name="ln-143" href="#ln-143"></a>
-<a id="ln-144" name="ln-144" href="#ln-144"></a><span class="k">  module procedure </span><span class="n">get_json_logical</span><span class="w"></span>
-<a id="ln-145" name="ln-145" href="#ln-145"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">raw_line</span><span class="p">,</span><span class="w"> </span><span class="n">string_value</span><span class="w"></span>
+<a id="ln-144" name="ln-144" href="#ln-144"></a><span class="k">  module procedure </span><span class="n">get_json_logical</span>
+<a id="ln-145" name="ln-145" href="#ln-145"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">raw_line</span><span class="p">,</span><span class="w"> </span><span class="n">string_value</span>
 <a id="ln-146" name="ln-146" href="#ln-146"></a>
-<a id="ln-147" name="ln-147" href="#ln-147"></a><span class="w">    </span><span class="k">call </span><span class="n">assert</span><span class="p">(</span><span class="n">key</span><span class="o">==</span><span class="n">self</span><span class="p">%</span><span class="n">get_json_key</span><span class="p">(),</span><span class="w"> </span><span class="s2">&quot;string_s(get_json_logical): key==self%get_json_key()&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"></span>
+<a id="ln-147" name="ln-147" href="#ln-147"></a><span class="w">    </span><span class="k">call </span><span class="n">assert</span><span class="p">(</span><span class="n">key</span><span class="o">==</span><span class="n">self</span><span class="p">%</span><span class="n">get_json_key</span><span class="p">(),</span><span class="w"> </span><span class="s2">&quot;string_s(get_json_logical): key==self%get_json_key()&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span>
 <a id="ln-148" name="ln-148" href="#ln-148"></a>
-<a id="ln-149" name="ln-149" href="#ln-149"></a><span class="w">    </span><span class="n">raw_line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"></span>
-<a id="ln-150" name="ln-150" href="#ln-150"></a><span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">text_after_colon</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">raw_line</span><span class="p">(</span><span class="nb">index</span><span class="p">(</span><span class="n">raw_line</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:))</span><span class="w"></span>
-<a id="ln-151" name="ln-151" href="#ln-151"></a><span class="w">      </span><span class="k">associate</span><span class="p">(</span><span class="n">trailing_comma</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">text_after_colon</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">))</span><span class="w"></span>
+<a id="ln-149" name="ln-149" href="#ln-149"></a><span class="w">    </span><span class="n">raw_line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">%</span><span class="n">string</span><span class="p">()</span>
+<a id="ln-150" name="ln-150" href="#ln-150"></a><span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">text_after_colon</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">raw_line</span><span class="p">(</span><span class="nb">index</span><span class="p">(</span><span class="n">raw_line</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:))</span>
+<a id="ln-151" name="ln-151" href="#ln-151"></a><span class="w">      </span><span class="k">associate</span><span class="p">(</span><span class="n">trailing_comma</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">text_after_colon</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">))</span>
 <a id="ln-152" name="ln-152" href="#ln-152"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">trailing_comma</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<a id="ln-153" name="ln-153" href="#ln-153"></a><span class="k">          </span><span class="n">string_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">((</span><span class="n">text_after_colon</span><span class="p">)))</span><span class="w"></span>
+<a id="ln-153" name="ln-153" href="#ln-153"></a><span class="k">          </span><span class="n">string_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">((</span><span class="n">text_after_colon</span><span class="p">)))</span>
 <a id="ln-154" name="ln-154" href="#ln-154"></a><span class="w">        </span><span class="k">else </span>
-<a id="ln-155" name="ln-155" href="#ln-155"></a><span class="k">          </span><span class="n">string_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">((</span><span class="n">text_after_colon</span><span class="p">(:</span><span class="n">trailing_comma</span><span class="o">-</span><span class="mi">1</span><span class="p">))))</span><span class="w"></span>
+<a id="ln-155" name="ln-155" href="#ln-155"></a><span class="k">          </span><span class="n">string_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">((</span><span class="n">text_after_colon</span><span class="p">(:</span><span class="n">trailing_comma</span><span class="o">-</span><span class="mi">1</span><span class="p">))))</span>
 <a id="ln-156" name="ln-156" href="#ln-156"></a><span class="w">        </span><span class="k">end if</span>
-<a id="ln-157" name="ln-157" href="#ln-157"></a><span class="k">        call </span><span class="n">assert</span><span class="p">(</span><span class="n">string_value</span><span class="o">==</span><span class="s2">&quot;true&quot;</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">string_value</span><span class="o">==</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
-<a id="ln-158" name="ln-158" href="#ln-158"></a><span class="w">          </span><span class="s1">&#39;string_s(get_json_logical): string_value==&quot;true&quot; .or. string_value=&quot;false&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">string_value</span><span class="p">)</span><span class="w"></span>
-<a id="ln-159" name="ln-159" href="#ln-159"></a><span class="w">        </span><span class="n">value_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="w"></span>
+<a id="ln-157" name="ln-157" href="#ln-157"></a><span class="k">        call </span><span class="n">assert</span><span class="p">(</span><span class="n">string_value</span><span class="o">==</span><span class="s2">&quot;true&quot;</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">string_value</span><span class="o">==</span><span class="s2">&quot;false&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<a id="ln-158" name="ln-158" href="#ln-158"></a><span class="w">          </span><span class="s1">&#39;string_s(get_json_logical): string_value==&quot;true&quot; .or. string_value=&quot;false&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">string_value</span><span class="p">)</span>
+<a id="ln-159" name="ln-159" href="#ln-159"></a><span class="w">        </span><span class="n">value_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_value</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;true&quot;</span>
 <a id="ln-160" name="ln-160" href="#ln-160"></a><span class="w">      </span><span class="k">end associate</span>
 <a id="ln-161" name="ln-161" href="#ln-161"></a><span class="k">    end associate</span>
 <a id="ln-162" name="ln-162" href="#ln-162"></a>
 <a id="ln-163" name="ln-163" href="#ln-163"></a><span class="k">  end procedure</span>
 <a id="ln-164" name="ln-164" href="#ln-164"></a>
-<a id="ln-165" name="ln-165" href="#ln-165"></a><span class="k">  module procedure </span><span class="n">get_json_integer</span><span class="w"></span>
-<a id="ln-166" name="ln-166" href="#ln-166"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">raw_line</span><span class="p">,</span><span class="w"> </span><span class="n">string_value</span><span class="w"></span>
+<a id="ln-165" name="ln-165" href="#ln-165"></a><span class="k">  module procedure </span><span class="n">get_json_integer</span>
+<a id="ln-166" name="ln-166" href="#ln-166"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">raw_line</span><span class="p">,</span><span class="w"> </span><span class="n">string_value</span>
 <a id="ln-167" name="ln-167" href="#ln-167"></a>
-<a id="ln-168" name="ln-168" href="#ln-168"></a><span class="w">    </span><span class="k">call </span><span class="n">assert</span><span class="p">(</span><span class="n">key</span><span class="o">==</span><span class="n">self</span><span class="p">%</span><span class="n">get_json_key</span><span class="p">(),</span><span class="w"> </span><span class="s2">&quot;string_s(get_json_logical): key==self%get_json_key()&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"></span>
+<a id="ln-168" name="ln-168" href="#ln-168"></a><span class="w">    </span><span class="k">call </span><span class="n">assert</span><span class="p">(</span><span class="n">key</span><span class="o">==</span><span class="n">self</span><span class="p">%</span><span class="n">get_json_key</span><span class="p">(),</span><span class="w"> </span><span class="s2">&quot;string_s(get_json_logical): key==self%get_json_key()&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span>
 <a id="ln-169" name="ln-169" href="#ln-169"></a>
-<a id="ln-170" name="ln-170" href="#ln-170"></a><span class="w">    </span><span class="n">raw_line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"></span>
-<a id="ln-171" name="ln-171" href="#ln-171"></a><span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">text_after_colon</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">raw_line</span><span class="p">(</span><span class="nb">index</span><span class="p">(</span><span class="n">raw_line</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:))</span><span class="w"></span>
-<a id="ln-172" name="ln-172" href="#ln-172"></a><span class="w">      </span><span class="k">associate</span><span class="p">(</span><span class="n">trailing_comma</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">text_after_colon</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">))</span><span class="w"></span>
+<a id="ln-170" name="ln-170" href="#ln-170"></a><span class="w">    </span><span class="n">raw_line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">%</span><span class="n">string</span><span class="p">()</span>
+<a id="ln-171" name="ln-171" href="#ln-171"></a><span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">text_after_colon</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">raw_line</span><span class="p">(</span><span class="nb">index</span><span class="p">(</span><span class="n">raw_line</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;:&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:))</span>
+<a id="ln-172" name="ln-172" href="#ln-172"></a><span class="w">      </span><span class="k">associate</span><span class="p">(</span><span class="n">trailing_comma</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">text_after_colon</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">))</span>
 <a id="ln-173" name="ln-173" href="#ln-173"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">trailing_comma</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<a id="ln-174" name="ln-174" href="#ln-174"></a><span class="k">          </span><span class="n">string_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">((</span><span class="n">text_after_colon</span><span class="p">)))</span><span class="w"></span>
+<a id="ln-174" name="ln-174" href="#ln-174"></a><span class="k">          </span><span class="n">string_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">((</span><span class="n">text_after_colon</span><span class="p">)))</span>
 <a id="ln-175" name="ln-175" href="#ln-175"></a><span class="w">        </span><span class="k">else </span>
-<a id="ln-176" name="ln-176" href="#ln-176"></a><span class="k">          </span><span class="n">string_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">((</span><span class="n">text_after_colon</span><span class="p">(:</span><span class="n">trailing_comma</span><span class="o">-</span><span class="mi">1</span><span class="p">))))</span><span class="w"></span>
+<a id="ln-176" name="ln-176" href="#ln-176"></a><span class="k">          </span><span class="n">string_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">((</span><span class="n">text_after_colon</span><span class="p">(:</span><span class="n">trailing_comma</span><span class="o">-</span><span class="mi">1</span><span class="p">))))</span>
 <a id="ln-177" name="ln-177" href="#ln-177"></a><span class="w">        </span><span class="k">end if</span>
-<a id="ln-178" name="ln-178" href="#ln-178"></a><span class="k">        read</span><span class="p">(</span><span class="n">string_value</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=*</span><span class="p">)</span><span class="w"> </span><span class="n">value_</span><span class="w"></span>
+<a id="ln-178" name="ln-178" href="#ln-178"></a><span class="k">        read</span><span class="p">(</span><span class="n">string_value</span><span class="p">,</span><span class="w"> </span><span class="n">fmt</span><span class="o">=*</span><span class="p">)</span><span class="w"> </span><span class="n">value_</span>
 <a id="ln-179" name="ln-179" href="#ln-179"></a><span class="w">      </span><span class="k">end associate</span>
 <a id="ln-180" name="ln-180" href="#ln-180"></a><span class="k">    end associate</span>
 <a id="ln-181" name="ln-181" href="#ln-181"></a>
 <a id="ln-182" name="ln-182" href="#ln-182"></a><span class="k">  end procedure</span>
 <a id="ln-183" name="ln-183" href="#ln-183"></a>
-<a id="ln-184" name="ln-184" href="#ln-184"></a><span class="k">  module procedure </span><span class="n">get_json_integer_array</span><span class="w"></span>
-<a id="ln-185" name="ln-185" href="#ln-185"></a><span class="w">    </span><span class="n">value_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">get_json_real_array</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="n">mold</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">]))</span><span class="w"></span>
+<a id="ln-184" name="ln-184" href="#ln-184"></a><span class="k">  module procedure </span><span class="n">get_json_integer_array</span>
+<a id="ln-185" name="ln-185" href="#ln-185"></a><span class="w">    </span><span class="n">value_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="n">self</span><span class="p">%</span><span class="n">get_json_real_array</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="n">mold</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">]))</span>
 <a id="ln-186" name="ln-186" href="#ln-186"></a><span class="w">  </span><span class="k">end procedure</span>
 <a id="ln-187" name="ln-187" href="#ln-187"></a>
-<a id="ln-188" name="ln-188" href="#ln-188"></a><span class="k">  module procedure </span><span class="n">get_json_real_array</span><span class="w"></span>
-<a id="ln-189" name="ln-189" href="#ln-189"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">raw_line</span><span class="w"></span>
-<a id="ln-190" name="ln-190" href="#ln-190"></a><span class="w">    </span><span class="kt">real</span><span class="p">,</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">real_array</span><span class="p">(:)</span><span class="w"></span>
-<a id="ln-191" name="ln-191" href="#ln-191"></a><span class="w">    </span><span class="kt">integer </span><span class="n">i</span><span class="w"></span>
+<a id="ln-188" name="ln-188" href="#ln-188"></a><span class="k">  module procedure </span><span class="n">get_json_real_array</span>
+<a id="ln-189" name="ln-189" href="#ln-189"></a><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">raw_line</span>
+<a id="ln-190" name="ln-190" href="#ln-190"></a><span class="w">    </span><span class="kt">real</span><span class="p">,</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">real_array</span><span class="p">(:)</span>
+<a id="ln-191" name="ln-191" href="#ln-191"></a><span class="w">    </span><span class="kt">integer </span><span class="n">i</span>
 <a id="ln-192" name="ln-192" href="#ln-192"></a>
-<a id="ln-193" name="ln-193" href="#ln-193"></a><span class="w">    </span><span class="k">call </span><span class="n">assert</span><span class="p">(</span><span class="n">key</span><span class="o">==</span><span class="n">self</span><span class="p">%</span><span class="n">get_json_key</span><span class="p">(),</span><span class="w"> </span><span class="s2">&quot;string_s(get_json_{real,integer}_array): key==self%get_json_key()&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span><span class="w"></span>
+<a id="ln-193" name="ln-193" href="#ln-193"></a><span class="w">    </span><span class="k">call </span><span class="n">assert</span><span class="p">(</span><span class="n">key</span><span class="o">==</span><span class="n">self</span><span class="p">%</span><span class="n">get_json_key</span><span class="p">(),</span><span class="w"> </span><span class="s2">&quot;string_s(get_json_{real,integer}_array): key==self%get_json_key()&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">)</span>
 <a id="ln-194" name="ln-194" href="#ln-194"></a>
-<a id="ln-195" name="ln-195" href="#ln-195"></a><span class="w">    </span><span class="n">raw_line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"></span>
-<a id="ln-196" name="ln-196" href="#ln-196"></a><span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">colon</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">raw_line</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;:&quot;</span><span class="p">))</span><span class="w"></span>
-<a id="ln-197" name="ln-197" href="#ln-197"></a><span class="w">      </span><span class="k">associate</span><span class="p">(</span><span class="n">opening_bracket</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">colon</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">raw_line</span><span class="p">(</span><span class="n">colon</span><span class="o">+</span><span class="mi">1</span><span class="p">:),</span><span class="w"> </span><span class="s2">&quot;[&quot;</span><span class="p">))</span><span class="w"></span>
-<a id="ln-198" name="ln-198" href="#ln-198"></a><span class="w">        </span><span class="k">associate</span><span class="p">(</span><span class="n">closing_bracket</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">opening_bracket</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">raw_line</span><span class="p">(</span><span class="n">opening_bracket</span><span class="o">+</span><span class="mi">1</span><span class="p">:),</span><span class="w"> </span><span class="s2">&quot;]&quot;</span><span class="p">))</span><span class="w"></span>
-<a id="ln-199" name="ln-199" href="#ln-199"></a><span class="w">          </span><span class="k">associate</span><span class="p">(</span><span class="n">commas</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">count</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">[(</span><span class="n">raw_line</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="n">opening_bracket</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">closing_bracket</span><span class="o">-</span><span class="mi">1</span><span class="p">)]))</span><span class="w"></span>
-<a id="ln-200" name="ln-200" href="#ln-200"></a><span class="w">            </span><span class="k">associate</span><span class="p">(</span><span class="n">num_inputs</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">commas</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
-<a id="ln-201" name="ln-201" href="#ln-201"></a><span class="w">              </span><span class="k">allocate</span><span class="p">(</span><span class="n">real_array</span><span class="p">(</span><span class="n">num_inputs</span><span class="p">))</span><span class="w"></span>
-<a id="ln-202" name="ln-202" href="#ln-202"></a><span class="w">              </span><span class="k">read</span><span class="p">(</span><span class="n">raw_line</span><span class="p">(</span><span class="n">opening_bracket</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">closing_bracket</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">fmt</span><span class="o">=*</span><span class="p">)</span><span class="w"> </span><span class="n">real_array</span><span class="w"></span>
-<a id="ln-203" name="ln-203" href="#ln-203"></a><span class="w">              </span><span class="n">value_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">real_array</span><span class="w"></span>
+<a id="ln-195" name="ln-195" href="#ln-195"></a><span class="w">    </span><span class="n">raw_line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">%</span><span class="n">string</span><span class="p">()</span>
+<a id="ln-196" name="ln-196" href="#ln-196"></a><span class="w">    </span><span class="k">associate</span><span class="p">(</span><span class="n">colon</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">raw_line</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;:&quot;</span><span class="p">))</span>
+<a id="ln-197" name="ln-197" href="#ln-197"></a><span class="w">      </span><span class="k">associate</span><span class="p">(</span><span class="n">opening_bracket</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">colon</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">raw_line</span><span class="p">(</span><span class="n">colon</span><span class="o">+</span><span class="mi">1</span><span class="p">:),</span><span class="w"> </span><span class="s2">&quot;[&quot;</span><span class="p">))</span>
+<a id="ln-198" name="ln-198" href="#ln-198"></a><span class="w">        </span><span class="k">associate</span><span class="p">(</span><span class="n">closing_bracket</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">opening_bracket</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">index</span><span class="p">(</span><span class="n">raw_line</span><span class="p">(</span><span class="n">opening_bracket</span><span class="o">+</span><span class="mi">1</span><span class="p">:),</span><span class="w"> </span><span class="s2">&quot;]&quot;</span><span class="p">))</span>
+<a id="ln-199" name="ln-199" href="#ln-199"></a><span class="w">          </span><span class="k">associate</span><span class="p">(</span><span class="n">commas</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">count</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">[(</span><span class="n">raw_line</span><span class="p">(</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="n">opening_bracket</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">closing_bracket</span><span class="o">-</span><span class="mi">1</span><span class="p">)]))</span>
+<a id="ln-200" name="ln-200" href="#ln-200"></a><span class="w">            </span><span class="k">associate</span><span class="p">(</span><span class="n">num_inputs</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">commas</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<a id="ln-201" name="ln-201" href="#ln-201"></a><span class="w">              </span><span class="k">allocate</span><span class="p">(</span><span class="n">real_array</span><span class="p">(</span><span class="n">num_inputs</span><span class="p">))</span>
+<a id="ln-202" name="ln-202" href="#ln-202"></a><span class="w">              </span><span class="k">read</span><span class="p">(</span><span class="n">raw_line</span><span class="p">(</span><span class="n">opening_bracket</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">closing_bracket</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">fmt</span><span class="o">=*</span><span class="p">)</span><span class="w"> </span><span class="n">real_array</span>
+<a id="ln-203" name="ln-203" href="#ln-203"></a><span class="w">              </span><span class="n">value_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">real_array</span>
 <a id="ln-204" name="ln-204" href="#ln-204"></a><span class="w">            </span><span class="k">end associate</span>
 <a id="ln-205" name="ln-205" href="#ln-205"></a><span class="k">          end associate</span>
 <a id="ln-206" name="ln-206" href="#ln-206"></a><span class="k">        end associate</span>
@@ -700,101 +743,99 @@
 <a id="ln-209" name="ln-209" href="#ln-209"></a>
 <a id="ln-210" name="ln-210" href="#ln-210"></a><span class="k">  end procedure</span>
 <a id="ln-211" name="ln-211" href="#ln-211"></a>
-<a id="ln-212" name="ln-212" href="#ln-212"></a><span class="k">  module procedure </span><span class="n">string_t_eq_string_t</span><span class="w"></span>
-<a id="ln-213" name="ln-213" href="#ln-213"></a><span class="w">    </span><span class="n">lhs_eq_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">rhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"></span>
+<a id="ln-212" name="ln-212" href="#ln-212"></a><span class="k">  module procedure </span><span class="n">string_t_eq_string_t</span>
+<a id="ln-213" name="ln-213" href="#ln-213"></a><span class="w">    </span><span class="n">lhs_eq_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">rhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span>
 <a id="ln-214" name="ln-214" href="#ln-214"></a><span class="w">  </span><span class="k">end procedure</span>
 <a id="ln-215" name="ln-215" href="#ln-215"></a><span class="k">   </span>
-<a id="ln-216" name="ln-216" href="#ln-216"></a><span class="k">  module procedure </span><span class="n">string_t_eq_character</span><span class="w"></span>
-<a id="ln-217" name="ln-217" href="#ln-217"></a><span class="w">    </span><span class="n">lhs_eq_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">rhs</span><span class="w"></span>
+<a id="ln-216" name="ln-216" href="#ln-216"></a><span class="k">  module procedure </span><span class="n">string_t_eq_character</span>
+<a id="ln-217" name="ln-217" href="#ln-217"></a><span class="w">    </span><span class="n">lhs_eq_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">rhs</span>
 <a id="ln-218" name="ln-218" href="#ln-218"></a><span class="w">  </span><span class="k">end procedure</span>
 <a id="ln-219" name="ln-219" href="#ln-219"></a>
-<a id="ln-220" name="ln-220" href="#ln-220"></a><span class="k">  module procedure </span><span class="n">character_eq_string_t</span><span class="w"></span>
-<a id="ln-221" name="ln-221" href="#ln-221"></a><span class="w">    </span><span class="n">lhs_eq_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">rhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"></span>
+<a id="ln-220" name="ln-220" href="#ln-220"></a><span class="k">  module procedure </span><span class="n">character_eq_string_t</span>
+<a id="ln-221" name="ln-221" href="#ln-221"></a><span class="w">    </span><span class="n">lhs_eq_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">rhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span>
 <a id="ln-222" name="ln-222" href="#ln-222"></a><span class="w">  </span><span class="k">end procedure</span>
 <a id="ln-223" name="ln-223" href="#ln-223"></a><span class="k">   </span>
-<a id="ln-224" name="ln-224" href="#ln-224"></a><span class="k">  module procedure </span><span class="n">string_t_ne_string_t</span><span class="w"></span>
-<a id="ln-225" name="ln-225" href="#ln-225"></a><span class="w">    </span><span class="n">lhs_ne_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">rhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"></span>
+<a id="ln-224" name="ln-224" href="#ln-224"></a><span class="k">  module procedure </span><span class="n">string_t_ne_string_t</span>
+<a id="ln-225" name="ln-225" href="#ln-225"></a><span class="w">    </span><span class="n">lhs_ne_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">rhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span>
 <a id="ln-226" name="ln-226" href="#ln-226"></a><span class="w">  </span><span class="k">end procedure</span>
 <a id="ln-227" name="ln-227" href="#ln-227"></a><span class="k">   </span>
-<a id="ln-228" name="ln-228" href="#ln-228"></a><span class="k">  module procedure </span><span class="n">string_t_ne_character</span><span class="w"></span>
-<a id="ln-229" name="ln-229" href="#ln-229"></a><span class="w">    </span><span class="n">lhs_ne_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">rhs</span><span class="w"></span>
+<a id="ln-228" name="ln-228" href="#ln-228"></a><span class="k">  module procedure </span><span class="n">string_t_ne_character</span>
+<a id="ln-229" name="ln-229" href="#ln-229"></a><span class="w">    </span><span class="n">lhs_ne_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">rhs</span>
 <a id="ln-230" name="ln-230" href="#ln-230"></a><span class="w">  </span><span class="k">end procedure</span>
 <a id="ln-231" name="ln-231" href="#ln-231"></a>
-<a id="ln-232" name="ln-232" href="#ln-232"></a><span class="k">  module procedure </span><span class="n">character_ne_string_t</span><span class="w"></span>
-<a id="ln-233" name="ln-233" href="#ln-233"></a><span class="w">    </span><span class="n">lhs_ne_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">rhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"></span>
+<a id="ln-232" name="ln-232" href="#ln-232"></a><span class="k">  module procedure </span><span class="n">character_ne_string_t</span>
+<a id="ln-233" name="ln-233" href="#ln-233"></a><span class="w">    </span><span class="n">lhs_ne_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">rhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span>
 <a id="ln-234" name="ln-234" href="#ln-234"></a><span class="w">  </span><span class="k">end procedure</span>
 <a id="ln-235" name="ln-235" href="#ln-235"></a><span class="k">   </span>
-<a id="ln-236" name="ln-236" href="#ln-236"></a><span class="k">  module procedure </span><span class="n">assign_string_t_to_character</span><span class="w"></span>
-<a id="ln-237" name="ln-237" href="#ln-237"></a><span class="w">    </span><span class="n">lhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span><span class="w"></span>
+<a id="ln-236" name="ln-236" href="#ln-236"></a><span class="k">  module procedure </span><span class="n">assign_string_t_to_character</span>
+<a id="ln-237" name="ln-237" href="#ln-237"></a><span class="w">    </span><span class="n">lhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rhs</span><span class="p">%</span><span class="n">string</span><span class="p">()</span>
 <a id="ln-238" name="ln-238" href="#ln-238"></a><span class="w">  </span><span class="k">end procedure</span>
 <a id="ln-239" name="ln-239" href="#ln-239"></a><span class="k">   </span>
-<a id="ln-240" name="ln-240" href="#ln-240"></a><span class="k">  module procedure </span><span class="n">assign_character_to_string_t</span><span class="w"></span>
-<a id="ln-241" name="ln-241" href="#ln-241"></a><span class="w">    </span><span class="n">lhs</span><span class="p">%</span><span class="n">string_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rhs</span><span class="w"></span>
+<a id="ln-240" name="ln-240" href="#ln-240"></a><span class="k">  module procedure </span><span class="n">assign_character_to_string_t</span>
+<a id="ln-241" name="ln-241" href="#ln-241"></a><span class="w">    </span><span class="n">lhs</span><span class="p">%</span><span class="n">string_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rhs</span>
 <a id="ln-242" name="ln-242" href="#ln-242"></a><span class="w">  </span><span class="k">end procedure</span>
 <a id="ln-243" name="ln-243" href="#ln-243"></a>
-<a id="ln-244" name="ln-244" href="#ln-244"></a><span class="k">  module procedure </span><span class="n">string_t_cat_string_t</span><span class="w"></span>
-<a id="ln-245" name="ln-245" href="#ln-245"></a><span class="w">    </span><span class="n">lhs_cat_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_t</span><span class="p">(</span><span class="n">lhs</span><span class="p">%</span><span class="n">string_</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">rhs</span><span class="p">%</span><span class="n">string_</span><span class="p">)</span><span class="w"></span>
+<a id="ln-244" name="ln-244" href="#ln-244"></a><span class="k">  module procedure </span><span class="n">string_t_cat_string_t</span>
+<a id="ln-245" name="ln-245" href="#ln-245"></a><span class="w">    </span><span class="n">lhs_cat_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_t</span><span class="p">(</span><span class="n">lhs</span><span class="p">%</span><span class="n">string_</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">rhs</span><span class="p">%</span><span class="n">string_</span><span class="p">)</span>
 <a id="ln-246" name="ln-246" href="#ln-246"></a><span class="w">  </span><span class="k">end procedure</span>
 <a id="ln-247" name="ln-247" href="#ln-247"></a><span class="k">   </span>
-<a id="ln-248" name="ln-248" href="#ln-248"></a><span class="k">  module procedure </span><span class="n">string_t_cat_character</span><span class="w"></span>
-<a id="ln-249" name="ln-249" href="#ln-249"></a><span class="w">    </span><span class="n">lhs_cat_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_t</span><span class="p">(</span><span class="n">lhs</span><span class="p">%</span><span class="n">string_</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"></span>
+<a id="ln-248" name="ln-248" href="#ln-248"></a><span class="k">  module procedure </span><span class="n">string_t_cat_character</span>
+<a id="ln-249" name="ln-249" href="#ln-249"></a><span class="w">    </span><span class="n">lhs_cat_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_t</span><span class="p">(</span><span class="n">lhs</span><span class="p">%</span><span class="n">string_</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span>
 <a id="ln-250" name="ln-250" href="#ln-250"></a><span class="w">  </span><span class="k">end procedure</span>
 <a id="ln-251" name="ln-251" href="#ln-251"></a>
-<a id="ln-252" name="ln-252" href="#ln-252"></a><span class="k">  module procedure </span><span class="n">character_cat_string_t</span><span class="w"></span>
-<a id="ln-253" name="ln-253" href="#ln-253"></a><span class="w">    </span><span class="n">lhs_cat_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_t</span><span class="p">(</span><span class="n">lhs</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">rhs</span><span class="p">%</span><span class="n">string_</span><span class="p">)</span><span class="w"></span>
+<a id="ln-252" name="ln-252" href="#ln-252"></a><span class="k">  module procedure </span><span class="n">character_cat_string_t</span>
+<a id="ln-253" name="ln-253" href="#ln-253"></a><span class="w">    </span><span class="n">lhs_cat_rhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">string_t</span><span class="p">(</span><span class="n">lhs</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">rhs</span><span class="p">%</span><span class="n">string_</span><span class="p">)</span>
 <a id="ln-254" name="ln-254" href="#ln-254"></a><span class="w">  </span><span class="k">end procedure</span>
 <a id="ln-255" name="ln-255" href="#ln-255"></a><span class="k">   </span>
-<a id="ln-256" name="ln-256" href="#ln-256"></a><span class="k">end submodule </span><span class="n">sourcery_string_s</span><span class="w"></span>
+<a id="ln-256" name="ln-256" href="#ln-256"></a><span class="k">end submodule </span><span class="n">sourcery_string_s</span>
 </pre></div>
 
-    </section>
+      </section>
     </div>
   </div>
 
-    <hr>    
+      <hr>
     </div> <!-- /container -->
     <footer>
       <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-md-6"><p> was developed by Damian Rouson<br>&copy; 2024 
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              
+ was developed by Damian Rouson<br>              &copy; 2024 
 </p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-04-23 05:25              </p>
+          </div>
         </div>
-        <div class="col-xs-6 col-md-6">
-          <p class="text-right">
-            Documentation generated by 
-            <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-04-20 03:25            </p>
-        </div>
-      </div>
-      <br>
-      </div> <!-- /container -->    
+        <br>
+      </div> <!-- /container -->
     </footer>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
+    <!-- Bootstrap core JavaScript -->
     <!-- Placed at the end of the document so the pages load faster -->
-<!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
--->
-    <script src="../js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
 
     <!-- MathJax JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-      });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script src="../tipuesearch/tipuesearch_content.js"></script>
-    <script src="../tipuesearch/tipuesearch_set.js"></script>
-    <script src="../tipuesearch/tipuesearch.js"></script>
-    
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
   </body>
 </html>

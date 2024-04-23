@@ -1,176 +1,197 @@
+<!-- -*- mode: jinja2 -*- -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="description" content="A Fortran 2018 utility library.">
+      <meta name="description" content="A Fortran 2018 utility library.">
     <meta name="author" content="Damian Rouson" >
     <link rel="icon" href="../favicon.png">
 
     <title>sourcery_string_m &ndash; </title>
 
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
-    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="../js/svg-pan-zoom.min.js"></script>
-
   </head>
 
   <body>
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
           <a class="navbar-brand" href="../index.html"> </a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
-              <a href="#" class="dropdown-toggle"
-              data-toggle="dropdown" role="button"
-              aria-haspopup="true"
-     aria-expanded="false">Contents <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="../lists/files.html">Source Files</a></li>
-            <li><a href="../lists/modules.html">Modules</a></li>
-            <li><a href="../lists/procedures.html">Procedures</a></li>
-            <li><a href="../lists/absint.html">Abstract Interfaces</a></li>
-                   <li><a href="../lists/types.html">Derived Types</a></li>
-       
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
             </ul>
-        
-            </li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/absint.html">Abstract Interfaces</a></li>
-                             <li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
-          </ul>
-        <form action="../search.html" class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
         </div>
-<!--
-        <button type="submit" class="btn btn-default">Submit</button>
--->
-        </form>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+      </nav>
+    </div>
 
     <div class="container">
   <div class="row">
-    <h1>sourcery_string_m 
-    <small>Module</small>
+    <h1>sourcery_string_m
+      <small>Module</small>
+      
     </h1>
-    <div class="row">
-  <div class="col-lg-12">
-<div class="well well-sm">
-  <ul class="list-inline" style="margin-bottom:0px;display:inline">
-     <li><i class="fa fa-list-ol"></i>
-       <a data-toggle="tooltip"
-    data-placement="bottom" data-html="true"
-    title="11.2% of total for modules and submodules.">183 statements</a>
-     </li> 
-    <li><i class="fa fa-code"></i><a href="../src/sourcery_string_m.f90"> Source File</a></li>
-  </ul>
-  <ol class="breadcrumb in-well text-right">
-     <li><a href='../sourcefile/sourcery_string_m.f90.html'>sourcery_string_m.f90</a></li>
-     <li class="active">sourcery_string_m</li>
-  </ol>
-</div>
-</div>
-</div>
-<script>
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
 
-  </div>
-  
-  <div class="row">
-    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-    <div id="sidebar">
-  <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-0">Interfaces</a></h3></div>
-  <div id="inters-0" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-array_of_strings">array_of_strings</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-operator%28.cat.%29">operator(.cat.)</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t">string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-as_character">as_character</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-assign_character_to_string_t">assign_character_to_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-assign_string_t_to_character">assign_string_t_to_character</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-base_name">base_name</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-character_cat_string_t">character_cat_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-character_eq_string_t">character_eq_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-character_ne_string_t">character_ne_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-file_extension">file_extension</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_integer">get_json_integer</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_integer_array">get_json_integer_array</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_key">get_json_key</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_logical">get_json_logical</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_real">get_json_real</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_real_array">get_json_real_array</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_string">get_json_string</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-is_allocated">is_allocated</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t_cat_character">string_t_cat_character</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t_cat_string_t">string_t_cat_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t_eq_character">string_t_eq_character</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t_eq_string_t">string_t_eq_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t_ne_character">string_t_ne_character</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t_ne_string_t">string_t_ne_string_t</a>
-    </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#types-0">Derived Types</a></h3></div>
-  <div id="types-0" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../module/sourcery_string_m.html#type-string_t">string_t</a>
-    </div>
-  </div>
-</div>
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title="10.7% of total for modules and submodules.">183 statements</a>
+            </li>
 
-</div>
-
-    </div>
-    
-    <div class="col-md-9" id='text'>
-    
-<br>        <div class="panel panel-default">
-      <div class="panel-heading">
-  <h3 class="panel-title">Uses</h3>
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/sourcery_string_m.f90"> Source File</a>
+            </li>
+        </ul>
       </div>
-      <ul class="list-group">
-      <li class="list-group-item">
-  <ul class="list-inline">
-    <li>assert_m</li>
-  </ul>
-      </li>
-      <li class="list-group-item">
-  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/sourcery_string_m.f90.html'>sourcery_string_m.f90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">sourcery_string_m</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+        <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#inters-0"
+         aria-expanded="false" aria-controls="inters-0">
+         <h4 class="card-header bg-primary text-white">Interfaces</h4>
+      </a>
+      <div id="inters-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-array_of_strings">array_of_strings</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-operator%28.cat.%29">operator(.cat.)</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t">string_t</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-as_character">as_character</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-assign_character_to_string_t">assign_character_to_string_t</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-assign_string_t_to_character">assign_string_t_to_character</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-base_name">base_name</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-character_cat_string_t">character_cat_string_t</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-character_eq_string_t">character_eq_string_t</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-character_ne_string_t">character_ne_string_t</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-file_extension">file_extension</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_integer">get_json_integer</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_integer_array">get_json_integer_array</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_key">get_json_key</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_logical">get_json_logical</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_real">get_json_real</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_real_array">get_json_real_array</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_string">get_json_string</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-is_allocated">is_allocated</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t_cat_character">string_t_cat_character</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t_cat_string_t">string_t_cat_string_t</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t_eq_character">string_t_eq_character</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t_eq_string_t">string_t_eq_string_t</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t_ne_character">string_t_ne_character</a>
+            <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t_ne_string_t">string_t_ne_string_t</a>
+        </div>
+      </div>
+    </div>
+
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#types-0"
+         aria-expanded="false" aria-controls="types-0">
+         <h4 class="card-header bg-primary text-white">Derived Types</h4>
+      </a>
+      <div id="types-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/sourcery_string_m.html#type-string_t">string_t</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+
+    </div>
+
+    <div class="col-md-9" id='text'>
+      
+<br>          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item">assert_m</li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -201,9 +222,19 @@
 </g>
 </g>
 </svg>
-</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -253,236 +284,280 @@
 </g>
 </svg>
 
-    
-    <p>Solid arrows point from a submodule to the (sub)module which it is
-    descended from. Dashed arrows point from a module or program unit to 
-    modules which it uses. Where possible, edges connecting nodes are given different colours to make them easier to distinguish in large graphs.
-    </p>
-    </div></div></div></div>
-      </li>
-      </ul>
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
     </div>
 
-        <div class="panel panel-default">
-      <div class="panel-heading">
-  <h3 class="panel-title">Used by</h3>
-      </div>
-      <ul class="list-group">
-  <li class="list-group-item">  
-    <ul class="list-inline">
-      <li><h5>Descendants:</h5></li>
-      <li><a href='../module/sourcery_string_s.html'>sourcery_string_s</a></li>
-    </ul>
-  </li>
-  <li class="list-group-item">
-    <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+          <div class="card">
+      <h3 class="card-header card-title bg-light">Used by</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                <li class="list-inline-item"><h5>Descendants:</h5></li>
+                  <li class="list-inline-item"><a href='sourcery_string_s.html'>sourcery_string_s</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: module~~sourcery_string_m~~UsedByGraph Pages: 1 -->
-<svg id="modulesourcery_string_mUsedByGraph" width="641pt" height="231pt"
- viewBox="0.00 0.00 641.00 231.10" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="module~~sourcery_string_m~~UsedByGraph" class="graph" transform="scale(1.28 1.28) rotate(0) translate(4 291.27)">
+<svg id="modulesourcery_string_mUsedByGraph" width="641pt" height="258pt"
+ viewBox="0.00 0.00 641.00 258.35" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~sourcery_string_m~~UsedByGraph" class="graph" transform="scale(1.34 1.34) rotate(0) translate(4 341.81)">
 <title>module~~sourcery_string_m~~UsedByGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-291.27 815,-291.27 815,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-341.81 854,-341.81 854,4 -4,4"/>
 <!-- module~sourcery_string_m -->
 <g id="module~~sourcery_string_m~~UsedByGraph_node1" class="node">
 <title>module~sourcery_string_m</title>
-<polygon fill="none" stroke="black" points="109,-166 0,-166 0,-142 109,-142 109,-166"/>
-<text text-anchor="middle" x="54.5" y="-151.6" font-family="Helvetica,sans-Serif" font-size="10.50">sourcery_string_m</text>
-</g>
-<!-- module~sourcery_test_result_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_node2" class="node">
-<title>module~sourcery_test_result_m</title>
-<g id="a_module~~sourcery_string_m~~UsedByGraph_node2"><a xlink:href=".././module/sourcery_test_result_m.html" xlink:title="sourcery_test_result_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="278,-166 145,-166 145,-142 278,-142 278,-166"/>
-<text text-anchor="middle" x="211.5" y="-151.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_result_m</text>
-</a>
-</g>
-</g>
-<!-- module~sourcery_test_result_m&#45;&gt;module~sourcery_string_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_edge1" class="edge">
-<title>module~sourcery_test_result_m&#45;&gt;module~sourcery_string_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M144.77,-154C136.32,-154 127.68,-154 119.27,-154"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="119.14,-150.5 109.14,-154 119.14,-157.5 119.14,-150.5"/>
+<polygon fill="none" stroke="black" points="109,-177.81 0,-177.81 0,-153.81 109,-153.81 109,-177.81"/>
+<text text-anchor="middle" x="54.5" y="-163.41" font-family="Helvetica,sans-Serif" font-size="10.50">sourcery_string_m</text>
 </g>
 <!-- module~sourcery_file_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_node3" class="node">
+<g id="module~~sourcery_string_m~~UsedByGraph_node2" class="node">
 <title>module~sourcery_file_m</title>
-<g id="a_module~~sourcery_string_m~~UsedByGraph_node3"><a xlink:href=".././module/sourcery_file_m.html" xlink:title="sourcery_file_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="443.5,-24 347.5,-24 347.5,0 443.5,0 443.5,-24"/>
-<text text-anchor="middle" x="395.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_file_m</text>
+<g id="a_module~~sourcery_string_m~~UsedByGraph_node2"><a xlink:href="../module/sourcery_file_m.html" xlink:title="sourcery_file_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="463,-337.81 367,-337.81 367,-313.81 463,-313.81 463,-337.81"/>
+<text text-anchor="middle" x="415" y="-323.41" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_file_m</text>
 </a>
 </g>
 </g>
 <!-- module~sourcery_file_m&#45;&gt;module~sourcery_string_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_edge3" class="edge">
+<g id="module~~sourcery_string_m~~UsedByGraph_edge1" class="edge">
 <title>module~sourcery_file_m&#45;&gt;module~sourcery_string_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M347.21,-19.03C309.93,-25.37 256.99,-36.15 212.5,-52"/>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M210.5,-52C157.47,-70.89 104.61,-111.52 76.4,-135.41"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="74.09,-132.78 68.79,-141.95 78.66,-138.09 74.09,-132.78"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M366.68,-319.97C325.26,-314.03 263.85,-303.19 212.5,-285.81"/>
 </g>
 <!-- module~sourcery_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_node4" class="node">
+<g id="module~~sourcery_string_m~~UsedByGraph_node3" class="node">
 <title>module~sourcery_m</title>
-<g id="a_module~~sourcery_string_m~~UsedByGraph_node4"><a xlink:href=".././module/sourcery_m.html" xlink:title="sourcery_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="629,-104 555,-104 555,-80 629,-80 629,-104"/>
-<text text-anchor="middle" x="592" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_m</text>
+<g id="a_module~~sourcery_string_m~~UsedByGraph_node3"><a xlink:href="../module/sourcery_m.html" xlink:title="sourcery_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="668,-217.81 594,-217.81 594,-193.81 668,-193.81 668,-217.81"/>
+<text text-anchor="middle" x="631" y="-203.41" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_m</text>
 </a>
 </g>
 </g>
 <!-- module~sourcery_m&#45;&gt;module~sourcery_string_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_edge4" class="edge">
+<g id="module~~sourcery_string_m~~UsedByGraph_edge2" class="edge">
 <title>module~sourcery_m&#45;&gt;module~sourcery_string_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M560.25,-79.92C494.37,-55.91 335.59,-8.15 212.5,-52"/>
-</g>
-<!-- module~sourcery_m&#45;&gt;module~sourcery_test_result_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_edge8" class="edge">
-<title>module~sourcery_m&#45;&gt;module~sourcery_test_result_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M555,-97.01C541.11,-100.11 525.57,-105.07 513,-113 492.2,-126.11 499.34,-144.73 477,-155 411.8,-184.99 327.64,-177.99 271.96,-167.99"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="272.38,-164.51 261.91,-166.09 271.09,-171.39 272.38,-164.51"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M612.85,-218.05C591.38,-232.62 552.92,-256.31 516,-266.81 451,-285.28 276.51,-307.47 212.5,-285.81"/>
 </g>
 <!-- module~sourcery_m&#45;&gt;module~sourcery_file_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_edge10" class="edge">
+<g id="module~~sourcery_string_m~~UsedByGraph_edge7" class="edge">
 <title>module~sourcery_m&#45;&gt;module~sourcery_file_m</title>
-<path fill="none" stroke="#cbff00" stroke-dasharray="5,2" d="M567.81,-79.92C545.05,-68.33 509.17,-50.75 477,-38 467.48,-34.23 457.17,-30.58 447.21,-27.27"/>
-<polygon fill="#cbff00" stroke="#cbff00" points="448,-23.84 437.4,-24.08 445.83,-30.5 448,-23.84"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M618.93,-217.86C599.86,-237.9 558.73,-278 516,-299.81 502.69,-306.6 487.46,-311.72 472.97,-315.55"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="471.95,-312.19 463.08,-317.99 473.63,-318.99 471.95,-312.19"/>
 </g>
 <!-- module~sourcery_test_description_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_node6" class="node">
+<g id="module~~sourcery_string_m~~UsedByGraph_node5" class="node">
 <title>module~sourcery_test_description_m</title>
-<g id="a_module~~sourcery_string_m~~UsedByGraph_node6"><a xlink:href=".././module/sourcery_test_description_m.html" xlink:title="sourcery_test_description_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="477,-226 314,-226 314,-202 477,-202 477,-226"/>
-<text text-anchor="middle" x="395.5" y="-211.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_description_m</text>
+<g id="a_module~~sourcery_string_m~~UsedByGraph_node5"><a xlink:href="../module/sourcery_test_description_m.html" xlink:title="sourcery_test_description_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="496.5,-93.81 333.5,-93.81 333.5,-69.81 496.5,-69.81 496.5,-93.81"/>
+<text text-anchor="middle" x="415" y="-79.41" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_description_m</text>
 </a>
 </g>
 </g>
 <!-- module~sourcery_m&#45;&gt;module~sourcery_test_description_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_edge13" class="edge">
+<g id="module~~sourcery_string_m~~UsedByGraph_edge10" class="edge">
 <title>module~sourcery_m&#45;&gt;module~sourcery_test_description_m</title>
-<path fill="none" stroke="#cc00ff" stroke-dasharray="5,2" d="M554.62,-95.24C540.35,-98.07 524.65,-103.32 513,-113 484.56,-136.62 504.85,-163.68 477,-188 472.78,-191.68 468.04,-194.85 463.01,-197.56"/>
-<polygon fill="#cc00ff" stroke="#cc00ff" points="461.25,-194.52 453.72,-201.98 464.25,-200.85 461.25,-194.52"/>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M612.47,-193.64C596.11,-181.94 571.38,-163.34 552,-144.81 534.23,-127.82 537.16,-115.33 516,-102.81 512.8,-100.91 509.45,-99.19 506,-97.61"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="507.24,-94.34 496.66,-93.8 504.59,-100.82 507.24,-94.34"/>
+</g>
+<!-- module~sourcery_test_result_m -->
+<g id="module~~sourcery_string_m~~UsedByGraph_node6" class="node">
+<title>module~sourcery_test_result_m</title>
+<g id="a_module~~sourcery_string_m~~UsedByGraph_node6"><a xlink:href="../module/sourcery_test_result_m.html" xlink:title="sourcery_test_result_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="278,-177.81 145,-177.81 145,-153.81 278,-153.81 278,-177.81"/>
+<text text-anchor="middle" x="211.5" y="-163.41" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_result_m</text>
+</a>
+</g>
+</g>
+<!-- module~sourcery_m&#45;&gt;module~sourcery_test_result_m -->
+<g id="module~~sourcery_string_m~~UsedByGraph_edge12" class="edge">
+<title>module~sourcery_m&#45;&gt;module~sourcery_test_result_m</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M593.82,-205.32C534.93,-204.16 414.79,-200.19 314,-186.81 300.78,-185.05 286.71,-182.55 273.39,-179.89"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="273.87,-176.42 263.37,-177.83 272.46,-183.27 273.87,-176.42"/>
+</g>
+<!-- module~sourcery_vector_test_description_m -->
+<g id="module~~sourcery_string_m~~UsedByGraph_node7" class="node">
+<title>module~sourcery_vector_test_description_m</title>
+<g id="a_module~~sourcery_string_m~~UsedByGraph_node7"><a xlink:href="../module/sourcery_vector_test_description_m.html" xlink:title="sourcery_vector_test_description_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="516,-257.81 314,-257.81 314,-233.81 516,-233.81 516,-257.81"/>
+<text text-anchor="middle" x="415" y="-243.41" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_vector_test_description_m</text>
+</a>
+</g>
+</g>
+<!-- module~sourcery_m&#45;&gt;module~sourcery_vector_test_description_m -->
+<g id="module~~sourcery_string_m~~UsedByGraph_edge17" class="edge">
+<title>module~sourcery_m&#45;&gt;module~sourcery_vector_test_description_m</title>
+<path fill="none" stroke="#ff00ff" stroke-dasharray="5,2" d="M593.7,-212.59C565.48,-217.87 525.39,-225.36 490.42,-231.9"/>
+<polygon fill="#ff00ff" stroke="#ff00ff" points="489.42,-228.52 480.23,-233.8 490.71,-235.4 489.42,-228.52"/>
 </g>
 <!-- module~sourcery_test_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_node7" class="node">
+<g id="module~~sourcery_string_m~~UsedByGraph_node10" class="node">
 <title>module~sourcery_test_m</title>
-<g id="a_module~~sourcery_string_m~~UsedByGraph_node7"><a xlink:href=".././module/sourcery_test_m.html" xlink:title="sourcery_test_m">
-<polygon fill="#337ab7" stroke="#337ab7" points="445,-104 346,-104 346,-80 445,-80 445,-104"/>
-<text text-anchor="middle" x="395.5" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_m</text>
+<g id="a_module~~sourcery_string_m~~UsedByGraph_node10"><a xlink:href="../module/sourcery_test_m.html" xlink:title="sourcery_test_m">
+<polygon fill="#337ab7" stroke="#337ab7" points="464.5,-135.81 365.5,-135.81 365.5,-111.81 464.5,-111.81 464.5,-135.81"/>
+<text text-anchor="middle" x="415" y="-121.41" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_m</text>
 </a>
 </g>
 </g>
 <!-- module~sourcery_m&#45;&gt;module~sourcery_test_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_edge15" class="edge">
+<g id="module~~sourcery_string_m~~UsedByGraph_edge18" class="edge">
 <title>module~sourcery_m&#45;&gt;module~sourcery_test_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M554.87,-92C527.02,-92 487.91,-92 455.53,-92"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="455.27,-88.5 445.27,-92 455.27,-95.5 455.27,-88.5"/>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M611.41,-193.71C589.46,-179.95 551.44,-157.71 516,-144.81 502.85,-140.02 488.32,-136.19 474.5,-133.18"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="475.09,-129.73 464.59,-131.14 473.67,-136.59 475.09,-129.73"/>
 </g>
 <!-- module~sourcery_string_s -->
-<g id="module~~sourcery_string_m~~UsedByGraph_node5" class="node">
+<g id="module~~sourcery_string_m~~UsedByGraph_node4" class="node">
 <title>module~sourcery_string_s</title>
-<g id="a_module~~sourcery_string_m~~UsedByGraph_node5"><a xlink:href=".././module/sourcery_string_s.html" xlink:title="sourcery_string_s">
-<polygon fill="#5bc0de" stroke="#5bc0de" points="811,-185 707,-185 707,-161 811,-161 811,-185"/>
-<text text-anchor="middle" x="759" y="-170.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_string_s</text>
+<g id="a_module~~sourcery_string_m~~UsedByGraph_node4"><a xlink:href="../module/sourcery_string_s.html" xlink:title="sourcery_string_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="850,-135.81 746,-135.81 746,-111.81 850,-111.81 850,-135.81"/>
+<text text-anchor="middle" x="798" y="-121.41" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_string_s</text>
 </a>
 </g>
 </g>
 <!-- module~sourcery_string_s&#45;&gt;module~sourcery_string_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_edge5" class="edge">
+<g id="module~~sourcery_string_m~~UsedByGraph_edge6" class="edge">
 <title>module~sourcery_string_s&#45;&gt;module~sourcery_string_m</title>
-<path fill="none" stroke="#ff0000" d="M746.07,-185.04C730.41,-199.94 701.35,-224.59 671,-235 478.07,-301.15 411.11,-300.38 212.5,-254"/>
+<path fill="none" stroke="#ff0000" d="M785.11,-111.56C769.51,-96.41 740.5,-71.34 710,-60.81 500.84,11.41 424.83,20.46 212.5,-41.81"/>
+<path fill="none" stroke="#ff0000" d="M210.5,-41.81C150.84,-62.04 97.34,-116.61 71.63,-146.16"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="68.96,-143.9 65.14,-153.78 74.29,-148.44 68.96,-143.9"/>
 </g>
 <!-- module~sourcery_string_s&#45;&gt;module~sourcery_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_edge12" class="edge">
+<g id="module~~sourcery_string_m~~UsedByGraph_edge9" class="edge">
 <title>module~sourcery_string_s&#45;&gt;module~sourcery_m</title>
-<path fill="none" stroke="#00ff66" stroke-dasharray="5,2" d="M743.85,-160.95C727.36,-147.48 698.81,-125.87 671,-113 660.96,-108.36 649.71,-104.58 638.94,-101.58"/>
-<polygon fill="#00ff66" stroke="#00ff66" points="639.79,-98.18 629.23,-99.04 638.02,-104.96 639.79,-98.18"/>
+<path fill="none" stroke="#ffff00" stroke-dasharray="5,2" d="M772.65,-135.91C744.3,-150 697.3,-173.35 665.52,-189.15"/>
+<polygon fill="#ffff00" stroke="#ffff00" points="663.57,-186.21 656.18,-193.79 666.69,-192.48 663.57,-186.21"/>
 </g>
 <!-- module~sourcery_test_description_m&#45;&gt;module~sourcery_string_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_edge2" class="edge">
+<g id="module~~sourcery_string_m~~UsedByGraph_edge3" class="edge">
 <title>module~sourcery_test_description_m&#45;&gt;module~sourcery_string_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M357.72,-226.02C312.86,-239.98 239.67,-260.35 212.5,-254"/>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M210.5,-254C155.44,-241.14 102.59,-198.45 75.1,-173.19"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="77.41,-170.56 67.73,-166.27 72.62,-175.66 77.41,-170.56"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M365.5,-69.74C310.64,-56.47 227,-37.56 212.5,-41.81"/>
 </g>
 <!-- module~sourcery_test_description_m&#45;&gt;module~sourcery_test_result_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_edge6" class="edge">
+<g id="module~~sourcery_string_m~~UsedByGraph_edge13" class="edge">
 <title>module~sourcery_test_description_m&#45;&gt;module~sourcery_test_result_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M356.8,-201.92C343.29,-197.56 327.95,-192.59 314,-188 295.7,-181.98 275.58,-175.26 258.11,-169.4"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="258.76,-165.92 248.17,-166.05 256.53,-172.56 258.76,-165.92"/>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M341.81,-93.81C332.3,-96.3 322.81,-99.28 314,-102.81 285.49,-114.24 256,-133.52 236.21,-147.75"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="234.09,-144.97 228.09,-153.7 238.22,-150.61 234.09,-144.97"/>
 </g>
-<!-- module~sourcery_test_m&#45;&gt;module~sourcery_test_result_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_edge7" class="edge">
-<title>module~sourcery_test_m&#45;&gt;module~sourcery_test_result_m</title>
-<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M345.68,-103.66C335.15,-106.47 324.15,-109.64 314,-113 292.08,-120.25 268.11,-129.85 248.97,-137.94"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="247.54,-134.75 239.71,-141.89 250.29,-141.19 247.54,-134.75"/>
+<!-- module~sourcery_test_result_m&#45;&gt;module~sourcery_string_m -->
+<g id="module~~sourcery_string_m~~UsedByGraph_edge4" class="edge">
+<title>module~sourcery_test_result_m&#45;&gt;module~sourcery_string_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M144.77,-165.81C136.32,-165.81 127.68,-165.81 119.27,-165.81"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="119.14,-162.31 109.14,-165.81 119.14,-169.31 119.14,-162.31"/>
 </g>
-<!-- module~sourcery_test_result_s -->
-<g id="module~~sourcery_string_m~~UsedByGraph_node8" class="node">
-<title>module~sourcery_test_result_s</title>
-<g id="a_module~~sourcery_string_m~~UsedByGraph_node8"><a xlink:href=".././module/sourcery_test_result_s.html" xlink:title="sourcery_test_result_s">
-<polygon fill="#5bc0de" stroke="#5bc0de" points="459.5,-146 331.5,-146 331.5,-122 459.5,-122 459.5,-146"/>
-<text text-anchor="middle" x="395.5" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_result_s</text>
-</a>
+<!-- module~sourcery_vector_test_description_m&#45;&gt;module~sourcery_string_m -->
+<g id="module~~sourcery_string_m~~UsedByGraph_edge5" class="edge">
+<title>module~sourcery_vector_test_description_m&#45;&gt;module~sourcery_string_m</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M366.4,-257.84C311.5,-271.32 226.9,-290.68 212.5,-285.81"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M210.5,-285.81C152.41,-266.15 99.29,-214.7 72.94,-185.96"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="75.22,-183.27 65.93,-178.17 70.01,-187.95 75.22,-183.27"/>
 </g>
-</g>
-<!-- module~sourcery_test_result_s&#45;&gt;module~sourcery_test_result_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_edge9" class="edge">
-<title>module~sourcery_test_result_s&#45;&gt;module~sourcery_test_result_m</title>
-<path fill="none" stroke="#ff0000" d="M331.36,-140.94C317.48,-142.46 302.64,-144.09 288.32,-145.67"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="287.56,-142.23 278.01,-146.8 288.33,-149.19 287.56,-142.23"/>
-</g>
-<!-- module~sourcery_test_description_s -->
-<g id="module~~sourcery_string_m~~UsedByGraph_node9" class="node">
-<title>module~sourcery_test_description_s</title>
-<g id="a_module~~sourcery_string_m~~UsedByGraph_node9"><a xlink:href=".././module/sourcery_test_description_s.html" xlink:title="sourcery_test_description_s">
-<polygon fill="#5bc0de" stroke="#5bc0de" points="671,-226 513,-226 513,-202 671,-202 671,-226"/>
-<text text-anchor="middle" x="592" y="-211.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_description_s</text>
-</a>
-</g>
-</g>
-<!-- module~sourcery_test_description_s&#45;&gt;module~sourcery_test_description_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_edge14" class="edge">
-<title>module~sourcery_test_description_s&#45;&gt;module~sourcery_test_description_m</title>
-<path fill="none" stroke="#cc00ff" d="M512.73,-214C504.4,-214 495.88,-214 487.42,-214"/>
-<polygon fill="#cc00ff" stroke="#cc00ff" points="487.15,-210.5 477.15,-214 487.15,-217.5 487.15,-210.5"/>
+<!-- module~sourcery_vector_test_description_m&#45;&gt;module~sourcery_test_result_m -->
+<g id="module~~sourcery_string_m~~UsedByGraph_edge15" class="edge">
+<title>module~sourcery_vector_test_description_m&#45;&gt;module~sourcery_test_result_m</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M358.25,-233.78C343.63,-229.96 328.04,-225.28 314,-219.81 288.31,-209.8 260.8,-194.87 240.9,-183.24"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="242.45,-180.09 232.06,-178 238.88,-186.11 242.45,-180.09"/>
 </g>
 <!-- module~sourcery_file_s -->
-<g id="module~~sourcery_string_m~~UsedByGraph_node10" class="node">
+<g id="module~~sourcery_string_m~~UsedByGraph_node8" class="node">
 <title>module~sourcery_file_s</title>
-<g id="a_module~~sourcery_string_m~~UsedByGraph_node10"><a xlink:href=".././module/sourcery_file_s.html" xlink:title="sourcery_file_s">
-<polygon fill="#5bc0de" stroke="#5bc0de" points="637.5,-24 546.5,-24 546.5,0 637.5,0 637.5,-24"/>
-<text text-anchor="middle" x="592" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_file_s</text>
+<g id="a_module~~sourcery_string_m~~UsedByGraph_node8"><a xlink:href="../module/sourcery_file_s.html" xlink:title="sourcery_file_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="676.5,-337.81 585.5,-337.81 585.5,-313.81 676.5,-313.81 676.5,-337.81"/>
+<text text-anchor="middle" x="631" y="-323.41" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_file_s</text>
 </a>
 </g>
 </g>
 <!-- module~sourcery_file_s&#45;&gt;module~sourcery_file_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_edge11" class="edge">
+<g id="module~~sourcery_string_m~~UsedByGraph_edge8" class="edge">
 <title>module~sourcery_file_s&#45;&gt;module~sourcery_file_m</title>
-<path fill="none" stroke="#cbff00" d="M546.38,-12C518.89,-12 483.37,-12 453.81,-12"/>
-<polygon fill="#cbff00" stroke="#cbff00" points="453.63,-8.5 443.63,-12 453.63,-15.5 453.63,-8.5"/>
+<path fill="none" stroke="#ff0000" d="M585.4,-325.81C552.84,-325.81 508.44,-325.81 473.27,-325.81"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="473.14,-322.31 463.14,-325.81 473.14,-329.31 473.14,-322.31"/>
+</g>
+<!-- module~sourcery_test_description_s -->
+<g id="module~~sourcery_string_m~~UsedByGraph_node9" class="node">
+<title>module~sourcery_test_description_s</title>
+<g id="a_module~~sourcery_string_m~~UsedByGraph_node9"><a xlink:href="../module/sourcery_test_description_s.html" xlink:title="sourcery_test_description_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="710,-93.81 552,-93.81 552,-69.81 710,-69.81 710,-93.81"/>
+<text text-anchor="middle" x="631" y="-79.41" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_description_s</text>
+</a>
+</g>
+</g>
+<!-- module~sourcery_test_description_s&#45;&gt;module~sourcery_test_description_m -->
+<g id="module~~sourcery_string_m~~UsedByGraph_edge11" class="edge">
+<title>module~sourcery_test_description_s&#45;&gt;module~sourcery_test_description_m</title>
+<path fill="none" stroke="#00ffff" d="M551.83,-81.81C537.28,-81.81 521.96,-81.81 507.06,-81.81"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="506.83,-78.31 496.83,-81.81 506.83,-85.31 506.83,-78.31"/>
+</g>
+<!-- module~sourcery_test_m&#45;&gt;module~sourcery_test_result_m -->
+<g id="module~~sourcery_string_m~~UsedByGraph_edge14" class="edge">
+<title>module~sourcery_test_m&#45;&gt;module~sourcery_test_result_m</title>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M365.48,-133.92C339.97,-139.24 308.27,-145.85 280.37,-151.66"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="279.35,-148.3 270.27,-153.77 280.78,-155.15 279.35,-148.3"/>
+</g>
+<!-- module~sourcery_test_result_s -->
+<g id="module~~sourcery_string_m~~UsedByGraph_node11" class="node">
+<title>module~sourcery_test_result_s</title>
+<g id="a_module~~sourcery_string_m~~UsedByGraph_node11"><a xlink:href="../module/sourcery_test_result_s.html" xlink:title="sourcery_test_result_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="479,-177.81 351,-177.81 351,-153.81 479,-153.81 479,-177.81"/>
+<text text-anchor="middle" x="415" y="-163.41" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_result_s</text>
+</a>
+</g>
+</g>
+<!-- module~sourcery_test_result_s&#45;&gt;module~sourcery_test_result_m -->
+<g id="module~~sourcery_string_m~~UsedByGraph_edge16" class="edge">
+<title>module~sourcery_test_result_s&#45;&gt;module~sourcery_test_result_m</title>
+<path fill="none" stroke="#0000ff" d="M350.8,-165.81C331.05,-165.81 309.06,-165.81 288.52,-165.81"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="288.26,-162.31 278.26,-165.81 288.26,-169.31 288.26,-162.31"/>
 </g>
 <!-- module~sourcery_test_s -->
-<g id="module~~sourcery_string_m~~UsedByGraph_node11" class="node">
+<g id="module~~sourcery_string_m~~UsedByGraph_node12" class="node">
 <title>module~sourcery_test_s</title>
-<g id="a_module~~sourcery_string_m~~UsedByGraph_node11"><a xlink:href=".././module/sourcery_test_s.html" xlink:title="sourcery_test_s">
-<polygon fill="#5bc0de" stroke="#5bc0de" points="639,-146 545,-146 545,-122 639,-122 639,-146"/>
-<text text-anchor="middle" x="592" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_s</text>
+<g id="a_module~~sourcery_string_m~~UsedByGraph_node12"><a xlink:href="../module/sourcery_test_s.html" xlink:title="sourcery_test_s">
+<polygon fill="#5bc0de" stroke="#5bc0de" points="678,-135.81 584,-135.81 584,-111.81 678,-111.81 678,-135.81"/>
+<text text-anchor="middle" x="631" y="-121.41" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">sourcery_test_s</text>
 </a>
 </g>
 </g>
 <!-- module~sourcery_test_s&#45;&gt;module~sourcery_test_m -->
-<g id="module~~sourcery_string_m~~UsedByGraph_edge16" class="edge">
+<g id="module~~sourcery_string_m~~UsedByGraph_edge19" class="edge">
 <title>module~sourcery_test_s&#45;&gt;module~sourcery_test_m</title>
-<path fill="none" stroke="#ff0000" d="M544.91,-124.05C518.08,-118.25 483.98,-110.89 455.24,-104.68"/>
-<polygon fill="#ff0000" stroke="#ff0000" points="455.83,-101.23 445.32,-102.54 454.36,-108.07 455.83,-101.23"/>
+<path fill="none" stroke="#00ffff" d="M583.83,-123.81C551.98,-123.81 509.37,-123.81 475.05,-123.81"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="474.69,-120.31 464.69,-123.81 474.69,-127.31 474.69,-120.31"/>
 </g>
 </g>
 </svg>
-</div><script>var panmodulesourcery_string_mUsedByGraph = svgPanZoom('#modulesourcery_string_mUsedByGraph', {zoomEnabled: true,controlIconsEnabled: true, fit: true, center: true,}); </script><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</div>                <script>
+                  var panmodulesourcery_string_mUsedByGraph = svgPanZoom('#modulesourcery_string_mUsedByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsedByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsedByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -532,993 +607,2107 @@
 </g>
 </svg>
 
-    
-    <p>Solid arrows point from a submodule to the (sub)module which it is
-    descended from. Dashed arrows point from a module or program unit to 
-    modules which it uses. Where possible, edges connecting nodes are given different colours to make them easier to distinguish in large graphs.
-    </p>
-    </div></div></div></div>
-  </li>
-      </ul>
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
     </div>
 
-    <br>
+      <br>
 
-    <section class="visible-xs visible-sm hidden-md">
-      <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-1">Interfaces</a></h3></div>
-  <div id="inters-1" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-array_of_strings">array_of_strings</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-operator%28.cat.%29">operator(.cat.)</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t">string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-as_character">as_character</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-assign_character_to_string_t">assign_character_to_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-assign_string_t_to_character">assign_string_t_to_character</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-base_name">base_name</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-character_cat_string_t">character_cat_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-character_eq_string_t">character_eq_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-character_ne_string_t">character_ne_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-file_extension">file_extension</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_integer">get_json_integer</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_integer_array">get_json_integer_array</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_key">get_json_key</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_logical">get_json_logical</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_real">get_json_real</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_real_array">get_json_real_array</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-get_json_string">get_json_string</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-is_allocated">is_allocated</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t_cat_character">string_t_cat_character</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t_cat_string_t">string_t_cat_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t_eq_character">string_t_eq_character</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t_eq_string_t">string_t_eq_string_t</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t_ne_character">string_t_ne_character</a>
-      <a class="list-group-item" href="../module/sourcery_string_m.html#interface-string_t_ne_string_t">string_t_ne_string_t</a>
+
+
+
+        <section>
+          <h2>Interfaces</h2>
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-array_of_strings"></span>
+      <h3>        interface
+      </h3>
     </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#types-1">Derived Types</a></h3></div>
-  <div id="types-1" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../module/sourcery_string_m.html#type-string_t">string_t</a>
-    </div>
-  </div>
-</div>
-
-    </section>
-    <br class="visible-xs visible-sm hidden-md">
-
-
-    
-    
-    <section>
-   <h2>Interfaces</h2>
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-array_of_strings"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>public pure module module function array_of_strings(delimited_strings, delimiter) result(strings_array)   <a href='../proc/array_of_strings.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>character(len=*),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>delimited_strings</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>character(len=*),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>delimiter</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>),allocatable, (:)</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-operator%28.cat.%29"></span><h3>public interface <a href='../interface/operator%28.cat.%29.html'>operator(.cat.)</a>  </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private pure module function concatenate_elements(strings) result(concatenated_strings)</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>type(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>strings</strong>(:)</td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-string_t"></span><h3>public interface <a href='../interface/string_t.html'>string_t</a>  </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private elemental module function construct(string) result(new_string)</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>character(len=*),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>string</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
-
-    </li>
-    <li class="list-group-item">
-    <h3>private elemental module function from_default_integer(i) result(string)</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>integer,</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>i</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
-
-    </li>
-    <li class="list-group-item">
-    <h3>private elemental module function from_real(x) result(string)</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>real,</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>x</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-as_character"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private pure module module function as_character(self) result(raw_string)   <a href='../proc/as_character.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>character(len=:),allocatable</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-assign_character_to_string_t"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private pure module module subroutine assign_character_to_string_t(lhs, rhs)   <a href='../proc/assign_character_to_string_t.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(inout)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>character(len=*),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-assign_string_t_to_character"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private pure module module subroutine assign_string_t_to_character(lhs, rhs)   <a href='../proc/assign_string_t_to_character.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>character(len=:),</td>
-<td>intent(out),</td>
-  <td></td>  <td>allocatable</td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-base_name"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private pure module module function base_name(self) result(base)   <a href='../proc/base_name.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3><p>result contains all characters in file_name before the last dot (.)</p>
-    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-character_cat_string_t"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private pure module module function character_cat_string_t(lhs, rhs) result(lhs_cat_rhs)   <a href='../proc/character_cat_string_t.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>character(len=*),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-character_eq_string_t"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private elemental module module function character_eq_string_t(lhs, rhs) result(lhs_eq_rhs)   <a href='../proc/character_eq_string_t.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>character(len=*),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>logical</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-character_ne_string_t"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private elemental module module function character_ne_string_t(lhs, rhs) result(lhs_ne_rhs)   <a href='../proc/character_ne_string_t.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>character(len=*),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>logical</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-file_extension"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private elemental module module function file_extension(self) result(extension)   <a href='../proc/file_extension.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3><p>result contains all characters in file_name after the last dot (.)</p>
-    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-get_json_integer"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private pure module module function get_json_integer(self, key, mold) result(value_)   <a href='../proc/get_json_integer.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>key</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>integer,</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>mold</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>integer</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-get_json_integer_array"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private pure module module function get_json_integer_array(self, key, mold) result(value_)   <a href='../proc/get_json_integer_array.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>key</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>integer,</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>mold</strong>(:)</td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>integer,allocatable, (:)</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-get_json_key"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private elemental module module function get_json_key(self) result(unquoted_key)   <a href='../proc/get_json_key.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-get_json_logical"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private elemental module module function get_json_logical(self, key, mold) result(value_)   <a href='../proc/get_json_logical.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>key</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>logical,</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>mold</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>logical</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-get_json_real"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private pure module module function get_json_real(self, key, mold) result(value_)   <a href='../proc/get_json_real.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>key</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>real,</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>mold</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>real</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-get_json_real_array"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private pure module module function get_json_real_array(self, key, mold) result(value_)   <a href='../proc/get_json_real_array.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>key</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>real,</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>mold</strong>(:)</td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>real,allocatable, (:)</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-get_json_string"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private elemental module module function get_json_string(self, key, mold) result(value_)   <a href='../proc/get_json_string.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>key</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>mold</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-is_allocated"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private elemental module module function is_allocated(self) result(string_allocated)   <a href='../proc/is_allocated.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>self</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>logical</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-string_t_cat_character"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private pure module module function string_t_cat_character(lhs, rhs) result(lhs_cat_rhs)   <a href='../proc/string_t_cat_character.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>character(len=*),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-string_t_cat_string_t"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private pure module module function string_t_cat_string_t(lhs, rhs) result(lhs_cat_rhs)   <a href='../proc/string_t_cat_string_t.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>type(<a href='../type/string_t.html'>string_t</a>)</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-string_t_eq_character"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private elemental module module function string_t_eq_character(lhs, rhs) result(lhs_eq_rhs)   <a href='../proc/string_t_eq_character.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>character(len=*),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>logical</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-string_t_eq_string_t"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private elemental module module function string_t_eq_string_t(lhs, rhs) result(lhs_eq_rhs)   <a href='../proc/string_t_eq_string_t.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>logical</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-string_t_ne_character"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private elemental module module function string_t_ne_character(lhs, rhs) result(lhs_ne_rhs)   <a href='../proc/string_t_ne_character.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>character(len=*),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>logical</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-string_t_ne_string_t"></span><h3>interface   </h3></div>
-  <ul class="list-group">
-    <li class="list-group-item">
-    <h3>private elemental module module function string_t_ne_string_t(lhs, rhs) result(lhs_ne_rhs)   <a href='../proc/string_t_ne_string_t.html'><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
-</h3>    
-<h4>Arguments</h4>      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>lhs</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" ></span>class(<a href='../type/string_t.html'>string_t</a>),</td>
-<td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>rhs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
-
-<h4>Return Value <small>logical</small></h4>  
-
-    </li>
-  </ul>
-</div>
-
-    </section>
-  <br>
-
-    
-    <section>
-     <h2>Derived Types</h2>
-     <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="type-string_t"></span><h3>type, public, extends(characterizable_t) :: <a href='../type/string_t.html'>string_t</a>  </h3></div>
-  <div class="panel-body">
-     <h4>Components</h4>
-    <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Visibility</th><th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" id="variable-string_"></span>character(len=:),</td>
-<td>private,</td>  <td>allocatable</td><td>::</td>
-  <td><strong>string_</strong></td><td></td><td></td><td></td>
-</tr>
-</tbody>
-</table>
-
-     <h4>Constructor</h4>
-         
-       <table class="table table-striped varlist">
-      <tbody>
-             <tr><td>private elemental,module function <strong>construct</strong>(string)</td><td></td></tr>
-             <tr><td>private elemental,module function <strong>from_default_integer</strong>(i)</td><td></td></tr>
-             <tr><td>private elemental,module function <strong>from_real</strong>(x)</td><td></td></tr>
-       </tbody>
-       </table>
-     
-     <h4>Type-Bound Procedures</h4>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    public pure module function array_of_strings(delimited_strings, delimiter) result(strings_array)  
+    <a href="../proc/array_of_strings.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
       <table class="table table-striped varlist">
-      <tbody>
-       <tr><td>procedure, public :: <strong><a href='../type/string_t.html#boundprocedure-as_character'>as_character</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>generic, public :: <strong><a href='../type/string_t.html#boundprocedure-assignment%28%3D%20%29'>assignment(= )</a></strong>  => assign_string_t_to_character, assign_character_to_string_t </td>
-       <td></td></tr>
-       <tr><td>procedure, public :: <strong><a href='../type/string_t.html#boundprocedure-base_name'>base_name</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>procedure, public :: <strong><a href='../type/string_t.html#boundprocedure-file_extension'>file_extension</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>procedure, public :: <strong><a href='../type/string_t.html#boundprocedure-get_json_key'>get_json_key</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>generic, public :: <strong><a href='../type/string_t.html#boundprocedure-get_json_value'>get_json_value</a></strong>  => get_json_integer_array, get_json_logical, get_json_integer, get_json_string, get_json_real, get_json_real_array </td>
-       <td></td></tr>
-       <tr><td>procedure, public :: <strong><a href='../type/string_t.html#boundprocedure-is_allocated'>is_allocated</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>generic, public :: <strong><a href='../type/string_t.html#boundprocedure-operator%28SLASHSLASH%29'>operator(//)</a></strong>  => string_t_cat_string_t, string_t_cat_character, character_cat_string_t </td>
-       <td></td></tr>
-       <tr><td>generic, public :: <strong><a href='../type/string_t.html#boundprocedure-operator%28SLASH%3D%29'>operator(/=)</a></strong>  => string_t_ne_string_t, string_t_ne_character, character_ne_string_t </td>
-       <td></td></tr>
-       <tr><td>generic, public :: <strong><a href='../type/string_t.html#boundprocedure-operator%28%3D%3D%29'>operator(==)</a></strong>  => string_t_eq_string_t, string_t_eq_character, character_eq_string_t </td>
-       <td></td></tr>
-       <tr><td>generic, public :: <strong><a href='../type/string_t.html#boundprocedure-string'>string</a></strong>  => as_character </td>
-       <td></td></tr>
-       <tr><td>procedure, private :: <strong><a href='../type/string_t.html#boundprocedure-assign_character_to_string_t'>assign_character_to_string_t</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>procedure, private, pass(rhs) :: <strong><a href='../type/string_t.html#boundprocedure-assign_string_t_to_character'>assign_string_t_to_character</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>procedure, private, pass(rhs) :: <strong><a href='../type/string_t.html#boundprocedure-character_cat_string_t'>character_cat_string_t</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>procedure, private, pass(rhs) :: <strong><a href='../type/string_t.html#boundprocedure-character_eq_string_t'>character_eq_string_t</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>procedure, private, pass(rhs) :: <strong><a href='../type/string_t.html#boundprocedure-character_ne_string_t'>character_ne_string_t</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>procedure, private :: <strong><a href='../type/string_t.html#boundprocedure-get_json_integer'>get_json_integer</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>procedure, private :: <strong><a href='../type/string_t.html#boundprocedure-get_json_integer_array'>get_json_integer_array</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>procedure, private :: <strong><a href='../type/string_t.html#boundprocedure-get_json_logical'>get_json_logical</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>procedure, private :: <strong><a href='../type/string_t.html#boundprocedure-get_json_real'>get_json_real</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>procedure, private :: <strong><a href='../type/string_t.html#boundprocedure-get_json_real_array'>get_json_real_array</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>procedure, private :: <strong><a href='../type/string_t.html#boundprocedure-get_json_string'>get_json_string</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>procedure, private :: <strong><a href='../type/string_t.html#boundprocedure-string_t_cat_character'>string_t_cat_character</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>procedure, private :: <strong><a href='../type/string_t.html#boundprocedure-string_t_cat_string_t'>string_t_cat_string_t</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>procedure, private :: <strong><a href='../type/string_t.html#boundprocedure-string_t_eq_character'>string_t_eq_character</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>procedure, private :: <strong><a href='../type/string_t.html#boundprocedure-string_t_eq_string_t'>string_t_eq_string_t</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>procedure, private :: <strong><a href='../type/string_t.html#boundprocedure-string_t_ne_character'>string_t_ne_character</a></strong>  </td>
-       <td></td></tr>
-       <tr><td>procedure, private :: <strong><a href='../type/string_t.html#boundprocedure-string_t_ne_string_t'>string_t_ne_string_t</a></strong>  </td>
-       <td></td></tr>
-       </tbody>
-       </table>
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delimited_strings"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>delimited_strings</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delimiter"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>delimiter</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>), allocatable, (:)</small>
+    </h4>
+    
+
+        </li>
+    </ul>
   </div>
-</div>
 
-    </section>
-  <br>
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-operator%28.cat.%29"></span>
+      <h3>public        interface <a href='../interface/operator(.cat.).html'>operator(.cat.)</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private pure module function concatenate_elements(strings) result(concatenated_strings)  
+    <a href="../proc/concatenate_elements.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-strings"></span>
+              type(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>strings</strong>(:)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
     
 
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-string_t"></span>
+      <h3>public        interface <a href='../interface/string_t.html'>string_t</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private elemental module function construct(string) result(new_string)  
+    <a href="../proc/construct~4.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-string~2"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>string</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
     
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function from_default_integer(i) result(string)  
+    <a href="../proc/from_default_integer.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~4"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private elemental module function from_real(x) result(string)  
+    <a href="../proc/from_real.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-as_character"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private pure module function as_character(self) result(raw_string)  
+    <a href="../proc/as_character.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~18"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=:), allocatable</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-assign_character_to_string_t"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private pure module subroutine assign_character_to_string_t(lhs, rhs)  
+    <a href="../proc/assign_character_to_string_t.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~14"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~15"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-assign_string_t_to_character"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private pure module subroutine assign_string_t_to_character(lhs, rhs)  
+    <a href="../proc/assign_string_t_to_character.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~15"></span>
+              character(len=:),
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~16"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-base_name"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private pure module function base_name(self) result(base)  
+    <a href="../proc/base_name.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  <p>result contains all characters in file_name before the last dot (.)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~22"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-character_cat_string_t"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private pure module function character_cat_string_t(lhs, rhs) result(lhs_cat_rhs)  
+    <a href="../proc/character_cat_string_t.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~13"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~14"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-character_eq_string_t"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private elemental module function character_eq_string_t(lhs, rhs) result(lhs_eq_rhs)  
+    <a href="../proc/character_eq_string_t.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~7"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~8"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-character_ne_string_t"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private elemental module function character_ne_string_t(lhs, rhs) result(lhs_ne_rhs)  
+    <a href="../proc/character_ne_string_t.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~10"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~11"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-file_extension"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private elemental module function file_extension(self) result(extension)  
+    <a href="../proc/file_extension.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  <p>result contains all characters in file_name after the last dot (.)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~21"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-get_json_integer"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private pure module function get_json_integer(self, key, mold) result(value_)  
+    <a href="../proc/get_json_integer.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~25"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-key~3"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>key</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mold~3"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-get_json_integer_array"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private pure module function get_json_integer_array(self, key, mold) result(value_)  
+    <a href="../proc/get_json_integer_array.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~27"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-key~5"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>key</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mold~5"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong>(:)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer, allocatable, (:)</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-get_json_key"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private elemental module function get_json_key(self) result(unquoted_key)  
+    <a href="../proc/get_json_key.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~20"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-get_json_logical"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private elemental module function get_json_logical(self, key, mold) result(value_)  
+    <a href="../proc/get_json_logical.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~26"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-key~4"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>key</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mold~4"></span>
+              logical,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-get_json_real"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private pure module function get_json_real(self, key, mold) result(value_)  
+    <a href="../proc/get_json_real.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~23"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-key"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>key</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mold"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-get_json_real_array"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private pure module function get_json_real_array(self, key, mold) result(value_)  
+    <a href="../proc/get_json_real_array.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~28"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-key~6"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>key</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mold~6"></span>
+              real,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong>(:)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real, allocatable, (:)</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-get_json_string"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private elemental module function get_json_string(self, key, mold) result(value_)  
+    <a href="../proc/get_json_string.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~24"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-key~2"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>key</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mold~2"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mold</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-is_allocated"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private elemental module function is_allocated(self) result(string_allocated)  
+    <a href="../proc/is_allocated.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~19"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-string_t_cat_character"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private pure module function string_t_cat_character(lhs, rhs) result(lhs_cat_rhs)  
+    <a href="../proc/string_t_cat_character.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~12"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~13"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-string_t_cat_string_t"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private pure module function string_t_cat_string_t(lhs, rhs) result(lhs_cat_rhs)  
+    <a href="../proc/string_t_cat_string_t.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~11"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~12"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>type(<a href='../type/string_t.html'>string_t</a>)</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-string_t_eq_character"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private elemental module function string_t_eq_character(lhs, rhs) result(lhs_eq_rhs)  
+    <a href="../proc/string_t_eq_character.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~6"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~7"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-string_t_eq_string_t"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private elemental module function string_t_eq_string_t(lhs, rhs) result(lhs_eq_rhs)  
+    <a href="../proc/string_t_eq_string_t.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~5"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~6"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-string_t_ne_character"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private elemental module function string_t_ne_character(lhs, rhs) result(lhs_ne_rhs)  
+    <a href="../proc/string_t_ne_character.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~9"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~10"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-string_t_ne_string_t"></span>
+      <h3>        interface
+      </h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+              <h3>
+    private elemental module function string_t_ne_string_t(lhs, rhs) result(lhs_ne_rhs)  
+    <a href="../proc/string_t_ne_string_t.html"><button type="button" class="btn btn-info depwarn">Implementation &rarr;</button></a>
+
+    </h3>
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lhs~8"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhs~9"></span>
+              class(<a href='../type/string_t.html'>string_t</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+        </li>
+    </ul>
+  </div>
+
+        </section>
+        <br>
+
+
+        <section>
+          <h2>Derived Types</h2>
+              <div class="card">
+    <div class="card-header codesum">
+      <span class="anchor" id="type-string_t"></span>
+      <h3>
+        type, public, extends(characterizable_t)&nbsp;::&nbsp;
+        <a href='../type/string_t.html'>string_t</a>
+        
+      </h3>
+    </div>
+    <div class="card-body">
+      
+
+        <h4>Components</h4>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-string_"></span>
+              character(len=:),
+            </td>
+              <td>private,</td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>string_</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+        <h4>Constructor</h4>
+          
+        <table class="table table-striped varlist">
+          <tbody>
+                <tr>
+                  <td>
+                        private
+
+                    elemental, module
+                    function
+                    <strong>construct</strong>
+                    (string)
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                        private
+
+                    elemental, module
+                    function
+                    <strong>from_default_integer</strong>
+                    (i)
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                        private
+
+                    elemental, module
+                    function
+                    <strong>from_real</strong>
+                    (x)
+                  </td>
+                  <td></td>
+                </tr>
+          </tbody>
+        </table>
+
+
+        <h4>Type-Bound Procedures</h4>
+        <table class="table table-striped varlist">
+          <tbody>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/string_t.html#boundprocedure-as_character'>as_character</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  generic, public ::
+  <strong><a href='../type/string_t.html#boundprocedure-assignment%28%3D%20%29'>assignment(= )</a></strong> => <a href='/home/runner/work/sourcery/sourcery/doc/html/type/string_t.html#boundprocedure-assign_string_t_to_character'>assign_string_t_to_character</a>, <a href='/home/runner/work/sourcery/sourcery/doc/html/type/string_t.html#boundprocedure-assign_character_to_string_t'>assign_character_to_string_t</a></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/string_t.html#boundprocedure-base_name'>base_name</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/string_t.html#boundprocedure-file_extension'>file_extension</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/string_t.html#boundprocedure-get_json_key'>get_json_key</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  generic, public ::
+  <strong><a href='../type/string_t.html#boundprocedure-get_json_value'>get_json_value</a></strong> => <a href='/home/runner/work/sourcery/sourcery/doc/html/type/string_t.html#boundprocedure-get_json_integer_array'>get_json_integer_array</a>, <a href='/home/runner/work/sourcery/sourcery/doc/html/type/string_t.html#boundprocedure-get_json_logical'>get_json_logical</a>, <a href='/home/runner/work/sourcery/sourcery/doc/html/type/string_t.html#boundprocedure-get_json_integer'>get_json_integer</a>, <a href='/home/runner/work/sourcery/sourcery/doc/html/type/string_t.html#boundprocedure-get_json_string'>get_json_string</a>, <a href='/home/runner/work/sourcery/sourcery/doc/html/type/string_t.html#boundprocedure-get_json_real'>get_json_real</a>, <a href='/home/runner/work/sourcery/sourcery/doc/html/type/string_t.html#boundprocedure-get_json_real_array'>get_json_real_array</a></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, public ::
+  <strong><a href='../type/string_t.html#boundprocedure-is_allocated'>is_allocated</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  generic, public ::
+  <strong><a href='../type/string_t.html#boundprocedure-operator%28SLASHSLASH%29'>operator(//)</a></strong> => <a href='/home/runner/work/sourcery/sourcery/doc/html/type/string_t.html#boundprocedure-string_t_cat_string_t'>string_t_cat_string_t</a>, <a href='/home/runner/work/sourcery/sourcery/doc/html/type/string_t.html#boundprocedure-string_t_cat_character'>string_t_cat_character</a>, <a href='/home/runner/work/sourcery/sourcery/doc/html/type/string_t.html#boundprocedure-character_cat_string_t'>character_cat_string_t</a></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  generic, public ::
+  <strong><a href='../type/string_t.html#boundprocedure-operator%28SLASH%3D%29'>operator(/=)</a></strong> => <a href='/home/runner/work/sourcery/sourcery/doc/html/type/string_t.html#boundprocedure-string_t_ne_string_t'>string_t_ne_string_t</a>, <a href='/home/runner/work/sourcery/sourcery/doc/html/type/string_t.html#boundprocedure-string_t_ne_character'>string_t_ne_character</a>, <a href='/home/runner/work/sourcery/sourcery/doc/html/type/string_t.html#boundprocedure-character_ne_string_t'>character_ne_string_t</a></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  generic, public ::
+  <strong><a href='../type/string_t.html#boundprocedure-operator%28%3D%3D%29'>operator(==)</a></strong> => <a href='/home/runner/work/sourcery/sourcery/doc/html/type/string_t.html#boundprocedure-string_t_eq_string_t'>string_t_eq_string_t</a>, <a href='/home/runner/work/sourcery/sourcery/doc/html/type/string_t.html#boundprocedure-string_t_eq_character'>string_t_eq_character</a>, <a href='/home/runner/work/sourcery/sourcery/doc/html/type/string_t.html#boundprocedure-character_eq_string_t'>character_eq_string_t</a></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  generic, public ::
+  <strong><a href='../type/string_t.html#boundprocedure-string'>string</a></strong> => <a href='/home/runner/work/sourcery/sourcery/doc/html/type/string_t.html#boundprocedure-as_character'>as_character</a></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private ::
+  <strong><a href='../type/string_t.html#boundprocedure-assign_character_to_string_t'>assign_character_to_string_t</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private, pass(rhs) ::
+  <strong><a href='../type/string_t.html#boundprocedure-assign_string_t_to_character'>assign_string_t_to_character</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private, pass(rhs) ::
+  <strong><a href='../type/string_t.html#boundprocedure-character_cat_string_t'>character_cat_string_t</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private, pass(rhs) ::
+  <strong><a href='../type/string_t.html#boundprocedure-character_eq_string_t'>character_eq_string_t</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private, pass(rhs) ::
+  <strong><a href='../type/string_t.html#boundprocedure-character_ne_string_t'>character_ne_string_t</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private ::
+  <strong><a href='../type/string_t.html#boundprocedure-get_json_integer'>get_json_integer</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private ::
+  <strong><a href='../type/string_t.html#boundprocedure-get_json_integer_array'>get_json_integer_array</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private ::
+  <strong><a href='../type/string_t.html#boundprocedure-get_json_logical'>get_json_logical</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private ::
+  <strong><a href='../type/string_t.html#boundprocedure-get_json_real'>get_json_real</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private ::
+  <strong><a href='../type/string_t.html#boundprocedure-get_json_real_array'>get_json_real_array</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private ::
+  <strong><a href='../type/string_t.html#boundprocedure-get_json_string'>get_json_string</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private ::
+  <strong><a href='../type/string_t.html#boundprocedure-string_t_cat_character'>string_t_cat_character</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private ::
+  <strong><a href='../type/string_t.html#boundprocedure-string_t_cat_string_t'>string_t_cat_string_t</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private ::
+  <strong><a href='../type/string_t.html#boundprocedure-string_t_eq_character'>string_t_eq_character</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private ::
+  <strong><a href='../type/string_t.html#boundprocedure-string_t_eq_string_t'>string_t_eq_string_t</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private ::
+  <strong><a href='../type/string_t.html#boundprocedure-string_t_ne_character'>string_t_ne_character</a></strong></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>  procedure, private ::
+  <strong><a href='../type/string_t.html#boundprocedure-string_t_ne_string_t'>string_t_ne_string_t</a></strong></td>
+                <td></td>
+              </tr>
+          </tbody>
+        </table>
     </div>
   </div>
 
-    <hr>    
+        </section>
+        <br>
+
+
+
+
+
+    </div>
+  </div>
+
+      <hr>
     </div> <!-- /container -->
     <footer>
       <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-md-6"><p> was developed by Damian Rouson<br>&copy; 2024 
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              
+ was developed by Damian Rouson<br>              &copy; 2024 
 </p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-04-23 05:25              </p>
+          </div>
         </div>
-        <div class="col-xs-6 col-md-6">
-          <p class="text-right">
-            Documentation generated by 
-            <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-04-20 03:25            </p>
-        </div>
-      </div>
-      <br>
-      </div> <!-- /container -->    
+        <br>
+      </div> <!-- /container -->
     </footer>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
+    <!-- Bootstrap core JavaScript -->
     <!-- Placed at the end of the document so the pages load faster -->
-<!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
--->
-    <script src="../js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
 
     <!-- MathJax JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-      });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script src="../tipuesearch/tipuesearch_content.js"></script>
-    <script src="../tipuesearch/tipuesearch_set.js"></script>
-    <script src="../tipuesearch/tipuesearch.js"></script>
-    
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
   </body>
 </html>
