@@ -51,12 +51,16 @@ Contents
 * Input/output format strings and format string generators
 
 ### Classes
+* A command-line abstraction that searches for program arguments.
+* A minimalistic unit testing framework based around four types (see [./test/main.f90](./test/main.f90) for a use case): 
+  - `test_t` is a parent type to extend when defining unit tests,
+  - `test_description_t` encapsulates scalar test functions and test descriptoins,
+  - `vector_test_description`: encapsulates array-valued test functions and test descriptions.
+  - `test_result_t` encapsulates test deescriptions and boolean (pass/fail) outcomes, and
 * Parallel data partitioning and gathering,
-* A minimalistic unit testing framework based around three types: `test_t`, `test_description_t`, and `test_result_t`
 * (Co-)[Object pattern] abstract parent,
 * Runtime units tracking,
 * A test oracle using the [Template Method pattern], and
-* A command-line abstraction that searches for program arguments.
 
 Documentation
 -------------
