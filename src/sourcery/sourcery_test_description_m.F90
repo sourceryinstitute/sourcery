@@ -64,6 +64,9 @@ module sourcery_test_description_m
       logical match
     end function
 
+#ifdef __INTEL_COMPILER
+    impure &
+#endif
     elemental module function equals(lhs, rhs) result(lhs_eq_rhs)
       !! The result is .true. if the components of the lhs & rhs are equal
       implicit none
