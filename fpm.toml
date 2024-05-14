@@ -1,5 +1,5 @@
 name = "sourcery"
-version = "4.8.0"
+version = "4.8.1"
 license = "BSD"
 author = ["Damian Rouson"]
 maintainer = "damian@sourceryinstitute.org"
@@ -7,3 +7,8 @@ copyright = "2020-2024 Sourcery Institute"
 
 [dependencies]
 assert = {git = "https://github.com/sourceryinstitute/assert", tag = "1.6.0"}
+mpi = "*"
+
+[fortran]
+implicit-typing = true
+implicit-external = true
