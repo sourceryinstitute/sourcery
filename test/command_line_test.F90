@@ -56,7 +56,11 @@ contains
     character(len=132) command_message
 
     call execute_command_line( &
+#ifdef USE_MPI
+      command = "fpm run --example get-flag-value --compiler mpifort --runner 'mpiexec -n 1' -- --input-file some_file_name", &
+#else
       command = "fpm run --example get-flag-value -- --input-file some_file_name", &
+#endif
       wait = .true., exitstat = exit_status, cmdstat = command_status, cmdmsg = command_message &
     )   
     test_passes = exit_status == 0 
@@ -68,7 +72,11 @@ contains
     character(len=132) command_message
 
     call execute_command_line( &
+#ifdef USE_MPI
+      command = "fpm run --example handle-missing-flag --compiler mpifort --runner 'mpiexec -n 1' -- --empty-flag", &
+#else
       command = "fpm run --example handle-missing-flag -- --empty-flag", &
+#endif
       wait = .true., exitstat = exit_status, cmdstat = command_status, cmdmsg = command_message &
     )   
     test_passes = exit_status == 0 
@@ -80,7 +88,11 @@ contains
     character(len=132) command_message
 
     call execute_command_line( &
+#ifdef USE_MPI
+      command = "fpm run --example check-command-line-argument --compiler mpifort --runner 'mpiexec -n 1' -- --some-argument", &
+#else
       command = "fpm run --example check-command-line-argument -- --some-argument", &
+#endif
       wait = .true., exitstat = exit_status, cmdstat = command_status, cmdmsg = command_message &
     )
     test_passes = exit_status == 0
